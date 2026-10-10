@@ -1,0 +1,384 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import Base from "../layouts/Base.astro";
+import Bi from "../components/Bi.astro";
+import { formEn, lists as listCopy, placeEn, yearsEn } from "../i18n";
+
+export async function getStaticPaths() {
+  const lists = await getCollection("lists");
+  return lists.map((list) => ({ params: { list: list.id }, props: { list } }));
+}
+
+const { list } = Astro.props;
+const meta = list.data;
+const copy = listCopy[list.id];
+if (!copy) throw new Error(`missing English copy for ${list.id}`);
+
+const rows = await Promise.all(
+  meta.entries.map(async (e) => {
+    const work = await getEntry(e.work);
+    if (!work) throw new Error(`${list.id}: unknown work ${e.work.id}`);
+    return { ...e, section: e.section ?? "all", work: work.data, id: work.id };
+  }),
+);
+rows.sort((a, b) => a.rank - b.rank);
+
+const sectionDefs = meta.sections.length
+  ? meta.sections
+  : [{ id: "all", name: "全部", blurb: "", color: "#5f5a52" }];
+const sectionIds = new Set(sectionDefs.map((s) => s.id));
+for (const r of rows) {
+  if (!sectionIds.has(r.section)) throw new Error(`${list.id}: ${r.id} has unknown section ${r.section}`);
+}
+const sectionOf = Object.fromEntries(sectionDefs.map((s) => [s.id, s]));
+const sections = sectionDefs.map((s) => ({
+  ...s,
+  en: copy.sections[s.id] ?? { name: s.name, blurb: s.blurb },
+  rows: rows.filter((r) => r.section === s.id),
+}));
+const topTen = rows.slice(0, 10);
+
+const years = rows.flatMap((r) => r.work.years.match(/\d{4}/g) ?? []).map(Number);
+const span = years.length ? `${Math.min(...years)}–${Math.max(...years)}` : "";
+const isTv = meta.kind === "tv";
+const noun = isTv ? "剧" : "片";
+const creatorLabel = isTv ? "主创" : "导演";
+const pad = (n: number) => String(n).padStart(2, "0");
+
+const fetched = rows.flatMap((r) => Object.values(r.work.ratings).map((x) => x?.fetchedAt ?? ""));
+const ratedOn = fetched.length ? fetched.sort().at(-1)!.slice(0, 7) : "";
+
+function doubanSeasons(d: { detail?: any }) {
+  const seasons = d.detail?.seasons as { season: number; value: number; votes: number }[] | undefined;
+  if (!seasons || seasons.length < 2) return undefined;
+  return seasons;
+}
+
+function line(parts: (string | undefined)[]) {
+  return parts.filter(Boolean).join(" · ");
+}
+
+function blob(r: (typeof rows)[number]) {
+  const w = r.work;
+  const section = sectionOf[r.section];
+  const en = copy.sections[r.section];
+  return [
+    r.rank,
+    pad(r.rank),
+    section.name,
+    en?.name,
+    w.zh,
+    w.en,
+    w.original,
+    ...w.alias,
+    ...w.creators.flatMap((p) => [p.zh, p.en]),
+    ...w.cast.flatMap((p) => [p.zh, p.en]),
+    w.plot,
+    w.plotEn,
+    w.hook,
+    w.hookEn,
+    w.place,
+    placeEn(w.place),
+    w.form,
+    formEn(w.form),
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+}
+---
+
+<Base titleZh={`${meta.title} · 场刊`} titleEn={`${copy.title} · Playbill`} description={meta.dek}>
+  <header class="mast">
+    <div class="wrap">
+      <p class="kicker"><Bi zh={meta.kicker} en={copy.kicker} /></p>
+      <h1><Bi zh={meta.title} en={copy.title} /></h1>
+      <p class="dek"><Bi zh={meta.dek} en={copy.dek} /></p>
+      <ul class="facts">
+        <li>
+          <b>{rows.length}</b>
+          <span><Bi zh={`部入选${noun}目`} en={isTv ? "shows" : "films"} /></span>
+        </li>
+        {span && (
+          <li>
+            <b>{span}</b>
+            <span><Bi zh="名单所跨年份" en="years spanned" /></span>
+          </li>
+        )}
+        {meta.sections.length > 0 && (
+          <li>
+            <b>{sections.length}</b>
+            <span><Bi zh="个阅读分区" en="sections" /></span>
+          </li>
+        )}
+      </ul>
+    </div>
+  </header>
+
+  <div class="finder">
+    <div class="wrap finder-inner">
+      <div class="search">
+        <label for="q"><Bi zh="页内搜索" en="Search this page" /></label>
+        <input
+          id="q"
+          type="search"
+          placeholder={`${noun}名、${isTv ? "主演、主创" : "导演、主演"}，或名次如 27`}
+          data-ph-zh={`${noun}名、${isTv ? "主演、主创" : "导演、主演"}，或名次如 27`}
+          data-ph-en={copy.search}
+          autocomplete="off"
+          enterkeyhint="search"
+        />
+        <div class="suggest" id="suggest" role="listbox"></div>
+        <p class="status" id="status" data-found-zh="找到 {n} 部。回车定位到第一部，或从列表点选。" data-found-en={copy.found} data-none-zh="没有匹配。" data-none-en={copy.none}>
+          <span class="zh">{`输入后回车，或点选结果跳到该${noun}。`}</span>
+          <span class="en">{copy.idle}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap shell">
+    <nav class="sections" id="nav">
+      <p><Bi zh="分区" en="Sections" /></p>
+      {
+        sections.map((s) => (
+          <button type="button" data-section={s.id} style={`--sec:${s.color}`}>
+            <span class="swatch" />
+            <span class="name">
+              <Bi zh={s.name} en={s.en.name} />
+            </span>
+            <em>{s.rows.length}</em>
+          </button>
+        ))
+      }
+    </nav>
+
+    <main id="main">
+      <div class="topten" id="topten">
+        <h2><Bi zh="原榜前十" en="Top ten" /></h2>
+        <ol>
+          {
+            topTen.map((r) => (
+              <li>
+                <a href={`#show-${r.rank}`} data-rank={r.rank} style={`--sec:${sectionOf[r.section].color}`}>
+                  <span class="n">{pad(r.rank)}</span>
+                  <span>
+                    {r.work.zh ? (
+                      <>
+                        <span class="zh">{r.work.zh}</span>
+                        <span class="lat">{r.work.en}</span>
+                      </>
+                    ) : (
+                      r.work.en
+                    )}
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+
+      <p class="empty" id="empty" hidden>
+        <Bi zh={`没有匹配的${noun}目。可以换${noun}名、人名，或直接输入名次。`} en={copy.empty} />
+      </p>
+
+      {
+        sections.map((s) => (
+          <section
+            class="list-section"
+            id={`section-${s.id}`}
+            data-section={s.id}
+            data-name-zh={s.name}
+            data-name-en={s.en.name}
+            style={`--sec:${s.color}`}
+          >
+            <header>
+              <h2>
+                <Bi zh={s.name} en={s.en.name} />
+                <small>
+                  <Bi zh={`${s.rows.length} 部`} en={String(s.rows.length)} />
+                </small>
+              </h2>
+              {s.blurb && (
+                <p class="blurb">
+                  <Bi zh={s.blurb} en={s.en.blurb} />
+                </p>
+              )}
+            </header>
+            {s.rows.map((r, i) => {
+              const w = r.work;
+              const douban = w.ratings.douban;
+              const imdb = w.ratings.imdb;
+              const seasons = douban ? doubanSeasons(douban) : undefined;
+              const noteZh = seasons && "各季平均：" + seasons.map((x) => `第${x.season}季 ${x.value.toFixed(1)}`).join("，");
+              const noteEn = seasons && "Average of seasons: " + seasons.map((x) => `S${x.season} ${x.value.toFixed(1)}`).join(", ");
+              const metaZh = line([w.years, w.place, w.form]);
+              const metaEn = line([yearsEn(w.years), placeEn(w.place), formEn(w.form)]);
+              return (
+                <article
+                  class:list={["show", { lead: i === 0 }]}
+                  id={`show-${r.rank}`}
+                  data-rank={r.rank}
+                  data-section={s.id}
+                  data-zh={w.zh ?? w.en}
+                  data-en={w.zh ? w.en : ""}
+                  data-blob={blob(r)}
+                >
+                  <p class="rank">{pad(r.rank)}</p>
+                  {w.poster && (
+                    <figure class="poster">
+                      <img
+                        src={w.poster}
+                        alt={w.zh ? `《${w.zh}》海报` : `${w.en} poster`}
+                        data-alt-zh={w.zh ? `《${w.zh}》海报` : `${w.en} poster`}
+                        data-alt-en={`${w.en} poster`}
+                        width="342"
+                        height="513"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </figure>
+                  )}
+                  <div class="body">
+                    <h3>
+                      {w.zh ? (
+                        <>
+                          <span class="zh">{w.zh}</span>
+                          <span class="lat">{w.en}</span>
+                        </>
+                      ) : (
+                        w.en
+                      )}
+                    </h3>
+                    {w.alias.length > 0 && <p class="alias zh">亦称 {w.alias.join("、")}</p>}
+                    <p class="meta">
+                      <Bi zh={metaZh} en={metaEn} />
+                    </p>
+                    {(douban || imdb) && (
+                      <p class="scores">
+                        {douban && (
+                          <>
+                            <span class="zh" title={noteZh}>
+                              豆瓣 <b>{douban.value.toFixed(1)}</b>
+                              {noteZh && <sup>均</sup>}
+                            </span>
+                            <span class="en" title={noteEn}>
+                              Douban <b>{douban.value.toFixed(1)}</b>
+                              {noteEn && <sup>avg</sup>}
+                            </span>
+                          </>
+                        )}
+                        {imdb && (
+                          <span>
+                            IMDb <b>{imdb.value.toFixed(1)}</b>
+                          </span>
+                        )}
+                      </p>
+                    )}
+                    {w.creators.length > 0 && (
+                      <p class="people">
+                        <span class="lab">
+                          <Bi zh={creatorLabel} en={copy.creator} />
+                        </span>
+                        <span>
+                          {w.creators.map((p, j) => (
+                            <>
+                              {j > 0 && (
+                                <>
+                                  <span class="zh">、</span>
+                                  <span class="en">, </span>
+                                </>
+                              )}
+                              {p.zh && <span class="zh">{p.zh} </span>}
+                              <span class="lat">{p.en}</span>
+                            </>
+                          ))}
+                        </span>
+                      </p>
+                    )}
+                    {w.cast.length > 0 && (
+                      <p class="people">
+                        <span class="lab">
+                          <Bi zh="主演" en="Cast" />
+                        </span>
+                        <span>
+                          {w.cast.map((p, j) => (
+                            <>
+                              {j > 0 && (
+                                <>
+                                  <span class="zh">、</span>
+                                  <span class="en">, </span>
+                                </>
+                              )}
+                              {p.zh && <span class="zh">{p.zh} </span>}
+                              <span class="lat">{p.en}</span>
+                            </>
+                          ))}
+                        </span>
+                      </p>
+                    )}
+                    {(w.plot || w.hook) && (
+                      <div class="copy">
+                        {w.plot && (
+                          <p class="plot">
+                            <span class="lab">
+                              <Bi zh="剧情" en="Plot" />
+                            </span>
+                            <span>
+                              <span class="zh">{w.plot}</span>
+                              {w.plotEn && <span class="en">{w.plotEn}</span>}
+                            </span>
+                          </p>
+                        )}
+                        {w.hook && (
+                          <p class="hook">
+                            <span class="lab">
+                              <Bi zh="看点" en="Highlight" />
+                            </span>
+                            <span>
+                              <span class="zh">{w.hook}</span>
+                              {w.hookEn && <span class="en">{w.hookEn}</span>}
+                            </span>
+                          </p>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </article>
+              );
+            })}
+          </section>
+        ))
+      }
+    </main>
+  </div>
+
+  <Fragment slot="colophon">
+    <p>
+      <span class="zh">
+        名单{isTv ? "与播出年份" : ""}来自
+        <a href={meta.source.url}>{meta.source.name}</a>。中文名取华语地区较通行的译名，搜索同时认常见别名。{creatorLabel}、主演和剧情为依据公开资料做的简要整理。
+        {isTv ? "看点也是这样整理的，不是原文。" : "看点译自《纽约时报》在这篇榜单里为每部电影写的推荐短文；英文模式下显示的是原文。"}
+      </span>
+      <span class="en">
+        The list{isTv ? " and the years on air are" : " is"} from <a href={meta.source.url}>{meta.source.name}</a>. {copy.colophon}
+      </span>
+    </p>
+    {
+      ratedOn && (
+        <p>
+          <span class="zh">
+            评分取自豆瓣与 IMDb，截至 {ratedOn}。豆瓣按季分开打分，多季剧集显示各季平均分（标「均」，悬停可看各季），评分人数过少的季不计入。
+          </span>
+          <span class="en">{copy.ratings.replace("{date}", ratedOn)}</span>
+        </p>
+      )
+    }
+  </Fragment>
+</Base>
+
+<script>
+  import { initList } from "../scripts/list";
+  initList();
+</script>

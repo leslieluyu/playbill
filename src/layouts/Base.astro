@@ -1,0 +1,90 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  titleZh: string;
+  titleEn: string;
+  description?: string;
+}
+
+const { titleZh, titleEn, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-CN" data-title-zh={titleZh} data-title-en={titleEn}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <title>{titleZh}</title>
+    {description && <meta name="description" content={description} />}
+    <script is:inline>
+      (function () {
+        try {
+          if (localStorage.getItem("playbill-lang") === "en") {
+            document.documentElement.classList.add("lang-en");
+            document.documentElement.lang = "en";
+            var title = document.documentElement.dataset.titleEn;
+            if (title) document.title = title;
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="site-bar">
+      <div class="wrap">
+        <a class="brand" href="/"><span class="zh">场刊</span><small>Playbill</small></a>
+        <div class="bar-end">
+          <span class="tagline"><span class="zh">影视片单整理</span><span class="en">Film and TV lists</span></span>
+          <div class="lang-switch" role="group" aria-label="Language">
+            <button type="button" data-lang="zh">中文</button>
+            <button type="button" data-lang="en">EN</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <slot />
+    <footer class="colophon">
+      <div class="wrap">
+        <slot name="colophon" />
+        <p>
+          <span class="zh">海报来自 TMDB。本站使用 TMDB API，但未获得 TMDB 的认可或认证。</span>
+          <span class="en">Posters are from TMDB. This site uses the TMDB API but is not endorsed or certified by TMDB.</span>
+        </p>
+      </div>
+    </footer>
+    <script is:inline>
+      (function () {
+        var root = document.documentElement;
+        function apply(en) {
+          root.classList.toggle("lang-en", en);
+          root.lang = en ? "en" : "zh-CN";
+          var title = root.dataset[en ? "titleEn" : "titleZh"];
+          if (title) document.title = title;
+          document.querySelectorAll("[data-lang]").forEach(function (b) {
+            b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === (en ? "en" : "zh")));
+          });
+          document.querySelectorAll("[data-ph-zh]").forEach(function (el) {
+            el.setAttribute("placeholder", en ? el.getAttribute("data-ph-en") : el.getAttribute("data-ph-zh"));
+          });
+          document.querySelectorAll("[data-alt-zh]").forEach(function (el) {
+            el.setAttribute("alt", en ? el.getAttribute("data-alt-en") : el.getAttribute("data-alt-zh"));
+          });
+          try {
+            localStorage.setItem("playbill-lang", en ? "en" : "zh");
+          } catch (e) {}
+          document.dispatchEvent(new Event("playbill-lang"));
+        }
+        apply(root.classList.contains("lang-en"));
+        document.querySelectorAll("[data-lang]").forEach(function (b) {
+          b.addEventListener("click", function () {
+            apply(b.getAttribute("data-lang") === "en");
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

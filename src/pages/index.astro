@@ -1,0 +1,47 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+import Bi from "../components/Bi.astro";
+import { home, lists as listCopy } from "../i18n";
+
+const lists = (await getCollection("lists")).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base titleZh="场刊 Playbill" titleEn="Playbill" description="影视片单整理：中英文名、主创、主演、剧情与看点。">
+  <header class="mast">
+    <div class="wrap">
+      <p class="kicker">Playbill</p>
+      <h1><Bi zh="场刊" en="Playbill" /></h1>
+      <p class="dek">
+        <Bi
+          zh="把影视榜单整理成可以拿来挑片的册子。每部作品附中英文名、时间、主创、主演、剧情与看点，按类型分区，可以在页内搜索。"
+          en={home.dekEn}
+        />
+      </p>
+    </div>
+  </header>
+  <main class="wrap" style="padding: 32px 0 80px">
+    <ul class="shelf">
+      {
+        lists.map((l) => {
+          const en = listCopy[l.id];
+          return (
+            <li>
+              <a href={`/${l.id}/`}>
+                <span class="title">
+                  <Bi zh={l.data.title} en={en?.title ?? l.data.title} />
+                </span>
+                <span class="count">
+                  <Bi zh={`${l.data.entries.length} 部`} en={String(l.data.entries.length)} />
+                </span>
+                <span class="desc">
+                  <Bi zh={l.data.kicker} en={en?.kicker ?? l.data.kicker} />
+                </span>
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </main>
+</Base>

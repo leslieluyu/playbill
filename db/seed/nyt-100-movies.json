@@ -1,0 +1,13 @@
+{
+  "id": "nyt-100-movies",
+  "title": "21 世纪百佳电影",
+  "kicker": "The New York Times · 榜单整理",
+  "dek": "《纽约时报》2025 年 6 月邀请五百多位导演、演员和电影从业者投票选出的 21 世纪百佳电影。每部附中英文名、年份、导演与主演，搜索片名、人名或名次，即可在页内定位。",
+  "source": {
+    "name": "The New York Times · The 100 Best Movies of the 21st Century",
+    "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html"
+  },
+  "kind": "movie",
+  "order": 2,
+  "entries": "nyt-100-movies.tsv"
+}

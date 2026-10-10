@@ -1,0 +1,21 @@
+{
+  "name": "playbill",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "db": "node --no-warnings scripts/db.mjs",
+    "seed": "node --no-warnings scripts/seed-list.mjs",
+    "tmdb": "node --no-warnings --env-file=.env scripts/tmdb.mjs",
+    "imdb": "node --no-warnings scripts/imdb.mjs",
+    "douban": "node --no-warnings --env-file=.env scripts/douban.mjs"
+  },
+  "dependencies": {
+    "astro": "^7.3.8"
+  }
+}
