@@ -36,8 +36,6 @@ const sections = sectionDefs.map((s) => ({
   en: copy.sections[s.id] ?? { name: s.name, blurb: s.blurb },
   rows: rows.filter((r) => r.section === s.id),
 }));
-const topTen = rows.slice(0, 10);
-
 const years = rows.flatMap((r) => r.work.years.match(/\d{4}/g) ?? []).map(Number);
 const span = years.length ? `${Math.min(...years)}–${Math.max(...years)}` : "";
 const isTv = meta.kind === "tv";
@@ -155,11 +153,17 @@ function blob(r: (typeof rows)[number]) {
 
     <main id="main">
       <div class="topten" id="topten">
-        <h2><Bi zh="原榜前十" en="Top ten" /></h2>
+        <div class="topten-head">
+          <h2><Bi zh="原榜" en="Ranking" /></h2>
+          <button type="button" class="topten-more" id="topten-more" aria-expanded="false">
+            <span class="when-closed"><Bi zh={`全部 ${rows.length}`} en={`All ${rows.length}`} /></span>
+            <span class="when-open"><Bi zh="前十" en="Top ten" /></span>
+          </button>
+        </div>
         <ol>
           {
-            topTen.map((r) => (
-              <li>
+            rows.map((r, i) => (
+              <li class={i >= 10 ? "rest" : undefined}>
                 <a href={`#show-${r.rank}`} data-rank={r.rank} style={`--sec:${sectionOf[r.section].color}`}>
                   <span class="n">{pad(r.rank)}</span>
                   <span>
@@ -227,18 +231,17 @@ function blob(r: (typeof rows)[number]) {
                 >
                   <p class="rank">{pad(r.rank)}</p>
                   {w.poster && (
-                    <figure class="poster">
+                    <button type="button" class="poster" aria-label={w.zh ? `《${w.zh}》海报` : `${w.en} poster`}>
                       <img
-                        src={w.poster}
+                        data-src={w.poster}
                         alt={w.zh ? `《${w.zh}》海报` : `${w.en} poster`}
                         data-alt-zh={w.zh ? `《${w.zh}》海报` : `${w.en} poster`}
                         data-alt-en={`${w.en} poster`}
                         width="342"
                         height="513"
-                        loading="lazy"
                         decoding="async"
                       />
-                    </figure>
+                    </button>
                   )}
                   <div class="body">
                     <h3>
@@ -353,6 +356,12 @@ function blob(r: (typeof rows)[number]) {
       }
     </main>
   </div>
+
+  <dialog id="poster-view">
+    <button type="button" class="x" data-close><Bi zh="关闭" en="Close" /></button>
+    <img alt="" width="342" height="513" />
+    <p class="cap"></p>
+  </dialog>
 
   <Fragment slot="colophon">
     <p>

@@ -182,13 +182,34 @@ nav.sections em { font-style: normal; color: var(--faint); font-variant-numeric:
 nav.sections button[aria-current="true"] { color: var(--sec); font-weight: 600; }
 
 .topten { margin: 0 0 24px; padding-bottom: 8px; }
-.topten h2 {
+.topten-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
   margin: 0 0 12px;
+}
+.topten h2 {
+  margin: 0;
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.14em;
   color: var(--faint);
 }
+.topten-more {
+  flex: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+.topten-more:hover { text-decoration: underline; }
+.topten:not(.open) li.rest { display: none; }
+.topten.open .when-closed,
+.topten:not(.open) .when-open { display: none; }
 .topten ol {
   list-style: none;
   margin: 0;
@@ -244,6 +265,8 @@ article.show {
   padding: 26px 0;
   border-top: 1px solid var(--line);
   scroll-margin-top: 148px;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 520px;
 }
 article.show.located { background: var(--locate); margin: 0 -18px; padding: 26px 18px; }
 .rank {
@@ -289,10 +312,43 @@ h3 .lat { font-size: 0.68em; margin-left: 0.45em; }
   margin: 4px 0 0;
   width: 128px;
   aspect-ratio: 2 / 3;
+  padding: 0;
+  border: 0;
+  display: block;
   background: var(--line);
   overflow: hidden;
+  cursor: zoom-in;
 }
 .poster img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.poster img:not([src]) { opacity: 0; }
+
+#poster-view {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #f3f0e8;
+  text-align: center;
+}
+#poster-view:focus { outline: none; }
+#poster-view::backdrop { background: rgba(28, 26, 23, 0.84); }
+#poster-view .x {
+  display: block;
+  margin: 0 auto 12px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+}
+#poster-view img {
+  width: min(92vw, 460px);
+  max-height: 78vh;
+  height: auto;
+  background: var(--line);
+}
+#poster-view .cap { margin: 12px 0 0; font-family: var(--serif); font-size: 17px; }
 .empty { padding: 48px 0; color: var(--muted); }
 
 .shelf { list-style: none; margin: 0; padding: 0; }

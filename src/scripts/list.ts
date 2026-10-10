@@ -160,6 +160,61 @@ export function initList() {
     }),
   );
 
+  const more = document.getElementById("topten-more");
+  more?.addEventListener("click", () => {
+    const open = topten.classList.toggle("open");
+    more.setAttribute("aria-expanded", String(open));
+  });
+
+  const posterImgs = Array.from(document.querySelectorAll<HTMLImageElement>(".poster img[data-src]"));
+  const loadPoster = (img: HTMLImageElement) => {
+    if (!img.dataset.src) return;
+    img.src = img.dataset.src;
+    img.removeAttribute("data-src");
+  };
+  if (posterImgs.length && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const en of entries) {
+          if (!en.isIntersecting) continue;
+          const img = en.target as HTMLImageElement;
+          loadPoster(img);
+          io.unobserve(img);
+        }
+      },
+      { rootMargin: "600px 0px" },
+    );
+    posterImgs.forEach((img) => io.observe(img));
+  } else {
+    posterImgs.forEach(loadPoster);
+  }
+
+  const dialog = document.getElementById("poster-view") as HTMLDialogElement | null;
+  const viewImg = dialog?.querySelector("img");
+  const viewCap = dialog?.querySelector(".cap");
+  dialog?.querySelector("[data-close]")?.addEventListener("click", () => dialog.close());
+  dialog?.addEventListener("click", (e) => {
+    if (e.target === dialog) dialog.close();
+  });
+  document.querySelectorAll<HTMLButtonElement>("button.poster").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (!dialog || !viewImg || !viewCap) return;
+      const img = btn.querySelector("img");
+      const src = img?.getAttribute("src") || img?.dataset.src;
+      if (!src || !img) return;
+      loadPoster(img);
+      const article = btn.closest("article");
+      const en = lang() === "en";
+      viewImg.src = src;
+      viewImg.alt = img.alt;
+      dialog.dataset.zh = article?.dataset.zh ?? "";
+      dialog.dataset.en = article?.dataset.en ?? "";
+      dialog.dataset.rank = article?.dataset.rank ?? "";
+      viewCap.textContent = en ? dialog.dataset.en || dialog.dataset.zh : dialog.dataset.zh;
+      dialog.showModal();
+    });
+  });
+
   qEl.addEventListener("input", () => apply(qEl.value));
   qEl.addEventListener("keydown", (e) => {
     if (e.key === "ArrowDown") {
@@ -191,7 +246,23 @@ export function initList() {
   sections.forEach((s) => spy.observe(s));
   if (sections[0]) setCurrent(sections[0].dataset.section!);
 
+  const labelPosters = () => {
+    document.querySelectorAll<HTMLButtonElement>("button.poster").forEach((btn) => {
+      const img = btn.querySelector("img");
+      if (img?.alt) btn.setAttribute("aria-label", img.alt);
+    });
+  };
+  labelPosters();
+
   document.addEventListener("playbill-lang", () => {
+    labelPosters();
     if (qEl.value.trim()) apply(qEl.value);
+    if (dialog?.open && viewImg && viewCap) {
+      const en = lang() === "en";
+      viewCap.textContent = en ? dialog.dataset.en || dialog.dataset.zh || "" : dialog.dataset.zh || "";
+      const article = document.getElementById(`show-${dialog.dataset.rank ?? ""}`);
+      const img = article?.querySelector(".poster img");
+      if (img) viewImg.alt = img.getAttribute("alt") ?? "";
+    }
   });
 }
