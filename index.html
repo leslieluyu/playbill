@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>21世纪百佳剧集</title>
+<style>
+  :root {
+    --bg: #f3f0e8;
+    --ink: #1c1a17;
+    --muted: #6f675c;
+    --faint: #8a8174;
+    --line: #ddd4c6;
+    --accent: #6e4c32;
+    --mark: #efe2c6;
+    --locate: #f4ecdf;
+    --serif: "Iowan Old Style", Palatino, "Palatino Linotype", "Songti SC", "STSong", "Noto Serif SC", serif;
+    --sans: "Avenir Next", "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Source Han Sans SC", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  a { color: inherit; }
+  button, input { font: inherit; color: inherit; }
+  .wrap { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+  header.mast {
+    padding: 56px 0 28px;
+    border-bottom: 1px solid var(--ink);
+  }
+  .kicker {
+    margin: 0 0 14px;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  h1 {
+    margin: 0;
+    font-family: var(--serif);
+    font-size: clamp(34px, 5vw, 48px);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    line-height: 1.15;
+  }
+  .dek {
+    max-width: 38em;
+    margin: 18px 0 0;
+    color: var(--muted);
+    font-size: 16px;
+  }
+  .nowrap { white-space: nowrap; }
+  .facts {
+    display: flex;
+    gap: 28px;
+    margin: 28px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .facts li { min-width: 7em; }
+  .facts b {
+    display: block;
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .facts span { color: var(--faint); font-size: 13px; }
+  .finder {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .finder-inner { padding: 14px 0; display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: end; }
+  .search { position: relative; }
+  .search label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--faint);
+  }
+  .search input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--ink);
+    padding: 8px 0 10px;
+    outline: none;
+    border-radius: 0;
+  }
+  .search input:focus { border-bottom-color: var(--accent); }
+  .suggest {
+    position: absolute;
+    left: 0; right: 0; top: calc(100% + 4px);
+    background: #f7f4ee;
+    border: 1px solid var(--line);
+    display: none;
+    max-height: 320px;
+    overflow: auto;
+  }
+  .suggest.open { display: block; }
+  .suggest button {
+    display: grid;
+    grid-template-columns: 2.5em 1fr auto;
+    gap: 10px;
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--line);
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+  .suggest button:last-child { border-bottom: none; }
+  .suggest button.active, .suggest button:hover { background: var(--locate); }
+  .suggest .n { font-family: var(--serif); color: var(--accent); }
+  .suggest small { color: var(--faint); }
+  mark { background: var(--mark); color: inherit; padding: 0 1px; }
+  .status { margin: 8px 0 0; min-height: 1.2em; color: var(--faint); font-size: 13px; }
+  .shell { display: grid; grid-template-columns: 168px 1fr; gap: 48px; padding: 36px 0 80px; align-items: start; }
+  nav.genres { position: sticky; top: 124px; }
+  nav.genres p {
+    margin: 0 0 10px;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: var(--faint);
+  }
+  nav.genres button {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    background: none;
+    border: none;
+    border-top: 1px solid var(--line);
+    padding: 9px 0;
+    cursor: pointer;
+    text-align: left;
+  }
+  nav.genres button em { font-style: normal; color: var(--faint); font-variant-numeric: tabular-nums; }
+  nav.genres button[aria-current="true"] { color: var(--accent); }
+  .topten { margin: 0 0 42px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+  .topten h2 {
+    margin: 0 0 12px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    color: var(--faint);
+  }
+  .topten ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 28px;
+  }
+  .topten a {
+    display: grid;
+    grid-template-columns: 2em 1fr;
+    gap: 8px;
+    text-decoration: none;
+    padding: 6px 0;
+    border-top: 1px solid var(--line);
+  }
+  .topten a:hover { color: var(--accent); }
+  .topten .n { font-family: var(--serif); color: var(--accent); }
+  section.genre { margin-top: 18px; scroll-margin-top: 148px; }
+  section.genre > header { margin: 36px 0 8px; }
+  section.genre h2 {
+    margin: 0;
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 500;
+  }
+  section.genre .blurb { margin: 8px 0 0; max-width: 40em; color: var(--muted); }
+  [hidden] { display: none !important; }
+  article.show {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 8px 18px;
+    padding: 26px 0;
+    border-top: 1px solid var(--line);
+    scroll-margin-top: 148px;
+  }
+  article.show.located { background: var(--locate); margin: 0 -18px; padding: 26px 18px; }
+  .rank {
+    margin: 4px 0 0;
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+  article.show h3 {
+    margin: 0;
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.25;
+  }
+  article.show.lead h3 { font-size: 28px; }
+  h3 .lat { font-size: 0.68em; font-weight: 400; margin-left: 0.45em; color: var(--faint); }
+  .lat { color: var(--faint); font-weight: 400; }
+  .en { margin: 3px 0 0; color: var(--faint); font-size: 14px; }
+  .alias { color: var(--faint); }
+  .meta { margin: 10px 0 0; color: var(--muted); font-size: 14px; }
+  .people { margin: 4px 0 0; font-size: 14.5px; }
+  .people, .copy p {
+    display: grid;
+    grid-template-columns: 3em 1fr;
+    column-gap: 14px;
+  }
+  .people span.lab, .copy span.lab {
+    color: var(--faint);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+  }
+  article.show > div { max-width: 46em; }
+  .copy { margin-top: 12px; }
+  .copy p { margin: 0 0 8px; }
+  .hook { color: #3a342c; }
+  .empty {
+    display: none;
+    padding: 48px 0;
+    color: var(--muted);
+  }
+  footer.colophon {
+    border-top: 1px solid var(--ink);
+    padding: 22px 0 48px;
+    color: var(--faint);
+    font-size: 13px;
+  }
+  @media (max-width: 800px) {
+    .wrap { width: min(100% - 32px, 1120px); }
+    .facts { gap: 16px; }
+    .finder-inner, .shell { display: block; }
+    nav.genres { position: static; display: flex; flex-wrap: wrap; column-gap: 16px; margin: 4px 0 12px; }
+    nav.genres p { display: none; }
+    nav.genres button { width: auto; border: none; padding: 6px 0; white-space: nowrap; }
+    .topten ol { grid-template-columns: 1fr; }
+    article.show { grid-template-columns: 36px 1fr; }
+    article.show.lead h3 { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+<header class="mast">
+  <div class="wrap">
+    <p class="kicker">The New York Times · 榜单整理</p>
+    <h1>21 世纪百佳剧集</h1>
+    <p class="dek">一百部剧按类型重排，原榜名次保留。每部补上中文名、播出时间、主创、主演、<span class="nowrap">剧情与看点</span>。搜索剧名、人名或名次，即可在页内定位。</p>
+    <ul class="facts">
+      <li><b>100</b><span>部入选剧集</span></li>
+      <li><b>2000–2026</b><span>名单所跨年份</span></li>
+      <li><b>7</b><span>个阅读分区</span></li>
+    </ul>
+  </div>
+</header>
+<div class="finder">
+  <div class="wrap finder-inner">
+    <div class="search">
+      <label for="q">页内搜索</label>
+      <input id="q" type="search" placeholder="剧名、主演、主创，或名次如 27" autocomplete="off" enterkeyhint="search">
+      <div class="suggest" id="suggest" role="listbox"></div>
+      <p class="status" id="status">输入后回车，或点选结果跳到该剧。</p>
+    </div>
+  </div>
+</div>
+<div class="wrap shell">
+  <nav class="genres" id="nav" aria-label="类型"></nav>
+  <main id="main"></main>
+</div>
+<footer class="colophon">
+  <div class="wrap">名单与播出年份来自《纽约时报》「The 100 Best TV Shows of the 21st Century」。中文名取华语地区较通行的译名，搜索同时认常见别名。主创、主演、剧情与看点为依据公开资料做的简要整理，不是时报原文。</div>
+</footer>
+<script id="data" type="application/json">
+{"genres":[{"id":"crime","name":"犯罪","blurb":"制毒、街头、警探与一个人怎样越过自己划下的线。这一区是原榜最靠前的一块。"},{"id":"history","name":"历史","blurb":"广告公司、宫廷、军营、死木镇和反应堆。年代是布景，压力来自那时候的人怎么过日子。"},{"id":"power","name":"权谋","blurb":"家族、内阁、律所和情报局。权力在这里是职业，也是一种不肯松手的病。"},{"id":"comedy","name":"喜剧","blurb":"假纪录片、脱口秀和不会结束的尴尬。好笑的地方，多半站着一个不肯认输的人。"},{"id":"spec","name":"科幻奇幻","blurb":"岛、龙、镜子、公司和世界消失之后。设定很大，问的仍是人准备怎么活。"},{"id":"life","name":"人生","blurb":"丧亲、婚姻、职业和故乡。剧情不靠案件往前推，靠关系里很小的位移。"},{"id":"doc","name":"纪实","blurb":"荒岛、厨房、公路和地球本身。真人出镜的部分，往往比剧本更会安排命运。"}],"shows":[{"rank":1,"zh":"绝命毒师","en":"Breaking Bad","years":"2008–2013","place":"美国","form":"剧集","genre":"crime","alias":[],"creators":"文斯·吉列根","cast":"布莱恩·克兰斯顿、亚伦·保尔、安娜·冈","plot":"高中化学老师沃尔特·怀特确诊肺癌，为了给家人留下钱，与前学生杰西合伙制造冰毒。一条房车里的生计，慢慢变成一座他不肯交出的帝国。","hook":"前两季他还像个被逼到墙角的老师，从第三季起你会开始怕他。克兰斯顿的变化是一截一截加上去的，保尔演的杰西后来问出的那句「他到底是谁」，比制毒场面更是这部剧的终点。别先看剧透，自己看到他承认「危险的人是我」。","creatorsEn":"Vince Gilligan","castEn":"Bryan Cranston|Aaron Paul|Anna Gunn"},{"rank":2,"zh":"火线","en":"The Wire","years":"2002–2008","place":"美国","form":"剧集","genre":"crime","alias":["火线重案组"],"creators":"戴维·西蒙","cast":"多米尼克·韦斯特、伊德瑞斯·艾尔巴、迈克尔·K·威廉姆斯","plot":"巴尔的摩的缉毒组盯上毒贩斯特林格·贝尔和奥马尔。五季分别走过街头、码头、市政厅、学校和报社，警察只是这座城市的其中一条线。","hook":"不要把它当一部警察抓毒贩的剧。第一季跟案子，后面每季换一座机构：码头、市府、学校、报社，人换了，规矩不变。威廉姆斯演的奥马尔在街上喊名字的那段，比枪战更像这部剧的签名。","creatorsEn":"David Simon","castEn":"Dominic West|Idris Elba|Michael K. Williams"},{"rank":27,"zh":"风骚律师","en":"Better Call Saul","years":"2015–2022","place":"美国","form":"剧集","genre":"crime","alias":["绝命律师"],"creators":"文斯·吉列根、彼得·古尔德","cast":"鲍勃·奥登科克、瑞亚·西霍恩、乔纳森·班克斯","plot":"吉米·麦吉尔是个滑头律师，哥哥查克看不起他，女友金姆比他更清楚界线在哪。为了成为索尔·古德曼，他把自己一点点改名、改行、改掉。","hook":"你知道吉米后来会变成索尔，所以看他一次次抄近路会更难受。西霍恩演的金姆不是来拉他的，她自己也往前凑。节奏比《绝命毒师》慢，律师事务所里那些手续别快进，骗局反而是配菜。","creatorsEn":"Vince Gilligan|Peter Gould","castEn":"Bob Odenkirk|Rhea Seehorn|Jonathan Banks"},{"rank":35,"zh":"真探","en":"True Detective","years":"2014","place":"美国","form":"第一季","genre":"crime","alias":["无间警探"],"creators":"尼克·皮佐拉托","cast":"马修·麦康纳、伍迪·哈里森","plot":"路易斯安那的两名警探哈特与科尔，在 1995 年和 2012 年两个时间里讲述同一桩命案。一个女孩的尸体把他们带进沼泽、教堂和一段不愿封存的旧案。","hook":"只看第一季。麦康纳和哈里森在车上的对话比破案好看，1995 和 2012 两条线把同一件事讲出两种脸色。街区里那个长镜头是这一季被反复提起的原因。后面几季是别的剧。","creatorsEn":"Nic Pizzolatto","castEn":"Matthew McConaughey|Woody Harrelson"},{"rank":40,"zh":"混沌少年时","en":"Adolescence","years":"2025","place":"英国","form":"迷你剧","genre":"crime","alias":[],"creators":"斯蒂芬·格拉汉姆、杰克·索恩","cast":"欧文·库珀、斯蒂芬·格拉汉姆、阿什利·沃尔特斯、艾琳·多尔蒂","plot":"十三岁的杰米在家中被逮捕，罪名是杀害一名同学。四集分别跟着拘捕、学校、心理评估和这个家庭的余波，每一集都是一个不中断的长镜头。","hook":"四集，每集一个长镜头，中间不切。第一集是拘捕，后面是学校、心理评估，以及这家人还怎么坐在一起。库珀演那个十三岁的孩子。案子不复杂，难的是大人承不承认孩子平时在听什么。","creatorsEn":"Stephen Graham|Jack Thorne","castEn":"Owen Cooper|Stephen Graham|Ashley Walters|Erin Doherty"},{"rank":43,"zh":"浴血黑帮","en":"Peaky Blinders","years":"2013–2022","place":"英国","form":"剧集","genre":"crime","alias":[],"creators":"史蒂文·奈特","cast":"基里安·墨菲、海伦·麦克洛瑞、保罗·安德森","plot":"一战结束后，汤米·谢尔比带着伯明翰的家族帮派从赛马和街头生意往上走，一路碰到爱尔兰共和军、政客和法西斯。剃刀帮要变成一门正当的权力。","hook":"墨菲的汤米几乎不提高音量，算计在眼神和帽檐下面。家族开会、配乐、伯明翰的街，风格很满。前三季最紧。麦克洛瑞演的波莉还在的时候，这个家才像个家。","creatorsEn":"Steven Knight","castEn":"Cillian Murphy|Helen McCrory|Paul Anderson"},{"rank":45,"zh":"幸福谷","en":"Happy Valley","years":"2014–2023","place":"英国","form":"剧集","genre":"crime","alias":[],"creators":"萨莉·温赖特","cast":"莎拉·兰开夏、詹姆斯·诺顿","plot":"约克郡警官凯瑟琳·考伍德管着一片并不幸福的谷地。害死女儿的汤米·李·罗伊斯出狱在即，而她正在抚养的外孙，是那段暴力留下的孩子。","hook":"兰开夏演一个下班还在管外孙、上班还在追同一个人的警官。没有漂亮的刑侦办公室，就是约克郡的班。诺顿不靠反派造型，靠他觉得自己有理。三季中间隔了很多年，人是连着的。","creatorsEn":"Sally Wainwright","castEn":"Sarah Lancashire|James Norton"},{"rank":65,"zh":"东城梦魇","en":"Mare of Easttown","years":"2021","place":"美国","form":"迷你剧","genre":"crime","alias":["东城奇案"],"creators":"布拉德·英格尔斯比","cast":"凯特·温斯莱特、朱丽安·尼科尔森、珍·斯玛特、伊万·彼得斯","plot":"宾夕法尼亚小镇警探梅尔·希恩调查一名年轻母亲的死，同时应付离婚、丧子和孙子的监护权。她认识每一个嫌疑人，因为他们都是邻居。","hook":"温斯莱特演一个口音很重、腰也不好、还得查邻居命案的警探。嫌疑人她都认识。案子有解答，但你记得住的是她和母亲、女儿、孙子挤在一座房子里的那些场面。七集，按顺序看。","creatorsEn":"Brad Ingelsby","castEn":"Kate Winslet|Julianne Nicholson|Jean Smart|Evan Peters"},{"rank":68,"zh":"黑钱胜地","en":"Ozark","years":"2017–2022","place":"美国","form":"剧集","genre":"crime","alias":["奥扎克"],"creators":"比尔·杜布克、马克·威廉姆斯","cast":"杰森·贝特曼、劳拉·琳妮、朱莉娅·加纳","plot":"财务顾问马蒂·伯德为墨西哥卡特尔洗钱失败，带着家人躲到欧扎克湖区，用当地生意把脏钱洗干净。妻子温迪很快不再满足于只做掩护。","hook":"贝特曼看着冷静，琳妮演的妻子后来才是把这个家变成另一桩生意的人。加纳演的露丝说当地话，也是这剧最不装的一个人。湖区风景是封面，家里的谈判才是正文。","creatorsEn":"Bill Dubuque|Mark Williams","castEn":"Jason Bateman|Laura Linney|Julia Garner"},{"rank":70,"zh":"盾牌","en":"The Shield","years":"2002–2008","place":"美国","form":"剧集","genre":"crime","alias":[],"creators":"肖恩·瑞安","cast":"迈克尔·奇克利斯、沃尔顿·戈金斯、凯瑟琳·登特","plot":"洛杉矶法明顿区的维克·麦基带领特警小队，用非法的办法换来街头成绩。试播集里的一桩谋杀没有被忘掉，它在后面七年里一直向他收利息。","hook":"试播集里麦基做了一件收不回来的事，后面七年都在付这笔账。奇克利斯把他演得又有用又让人讨厌，戈金斯演的搭档则越来越不像还能一起走下去。后来常见的那种「脏警察主角」，这里已经定了。","creatorsEn":"Shawn Ryan","castEn":"Michael Chiklis|Walton Goggins|Catherine Dent"},{"rank":83,"zh":"火线警探","en":"Justified","years":"2010–2015","place":"美国","form":"剧集","genre":"crime","alias":["罪逆判官"],"creators":"格雷厄姆·约斯特","cast":"蒂莫西·奥利芬特、沃尔顿·戈金斯","plot":"联邦法警雷兰·吉文斯因开枪过快被调回肯塔基老家。他要对付的不只是当地罪犯，还有跟他一起长大、现在布道又贩毒的博伊德·克劳德。","hook":"奥利芬特的帽子和戈金斯的嘴是两极。法警回到肯塔基，对面是一起长大、现在又布道又惹事的人。对白快，很多季的案子可以单看，这两个人的关系要按顺序。语气来自埃尔莫尔·伦纳德，不是沉默硬汉。","creatorsEn":"Graham Yost","castEn":"Timothy Olyphant|Walton Goggins"},{"rank":88,"zh":"嗜血法医","en":"Dexter","years":"2006–2013","place":"美国","form":"剧集","genre":"crime","alias":["梦魇杀魔"],"creators":"詹姆斯·马诺斯","cast":"迈克尔·C·霍尔、詹妮弗·卡彭特、朱莉·本茨","plot":"迈阿密警队的血迹分析师德克斯特遵守养父留下的准则，只杀死漏网的杀人犯。白天他学着做普通人，夜里把另一套生活收进冷藏袋。","hook":"霍尔的旁白礼貌、空洞，这是前几季又冷又好笑的原因。榜单年份是初版八季。冰柜杀手和「三位一体」那几季是人们推荐它的理由，后面明显松了，可以给自己一个停损点。","creatorsEn":"James Manos Jr.","castEn":"Michael C. Hall|Jennifer Carpenter|Julie Benz"},{"rank":92,"zh":"罪夜之奔","en":"The Night Of","years":"2016","place":"美国","form":"迷你剧","genre":"crime","alias":["纽约杀人夜"],"creators":"理查德·普莱斯、史蒂文·泽里安","cast":"里兹·艾哈迈德、约翰·特托罗、比尔·坎普","plot":"大学生纳西尔深夜借了父亲的出租车，第二天在陌生公寓醒来，身旁是一具尸体。从警局到看守所，案件开始按它自己的程序重写这个人。","hook":"艾哈迈德演一个借了父亲的出租车、第二天变成嫌疑人的大学生。特托罗演的律师脚上有湿疹，案子一点不小。从警局到看守所，你看见程序怎么把一个人改掉。八集，别先看结局讨论。","creatorsEn":"Richard Price|Steven Zaillian","castEn":"Riz Ahmed|John Turturro|Bill Camp"},{"rank":3,"zh":"广告狂人","en":"Mad Men","years":"2007–2015","place":"美国","form":"剧集","genre":"history","alias":[],"creators":"马修·韦纳","cast":"乔恩·哈姆、伊丽莎白·莫斯、文森特·卡塞瑟、詹纽瑞·琼斯","plot":"1960 年代的麦迪逊大道，创意总监唐·德雷珀替客户发明欲望，自己则靠一个偷来的名字过活。办公室里的性别、酒和晋升，比广告本身更忙。","hook":"最好看的往往是提案：哈姆站在客户面前，把一句广告词讲到对方点头。办公室里更该跟的是莫斯演的佩吉，她从倒咖啡到能跟唐顶嘴。唐的风流是表面，假身份和这间公司怎么运转才是正片。","creatorsEn":"Matthew Weiner","castEn":"Jon Hamm|Elisabeth Moss|Vincent Kartheiser|January Jones"},{"rank":19,"zh":"切尔诺贝利","en":"Chernobyl","years":"2019","place":"美英","form":"迷你剧","genre":"history","alias":["核爆家园"],"creators":"克雷格·麦辛","cast":"杰瑞德·哈里斯、斯特兰·斯卡斯加德、艾米莉·沃森","plot":"1986 年，切尔诺贝利核电站爆炸。科学家列加索夫、官员谢尔比纳和核物理学家霍缪克要在谎言已经发出去之后，把还没做完的灾难拦住。","hook":"五集，按爆炸之后的顺序讲：谎怎么撒出去，人怎么去清理，法庭上谁还肯说数字。哈里斯想把真话讲出来，斯卡斯加德得先把局面按住。屋顶清理那一集，和后面的庭审，是两极。","creatorsEn":"Craig Mazin","castEn":"Jared Harris|Stellan Skarsgård|Emily Watson"},{"rank":20,"zh":"王冠","en":"The Crown","years":"2016–2023","place":"英国","form":"剧集","genre":"history","alias":[],"creators":"彼得·摩根","cast":"克莱尔·福伊、奥利维娅·科尔曼、伊梅尔达·斯汤顿","plot":"从伊丽莎白二世登基写到世纪之交。王室在这里是一户不能辞职的人家，首相、配偶和子女都要跟职位谈判。三位演员接力扮演女王。","hook":"福伊演的那几季最好看，因为你看见一个年轻人被这个职位一点点收走。丈夫、妹妹、首相都来要她的私人时间，她能给的越来越少。中途换演员会顿一下，人是连着的。","creatorsEn":"Peter Morgan","castEn":"Claire Foy|Olivia Colman|Imelda Staunton"},{"rank":24,"zh":"朽木","en":"Deadwood","years":"2004–2006","place":"美国","form":"剧集","genre":"history","alias":["死木"],"creators":"戴维·米尔奇","cast":"伊恩·麦柯肖恩、蒂莫西·奥利芬特、莫莉·帕克","plot":"1870 年代，达科他领地的死木镇还没有正式的法，金矿、酒馆和妓院先到了。警长塞思·布洛克和酒馆老板艾尔·斯韦尔恩根商量这座镇子归谁管。","hook":"麦柯肖恩的艾尔满嘴脏话，同时在管一座镇的生意、治安和人事。对白要听，不能当背景。只有三季，后来还有一部电影把剩下的事收住。想看西部片里的行政管理，看这个。","creatorsEn":"David Milch","castEn":"Ian McShane|Timothy Olyphant|Molly Parker"},{"rank":28,"zh":"兄弟连","en":"Band of Brothers","years":"2001","place":"美国","form":"迷你剧","genre":"history","alias":["诺曼底大空降"],"creators":"汤姆·汉克斯、史蒂文·斯皮尔伯格","cast":"达米安·刘易斯、罗恩·利文斯通、唐尼·沃尔伯格","plot":"根据斯蒂芬·安布罗斯的记述，跟随美军第 101 空降师 E 连，从佐治亚的训练营走到诺曼底、阿登森林和德军的鹰巢。一连人在减员里重新认识彼此。","hook":"跟着 E 连从训练营走到战争结束，记住的是人名，不是战役名。刘易斯演的温特斯和利文斯通演的尼克松怎么相处，新兵补进来又很快没了，这些比轰炸留得久。十集，适合连着看。","creatorsEn":"Tom Hanks|Steven Spielberg","castEn":"Damian Lewis|Ron Livingston|Donnie Wahlberg"},{"rank":52,"zh":"唐顿庄园","en":"Downton Abbey","years":"2010–2015","place":"英国","form":"剧集","genre":"history","alias":[],"creators":"朱利安·费洛斯","cast":"休·博纳维尔、玛吉·史密斯、米歇尔·道克瑞","plot":"1912 年之后的约克郡庄园，克劳利一家和楼下的仆人被同一座房子绑在一起。继承、战争和新兴的中产，慢慢改掉楼上楼下的规矩。","hook":"楼上要继承庄园，楼下要把它一天天运转下去。史密斯的老夫人一句评语能把一场危机按住，道克瑞的玛丽则一直在跟自己的选择过不去。仆人的班次也写了，不只是下午茶。","creatorsEn":"Julian Fellowes","castEn":"Hugh Bonneville|Maggie Smith|Michelle Dockery"},{"rank":86,"zh":"幕府将军","en":"Shōgun","years":"2024–至今","place":"美国","form":"剧集","genre":"history","alias":["幕府将军"],"creators":"贾斯汀·马克斯、蕾切尔·近藤","cast":"真田广之、安娜·萨瓦伊、科斯莫·贾维斯","plot":"1600 年的日本，英国水手布莱克索恩的船漂到岸上，正赶上大名之间决定谁来统治的前夜。翻译真理夫人把两套语言、两套忠诚都扛在身上。","hook":"权谋主要发生在日语里。真田和萨瓦伊说话很慢，停顿是有内容的。贾维斯演的英国人不是来带观众参观的，他经常听不懂。第一季收在一场决定上。字幕别当可选项。","creatorsEn":"Justin Marks|Rachel Kondo","castEn":"Hiroyuki Sanada|Anna Sawai|Cosmo Jarvis"},{"rank":4,"zh":"继承之战","en":"Succession","years":"2018–2023","place":"美国","form":"剧集","genre":"power","alias":[],"creators":"杰西·阿姆斯特朗","cast":"布莱恩·考克斯、杰里米·斯特朗、莎拉·斯努克、基兰·卡尔金","plot":"媒体巨头洛根·罗伊中风之后，四个子女开始计算谁能接过公司。他们有钱、有伤害，也有一句永远说不出口的话：父亲并不打算交给任何人。","hook":"全家坐在一张桌子上互相拆台，损人的话又密又好听。斯特朗演的肯德闷，卡尔金演的罗曼吵，两个人对着的时候最好看。四个子女都想接洛根的班，也都接不住。结局留到最后再看。","creatorsEn":"Jesse Armstrong","castEn":"Brian Cox|Jeremy Strong|Sarah Snook|Kieran Culkin"},{"rank":7,"zh":"副总统","en":"Veep","years":"2012–2019","place":"美国","form":"剧集","genre":"power","alias":["副人之仁"],"creators":"阿曼多·伊安努奇","cast":"朱莉娅·路易斯-德雷弗斯、安娜·克莱姆斯基、托尼·黑尔","plot":"塞琳娜·迈耶是美国副总统，日程全是没人想要的访问和随时会塌的联盟。她想当总统，幕僚想活命，每一集的危机都来自上一句随口的话。","hook":"骂人骂得很完整，一句能从门口滚到走廊尽头。德雷弗斯演一个又要面子又办不成事的副总统，黑尔演的幕僚比她还可怜。不用先补美国政治，听得懂人怎么甩锅就能往下看。","creatorsEn":"Armando Iannucci","castEn":"Julia Louis-Dreyfus|Anna Chlumsky|Tony Hale"},{"rank":17,"zh":"美国人","en":"The Americans","years":"2013–2018","place":"美国","form":"剧集","genre":"power","alias":["美国谍梦"],"creators":"乔·韦斯伯格","cast":"凯丽·拉塞尔、马修·瑞斯、诺亚·埃默里奇","plot":"菲利普和伊丽莎白是潜入华盛顿郊区的克格勃特工，对外是旅行社夫妻，对内要执行莫斯科的任务。隔壁邻居正好在联邦调查局工作。","hook":"拉塞尔和瑞斯演的是假夫妻，假着假着比很多真夫妻麻烦。邻居埃默里奇是联邦调查局的，这个设置一直悬着，但更要紧的是晚饭、孩子、以及今晚要不要去办掉一个人。家里的戏别快进。","creatorsEn":"Joe Weisberg","castEn":"Keri Russell|Matthew Rhys|Noah Emmerich"},{"rank":38,"zh":"国土安全","en":"Homeland","years":"2011–2020","place":"美国","form":"剧集","genre":"power","alias":["暗战"],"creators":"亚历克斯·甘萨、霍华德·戈登","cast":"克莱尔·丹妮丝、达米安·刘易斯、曼迪·帕廷金","plot":"中情局军官嘉莉·马蒂森认定，被救回来的海军陆战队员布罗迪已经倒向敌人。她的判断力极强，也受躁郁症左右，局里没有人愿意完全相信她。","hook":"第一季最好看：丹妮丝认定被救回来的军人有问题，局里没人全信她，她自己也确实不稳。刘易斯和帕廷金把两边的压力演实了。后面还拍了很多季，案子换了，这个人还在。","creatorsEn":"Alex Gansa|Howard Gordon","castEn":"Claire Danes|Damian Lewis|Mandy Patinkin"},{"rank":48,"zh":"纸牌屋","en":"House of Cards","years":"2013–2018","place":"美国","form":"剧集","genre":"power","alias":[],"creators":"博·威利蒙","cast":"凯文·斯佩西、罗宾·怀特","plot":"国会党鞭弗兰克·安德伍德没能得到许诺的职位，于是开始逐个清除挡路的人。他不时转头对观众说明下一步。妻子克莱尔经营的是另一套更冷的政治。","hook":"斯佩西会转头告诉你，他下一步要踩掉谁。前两季这个办法最好用。怀特演的克莱尔比他更能等，后面权力换到她手上，剧的重心也换了。当政治惊悚看，别当政治纪实。","creatorsEn":"Beau Willimon","castEn":"Kevin Spacey|Robin Wright"},{"rank":54,"zh":"传奇办公室","en":"The Bureau","years":"2015–2020","place":"法国","form":"剧集","genre":"power","alias":["巴黎情报局","传奇局"],"creators":"埃里克·罗尚","cast":"马修·卡索维茨、萨拉·吉罗多","plot":"法国外安总局的卧底「马洛特鲁」从大马士革回到巴黎，却没法把用了多年的身份脱下来。办公室用表格管理人，人用谎言管理自己。","hook":"法国卧底剧，几乎没有追车。卡索维茨从大马士革回到巴黎，用了多年的身份却脱不掉。办公室靠表格管人。要看的是手续、等待，和一段不能说破的关系。","creatorsEn":"Éric Rochant","castEn":"Mathieu Kassovitz|Sara Giraudeau"},{"rank":62,"zh":"流人","en":"Slow Horses","years":"2022–至今","place":"英国","form":"剧集","genre":"power","alias":["慢马","外放特务组"],"creators":"威尔·史密斯","cast":"加里·奥德曼、杰克·劳登、克里斯汀·斯科特·托马斯","plot":"军情五处把犯错的特工发配到斯劳部门，由邋遢的冷战老人杰克逊·兰姆看管。这群被叫做慢马的人，仍会撞上总部不想亲手处理的案子。","hook":"军情五处把犯错的人发配到一间破办公室，奥德曼演的老板又脏又准。他谁都看不起，所以很少看错。一季一个案子，六集上下，适合一个周末看完。这个威尔·史密斯是编剧，不是演员。","creatorsEn":"Will Smith","castEn":"Gary Oldman|Jack Lowden|Kristin Scott Thomas"},{"rank":63,"zh":"幕后危机","en":"The Thick of It","years":"2005–2012","place":"英国","form":"剧集","genre":"power","alias":[],"creators":"阿曼多·伊安努奇","cast":"彼得·卡帕尔迪、丽贝卡·弗隆特","plot":"英国政府部门的部长们还没想好政策，舆论主管马尔科姆·塔克已经闯进来改稿、骂人和收拾残局。一句话的措辞，可以毁掉一个上午。","hook":"部长还没想好政策，卡帕尔迪演的舆论主管已经进来改稿、骂人、收拾残局。那些骂是有结构的，不是纯吵。不懂英国内阁也能看，因为危机通常就是一句说错的话。《副总统》从这里长出来。","creatorsEn":"Armando Iannucci","castEn":"Peter Capaldi|Rebecca Front"},{"rank":94,"zh":"外交官","en":"The Diplomat","years":"2023–至今","place":"美国","form":"剧集","genre":"power","alias":[],"creators":"黛博拉·卡恩","cast":"凯丽·拉塞尔、鲁弗斯·塞维尔、戴维·吉亚西","plot":"职业外交官凯特·怀勒临时出任美国驻英国大使，到任时一场危机已经烧到大使馆门口。丈夫哈尔也是外交官，帮忙和添乱用的是同一套本事。","hook":"拉塞尔演一个被临时派去英国的职业外交官，到的时候危机已经在门口。塞维尔演的丈夫也是这行的，帮忙和添乱用的是同一套本事。大使馆的声明是场面，婚姻那桌谈判更好看。","creatorsEn":"Debora Cahn","castEn":"Keri Russell|Rufus Sewell|David Gyasi"},{"rank":100,"zh":"丑闻","en":"Scandal","years":"2012–2018","place":"美国","form":"剧集","genre":"power","alias":[],"creators":"珊达·莱梅斯","cast":"凯丽·华盛顿、托尼·戈德温、杰夫·佩里","plot":"奥利维亚·波普在华盛顿替权贵处理不能见报的危机，自己却与总统维持着一段足以掀翻白宫的关系。她的团队叫角斗士，工作是在截稿时间之前改写事实。","hook":"华盛顿走路快、说话快，一件危机通常要在一集里从失控改到能见报。戈德温演的总统是她的私情，也是最大的职业风险。演讲和反转都是认真的。别用《继承之战》那种克制去要求它。","creatorsEn":"Shonda Rhimes","castEn":"Kerry Washington|Tony Goldwyn|Jeff Perry"},{"rank":5,"zh":"伦敦生活","en":"Fleabag","years":"2016–2019","place":"英国","form":"剧集","genre":"comedy","alias":["邋遢女郎"],"creators":"菲比·沃勒-布里奇","cast":"菲比·沃勒-布里奇、西恩·克利福德、安德鲁·斯科特","plot":"一个在伦敦经营咖啡馆的女人，用对镜头说话来躲开家人、顾客和自己的悲伤。第二季里，她遇到一位同样不该越界的神父。","hook":"她转头跟观众说话，不是俏皮的花样，是她在躲。第一季很短，咖啡馆、姐姐和一件说不出口的事就够了。第二季斯科特演的神父进来之后，别去搜后面发生了什么，那些停顿比笑话重要。","creatorsEn":"Phoebe Waller-Bridge","castEn":"Phoebe Waller-Bridge|Sian Clifford|Andrew Scott"},{"rank":8,"zh":"我为喜剧狂","en":"30 Rock","years":"2006–2013","place":"美国","form":"剧集","genre":"comedy","alias":["超级制作人"],"creators":"蒂娜·菲","cast":"蒂娜·菲、亚历克·鲍德温、特雷西·摩根","plot":"利兹·莱蒙负责一档周六晚间喜剧，上司杰克·多纳吉把管理和约会都当成并购。演员、编剧和电视网每周都在把节目从崩溃里拽回来。","hook":"笑话又密又歪。鲍德温用并购的口气谈恋爱，菲用编剧的方式崩溃，摩根进来就把一集砸乱。某一集没笑到可以跳，下一集通常会补上。这对上下级比剧里任何恋爱都值得看。","creatorsEn":"Tina Fey","castEn":"Tina Fey|Alec Baldwin|Tracy Morgan"},{"rank":9,"zh":"抑制热情","en":"Curb Your Enthusiasm","years":"2000–2024","place":"美国","form":"剧集","genre":"comedy","alias":["消消气"],"creators":"拉里·戴维","cast":"拉里·戴维、杰夫·加林、谢丽尔·海恩斯","plot":"拉里·戴维扮演一个和自己同名的电视编剧，在洛杉矶把每一件小事——小费、葬礼、一句招呼——发展成社交灾难。大纲是定的，对白常常是即兴。","hook":"拉里能把「你先让一下」吵成一集。很多对白是现场接的，所以尴尬是真尴尬，不是设计好的可爱。不用从第一集按顺序看，抽一集就能进；也别等他改好，他不会。","creatorsEn":"Larry David","castEn":"Larry David|Jeff Garlin|Cheryl Hines"},{"rank":10,"zh":"亚特兰大","en":"Atlanta","years":"2016–2022","place":"美国","form":"剧集","genre":"comedy","alias":[],"creators":"唐纳德·格洛弗","cast":"唐纳德·格洛弗、布莱恩·泰里·亨利、拉基思·斯坦菲尔德","plot":"厄恩辍学回到亚特兰大，替表兄、说唱歌手纸男孩管理刚起步的事业。城市、种族和名气在这里都不按常理出牌，有的集干脆走进另一个类型。","hook":"有的集就是说唱和没钱，下一集可以突然变成恐怖片或脱口秀，剧不跟你解释。三个人坐在车上闲聊，往往比剧情钩子好看。想看最出格的，先把第一季看完，再单看《泰迪·珀金斯》那一集。","creatorsEn":"Donald Glover","castEn":"Donald Glover|Brian Tyree Henry|LaKeith Stanfield"},{"rank":11,"zh":"办公室（美版）","en":"The Office","years":"2005–2013","place":"美国","form":"剧集","genre":"comedy","alias":["我们的办公室"],"creators":"格雷格·丹尼尔斯","cast":"史蒂夫·卡瑞尔、约翰·卡拉辛斯基、珍娜·菲舍尔","plot":"宾夕法尼亚一家纸业公司的斯克兰顿分公司，经理迈克尔·斯科特把办公室当成自己的舞台。假纪录片拍下销售、恋爱，以及谁都不想参加的派对。","hook":"卡瑞尔的尴尬是主菜，卡拉辛斯基和菲舍尔的对视是配菜。前两季还在找语气，从第二季后半开始顺。卡瑞尔离开后办公室还在，但少了那个最不能看、也最好看的人。","creatorsEn":"Greg Daniels","castEn":"Steve Carell|John Krasinski|Jenna Fischer"},{"rank":12,"zh":"发展受阻","en":"Arrested Development","years":"2003–2019","place":"美国","form":"剧集","genre":"comedy","alias":[],"creators":"米切尔·赫维茨","cast":"杰森·贝特曼、波蒂亚·德·罗西、威尔·阿奈特、迈克尔·塞拉","plot":"地产商乔治·布卢斯被捕后，儿子迈克尔试图拉住这个不断内斗的家族。旁白补上他们不肯承认的那半句，笑话常常要到后面几集才收回来。","hook":"旁白经常替他们圆谎，一个包袱会隔好几集才响。巴斯特、哥布、托拜厄斯这些配角，一句口头禅能用一季。先看前三季，那是这家人最整齐的时候，后面几季是拆开重装的。","creatorsEn":"Mitchell Hurwitz","castEn":"Jason Bateman|Portia de Rossi|Will Arnett|Michael Cera"},{"rank":13,"zh":"衰姐们","en":"Girls","years":"2012–2017","place":"美国","form":"剧集","genre":"comedy","alias":["女孩我最大","都市女孩"],"creators":"莉娜·杜汉姆","cast":"莉娜·杜汉姆、艾莉森·威廉姆斯、杰迈玛·柯克、亚当·德赖弗","plot":"汉娜·霍瓦思在布鲁克林想当作家，靠父母的钱、不稳定的工作和三位朋友撑过二十多岁。亲密关系在这里经常是尴尬的，也不打算被写成励志。","hook":"汉娜和她的朋友经常让人看不下去，这是故意的，不是写坏了。德赖弗演的亚当开头像个笑话，后来变成这剧最说不清的人。别找「她终于成熟了」，去看那些谈崩了还坐在一张床上的场面。","creatorsEn":"Lena Dunham","castEn":"Lena Dunham|Allison Williams|Jemima Kirke|Adam Driver"},{"rank":16,"zh":"办公室（英版）","en":"The Office","years":"2001–2003","place":"英国","form":"剧集","genre":"comedy","alias":[],"creators":"瑞奇·热维斯、斯蒂芬·默钱特","cast":"瑞奇·热维斯、马丁·弗里曼、露西·戴维斯","plot":"斯劳一家纸业公司的区域经理戴维·布伦特接受纪录片拍摄，把管理理解成表演。蒂姆喜欢接待员唐恩，办公室里几乎没有人想被拍到。","hook":"一共十四集。热维斯把一个自以为幽默的经理演到你会替他的同事难受，弗里曼几乎靠沉默演戏。看完再去看美版，就知道美版把哪一层难堪改软了。","creatorsEn":"Ricky Gervais|Stephen Merchant","castEn":"Ricky Gervais|Martin Freeman|Lucy Davis"},{"rank":23,"zh":"归来记","en":"The Comeback","years":"2005–2026","place":"美国","form":"剧集","genre":"comedy","alias":["喜开二度"],"creators":"丽莎·库卓、迈克尔·帕特里克·金","cast":"丽莎·库卓","plot":"过气情景喜剧演员瓦莱丽·切里什答应拍一部关于自己复出的真人秀，于是生活被第二次拍摄。她要讨好更年轻的编剧，也要在镜头前维持「还没过时」。","hook":"库卓演一个拼命想被镜头喜欢的过气演员，真人秀组就在旁边拍她的「复出」。她的虚荣很具体：对工作人员笑、对年轻编剧忍、回家再崩。2014 那季比 2005 那季狠。","creatorsEn":"Lisa Kudrow|Michael Patrick King","castEn":"Lisa Kudrow"},{"rank":29,"zh":"基和皮尔","en":"Key & Peele","years":"2012–2015","place":"美国","form":"小品","genre":"comedy","alias":[],"creators":"基根-迈克尔·凯、乔丹·皮尔","cast":"基根-迈克尔·凯、乔丹·皮尔","plot":"凯和皮尔用短剧处理种族、流行文化和那些一开口就错位的社交场面。两个人轮流扮演权力的两边，笑话建立在身份被看错的瞬间。","hook":"一段一个情况：身份被看错，或者一个荒谬的前提被两个人演到底。皮尔后来拍电影时的控制力，这里已经看得到。不用按顺序，挑着看就行。","creatorsEn":"Keegan-Michael Key|Jordan Peele","castEn":"Keegan-Michael Key|Jordan Peele"},{"rank":34,"zh":"富家穷路","en":"Schitt's Creek","years":"2015–2020","place":"加拿大","form":"剧集","genre":"comedy","alias":[],"creators":"尤金·列维、丹·列维","cast":"尤金·列维、凯瑟琳·奥哈拉、丹·列维、安妮·墨菲","plot":"罗斯一家把财产输光，只好搬进他们曾经当作玩笑买下的小镇。汽车旅馆的两个房间里，原来的做派一点一点碰上来自小镇的善意。","hook":"富人破产，住进自己名下的破镇。前两季在笑他们的做派，后面你会开始舍不得这家人。奥哈拉和丹·列维的母子戏是后半段的中心。暖是一季一季谈出来的，不是最后一集突然变好。","creatorsEn":"Eugene Levy|Dan Levy","castEn":"Eugene Levy|Catherine O'Hara|Dan Levy|Annie Murphy"},{"rank":41,"zh":"路易不容易","en":"Louie","years":"2010–2015","place":"美国","form":"剧集","genre":"comedy","alias":[],"creators":"路易斯·C·K","cast":"路易斯·C·K","plot":"脱口秀演员路易在纽约带两个女儿，每一集像一段单独的短片：一场失败的约会、一次上台，或一件突然变得可怕的小事。","hook":"一集一个短片：上台、约会、带女儿，或者一件小事突然变得难看。没有「这周学到了什么」的收尾。有的集像散文，有的集会让你想按暂停。按心情单集看，比连着刷合适。","creatorsEn":"Louis C.K.","castEn":"Louis C.K."},{"rank":42,"zh":"绝望写手","en":"Hacks","years":"2021–2026","place":"美国","form":"剧集","genre":"comedy","alias":["天后与草莓"],"creators":"露西娅·阿涅洛、保罗·W·唐斯、珍·斯塔斯基","cast":"珍·斯玛特、汉娜·爱因宾德","plot":"拉斯维加斯老牌笑匠黛博拉·万斯事业下滑，被迫和被行业赶走的年轻写手艾娃合作。两个人互相看不起，又都需要对方的句子。","hook":"过气笑匠和被行业赶走的年轻写手，被迫一起写笑话。斯玛特把刻薄演成一种上台的手艺，爱因宾德则一直在算自己还能忍到什么时候。笑点在台上，难看的部分在后台和车上。","creatorsEn":"Lucia Aniello|Paul W. Downs|Jen Statsky","castEn":"Jean Smart|Hannah Einbinder"},{"rank":46,"zh":"大城小妞","en":"Broad City","years":"2014–2019","place":"美国","form":"剧集","genre":"comedy","alias":[],"creators":"艾比·雅各布森、伊拉娜·格雷泽","cast":"艾比·雅各布森、伊拉娜·格雷泽","plot":"艾比和伊拉娜在纽约打工、迷路、帮忙，也不断把对方拖进更糟的主意。友情不是背景，是每一集要完成的正事。","hook":"两个人在纽约把对方拖进更糟的主意。友情是正片，不是恋爱旁边的装饰。穷、热、说话不过脑，都拍得很具体。乱是从短片里留着的，但每季都有几集在认真讲她们为什么还在一起。","creatorsEn":"Abbi Jacobson|Ilana Glazer","castEn":"Abbi Jacobson|Ilana Glazer"},{"rank":50,"zh":"公园与游憩","en":"Parks and Recreation","years":"2009–2015","place":"美国","form":"剧集","genre":"comedy","alias":[],"creators":"格雷格·丹尼尔斯、迈克尔·舒尔","cast":"艾米·波勒、尼克·奥弗曼、奥布瑞·普拉扎、克里斯·普拉特","plot":"莱斯利·诺普在印第安纳州波尼镇的公园部门工作，相信会议、表格和一份更厚的早餐能改善公共生活。同事们大多不信，但还是跟着她做。","hook":"波勒真心觉得开会能让小镇变好，奥弗曼演的上司只想让她别再提新主意。第一季还没找到自己的语气，从第二季起这个市政厅变得让人愿意回去。普拉扎的冷脸是固定配菜。","creatorsEn":"Greg Daniels|Michael Schur","castEn":"Amy Poehler|Nick Offerman|Aubrey Plaza|Chris Pratt"},{"rank":51,"zh":"善地","en":"The Good Place","years":"2016–2020","place":"美国","form":"剧集","genre":"comedy","alias":["良善之地"],"creators":"迈克尔·舒尔","cast":"克里斯滕·贝尔、泰德·丹森、威廉·杰克逊·哈珀","plot":"埃莉诺死后醒来，发现自己进了一套按积分分配的来世，而档案显然搞错了人。邻居、道德哲学课和一位礼貌的建筑师，一起维持这个漂亮的社区。","hook":"人死后进了一个按分数管理的社区，档案明显搞错了。贝尔演一个不该在那儿的人，丹森笑得很礼貌。那些哲学笑话是在推剧情，不是贴上去的装饰。第一季结尾别提前看讨论。","creatorsEn":"Michael Schur","castEn":"Kristen Bell|Ted Danson|William Jackson Harper"},{"rank":55,"zh":"不安感","en":"Insecure","years":"2016–2021","place":"美国","form":"剧集","genre":"comedy","alias":[],"creators":"伊萨·雷","cast":"伊萨·雷、伊冯娜·奥吉","plot":"伊萨在洛杉矶的非营利机构上班，和最好的朋友莫莉一起应付恋爱、工作和一句说出来就会后悔的话。南洛杉矶不是背景板，是她们来回开的那条路。","hook":"伊萨和莫莉的友谊比剧里任何恋爱都写得细：工作、约会、一句说出去就收不回来的话。南洛杉矶是她们开车来回的那条路，不是风景。配乐好，但别只当背景片放。","creatorsEn":"Issa Rae","castEn":"Issa Rae|Yvonne Orji"},{"rank":57,"zh":"我觉得你该离开","en":"I Think You Should Leave","years":"2019–至今","place":"美国","form":"小品","genre":"comedy","alias":[],"creators":"蒂姆·罗宾逊、扎克·卡宁","cast":"蒂姆·罗宾逊","plot":"每一则短剧都从一件普通的事开始：一场会议、一顶帽子、一次聚餐。然后有人拒绝停下，社交场面按照他的逻辑滑出正常世界。","hook":"短剧。一个人在会议、聚餐或一顶帽子上拒绝停下，场面就按他的逻辑滑出去。罗宾逊不给过渡，段子切得很短。一次看太多会麻，一集一集看正好。","creatorsEn":"Tim Robinson|Zach Kanin","castEn":"Tim Robinson"},{"rank":58,"zh":"查普尔秀","en":"Chappelle's Show","years":"2003–2006","place":"美国","form":"小品","genre":"comedy","alias":[],"creators":"戴夫·查普尔、尼尔·布伦南","cast":"戴夫·查普尔","plot":"查普尔用短剧和现场观众谈话，把种族、名人和电视本身的假正经拆开。许多段子后来被反复引用，也变成他和节目关系破裂的一部分。","hook":"小品加现场。查普尔把种族、名人和电视上的假正经拆开演，很多段子后来被反复截出去。他的控制力在于，笑话进行的时候不把自己摘干净。季很短，密度高。","creatorsEn":"Dave Chappelle|Neal Brennan","castEn":"Dave Chappelle"},{"rank":59,"zh":"十五岁","en":"PEN15","years":"2019–2021","place":"美国","form":"剧集","genre":"comedy","alias":["PEN15"],"creators":"玛雅·厄斯金、安娜·康克尔","cast":"玛雅·厄斯金、安娜·康克尔","plot":"两位成年女演员扮演 2000 年的自己，回到初中：即时通讯、不合身的衣服，以及一份认真到可笑的友谊。周围的同学由真正的少年扮演。","hook":"两个成年女人扮演 2000 年的自己去上初中，周围的同学是真的少年。这个年龄差不是梗，是为了把当时的羞耻再演一遍：聊天软件、不合身的衣服、一份认真过头的友谊。","creatorsEn":"Maya Erskine|Anna Konkle","castEn":"Maya Erskine|Anna Konkle"},{"rank":60,"zh":"窥视秀","en":"Peep Show","years":"2003–2015","place":"英国","form":"剧集","genre":"comedy","alias":[],"creators":"杰西·阿姆斯特朗、萨姆·贝恩","cast":"戴维·米切尔、罗伯特·韦伯","plot":"马克和杰里米合住在伦敦南边。镜头钻进他们的眼睛，旁白说出他们真正在想的话：一个是焦虑的贷款经理，一个是不肯找工作的音乐人。","hook":"镜头从眼睛看出去，旁白是心里的话，嘴上说的是另一套。米切尔焦虑到有一套系统，韦伯懒到有一套理论。九季。后来写《继承之战》的阿姆斯特朗，对白就是在这里练的。","creatorsEn":"Jesse Armstrong|Sam Bain","castEn":"David Mitchell|Robert Webb"},{"rank":73,"zh":"巴里","en":"Barry","years":"2018–2023","place":"美国","form":"剧集","genre":"comedy","alias":["巴瑞"],"creators":"比尔·哈德尔、亚历克·伯格","cast":"比尔·哈德尔、亨利·温克勒、莎拉·戈德堡","plot":"职业杀手巴里·伯克曼到洛杉矶执行任务，误入一堂表演课，决定自己也许可以成为演员。杀人的手艺和想被看见的欲望开始抢同一个日程。","hook":"哈德尔演一个到洛杉矶杀人、结果留下学表演的人。前两季还能当黑色喜剧看，温克勒演的老师把这行的虚荣演得很暖。后面笑话变少，他做的事越来越没法用「他想当演员」盖过去。","creatorsEn":"Bill Hader|Alec Berg","castEn":"Bill Hader|Henry Winkler|Sarah Goldberg"},{"rank":75,"zh":"足球教练","en":"Ted Lasso","years":"2020–至今","place":"美国","form":"剧集","genre":"comedy","alias":["泰德·拉索"],"creators":"杰森·苏戴奇斯、比尔·劳伦斯","cast":"杰森·苏戴奇斯、汉娜·沃丁厄姆、布雷特·戈尔茨坦","plot":"美国橄榄球教练泰德·拉索被雇去执教一支英国足球队，东家原本指望他搞砸。他用饼干和不肯嘲讽人的办法，先改变了更衣室。","hook":"美国橄榄球教练去带英国足球，东家本来想看他搞砸。苏戴奇斯的善意是具体的：饼干、记住人名、不在更衣室里羞辱人。沃丁厄姆演的老板和戈尔茨坦演的老将，把后几季撑住了。","creatorsEn":"Jason Sudeikis|Bill Lawrence","castEn":"Jason Sudeikis|Hannah Waddingham|Brett Goldstein"},{"rank":77,"zh":"摩登家庭","en":"Modern Family","years":"2009–2020","place":"美国","form":"剧集","genre":"comedy","alias":[],"creators":"史蒂文·莱维坦、克里斯托弗·劳埃德","cast":"艾德·奥尼尔、索菲娅·维加拉、朱莉·鲍温、泰·布利尔","plot":"普里切特一家三支，以假纪录片的方式过同一座城市里的日子：再婚、同志伴侣和传统郊区家庭，麻烦都出在晚饭之前。","hook":"三支家庭用假纪录片过同一周。笑点在演员的时机：奥尼尔的停顿、布利尔的过度解释、维加拉的快。现在看，耐看的是这些人手上的活，不是「家庭可以有很多种」这句话。","creatorsEn":"Steven Levitan|Christopher Lloyd","castEn":"Ed O'Neill|Sofía Vergara|Julie Bowen|Ty Burrell"},{"rank":78,"zh":"费城永远阳光灿烂","en":"It's Always Sunny in Philadelphia","years":"2005–至今","place":"美国","form":"剧集","genre":"comedy","alias":["酒吧五杰"],"creators":"罗布·麦克尔亨尼","cast":"查理·戴、格伦·豪尔顿、凯特琳·奥尔森、罗布·麦克尔亨尼、丹尼·德维托","plot":"五个经营费城酒吧的人自私、短视，并且真心相信自己是房间里最受委屈的那个。每一集的计划都会因为他们的性格失败。","hook":"五个人经营一家酒吧，每个计划都毁在他们自己手里。戴、豪尔顿、奥尔森把自私演成专业。德维托来了之后，这家里有了最理直气壮的长辈。季很长，挑一集「他们又有了个计划」的看，就是这部剧。","creatorsEn":"Rob McElhenney","castEn":"Charlie Day|Glenn Howerton|Kaitlin Olson|Rob McElhenney|Danny DeVito"},{"rank":90,"zh":"体育老师笑传","en":"Eastbound & Down","years":"2009–2013","place":"美国","form":"剧集","genre":"comedy","alias":["职棒鲜师"],"creators":"丹尼·麦克布莱德、乔迪·希尔、大卫·戈登·格林","cast":"丹尼·麦克布莱德、史蒂夫·利特尔","plot":"过气棒球投手肯尼·鲍尔斯回到家乡，在中学当体育老师，同时确信自己仍是明星。粗话、毒品和一场并不存在的复出，构成他的生活安排。","hook":"麦克布莱德演一个确信自己还是明星的过气投手，回乡当中学体育老师。笑话粗，人也不改。剧没有把他的自大当成魅力，而是当成他过日子的整套办法。","creatorsEn":"Danny McBride|Jody Hill|David Gordon Green","castEn":"Danny McBride|Steve Little"},{"rank":91,"zh":"大祸临头","en":"Catastrophe","years":"2015–2019","place":"英国","form":"剧集","genre":"comedy","alias":[],"creators":"莎朗·霍根、罗布·德莱尼","cast":"莎朗·霍根、罗布·德莱尼","plot":"爱尔兰女人莎朗和美国男人罗布在伦敦有了一段短暂的关系，然后是一次计划外的怀孕。他们决定留下孩子，并试着把陌生人的礼貌变成婚姻。","hook":"两人自己写、自己演。一夜之后是怀孕，然后是结婚，然后是发现对方的生活习惯。笑话脏，账算得很清。当夫妻喜剧看，不要当「意外怀孕」的设定剧看。","creatorsEn":"Sharon Horgan|Rob Delaney","castEn":"Sharon Horgan|Rob Delaney"},{"rank":97,"zh":"废柴联盟","en":"Community","years":"2009–2015","place":"美国","form":"剧集","genre":"comedy","alias":["废柴同盟"],"creators":"丹·哈蒙","cast":"乔尔·麦克黑尔、吉莉恩·雅各布斯、唐纳德·格洛弗、艾莉森·布里","plot":"被取消律师资格的杰夫·温格进入一所社区大学，凑出了一个什么课都一起上的学习小组。剧经常整集改成另一种类型：动作片、纪录片、八比特游戏。","hook":"社区大学的学习小组，整集可以改成纪录片、动作片或游戏。哈蒙对情景喜剧的格式很熟，所以拆得也狠。格洛弗离开之前，已经是组里最轻的那个。大家反复重看的是第二、三季。","creatorsEn":"Dan Harmon","castEn":"Joel McHale|Gillian Jacobs|Donald Glover|Alison Brie"},{"rank":6,"zh":"权力的游戏","en":"Game of Thrones","years":"2011–2019","place":"美国","form":"剧集","genre":"spec","alias":["冰与火之歌"],"creators":"戴维·贝尼奥夫、D·B·威斯","cast":"彼特·丁拉基、艾米莉亚·克拉克、基特·哈灵顿、琳娜·海蒂","plot":"维斯特洛的几个家族争夺铁王座，北境的长城外面还有一场被大多数人当成传说的冬天。改编自乔治·R·R·马丁的小说，贵族的联姻和战场用的是同一套规则。","hook":"前四季就是「谁都可能在这一集死掉」。红婚礼、君临那些大场面是冲这个来的，丁拉基的小恶魔靠嘴不靠剑。原著没写完的部分是剧自己收的，最后一季很多人觉得赶，心里有个数再看就行。","creatorsEn":"David Benioff|D. B. Weiss","castEn":"Peter Dinklage|Emilia Clarke|Kit Harington|Lena Headey"},{"rank":22,"zh":"迷失","en":"Lost","years":"2004–2010","place":"美国","form":"剧集","genre":"spec","alias":["LOST"],"creators":"J·J·艾布拉姆斯、达蒙·林德洛夫","cast":"马修·福克斯、伊万杰琳·莉莉、乔什·霍洛韦、特里·奥奎因","plot":"一架客机坠毁在热带岛屿，幸存者很快发现这里不是普通的荒岛。每一集用倒叙打开一个人的过去，岛上的谜则越开越多。","hook":"岛上的谜后来越开越大，人比谜耐看。每一集倒回去讲一个人，所以你会对一个本来该早死的配角产生感情。结局没有把所有洞补上。冲着人物看，别冲着一份标准答案。","creatorsEn":"J. J. Abrams|Damon Lindelof","castEn":"Matthew Fox|Evangeline Lilly|Josh Holloway|Terry O'Quinn"},{"rank":26,"zh":"黑镜","en":"Black Mirror","years":"2011–至今","place":"英国","form":"单元剧","genre":"spec","alias":[],"creators":"查理·布鲁克","cast":"每集聚焦不同演员","plot":"每一集都是一个邻近的未来：记忆可以重播，社交可以打分，意识可以拷进另一具身体。技术很少是唯一的反派，使用它的欲望才是。","hook":"一集一个故事，看完可以换人。技术通常一句话就讲清，后面是人拿它做什么。《圣朱尼佩洛》《白熊》常被拿出来单说，但每集口味差很多，不喜欢就跳，不影响下一集。","creatorsEn":"Charlie Brooker","castEn":"a different cast each episode"},{"rank":30,"zh":"人生切割术","en":"Severance","years":"2022–至今","place":"美国","form":"剧集","genre":"spec","alias":["生活割离术"],"creators":"丹·埃里克森","cast":"亚当·斯科特、布丽特·洛厄、约翰·特托罗、帕特里夏·阿奎特","plot":"卢蒙公司的员工接受手术，把工作记忆和生活记忆切开。电梯下行之后，另一个自己开始上班，并且不想永远留在楼里。","hook":"上班的记忆和下班的记忆被切开。电梯门一关，另一个自己开始过那八小时，还想搞清楚外面是谁。办公室干净、规矩怪。斯科特要演两个几乎不认识彼此的人，差别只在他知道多少。","creatorsEn":"Dan Erickson","castEn":"Adam Scott|Britt Lower|John Turturro|Patricia Arquette"},{"rank":32,"zh":"安多","en":"Andor","years":"2022–2025","place":"美国","form":"剧集","genre":"spec","alias":["安道尔"],"creators":"托尼·吉尔罗伊","cast":"迭戈·卢纳、斯特兰·斯卡斯加德、吉纳维芙·奥莱利","plot":"在《侠盗一号》之前，卡西恩·安多还不是叛军英雄。他被卷进偷窃、监狱和一场需要账本、演讲和牺牲才能运转的革命。","hook":"星战剧里最不像周边产品的一部。监狱、演讲、账本、谁来出头，革命被写成要人干的脏活。斯卡斯加德演的卢森那些独自做决定的戏，是这剧的脊梁。第二季比第一季更完整。","creatorsEn":"Tony Gilroy","castEn":"Diego Luna|Stellan Skarsgård|Genevieve O'Reilly"},{"rank":37,"zh":"太空堡垒卡拉狄加","en":"Battlestar Galactica","years":"2005–2009","place":"美国","form":"剧集","genre":"spec","alias":["星际大争霸"],"creators":"罗纳德·D·摩尔","cast":"爱德华·詹姆斯·奥莫斯、玛丽·麦克唐奈、凯蒂·萨克霍夫","plot":"机器人赛昂人几乎灭绝人类，残余的舰队在指挥官阿达玛和总统罗斯林带领下寻找传说中的地球。敌人长得和人一样，也可以爱、可以信仰。","hook":"人类差不多被自己造的机器灭了，剩下的舰队去找地球。好看的不是太空战，是船上的人怎么选举、政变、信教、互相怀疑。萨克霍夫的星巴克冲，奥莫斯的舰长按着。","creatorsEn":"Ronald D. Moore","castEn":"Edward James Olmos|Mary McDonnell|Katee Sackhoff"},{"rank":39,"zh":"守望者","en":"Watchmen","years":"2019","place":"美国","form":"迷你剧","genre":"spec","alias":[],"creators":"达蒙·林德洛夫","cast":"雷吉娜·金、珍·斯玛特、蒂姆·布莱克·尼尔森","plot":"它不是漫画的逐格重拍。故事从 1921 年塔尔萨的种族屠杀开场，再落到一个蒙面警察仍在执勤的美国，雷吉娜·金饰演的安吉拉要查清父辈留下的身份。","hook":"不是把漫画逐格拍一遍。开场是 1921 年的塔尔萨，然后才是蒙面警察，以及金要查清的那个人。一季就停，因为它想讲的历史讲完了。不用先把漫画补完，看完会想去翻。","creatorsEn":"Damon Lindelof","castEn":"Regina King|Jean Smart|Tim Blake Nelson"},{"rank":47,"zh":"双峰：回归","en":"Twin Peaks: The Return","years":"2017","place":"美国","form":"剧集","genre":"spec","alias":["双峰镇"],"creators":"大卫·林奇、马克·弗罗斯特","cast":"凯尔·麦克拉克伦、劳拉·邓恩、娜奥米·沃茨","plot":"劳拉·帕尔默的案子过去二十五年，库珀探员要回到双峰，可他并不是完整地回来。十八集里有原子弹、路边的房子，和一段几乎不动的等待。","hook":"十八集，不要等它把老版的悬念逐条回答。库珀回来了，但不是你记得的那一个。有很长的开车，有几乎不动的等待。先接受这个节奏，麦克拉克伦一个人分饰的几个库珀才立得住。","creatorsEn":"David Lynch|Mark Frost","castEn":"Kyle MacLachlan|Laura Dern|Naomi Watts"},{"rank":53,"zh":"怪奇物语","en":"Stranger Things","years":"2016–2025","place":"美国","form":"剧集","genre":"spec","alias":[],"creators":"马特·达菲、罗斯·达菲","cast":"薇诺娜·瑞德、米莉·博比·布朗、芬恩·伍尔哈德、大卫·哈伯","plot":"1980 年代的印第安纳小镇，一个男孩失踪，朋友们拿着手电筒和一套桌面游戏的术语去找他。实验、另一侧的世界，和一位编号为十一的女孩连在一起。","hook":"小孩拿着手电筒找失踪的朋友，家长、小镇和「那一边」一起进来。布朗演的十一和哈伯演的警长是两条能跟住的线。前两季的冒险感最好，后面季数变长，还是冲着这群人。","creatorsEn":"Matt Duffer|Ross Duffer","castEn":"Winona Ryder|Millie Bobby Brown|Finn Wolfhard|David Harbour"},{"rank":67,"zh":"使女的故事","en":"The Handmaid's Tale","years":"2017–2025","place":"美国","form":"剧集","genre":"spec","alias":[],"creators":"布鲁斯·米勒","cast":"伊丽莎白·莫斯、伊冯娜·斯特拉霍夫斯基、约瑟夫·费因斯","plot":"在生育率崩溃后的基列国，能生育的女性被编为使女，分配给权贵家庭。琼以奥芙弗雷德的名字生活，记住自己原来叫什么成了一种反抗。","hook":"第一季最贴阿特伍德的小说：红袍、仪式、一个人记得自己原来的名字。莫斯什么时候忍、什么时候爆，都在脸上。后面几季把她写成去行动的人，还看不看，取决于你想不想跟她走出书里的结局。","creatorsEn":"Bruce Miller","castEn":"Elisabeth Moss|Yvonne Strahovski|Joseph Fiennes"},{"rank":72,"zh":"鱿鱼游戏","en":"Squid Game","years":"2021–2025","place":"韩国","form":"剧集","genre":"spec","alias":[],"creators":"黄东赫","cast":"李政宰、朴海秀、郑浩妍、魏河俊","plot":"一群负债的人同意参加一套童年游戏，赢家拿走巨额奖金，输家死在场上。成奇勋以为自己还能用善良理解规则，规则却只认人数。","hook":"第一季把儿童游戏的规则讲清楚，然后看负债的人还玩不玩。李政宰的奇勋会犹豫、会算、会做错，不是英雄模板。颜色很跳，出局很突然。先把第一季看完，续季是在这个规则上加码。","creatorsEn":"Hwang Dong-hyuk","castEn":"Lee Jung-jae|Park Hae-soo|Jung Ho-yeon|Wi Ha-joon"},{"rank":93,"zh":"第十一站","en":"Station Eleven","years":"2021–2022","place":"美国","form":"迷你剧","genre":"spec","alias":["第11号站"],"creators":"帕特里克·萨默维尔","cast":"麦肯齐·戴维斯、希米什·帕特尔、玛蒂尔达·劳勒","plot":"一场流感之后，巡演的交响乐团在五大湖边的废墟之间走路，用莎士比亚换食宿。一本漫画把疫情之夜的几个陌生人，在二十年后又接起来。","hook":"流感之后，一个剧团走路演莎士比亚，用来换食宿。戴维斯和劳勒演同一个女孩的两个年纪，帕特尔演第一夜把孩子带上的那个人。不是丧尸片。害怕有，更多时间花在人怎么互相照看。","creatorsEn":"Patrick Somerville","castEn":"Mackenzie Davis|Himesh Patel|Matilda Lawler"},{"rank":98,"zh":"先见之明","en":"The OA","years":"2016–2019","place":"美国","form":"剧集","genre":"spec","alias":["初使"],"creators":"布丽特·马灵、扎尔·巴特曼格利","cast":"布丽特·马灵、杰森·艾萨克斯、埃默里·科恩","plot":"失踪多年的草原姑娘回到家，视力恢复了，却拒绝解释她去过哪里。她召集五个人学习一组动作，说那可能是离开这个世界的方法。","hook":"马灵演一个失踪多年后回来的女人。她让五个人学一组动作，说那可能是离开的办法。这故事很容易被笑，她演得很认真。两季之后被取消，没有普通意义上的收尾。看的就是那份认真。","creatorsEn":"Brit Marling|Zal Batmanglij","castEn":"Brit Marling|Jason Isaacs|Emory Cohen"},{"rank":14,"zh":"胜利之光","en":"Friday Night Lights","years":"2006–2011","place":"美国","form":"剧集","genre":"life","alias":[],"creators":"彼得·伯格、杰森·卡蒂姆斯","cast":"凯尔·钱德勒、康妮·布里顿","plot":"得州迪隆镇用周五的高中橄榄球衡量几乎一切。教练埃里克·泰勒和妻子塔米要在胜负、孩子的前途和自己的婚姻之间做每周的决定。","hook":"钱德勒和布里顿在厨房里说话，比周五的比赛好看。小镇把孩子的输赢当成自己的面子，教练夹在球员、家长和自己老婆中间。手持摄影有点糙，人是稳的。","creatorsEn":"Peter Berg|Jason Katims","castEn":"Kyle Chandler|Connie Britton"},{"rank":15,"zh":"六尺之下","en":"Six Feet Under","years":"2001–2005","place":"美国","form":"剧集","genre":"life","alias":["六英尺下"],"creators":"艾伦·鲍尔","cast":"彼得·克劳斯、迈克尔·C·霍尔、弗朗西丝·康罗伊、劳伦·安布罗斯","plot":"费舍尔家在洛杉矶经营殡仪馆。每一集以一次死亡开场，活着的人则继续吵架、相爱和把遗体推进房间。","hook":"每集先死一个人，然后才是这家人上班、吵架、谈恋爱。殡仪馆不是气氛，是他们的工作台。结局把每个人后来的日子一次走完，看完会想倒回去看前面那些吵。","creatorsEn":"Alan Ball","castEn":"Peter Krause|Michael C. Hall|Frances Conroy|Lauren Ambrose"},{"rank":18,"zh":"我可以毁掉你","en":"I May Destroy You","years":"2020","place":"英国","form":"剧集","genre":"life","alias":["生命转弯那一天"],"creators":"米凯拉·科尔","cast":"米凯拉·科尔、韦罗米·奥珀、帕帕·埃希杜","plot":"作家阿拉贝拉在一个晚上被下药、侵害，之后她要靠碎片把那晚重新拼起来。朋友、约会和创作都不再能用原来的说法解释。","hook":"科尔自己写、自己演。一个晚上被弄丢之后，她要重拼记忆、朋友和正在写的东西。它不按「受害然后疗愈」的顺序走，有的集甚至很好笑。先别急着判决每个人。","creatorsEn":"Michaela Coel","castEn":"Michaela Coel|Weruche Opia|Paapa Essiedu"},{"rank":21,"zh":"白莲花度假村","en":"The White Lotus","years":"2021–至今","place":"美国","form":"剧集","genre":"life","alias":["白莲花大饭店"],"creators":"迈克·怀特","cast":"珍妮弗·库利奇领衔，每季更换群像","plot":"每一季换一座白莲花度假酒店，开场先知道这周会死一个人，再回头看客人如何把服务员、本地人和彼此当成假期的一部分。","hook":"每季换一座酒店，片头就告诉你这周要死人，然后看客人怎么把服务员和当地人当成假期的一部分。库利奇的坦雅又可笑又惨，是这剧最不该被当成笑话看的人。笑完通常不太舒服。","creatorsEn":"Mike White","castEn":"Jennifer Coolidge leads a rotating ensemble"},{"rank":25,"zh":"守望尘世","en":"The Leftovers","years":"2014–2017","place":"美国","form":"剧集","genre":"life","alias":["末世余生"],"creators":"达蒙·林德洛夫、汤姆·佩罗塔","cast":"贾斯汀·塞洛克斯、凯丽·库恩、埃米·布伦尼曼","plot":"全世界百分之二的人忽然消失，没有解释。三年后，小镇上的人用邪教、职务和沉默继续生活，警察加维只想让这一天不要再裂开。","hook":"全世界百分之二的人消失了，剧就是不告诉你为什么。第一季有点沉，库恩上来之后，重点从事件挪到这几个人还怎么过日子。别来找解答，来看他们抱着一个解释往下活。","creatorsEn":"Damon Lindelof|Tom Perrotta","castEn":"Justin Theroux|Carrie Coon|Amy Brenneman"},{"rank":33,"zh":"醍醐灌顶","en":"Enlightened","years":"2011–2013","place":"美国","form":"剧集","genre":"life","alias":["顿悟人生"],"creators":"迈克·怀特、劳拉·邓恩","cast":"劳拉·邓恩、卢克·威尔逊","plot":"艾米·杰利科在公司崩溃后去静修，回来决心成为更好的人，并向曾经伤害她的企业发起举报。她的善意经常是真的，方法经常是灾难。","hook":"邓恩演一个从静修营回来、决心当好人的女人，然后把周围的人都弄得很累。她的善意经常是真的，做法经常是错的。只有两季，短，没有被写油。","creatorsEn":"Mike White|Laura Dern","castEn":"Laura Dern|Luke Wilson"},{"rank":36,"zh":"匹兹堡医护前线","en":"The Pitt","years":"2025–至今","place":"美国","form":"剧集","genre":"life","alias":["匹兹堡医魂","匹兹堡"],"creators":"R·斯科特·格米尔","cast":"诺亚·怀尔、特蕾西·伊菲彻、帕特里克·鲍尔、凯瑟琳·拉纳萨","plot":"匹兹堡一家医院的急诊室，一集大约是一个小时的班。主治医生罗比带着实习生处理接连进来的病人，私人的事只能插在两副担架之间。","hook":"一集大约是一个小时的班，病人接连进来，自己的事只能插在两副担架中间。没有「这周一个怪病」的设置，就是流程、疲劳和没说完的话。怀尔这个医生会看病，也带着旧伤。","creatorsEn":"R. Scott Gemmill","castEn":"Noah Wyle|Tracy Ifeachor|Patrick Ball|Katherine LaNasa"},{"rank":44,"zh":"马男波杰克","en":"BoJack Horseman","years":"2014–2020","place":"美国","form":"动画","genre":"life","alias":[],"creators":"拉斐尔·鲍勃-瓦克斯伯格","cast":"威尔·阿内特、艾莉森·布里、艾米·塞达里斯","plot":"过气马明星波杰克住在好莱坞，靠酒、自怜和一部旧情景喜剧的重播过日子。动物和人混居的城市很好笑，直到他造成的伤害不再能用笑话盖住。","hook":"是动画，不是给小孩看的。波杰克每次搞砸都有一段自怜的独白，剧后来不再替他圆。布里和塞达里斯演的人是来反驳他的，不是来陪他的。后两季会很难受，那是它要的。","creatorsEn":"Raphael Bob-Waksberg","castEn":"Will Arnett|Alison Brie|Amy Sedaris"},{"rank":49,"zh":"正常人","en":"Normal People","years":"2020","place":"爱尔兰","form":"迷你剧","genre":"life","alias":[],"creators":"萨莉·鲁尼、爱丽丝·伯奇","cast":"保罗·麦斯卡、黛西·埃德加-琼斯","plot":"斯莱戈的中学里，康奈尔和玛丽安秘密在一起；到了都柏林的三一学院，阶级和说话的方式对调了。他们一再分开，又在对方最熟悉的沉默里相遇。","hook":"两个人的戏几乎都是小声的：短信、谁先离开房间、一句没说完的话。中学里谁受欢迎、谁在家里不被当回事，上了大学会对调。十二集按顺序看。床戏不是花絮，阶层就写在那些场面里。","creatorsEn":"Sally Rooney|Alice Birch","castEn":"Paul Mescal|Daisy Edgar-Jones"},{"rank":71,"zh":"怒呛人生","en":"Beef","years":"2023","place":"美国","form":"第一季","genre":"life","alias":[],"creators":"李成真","cast":"史蒂文·元、黄阿丽","plot":"承包商丹尼和店主艾米在停车场互相按了喇叭，一场路怒升级成彼此生活的全面破坏。两个人都在勉强维持一个看起来还行的自己。","hook":"停车场里按了一次喇叭，两个人开始拆对方的日子。元和黄阿丽演的不是路怒症状，是两个已经快撑不住、刚好找到一个可以恨的人。榜单只收第一季。后半段会拐回家里。","creatorsEn":"Lee Sung Jin","castEn":"Steven Yeun|Ali Wong"},{"rank":74,"zh":"熊家餐馆","en":"The Bear","years":"2022–2026","place":"美国","form":"剧集","genre":"life","alias":["大熊餐厅"],"creators":"克里斯托弗·斯托勒","cast":"杰瑞米·艾伦·怀特、阿约·埃德比利、埃邦·莫斯-巴克拉赫","plot":"名厨卡米回到芝加哥，接管哥哥自杀后留下的牛肉三明治店。厨房又吵又挤，他想把它做成一家真正的餐厅，家人却还停在丧事里。","hook":"厨房里所有人同时说话，出餐口就是节奏。怀特想把哥哥留下的三明治店做成餐厅，埃德比利是来干活的，不是来当他的治疗师。第一季最紧。家里的丧事别快进，它和菜单是一件事。","creatorsEn":"Christopher Storer","castEn":"Jeremy Allen White|Ayo Edebiri|Ebon Moss-Bachrach"},{"rank":76,"zh":"某人某地","en":"Somebody Somewhere","years":"2022–2024","place":"美国","form":"剧集","genre":"life","alias":["堪萨斯之歌"],"creators":"汉娜·博斯、保罗·瑟林","cast":"布里吉特·埃弗里特、杰夫·希勒","plot":"山姆在姐姐去世后留在堪萨斯老家，觉得自己是这里的外人。一个合唱团和朋友乔尔让她重新开口唱歌，也重新学习怎么待在一个小镇里。","hook":"埃弗里特回到堪萨斯，姐姐没了，自己也不像这个镇的人。好看的是她和希勒怎么把一个合唱团、一顿饭变成还能待下去的理由。没有反转。她开口唱歌的时候，是这剧最放开的时候。","creatorsEn":"Hannah Bos|Paul Thureen","castEn":"Bridget Everett|Jeff Hiller"},{"rank":79,"zh":"傲骨贤妻","en":"The Good Wife","years":"2009–2016","place":"美国","form":"剧集","genre":"life","alias":["法妻"],"creators":"罗伯特·金、米歇尔·金","cast":"朱莉安娜·玛格丽丝、乔什·查尔斯、克里斯汀·巴兰斯基","plot":"检察官彼得·弗洛里克因性丑闻和贪腐下台，妻子艾丽西娅十三年后回到律师事务所。案件每周进来，公司政治和她自己的名字则慢慢变得更重要。","hook":"丈夫因为丑闻下台，玛格丽丝演的妻子回到律师所，从站在旁边的人变成自己接案子的人。每周有案子，要追的是事务所里谁站哪边，以及她还要不要那个姓。巴兰斯基是后盾，也是对照。","creatorsEn":"Robert King|Michelle King","castEn":"Julianna Margulies|Josh Charles|Christine Baranski"},{"rank":81,"zh":"后翼弃兵","en":"The Queen's Gambit","years":"2020","place":"美国","form":"迷你剧","genre":"life","alias":[],"creators":"斯科特·弗兰克","cast":"安雅·泰勒-乔伊、玛丽埃尔·海勒","plot":"孤儿贝丝·哈蒙在收养家庭里靠镇静剂看见棋盘，然后在 1960 年代一路下到国际赛场。天才是真的，依赖、孤独和那套要她好看的世界也是真的。","hook":"棋是能看懂的。泰勒-乔伊坐在棋盘前，你知道她这步想赢，也知道她今晚可能过不去。海勒演的养母不是励志配角。七集，按顺序看。药和比赛是同一条线，别只剪比赛。","creatorsEn":"Scott Frank","castEn":"Anya Taylor-Joy|Marielle Heller"},{"rank":82,"zh":"更好的事","en":"Better Things","years":"2016–2022","place":"美国","form":"剧集","genre":"life","alias":[],"creators":"帕梅拉·阿德隆","cast":"帕梅拉·阿德隆","plot":"洛杉矶女演员山姆独自拉扯三个女儿，接戏、照顾母亲，也在一个不太把她当主角的行业里保持自己的日子。情节很散，一天就是一天。","hook":"阿德隆演一个在洛杉矶接戏、带三个女儿、还要管母亲的女人。没有大案件，事件就是晚饭、车程和一句顶回去的话。散，是因为她的日子就是散的。看的是一个人怎么把一天过完。","creatorsEn":"Pamela Adlon","castEn":"Pamela Adlon"},{"rank":87,"zh":"保留地之犬","en":"Reservation Dogs","years":"2021–2023","place":"美国","form":"剧集","genre":"life","alias":["原乡之犬"],"creators":"斯特林·哈乔、塔伊加·维迪提","cast":"德芙丽·雅各布斯、德法老·伍恩-阿-泰、莱恩·法克托、宝琳娜·亚历克西斯","plot":"俄克拉何马保留地上的四个原住民少年打算离开这里，去加州。一个朋友的死让出走变成未完成的心愿，社区里的长辈则不断把他们拉回具体的生活。","hook":"四个少年想离开俄克拉何马。笑话和丧事用的是同一种口语，剧也不停下来给外人做解释。三季不长，越到后面，镇上的长辈越重要。","creatorsEn":"Sterlin Harjo|Taika Waititi","castEn":"Devery Jacobs|D'Pharaoh Woon-A-Tai|Lane Factor|Paulina Alexis"},{"rank":89,"zh":"驯鹿宝贝","en":"Baby Reindeer","years":"2024","place":"英国","form":"迷你剧","genre":"life","alias":[],"creators":"理查德·加德","cast":"理查德·加德、杰西卡·甘宁","plot":"酒吧里的喜剧演员唐尼对一名女顾客释放了善意，对方开始长期跟踪他。剧情随后转向唐尼自己隐瞒多年的受侵害经历，以及他为何没有立刻切断这段关系。","hook":"甘宁演的玛莎不是一张吓人的脸就能概括的，她要的东西很具体。跟踪从酒吧里的一次善意开始，然后剧转向加德一直没说的那部分伤害。不好看的地方不要快进，那是在问他为什么不断开。","creatorsEn":"Richard Gadd","castEn":"Richard Gadd|Jessica Gunning"},{"rank":95,"zh":"豪斯医生","en":"House","years":"2004–2012","place":"美国","form":"剧集","genre":"life","alias":["怪医豪斯"],"creators":"戴维·肖尔","cast":"休·劳瑞、丽莎·埃德尔斯坦、奥马尔·艾普斯","plot":"格里高利·豪斯是诊断科的负责人，专接别的医生放弃的病例。他确信病人在撒谎，自己则靠止疼药维持一条受伤的腿和更重的脾气。","hook":"劳瑞的豪斯刻薄、成瘾、也确实会看病。每周一个诊断是外壳，能看很多季是因为谁肯顶他、谁被他用完。埃德尔斯坦是用来挡住他的。季很长，挑口碑稳的季看，不必全集打卡。","creatorsEn":"David Shore","castEn":"Hugh Laurie|Lisa Edelstein|Omar Epps"},{"rank":96,"zh":"奔腾年代","en":"Halt and Catch Fire","years":"2014–2017","place":"美国","form":"剧集","genre":"life","alias":["电脑狂人"],"creators":"克里斯托弗·坎特威尔、克里斯托弗·C·罗杰斯","cast":"李·佩斯、斯科特·麦克奈利、麦肯齐·戴维斯、凯丽·比舍","plot":"1980 年代，一个销售天才、一个工程师和两个后来居上的女人，从克隆个人电脑做到早期网络。公司会散，人还会因为同一个想法再坐到一张桌子前。","hook":"前两季是 1980 年代做电脑的商业剧，后两季才变成四个人的合伙史。戴维斯和比舍，比佩斯那个会演讲的人更是留下来的理由。别停在第二季，公司散了之后才是这剧。","creatorsEn":"Christopher Cantwell|Christopher C. Rogers","castEn":"Lee Pace|Scoot McNairy|Mackenzie Davis|Kerry Bishé"},{"rank":99,"zh":"吉尔莫女孩","en":"Gilmore Girls","years":"2000–2007","place":"美国","form":"剧集","genre":"life","alias":["奇异果女孩"],"creators":"艾米·谢尔曼-帕拉迪诺","cast":"劳伦·格拉汉姆、亚历克西斯·布莱德尔、凯莉·毕晓普","plot":"洛蕾莱在十六岁生下罗里，两人在星谷镇像朋友一样一起长大。快嘴、咖啡和常春藤的申请，不断把她们拉回哈特福德那个更有钱也更严的娘家。","hook":"格拉汉姆和布莱德尔的语速就是这剧的招牌，星谷镇的闲话也是。母女像朋友只是一半，她们一回哈特福德的外婆家，钱和期望就回来了。毕晓普一句评价能把气氛改掉。主创中途离开的那几季，语气会变。","creatorsEn":"Amy Sherman-Palladino","castEn":"Lauren Graham|Alexis Bledel|Kelly Bishop"},{"rank":31,"zh":"幸存者","en":"Survivor","years":"2000–至今","place":"美国","form":"真人秀","genre":"doc","alias":[],"creators":"查理·帕森斯","cast":"杰夫·普罗布斯特主持","plot":"一群陌生人被放到偏远地带，分组生活、赢得比赛，再在部落会议上把人投票送走。最后留下的人拿走奖金。体力很快就不如联盟重要。","hook":"投票比造房子好看。联盟、背叛、对着镜头说「我其实早就知道」，后来的竞赛节目都在用这套。普罗布斯特主持了很多年，规则会改，人抱团的方式还是那个。挑一个你听过的季进去就行。","creatorsEn":"Charlie Parsons","castEn":"Jeff Probst (host)"},{"rank":56,"zh":"内森帮你忙","en":"Nathan for You","years":"2013–2017","place":"加拿大","form":"真人秀","genre":"doc","alias":[],"creators":"内森·菲尔德","cast":"内森·菲尔德","plot":"菲尔德以商业顾问的身份走进真实的小店，提出过分到似乎可行的方案：假折扣、假情人和一整套让顾客困惑的手续。老板常常照做。","hook":"菲尔德走进真的小店，提出过分到老板居然会答应的方案。笑点是看一个真人把礼貌的谎维持下去，而不是看他出洋相的配乐。每集一个生意，不用按顺序。最后几集会碰到他自己。","creatorsEn":"Nathan Fielder","castEn":"Nathan Fielder"},{"rank":61,"zh":"鲁保罗变装皇后秀","en":"RuPaul's Drag Race","years":"2009–至今","place":"美国","form":"真人秀","genre":"doc","alias":[],"creators":"鲁保罗","cast":"鲁保罗主持","plot":"变装皇后比赛服装、表演和口播，输的人在对嘴演唱里争取留下。后台的友谊、竞争和一句评语，构成每一季的剧情。","hook":"比的是服装、表演和对嘴，输的人要把一首歌唱成最后一次机会。后台谁帮谁、谁放谁的话，比舞台任务更像剧情。季很多，挑选手和评委都齐的那几季看就行，不必从第一季补完。","creatorsEn":"RuPaul","castEn":"RuPaul (host)"},{"rank":64,"zh":"波登：未知之境","en":"Anthony Bourdain: Parts Unknown","years":"2013–2018","place":"美国","form":"纪录片","genre":"doc","alias":["未知之境"],"creators":"安东尼·波登","cast":"安东尼·波登","plot":"波登到各个地方吃饭，更多的时间用来坐下来听人讲政治、战争和一天的工作。食物是入场的理由，不是回避当地的办法。","hook":"波登坐下吃饭，然后把时间留给当地人讲战争、工作和这一天怎么过。食物是进门的理由。比他早年的节目沉，有的集几乎不是美食节目。按你想了解的地方挑着看。","creatorsEn":"Anthony Bourdain","castEn":"Anthony Bourdain"},{"rank":66,"zh":"彩排","en":"The Rehearsal","years":"2022–至今","place":"美国","form":"真人实验","genre":"doc","alias":[],"creators":"内森·菲尔德","cast":"内森·菲尔德","plot":"菲尔德为真人建造等比例的场景，让他们把一场艰难的谈话先排练一遍。计划越做越完整，最后连他自己的生活也被放进彩排。","hook":"他给真人搭一套等比例的布景，让他们把难开口的话先排练一遍。布景越做越真，最后连他自己的日子也被放进去。不用分辨哪段是纪录、哪段是实验，分辨不了就是这个节目的点。","creatorsEn":"Nathan Fielder","castEn":"Nathan Fielder"},{"rank":69,"zh":"波登不设限","en":"Anthony Bourdain: No Reservations","years":"2005–2012","place":"美国","form":"纪录片","genre":"doc","alias":["伯尔顿不设限"],"creators":"安东尼·波登","cast":"安东尼·波登","plot":"更早的一档旅行美食节目。波登从厨房走向世界，用食欲、玩笑和逐渐认真起来的提问，记录一个地方怎么吃饭。","hook":"比《未知之境》更早，胃口更大，笑话也更多。两档放在一起，能看见他从「这地方吃什么」走到「谁住在这儿」。单集是完整的，挑一个你想去的地方开始。","creatorsEn":"Anthony Bourdain","castEn":"Anthony Bourdain"},{"rank":80,"zh":"约翰·威尔逊教你怎么做","en":"How To with John Wilson","years":"2020–2023","place":"美国","form":"纪录片","genre":"doc","alias":["约翰·威尔逊的十万个怎么做"],"creators":"约翰·威尔逊","cast":"约翰·威尔逊","plot":"每一集从一个生活题目开始，比如如何小幅交谈或如何扔掉电池。威尔逊拿着摄像机在纽约街头走，旁白很快就偏离教程，碰到真正的人。","hook":"每集从一个「怎么做」出发，他拿着摄像机在纽约街上走，旁白很快跑题，跑到一个真正的人身上。看着像随手拍的，剪辑是有方向的。一次看一集。连着看会把那种拐弯看平。","creatorsEn":"John Wilson","castEn":"John Wilson"},{"rank":84,"zh":"地球脉动","en":"Planet Earth","years":"2006","place":"英国","form":"纪录片","genre":"doc","alias":["行星地球"],"creators":"阿拉斯泰尔·福瑟吉尔","cast":"大卫·爱登堡解说","plot":"BBC 的十一集自然系列，从极地、洞穴、平原到深海，记录当时的摄影还很难靠近的动物行为。爱登堡的旁白把景观说成一座还在运转的系统。","hook":"这是 2006 年那一版，不是续集。爱登堡把洞穴、深海、极地说成还能看清的系统，摄影当时真的靠近了以前靠近不了的动物。挑一集环境就够开眼，十一集看完也不会只是同一种壮阔反复播。","creatorsEn":"Alastair Fothergill","castEn":"David Attenborough (narrator)"},{"rank":85,"zh":"大英烘焙秀","en":"The Great British Baking Show","years":"2010–至今","place":"英国","form":"真人秀","genre":"doc","alias":["英国家庭烘焙大赛","Bake Off"],"creators":"安娜·比蒂、理查德·麦凯罗","cast":"保罗·好莱坞、玛丽·贝里，后由普鲁·利思担任评委","plot":"业余烘焙者在帐篷里完成签名菜、技术挑战和创意赛，周末有人回家，留下的人继续和面。竞争是真的，安慰也是赛制的一部分。","hook":"帐篷、限时、一个塌掉的蛋糕。紧张是真的，但节目不靠羞辱选手来制造紧张，旁边的人会帮你看面团。评语说的是烘焙，不是人品。从哪一季进都行，规则差不多。","creatorsEn":"Anna Beattie|Richard McKerrow","castEn":"Paul Hollywood|Mary Berry, later Prue Leith"}]}
+</script>
+<script>
+(function () {
+  const data = JSON.parse(document.getElementById("data").textContent);
+  const nav = document.getElementById("nav");
+  const main = document.getElementById("main");
+  const qEl = document.getElementById("q");
+  const suggest = document.getElementById("suggest");
+  const status = document.getElementById("status");
+  const byGenre = {};
+  data.genres.forEach(function (g) { byGenre[g.id] = []; });
+  data.shows.forEach(function (s) { byGenre[s.genre].push(s); });
+  data.genres.forEach(function (g) {
+    byGenre[g.id].sort(function (a, b) { return a.rank - b.rank; });
+  });
+
+  const navLabel = document.createElement("p");
+  navLabel.textContent = "类型";
+  nav.appendChild(navLabel);
+  data.genres.forEach(function (g) {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.dataset.genre = g.id;
+    const name = document.createElement("span");
+    name.textContent = g.name;
+    const em = document.createElement("em");
+    em.textContent = String(byGenre[g.id].length);
+    b.append(name, em);
+    b.addEventListener("click", function () {
+      qEl.value = "";
+      apply("");
+      document.getElementById("genre-" + g.id).scrollIntoView({ behavior: "smooth", block: "start" });
+      setCurrent(g.id);
+    });
+    nav.appendChild(b);
+  });
+
+  const top = document.createElement("div");
+  top.className = "topten";
+  const topH = document.createElement("h2");
+  topH.textContent = "原榜前十";
+  const ol = document.createElement("ol");
+  data.shows.slice().sort(function (a, b) { return a.rank - b.rank; }).slice(0, 10).forEach(function (s) {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    a.href = "#show-" + s.rank;
+    const n = document.createElement("span");
+    n.className = "n";
+    n.textContent = String(s.rank).padStart(2, "0");
+    const t = document.createElement("span");
+    t.textContent = s.zh;
+    a.append(n, t);
+    a.addEventListener("click", function () {
+      qEl.value = "";
+      apply("");
+      setCurrent(s.genre);
+      locate(s.rank);
+    });
+    li.appendChild(a);
+    ol.appendChild(li);
+  });
+  top.append(topH, ol);
+  main.appendChild(top);
+
+  const empty = document.createElement("p");
+  empty.className = "empty";
+  empty.id = "empty";
+  empty.textContent = "没有匹配的剧集。可以换剧名、演员，或直接输入名次。";
+  main.appendChild(empty);
+
+  data.genres.forEach(function (g) {
+    const sec = document.createElement("section");
+    sec.className = "genre";
+    sec.id = "genre-" + g.id;
+    const head = document.createElement("header");
+    const h2 = document.createElement("h2");
+    h2.textContent = g.name;
+    const blurb = document.createElement("p");
+    blurb.className = "blurb";
+    blurb.textContent = g.blurb + "共 " + byGenre[g.id].length + " 部，按原榜名次排列。";
+    head.append(h2, blurb);
+    sec.appendChild(head);
+    byGenre[g.id].forEach(function (s, i) {
+      sec.appendChild(renderShow(s, i === 0));
+    });
+    main.appendChild(sec);
+  });
+
+  function renderShow(s, lead) {
+    const art = document.createElement("article");
+    art.className = "show" + (lead ? " lead" : "");
+    art.id = "show-" + s.rank;
+    const gname = data.genres.filter(function (g) { return g.id === s.genre; })[0].name;
+    art.dataset.blob = [s.rank, String(s.rank).padStart(2, "0"), gname, s.zh, s.en, s.alias.join(" "), s.creators, s.creatorsEn || "", s.cast, s.castEn || "", s.plot, s.hook, s.place, s.form].join(" ").toLowerCase();
+    art.dataset.genre = s.genre;
+    const rank = document.createElement("p");
+    rank.className = "rank";
+    rank.textContent = String(s.rank).padStart(2, "0");
+    const body = document.createElement("div");
+    const h3 = document.createElement("h3");
+    h3.appendChild(document.createTextNode(s.zh));
+    const titleEn = document.createElement("span");
+    titleEn.className = "lat";
+    titleEn.textContent = s.en;
+    h3.appendChild(titleEn);
+    const meta = document.createElement("p");
+    meta.className = "meta";
+    meta.textContent = s.years + "  ·  " + s.place + "  ·  " + s.form;
+    const creators = people("主创", s.creators, s.creatorsEn);
+    const cast = people("主演", s.cast, s.castEn);
+    const bits = [h3, meta, creators, cast];
+    if (s.alias.length) {
+      const en = document.createElement("p");
+      en.className = "en";
+      en.textContent = "亦称 " + s.alias.join("、");
+      bits.splice(1, 0, en);
+    }
+    const copy = document.createElement("div");
+    copy.className = "copy";
+    copy.append(line("剧情", s.plot, "plot"), line("看点", s.hook, "hook"));
+    body.append.apply(body, bits.concat([copy]));
+    art.append(rank, body);
+    return art;
+  }
+  function people(lab, zh, en) {
+    const p = document.createElement("p");
+    p.className = "people";
+    const s = document.createElement("span");
+    s.className = "lab";
+    s.textContent = lab;
+    const who = document.createElement("span");
+    who.className = "who";
+    who.append(names(zh, en));
+    p.append(s, who);
+    return p;
+  }
+  function names(zh, en) {
+    const frag = document.createDocumentFragment();
+    const zs = String(zh || "").split("、");
+    const es = String(en || "").split("|");
+    if (!en || zs.length !== es.length) {
+      frag.appendChild(document.createTextNode(zh || ""));
+      if (en) {
+        frag.appendChild(document.createTextNode(" "));
+        const lat = document.createElement("span");
+        lat.className = "lat";
+        lat.textContent = en.split("|").join(", ");
+        frag.appendChild(lat);
+      }
+      return frag;
+    }
+    zs.forEach(function (z, i) {
+      if (i) frag.appendChild(document.createTextNode("、"));
+      frag.appendChild(document.createTextNode(z + " "));
+      const lat = document.createElement("span");
+      lat.className = "lat";
+      lat.textContent = es[i];
+      frag.appendChild(lat);
+    });
+    return frag;
+  }
+  function line(lab, text, cls) {
+    const p = document.createElement("p");
+    p.className = cls;
+    const s = document.createElement("span");
+    s.className = "lab";
+    s.textContent = lab;
+    p.append(s, document.createTextNode(text));
+    return p;
+  }
+
+  const articles = Array.prototype.slice.call(document.querySelectorAll("article.show"));
+  const sections = Array.prototype.slice.call(document.querySelectorAll("section.genre"));
+  let active = -1;
+  let matches = [];
+
+  function setCurrent(id) {
+    Array.prototype.forEach.call(nav.querySelectorAll("button"), function (b) {
+      b.setAttribute("aria-current", b.dataset.genre === id ? "true" : "false");
+    });
+  }
+  function locate(rank) {
+    const el = document.getElementById("show-" + rank);
+    if (!el) return;
+    articles.forEach(function (a) { a.classList.remove("located"); });
+    el.classList.add("located");
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  function apply(raw) {
+    const q = raw.trim().toLowerCase();
+    suggest.classList.remove("open");
+    suggest.textContent = "";
+    active = -1;
+    matches = [];
+    let shown = 0;
+    articles.forEach(function (a) {
+      const rankStr = a.id.replace("show-", "");
+      const ok = !q || a.dataset.blob.indexOf(q) !== -1 || rankStr === q || rankStr.padStart(2, "0") === q;
+      a.hidden = !ok;
+      if (ok) {
+        shown += 1;
+        matches.push(a);
+      }
+    });
+    sections.forEach(function (sec) {
+      const any = sec.querySelectorAll("article.show:not([hidden])").length > 0;
+      sec.hidden = !any;
+    });
+    top.hidden = !!q;
+    empty.style.display = q && shown === 0 ? "block" : "none";
+    if (!q) {
+      status.textContent = "输入后回车，或点选结果跳到该剧。";
+      return;
+    }
+    status.textContent = shown ? "找到 " + shown + " 部。回车定位到第一部，或从列表点选。" : "没有匹配。";
+    const take = matches.slice(0, 8);
+    take.forEach(function (a, i) {
+      const s = data.shows.filter(function (x) { return "show-" + x.rank === a.id; })[0];
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.setAttribute("role", "option");
+      const n = document.createElement("span");
+      n.className = "n";
+      n.textContent = String(s.rank).padStart(2, "0");
+      const title = document.createElement("span");
+      title.appendChild(markText(s.zh + "  " + s.en, raw.trim()));
+      const small = document.createElement("small");
+      small.textContent = data.genres.filter(function (g) { return g.id === s.genre; })[0].name;
+      btn.append(n, title, small);
+      btn.addEventListener("mousedown", function (e) {
+        e.preventDefault();
+        choose(i);
+      });
+      suggest.appendChild(btn);
+    });
+    if (take.length) suggest.classList.add("open");
+  }
+  function markText(text, q) {
+    const frag = document.createDocumentFragment();
+    if (!q) {
+      frag.appendChild(document.createTextNode(text));
+      return frag;
+    }
+    const lower = text.toLowerCase();
+    const ql = q.toLowerCase();
+    let i = 0;
+    while (i < text.length) {
+      const j = lower.indexOf(ql, i);
+      if (j < 0) {
+        frag.appendChild(document.createTextNode(text.slice(i)));
+        break;
+      }
+      if (j > i) frag.appendChild(document.createTextNode(text.slice(i, j)));
+      const m = document.createElement("mark");
+      m.textContent = text.slice(j, j + q.length);
+      frag.appendChild(m);
+      i = j + q.length;
+    }
+    return frag;
+  }
+  function choose(i) {
+    const a = matches[i];
+    if (!a) return;
+    const rank = Number(a.id.replace("show-", ""));
+    const s = data.shows.filter(function (x) { return x.rank === rank; })[0];
+    suggest.classList.remove("open");
+    setCurrent(s.genre);
+    locate(rank);
+  }
+  function move(delta) {
+    const buttons = suggest.querySelectorAll("button");
+    if (!buttons.length) return;
+    active = (active + delta + buttons.length) % buttons.length;
+    buttons.forEach(function (b, i) { b.classList.toggle("active", i === active); });
+    buttons[active].scrollIntoView({ block: "nearest" });
+  }
+
+  qEl.addEventListener("input", function () { apply(qEl.value); });
+  qEl.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowDown") { e.preventDefault(); move(1); }
+    else if (e.key === "ArrowUp") { e.preventDefault(); move(-1); }
+    else if (e.key === "Enter") {
+      e.preventDefault();
+      if (active >= 0) choose(active);
+      else if (matches[0]) choose(0);
+    } else if (e.key === "Escape") {
+      suggest.classList.remove("open");
+    }
+  });
+  document.addEventListener("click", function (e) {
+    if (!suggest.contains(e.target) && e.target !== qEl) suggest.classList.remove("open");
+  });
+
+  const spy = new IntersectionObserver(function (entries) {
+    const visible = entries.filter(function (en) { return en.isIntersecting; }).sort(function (a, b) { return b.intersectionRatio - a.intersectionRatio; })[0];
+    if (visible) setCurrent(visible.target.id.replace("genre-", ""));
+  }, { rootMargin: "-30% 0px -55% 0px", threshold: [0.1, 0.3] });
+  sections.forEach(function (sec) { spy.observe(sec); });
+  setCurrent("crime");
+})();
+</script>
+</body>
+</html>
