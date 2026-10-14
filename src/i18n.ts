@@ -122,7 +122,24 @@ export const lists: Record<string, ListCopy> = {
       },
     },
     colophon:
-      "Chinese titles use the names most common in Chinese-speaking places, and search also accepts familiar aliases. Directors, cast, and plots are short notes from public sources. The Chinese highlight is a translation of the blurb The New York Times wrote for that film. The English highlight is that blurb.",
+      "Chinese titles use the names most common in Chinese-speaking places, and search also accepts familiar aliases. Directors, cast, and plots are short notes from public sources. Highlight is the blurb The New York Times wrote for that film on this list (Chinese is a translation; English is the original). Playbill notes are ours and stay with the work; they are still being filled in for this list.",
+    ratings:
+      "Ratings are from Douban and IMDb, as of {date}. Douban scores each season separately. A show with several seasons displays the average (marked avg; hover for each season). Seasons with too few votes are left out.",
+  },
+  "criterion-spine": {
+    title: "The Criterion Collection",
+    kicker: "The Criterion Collection · by spine number",
+    dek: "The Criterion Collection catalog, ordered by spine number. Numbers come from Criterion’s official shop list; box sets and titles without a spine are left out for now. Search by spine number, English title, or director.",
+    noun: "film",
+    creator: "Director",
+    search: "Title, director, or a spine number such as 65",
+    idle: "Press Enter, or pick a result, to jump to that film.",
+    empty: "No matches. Try a title, a name, or a spine number.",
+    found: "Found {n}. Press Enter for the first, or pick one from the list.",
+    none: "No matches.",
+    sections: {},
+    colophon:
+      "Chinese titles use the names most common in Chinese-speaking places, and search also accepts familiar aliases. Directors, cast, and plots are short notes from public sources. Spine numbers are Criterion’s; the list is refreshed from their shop browse page. Playbill notes are ours and stay with the work.",
     ratings:
       "Ratings are from Douban and IMDb, as of {date}. Douban scores each season separately. A show with several seasons displays the average (marked avg; hover for each season). Seasons with too few votes are left out.",
   },
@@ -175,7 +192,7 @@ export const lists: Record<string, ListCopy> = {
       },
     },
     colophon:
-      "Chinese titles use the names most common in Chinese-speaking places, and search also accepts familiar aliases. Creators, cast, plots, and highlights are short notes from public sources, not a translation of someone else’s text.",
+      "Chinese titles use the names most common in Chinese-speaking places, and search also accepts familiar aliases. Creators, cast, and plots are short notes from public sources. Playbill notes are ours and stay with the work. List-native highlights for this ranking will be added later.",
     ratings:
       "Ratings are from Douban and IMDb, as of {date}. Douban scores each season separately. A show with several seasons displays the average (marked avg; hover for each season). Seasons with too few votes are left out.",
   },

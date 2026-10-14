@@ -21,6 +21,7 @@ const TABLES = [
   ["douban_subjects", "work_id, season, douban_id"],
   ["ratings", "work_id, source, fetched_at"],
   ["list_entries", "list_id, rank"],
+  ["list_highlights", "list_id, work_id"],
 ];
 
 export function openDb(file = DB_PATH) {
@@ -97,14 +98,25 @@ export async function cachedJson(source, key, url, { headers = {}, gap = 0, maxA
   if (hit && hit.status === 200 && (Date.now() - Date.parse(hit.fetched_at)) / 864e5 < maxAgeDays) {
     return JSON.parse(hit.body);
   }
-  const wait = (lastCall.get(source) ?? 0) + gap - Date.now();
-  if (wait > 0) await sleep(wait);
-  lastCall.set(source, Date.now());
-  const res = await fetch(url, { headers });
-  const body = await res.text();
-  c.prepare("INSERT OR REPLACE INTO raw VALUES (?, ?, ?, ?, ?)").run(source, key, res.status, body, new Date().toISOString());
-  if (!res.ok) throw new Error(`${source} ${res.status} ${url}`);
-  return JSON.parse(body);
+  // Douban's rexxar API applies subject_ip_rate_limit (~20 calls / few minutes) even when
+  // logged in; wait and retry instead of caching the failure or aborting the crawl.
+  for (let attempt = 0; ; attempt++) {
+    const wait = (lastCall.get(source) ?? 0) + gap - Date.now();
+    if (wait > 0) await sleep(wait);
+    lastCall.set(source, Date.now());
+    const res = await fetch(url, { headers });
+    const body = await res.text();
+    if (source === "douban" && res.status === 400 && body.includes("subject_ip_rate_limit")) {
+      if (attempt >= 10) throw new Error(`${source} ${res.status} ${url}`);
+      const pause = 120_000;
+      console.error(`douban IP rate limit on ${key}; sleeping ${pause / 1000}s (attempt ${attempt + 1})`);
+      await sleep(pause);
+      continue;
+    }
+    c.prepare("INSERT OR REPLACE INTO raw VALUES (?, ?, ?, ?, ?)").run(source, key, res.status, body, new Date().toISOString());
+    if (!res.ok) throw new Error(`${source} ${res.status} ${url}`);
+    return JSON.parse(body);
+  }
 }
 
 /** Drops a cached response, e.g. an empty result that really meant "rate limited". */

@@ -2,6 +2,7 @@
 import { getCollection, getEntry } from "astro:content";
 import Base from "../layouts/Base.astro";
 import Bi from "../components/Bi.astro";
+import PersonName from "../components/PersonName.astro";
 import { formEn, lists as listCopy, placeEn, yearsEn } from "../i18n";
 
 export async function getStaticPaths() {
@@ -41,7 +42,9 @@ const span = years.length ? `${Math.min(...years)}–${Math.max(...years)}` : ""
 const isTv = meta.kind === "tv";
 const noun = isTv ? "剧" : "片";
 const creatorLabel = isTv ? "主创" : "导演";
-const pad = (n: number) => String(n).padStart(2, "0");
+const pad = (n: number) => String(n).padStart(list.id === "criterion-spine" ? 3 : 2, "0");
+const rankHintZh = list.id === "criterion-spine" ? "编号如 65" : "名次如 27";
+const rankWordZh = list.id === "criterion-spine" ? "编号" : "名次";
 
 const fetched = rows.flatMap((r) => Object.values(r.work.ratings).map((x) => x?.fetchedAt ?? ""));
 const ratedOn = fetched.length ? fetched.sort().at(-1)!.slice(0, 7) : "";
@@ -57,6 +60,8 @@ function line(parts: (string | undefined)[]) {
 }
 
 function blob(r: (typeof rows)[number]) {
+  // Keep this small: it is inlined on every article and dominated first-load HTML size.
+  // Search is for title / people / rank, not full plot or 看点 text.
   const w = r.work;
   const section = sectionOf[r.section];
   const en = copy.sections[r.section];
@@ -70,11 +75,8 @@ function blob(r: (typeof rows)[number]) {
     w.original,
     ...w.alias,
     ...w.creators.flatMap((p) => [p.zh, p.en]),
+    ...w.writers.flatMap((p) => [p.zh, p.en]),
     ...w.cast.flatMap((p) => [p.zh, p.en]),
-    w.plot,
-    w.plotEn,
-    w.hook,
-    w.hookEn,
     w.place,
     placeEn(w.place),
     w.form,
@@ -84,6 +86,7 @@ function blob(r: (typeof rows)[number]) {
     .join(" ")
     .toLowerCase();
 }
+
 ---
 
 <Base titleZh={`${meta.title} · 场刊`} titleEn={`${copy.title} · Playbill`} description={meta.dek}>
@@ -120,8 +123,8 @@ function blob(r: (typeof rows)[number]) {
         <input
           id="q"
           type="search"
-          placeholder={`${noun}名、${isTv ? "主演、主创" : "导演、主演"}，或名次如 27`}
-          data-ph-zh={`${noun}名、${isTv ? "主演、主创" : "导演、主演"}，或名次如 27`}
+          placeholder={`${noun}名、${isTv ? "主演、主创" : "导演、主演"}，或${rankHintZh}`}
+          data-ph-zh={`${noun}名、${isTv ? "主演、主创" : "导演、主演"}，或${rankHintZh}`}
           data-ph-en={copy.search}
           autocomplete="off"
           enterkeyhint="search"
@@ -139,8 +142,27 @@ function blob(r: (typeof rows)[number]) {
     <nav class="sections" id="nav">
       <p><Bi zh="分区" en="Sections" /></p>
       {
+        meta.sections.length > 0 && (
+          <button type="button" data-section="all" data-name-zh="全部" data-name-en="All" aria-current="true">
+            <span class="swatch" />
+            <span class="name">
+              <Bi zh="全部" en="All" />
+            </span>
+            <em>{rows.length}</em>
+          </button>
+        )
+      }
+      {
         sections.map((s) => (
-          <button type="button" data-section={s.id} style={`--sec:${s.color}`}>
+          <button
+            type="button"
+            data-section={s.id}
+            data-name-zh={s.name}
+            data-name-en={s.en.name}
+            data-blurb-zh={s.blurb}
+            data-blurb-en={s.en.blurb}
+            style={`--sec:${s.color}`}
+          >
             <span class="swatch" />
             <span class="name">
               <Bi zh={s.name} en={s.en.name} />
@@ -184,50 +206,43 @@ function blob(r: (typeof rows)[number]) {
       </div>
 
       <p class="empty" id="empty" hidden>
-        <Bi zh={`没有匹配的${noun}目。可以换${noun}名、人名，或直接输入名次。`} en={copy.empty} />
+        <Bi zh={`没有匹配的${noun}目。可以换${noun}名、人名，或直接输入${rankWordZh}。`} en={copy.empty} />
       </p>
 
+      <header class="list-section section-intro" id="section-intro" hidden>
+        <h2>
+          <span class="zh" data-zh></span>
+          <span class="en" data-en></span>
+          <small data-count></small>
+        </h2>
+        <p class="blurb">
+          <span class="zh" data-blurb-zh></span>
+          <span class="en" data-blurb-en></span>
+        </p>
+      </header>
+
       {
-        sections.map((s) => (
-          <section
-            class="list-section"
-            id={`section-${s.id}`}
-            data-section={s.id}
-            data-name-zh={s.name}
-            data-name-en={s.en.name}
-            style={`--sec:${s.color}`}
-          >
-            <header>
-              <h2>
-                <Bi zh={s.name} en={s.en.name} />
-                <small>
-                  <Bi zh={`${s.rows.length} 部`} en={String(s.rows.length)} />
-                </small>
-              </h2>
-              {s.blurb && (
-                <p class="blurb">
-                  <Bi zh={s.blurb} en={s.en.blurb} />
-                </p>
-              )}
-            </header>
-            {s.rows.map((r, i) => {
+        rows.map((r) => {
               const w = r.work;
+              const sec = sectionOf[r.section];
+              const secEn = copy.sections[r.section];
               const douban = w.ratings.douban;
               const imdb = w.ratings.imdb;
               const seasons = douban ? doubanSeasons(douban) : undefined;
               const noteZh = seasons && "各季平均：" + seasons.map((x) => `第${x.season}季 ${x.value.toFixed(1)}`).join("，");
               const noteEn = seasons && "Average of seasons: " + seasons.map((x) => `S${x.season} ${x.value.toFixed(1)}`).join(", ");
-              const metaZh = line([w.years, w.place, w.form]);
-              const metaEn = line([yearsEn(w.years), placeEn(w.place), formEn(w.form)]);
+              const metaZh = line([w.years, w.place, w.form, meta.sections.length ? sec.name : undefined]);
+              const metaEn = line([yearsEn(w.years), placeEn(w.place), formEn(w.form), meta.sections.length ? (secEn?.name ?? sec.name) : undefined]);
               return (
                 <article
-                  class:list={["show", { lead: i === 0 }]}
+                  class:list={["show", { lead: r.rank === 1 }]}
                   id={`show-${r.rank}`}
                   data-rank={r.rank}
-                  data-section={s.id}
+                  data-section={r.section}
                   data-zh={w.zh ?? w.en}
                   data-en={w.zh ? w.en : ""}
                   data-blob={blob(r)}
+                  style={`--sec:${sec.color}`}
                 >
                   <p class="rank">{pad(r.rank)}</p>
                   {w.poster && (
@@ -293,8 +308,27 @@ function blob(r: (typeof rows)[number]) {
                                   <span class="en">, </span>
                                 </>
                               )}
-                              {p.zh && <span class="zh">{p.zh} </span>}
-                              <span class="lat">{p.en}</span>
+                              <PersonName id={p.id} zh={p.zh} en={p.en} />
+                            </>
+                          ))}
+                        </span>
+                      </p>
+                    )}
+                    {w.writers.length > 0 && (
+                      <p class="people">
+                        <span class="lab">
+                          <Bi zh="编剧" en="Writers" />
+                        </span>
+                        <span>
+                          {w.writers.map((p, j) => (
+                            <>
+                              {j > 0 && (
+                                <>
+                                  <span class="zh">、</span>
+                                  <span class="en">, </span>
+                                </>
+                              )}
+                              <PersonName id={p.id} zh={p.zh} en={p.en} />
                             </>
                           ))}
                         </span>
@@ -314,14 +348,13 @@ function blob(r: (typeof rows)[number]) {
                                   <span class="en">, </span>
                                 </>
                               )}
-                              {p.zh && <span class="zh">{p.zh} </span>}
-                              <span class="lat">{p.en}</span>
+                              <PersonName id={p.id} zh={p.zh} en={p.en} />
                             </>
                           ))}
                         </span>
                       </p>
                     )}
-                    {(w.plot || w.hook) && (
+                    {(w.plot || r.hook || w.playbill) && (
                       <div class="copy">
                         {w.plot && (
                           <p class="plot">
@@ -334,14 +367,25 @@ function blob(r: (typeof rows)[number]) {
                             </span>
                           </p>
                         )}
-                        {w.hook && (
+                        {r.hook && (
                           <p class="hook">
                             <span class="lab">
                               <Bi zh="看点" en="Highlight" />
                             </span>
                             <span>
-                              <span class="zh">{w.hook}</span>
-                              {w.hookEn && <span class="en">{w.hookEn}</span>}
+                              <span class="zh">{r.hook}</span>
+                              {r.hookEn && <span class="en">{r.hookEn}</span>}
+                            </span>
+                          </p>
+                        )}
+                        {w.playbill && (
+                          <p class="playbill">
+                            <span class="lab">
+                              <Bi zh="场刊" en="Playbill" />
+                            </span>
+                            <span>
+                              <span class="zh">{w.playbill}</span>
+                              {w.playbillEn && <span class="en">{w.playbillEn}</span>}
                             </span>
                           </p>
                         )}
@@ -350,9 +394,7 @@ function blob(r: (typeof rows)[number]) {
                   </div>
                 </article>
               );
-            })}
-          </section>
-        ))
+        })
       }
     </main>
   </div>
@@ -368,7 +410,9 @@ function blob(r: (typeof rows)[number]) {
       <span class="zh">
         名单{isTv ? "与播出年份" : ""}来自
         <a href={meta.source.url}>{meta.source.name}</a>。中文名取华语地区较通行的译名，搜索同时认常见别名。{creatorLabel}、主演和剧情为依据公开资料做的简要整理。
-        {isTv ? "看点也是这样整理的，不是原文。" : "看点译自《纽约时报》在这篇榜单里为每部电影写的推荐短文；英文模式下显示的是原文。"}
+        {isTv
+          ? "「场刊」是我们为每部作品写的短注，挂在作品上；这份榜单的原生「看点」日后补。"
+          : "「看点」译自《纽约时报》在这篇榜单里为每部电影写的推荐短文，英文模式下显示原文；「场刊」是我们自己的短注，挂在作品上，这份榜单里还在补。"}
       </span>
       <span class="en">
         The list{isTv ? " and the years on air are" : " is"} from <a href={meta.source.url}>{meta.source.name}</a>. {copy.colophon}

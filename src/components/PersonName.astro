@@ -1,0 +1,13 @@
+---
+interface Props {
+  id: string;
+  zh?: string;
+  en: string;
+}
+const { id, zh, en } = Astro.props;
+---
+
+<a class="person-link" href={`/people/${id}/`}>
+  {zh && <span class="zh">{zh} </span>}
+  <span class="lat">{en}</span>
+</a>

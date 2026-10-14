@@ -4,6 +4,12 @@
 //        npm run tmdb -- --force         (re-search and re-download everything)
 import { writeFile, mkdir, access } from "node:fs/promises";
 import { openDb, exportDb, cachedJson } from "./lib/db.mjs";
+import {
+  preferredWorkId,
+  shouldAdoptWorkId,
+  renameWork,
+  renamePosterFile,
+} from "./lib/work-id.mjs";
 
 const OUT = "public/posters";
 const SIZE = "w342";
@@ -11,16 +17,17 @@ const token = process.env.TMDB_API_READ_ACCESS_TOKEN;
 if (!token) throw new Error("TMDB_API_READ_ACCESS_TOKEN missing; put it in .env");
 
 // Search hints where the English title or start year alone picks the wrong show or season.
+// Keys are canonical work ids (tmdb-m- / tmdb-tv-); keep legacy slugs only if a row is not yet adopted.
 const HINTS = {
-  "twin-peaks-the-return": { query: "Twin Peaks", year: 1990, season: 3, imdb: "tt4093826" },
-  "true-detective": { season: 1 },
-  beef: { season: 1 },
-  "the-office-us": { query: "The Office", year: 2005 },
-  "the-office-uk": { query: "The Office", year: 2001 },
-  house: { query: "House", year: 2004 },
-  "the-great-british-baking-show": { query: "The Great British Bake Off", year: 2010 },
+  "tmdb-tv-1920": { query: "Twin Peaks", year: 1990, season: 3, imdb: "tt4093826" },
+  "tmdb-tv-46648": { season: 1 }, // True Detective
+  "tmdb-tv-154385": { season: 1 }, // Beef
+  "tmdb-tv-2316": { query: "The Office", year: 2005 },
+  "tmdb-tv-2996": { query: "The Office", year: 2001 },
+  "tmdb-tv-1408": { query: "House", year: 2004 },
+  "tmdb-tv-34549": { query: "The Great British Bake Off", year: 2010 },
   // A 19-minute Brazilian film shares the English title and the 2013 search year.
-  "under-the-skin": { id: 97370 },
+  "tmdb-m-97370": { id: 97370 }, // Under the Skin
 };
 
 const args = process.argv.slice(2);
@@ -108,11 +115,20 @@ const report = [];
 
 for (const w of works) {
   if (only.size && !only.has(w.id)) continue;
-  const dest = `${OUT}/${w.id}.jpg`;
+  let dest = `${OUT}/${w.id}.jpg`;
   const complete = w.tmdb_id && w.imdb_id && w.original && w.poster && (await exists(dest));
-  if (complete && !force && !only.size) continue;
+  if (complete && !force && !only.size) {
+    // Still adopt a canonical id if this row is on a legacy/local slug.
+    const want = preferredWorkId({ kind: w.kind, tmdbId: w.tmdb_id, currentId: w.id });
+    if (shouldAdoptWorkId(w.id, want)) {
+      renameWork(db, w.id, want);
+      await renamePosterFile(w.id, want);
+      report.push(`id    ${w.id} → ${want}`);
+    }
+    continue;
+  }
 
-  const hint = HINTS[w.id] ?? {};
+  const hint = HINTS[w.id] ?? HINTS[preferredWorkId({ kind: w.kind, tmdbId: w.tmdb_id, currentId: w.id })] ?? {};
   let tmdbId = hint.id ?? w.tmdb_id;
   let note = "";
   if (!tmdbId || (force && !hint.id)) {
@@ -125,6 +141,14 @@ for (const w of works) {
     if (!hit.exact) note = "?? fuzzy match";
   }
   const type = w.kind;
+  const want = preferredWorkId({ kind: type, tmdbId, currentId: w.id });
+  if (shouldAdoptWorkId(w.id, want)) {
+    renameWork(db, w.id, want);
+    await renamePosterFile(w.id, want);
+    note = `${note} id←${w.id}`.trim();
+    w.id = want;
+    dest = `${OUT}/${w.id}.jpg`;
+  }
   const season = hint.season ?? w.tmdb_season ?? null;
   const d = await tmdb(`/${type}/${tmdbId}`, { append_to_response: "external_ids" });
   const imdbId = hint.imdb ?? d.imdb_id ?? d.external_ids?.imdb_id ?? null;

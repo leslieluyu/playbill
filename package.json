@@ -12,8 +12,10 @@
     "db": "node --no-warnings scripts/db.mjs",
     "seed": "node --no-warnings scripts/seed-list.mjs",
     "tmdb": "node --no-warnings --env-file=.env scripts/tmdb.mjs",
+    "people": "node --no-warnings --env-file=.env scripts/people.mjs",
     "imdb": "node --no-warnings scripts/imdb.mjs",
-    "douban": "node --no-warnings --env-file=.env scripts/douban.mjs"
+    "douban": "node --no-warnings --env-file=.env scripts/douban.mjs",
+    "criterion": "node --no-warnings scripts/fetch-criterion.mjs"
   },
   "dependencies": {
     "astro": "^7.3.8"

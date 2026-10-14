@@ -1,74 +1,217 @@
-{"douban_id":"2373195","work_id":"breaking-bad","season":1,"title":"绝命毒师 第一季","year":2008,"rating":9.2,"votes":393129,"fetched_at":"2026-10-10"}
-{"douban_id":"3586996","work_id":"breaking-bad","season":2,"title":"绝命毒师  第二季","year":2009,"rating":9.3,"votes":250284,"fetched_at":"2026-10-10"}
-{"douban_id":"4256328","work_id":"breaking-bad","season":3,"title":"绝命毒师  第三季","year":2010,"rating":9.4,"votes":222652,"fetched_at":"2026-10-10"}
-{"douban_id":"4927382","work_id":"breaking-bad","season":4,"title":"绝命毒师  第四季","year":2011,"rating":9.5,"votes":212527,"fetched_at":"2026-10-10"}
-{"douban_id":"6952149","work_id":"breaking-bad","season":5,"title":"绝命毒师  第五季","year":2012,"rating":9.7,"votes":262701,"fetched_at":"2026-10-10"}
-{"douban_id":"6118634","work_id":"survivor","season":1,"title":"幸存者：婆罗洲 第一季","year":2000,"rating":8.2,"votes":420,"fetched_at":"2026-10-10"}
-{"douban_id":"2295982","work_id":"survivor","season":2,"title":"幸存者：澳大利亚内陆 第二季","year":2001,"rating":8.2,"votes":510,"fetched_at":"2026-10-10"}
-{"douban_id":"4901926","work_id":"survivor","season":3,"title":"幸存者：非洲 第三季","year":2001,"rating":7.7,"votes":186,"fetched_at":"2026-10-10"}
-{"douban_id":"3678975","work_id":"survivor","season":4,"title":"幸存者：马克萨斯群岛 第四季","year":2002,"rating":7.7,"votes":229,"fetched_at":"2026-10-10"}
-{"douban_id":"10520513","work_id":"survivor","season":5,"title":"幸存者：泰国 第五季","year":2002,"rating":6.9,"votes":126,"fetched_at":"2026-10-10"}
-{"douban_id":"4315598","work_id":"survivor","season":6,"title":"幸存者：亚马逊 第六季","year":2003,"rating":7.5,"votes":249,"fetched_at":"2026-10-10"}
-{"douban_id":"3271362","work_id":"survivor","season":7,"title":"幸存者：珍珠岛 第七季","year":2003,"rating":8.6,"votes":797,"fetched_at":"2026-10-10"}
-{"douban_id":"6517029","work_id":"survivor","season":8,"title":"幸存者：全明星 第八季","year":2004,"rating":8.4,"votes":673,"fetched_at":"2026-10-10"}
-{"douban_id":"3679045","work_id":"survivor","season":9,"title":"幸存者：瓦努阿图 第九季","year":2004,"rating":7.2,"votes":195,"fetched_at":"2026-10-10"}
-{"douban_id":"2295997","work_id":"survivor","season":10,"title":"幸存者：帕劳 第十季","year":2005,"rating":8.4,"votes":563,"fetched_at":"2026-10-10"}
-{"douban_id":"3679059","work_id":"survivor","season":11,"title":"幸存者：危地马拉 第十一季","year":2005,"rating":7.4,"votes":211,"fetched_at":"2026-10-10"}
-{"douban_id":"4298617","work_id":"survivor","season":12,"title":"幸存者：巴拿马 第十二季","year":2006,"rating":7.6,"votes":295,"fetched_at":"2026-10-10"}
-{"douban_id":"3271357","work_id":"survivor","season":13,"title":"幸存者：库克群岛 第十三季","year":2006,"rating":9.3,"votes":2132,"fetched_at":"2026-10-10"}
-{"douban_id":"3091479","work_id":"survivor","season":15,"title":"幸存者：中国 第十五季","year":2007,"rating":7.7,"votes":1492,"fetched_at":"2026-10-10"}
-{"douban_id":"3271361","work_id":"survivor","season":16,"title":"幸存者：密克罗尼西亚 第十六季","year":2008,"rating":8.8,"votes":1431,"fetched_at":"2026-10-10"}
-{"douban_id":"3227204","work_id":"survivor","season":17,"title":"幸存者：加蓬 第十七季","year":2008,"rating":8,"votes":979,"fetched_at":"2026-10-10"}
-{"douban_id":"3538969","work_id":"survivor","season":18,"title":"幸存者：托坎廷斯 第十八季","year":2009,"rating":7.6,"votes":800,"fetched_at":"2026-10-10"}
-{"douban_id":"4037007","work_id":"survivor","season":19,"title":"幸存者：萨摩亚 第十九季","year":2009,"rating":8.7,"votes":1378,"fetched_at":"2026-10-10"}
-{"douban_id":"4282504","work_id":"survivor","season":20,"title":"幸存者：正邪之争 第二十季","year":2010,"rating":9.2,"votes":2084,"fetched_at":"2026-10-10"}
-{"douban_id":"5032142","work_id":"survivor","season":21,"title":"幸存者：尼加拉瓜 第二十一季","year":2010,"rating":7.2,"votes":822,"fetched_at":"2026-10-10"}
-{"douban_id":"5951990","work_id":"survivor","season":22,"title":"幸存者: 救赎岛 第二十二季","year":2011,"rating":7.6,"votes":994,"fetched_at":"2026-10-10"}
-{"douban_id":"6844794","work_id":"survivor","season":23,"title":"幸存者：南太平洋 第二十三季","year":2011,"rating":7.5,"votes":772,"fetched_at":"2026-10-10"}
-{"douban_id":"7163452","work_id":"survivor","season":24,"title":"幸存者：同一个世界 第二十四季","year":2012,"rating":6.9,"votes":911,"fetched_at":"2026-10-10"}
-{"douban_id":"11615468","work_id":"survivor","season":25,"title":"幸存者：菲律宾 第二十五季","year":2012,"rating":8.2,"votes":884,"fetched_at":"2026-10-10"}
-{"douban_id":"20471026","work_id":"survivor","season":26,"title":"幸存者：卡拉摩安 第二十六季","year":2013,"rating":8.2,"votes":919,"fetched_at":"2026-10-10"}
-{"douban_id":"24298414","work_id":"survivor","season":27,"title":"幸存者：血浓于水 第二十七季","year":2013,"rating":7.7,"votes":758,"fetched_at":"2026-10-10"}
-{"douban_id":"25791945","work_id":"survivor","season":28,"title":"幸存者：卡加延 第二十八季","year":2014,"rating":8.7,"votes":1216,"fetched_at":"2026-10-10"}
-{"douban_id":"25894892","work_id":"survivor","season":29,"title":"幸存者：南圣胡安之血浓于水 第二十九季","year":2014,"rating":7.4,"votes":530,"fetched_at":"2026-10-10"}
-{"douban_id":"26286106","work_id":"survivor","season":30,"title":"幸存者：阶级斗争 第三十季","year":2015,"rating":8.1,"votes":722,"fetched_at":"2026-10-10"}
-{"douban_id":"26387831","work_id":"survivor","season":31,"title":"幸存者：柬埔寨之第二次机会 第三十一季","year":2015,"rating":8.9,"votes":1056,"fetched_at":"2026-10-10"}
-{"douban_id":"26688717","work_id":"survivor","season":32,"title":"幸存者：瓜隆岛 第三十二季","year":2016,"rating":7.5,"votes":630,"fetched_at":"2026-10-10"}
-{"douban_id":"26758802","work_id":"survivor","season":33,"title":"幸存者：老少对决 第三十三季","year":2016,"rating":9.1,"votes":1490,"fetched_at":"2026-10-10"}
-{"douban_id":"26933292","work_id":"survivor","season":34,"title":"幸存者：规则改变者 第三十四季","year":2017,"rating":7.7,"votes":737,"fetched_at":"2026-10-10"}
-{"douban_id":"27003710","work_id":"survivor","season":35,"title":"幸存者：角色之争 第三十五季","year":2017,"rating":7.1,"votes":612,"fetched_at":"2026-10-10"}
-{"douban_id":"27162474","work_id":"survivor","season":36,"title":"幸存者：幽灵岛 第三十六季","year":2018,"rating":5.8,"votes":496,"fetched_at":"2026-10-10"}
-{"douban_id":"30231081","work_id":"survivor","season":37,"title":"幸存者：强弱之争 第三十七季","year":2018,"rating":8.9,"votes":1363,"fetched_at":"2026-10-10"}
-{"douban_id":"30409551","work_id":"survivor","season":38,"title":"幸存者：毁灭边缘 第三十八季","year":2019,"rating":7.5,"votes":676,"fetched_at":"2026-10-10"}
-{"douban_id":"33431442","work_id":"survivor","season":39,"title":"幸存者：偶像之岛 第三十九季","year":2019,"rating":5.4,"votes":513,"fetched_at":"2026-10-10"}
-{"douban_id":"34856187","work_id":"survivor","season":40,"title":"幸存者：王者决战 第四十季","year":2020,"rating":9.3,"votes":1902,"fetched_at":"2026-10-10"}
-{"douban_id":"35422691","work_id":"survivor","season":41,"title":"幸存者 第四十一季","year":2021,"rating":7.1,"votes":502,"fetched_at":"2026-10-10"}
-{"douban_id":"35660959","work_id":"survivor","season":42,"title":"幸存者 第四十二季","year":2022,"rating":8.3,"votes":598,"fetched_at":"2026-10-10"}
-{"douban_id":"35932187","work_id":"survivor","season":43,"title":"幸存者 第四十三季","year":2022,"rating":6.9,"votes":335,"fetched_at":"2026-10-10"}
-{"douban_id":"36188179","work_id":"survivor","season":44,"title":"幸存者 第四十四季","year":2023,"rating":7.1,"votes":335,"fetched_at":"2026-10-10"}
-{"douban_id":"36421319","work_id":"survivor","season":45,"title":"幸存者 第四十五季","year":2023,"rating":7,"votes":274,"fetched_at":"2026-10-10"}
-{"douban_id":"36706003","work_id":"survivor","season":46,"title":"幸存者 第四十六季","year":2024,"rating":null,"votes":0,"fetched_at":"2026-10-10"}
-{"douban_id":"36929293","work_id":"survivor","season":47,"title":"幸存者 第四十七季","year":2024,"rating":null,"votes":0,"fetched_at":"2026-10-10"}
-{"douban_id":"37163598","work_id":"survivor","season":48,"title":"幸存者 第四十八季","year":2025,"rating":null,"votes":0,"fetched_at":"2026-10-10"}
-{"douban_id":"37370020","work_id":"survivor","season":49,"title":"幸存者 第四十九季","year":2025,"rating":null,"votes":0,"fetched_at":"2026-10-10"}
-{"douban_id":"37372601","work_id":"survivor","season":50,"title":"幸存者：粉丝主宰 第五十季","year":2026,"rating":null,"votes":0,"fetched_at":"2026-10-10"}
-{"douban_id":"38221101","work_id":"survivor","season":51,"title":"幸存者 第五十一季","year":2026,"rating":null,"votes":0,"fetched_at":"2026-10-10"}
-{"douban_id":"10439547","work_id":"the-great-british-baking-show","season":1,"title":"英国家庭烘焙大赛 第一季","year":2010,"rating":8.5,"votes":371,"fetched_at":"2026-10-10"}
-{"douban_id":"27054012","work_id":"the-great-british-baking-show","season":2,"title":"英国家庭烘焙大赛 第二季","year":2011,"rating":8.4,"votes":139,"fetched_at":"2026-10-10"}
-{"douban_id":"25658308","work_id":"the-great-british-baking-show","season":3,"title":"英国家庭烘焙大赛 第三季","year":2012,"rating":8.9,"votes":223,"fetched_at":"2026-10-10"}
-{"douban_id":"25719327","work_id":"the-great-british-baking-show","season":4,"title":"英国家庭烘焙大赛 第四季","year":2013,"rating":8.6,"votes":206,"fetched_at":"2026-10-10"}
-{"douban_id":"25960942","work_id":"the-great-british-baking-show","season":5,"title":"英国家庭烘焙大赛 第五季","year":2014,"rating":9,"votes":273,"fetched_at":"2026-10-10"}
-{"douban_id":"26656803","work_id":"the-great-british-baking-show","season":6,"title":"英国家庭烘焙大赛 第六季","year":2015,"rating":8.9,"votes":269,"fetched_at":"2026-10-10"}
-{"douban_id":"26897024","work_id":"the-great-british-baking-show","season":7,"title":"英国家庭烘焙大赛 第七季","year":2016,"rating":8.9,"votes":253,"fetched_at":"2026-10-10"}
-{"douban_id":"27185077","work_id":"the-great-british-baking-show","season":8,"title":"英国家庭烘焙大赛 第八季","year":2017,"rating":9,"votes":404,"fetched_at":"2026-10-10"}
-{"douban_id":"30373166","work_id":"the-great-british-baking-show","season":9,"title":"英国家庭烘焙大赛 第九季","year":2018,"rating":9.2,"votes":677,"fetched_at":"2026-10-10"}
-{"douban_id":"34833598","work_id":"the-great-british-baking-show","season":10,"title":"英国家庭烘焙大赛 第十季","year":2019,"rating":9.2,"votes":558,"fetched_at":"2026-10-10"}
-{"douban_id":"35211105","work_id":"the-great-british-baking-show","season":11,"title":"英国家庭烘焙大赛 第十一季","year":2020,"rating":8.9,"votes":531,"fetched_at":"2026-10-10"}
-{"douban_id":"35609243","work_id":"the-great-british-baking-show","season":12,"title":"英国家庭烘焙大赛 第十二季","year":2021,"rating":9.5,"votes":655,"fetched_at":"2026-10-10"}
-{"douban_id":"36094833","work_id":"the-great-british-baking-show","season":13,"title":"英国家庭烘焙大赛 第十三季","year":2022,"rating":9.1,"votes":601,"fetched_at":"2026-10-10"}
-{"douban_id":"36580241","work_id":"the-great-british-baking-show","season":14,"title":"英国家庭烘焙大赛 第十四季","year":2023,"rating":8.7,"votes":149,"fetched_at":"2026-10-10"}
-{"douban_id":"37068310","work_id":"the-great-british-baking-show","season":15,"title":"英国家庭烘焙大赛 第十五季","year":2024,"rating":null,"votes":0,"fetched_at":"2026-10-10"}
-{"douban_id":"37490891","work_id":"the-great-british-baking-show","season":16,"title":"英国家庭烘焙大赛 第十六季","year":2025,"rating":null,"votes":0,"fetched_at":"2026-10-10"}
-{"douban_id":"38916724","work_id":"the-great-british-baking-show","season":17,"title":"英国家庭烘焙大赛 第十七季","year":2026,"rating":null,"votes":0,"fetched_at":"2026-10-10"}
-{"douban_id":"10748120","work_id":"true-detective","season":1,"title":"真探 第一季","year":2014,"rating":9.2,"votes":230467,"fetched_at":"2026-10-10"}
-{"douban_id":"26088510","work_id":"twin-peaks-the-return","season":3,"title":"双峰 第三季","year":2017,"rating":8.9,"votes":15993,"fetched_at":"2026-10-10"}
+{"douban_id":"1292217","work_id":"tmdb-m-1018","season":0,"title":"穆赫兰道","year":2001,"rating":8.5,"votes":519522,"fetched_at":"2026-10-14"}
+{"douban_id":"2997076","work_id":"tmdb-m-106646","season":0,"title":"华尔街之狼","year":2013,"rating":8.1,"votes":526507,"fetched_at":"2026-10-14"}
+{"douban_id":"2131459","work_id":"tmdb-m-10681","season":0,"title":"机器人总动员","year":2008,"rating":9.3,"votes":1528117,"fetched_at":"2026-10-14"}
+{"douban_id":"1300299","work_id":"tmdb-m-11423","season":0,"title":"杀人回忆","year":2003,"rating":8.9,"votes":855348,"fetched_at":"2026-10-14"}
+{"douban_id":"1291571","work_id":"tmdb-m-120","season":0,"title":"指环王1：护戒使者","year":2001,"rating":9.1,"votes":977514,"fetched_at":"2026-10-14"}
+{"douban_id":"11525673","work_id":"tmdb-m-120467","season":0,"title":"布达佩斯大饭店","year":2014,"rating":8.9,"votes":1104188,"fetched_at":"2026-10-14"}
+{"douban_id":"2028645","work_id":"tmdb-m-12162","season":0,"title":"拆弹部队","year":2008,"rating":7.8,"votes":189978,"fetched_at":"2026-10-14"}
+{"douban_id":"11527487","work_id":"tmdb-m-121986","season":0,"title":"弗兰西丝·哈","year":2012,"rating":8.5,"votes":86758,"fetched_at":"2026-10-14"}
+{"douban_id":"11538029","work_id":"tmdb-m-123678","season":0,"title":"杀戮演绎","year":2012,"rating":8.4,"votes":11414,"fetched_at":"2026-10-14"}
+{"douban_id":"3135483","work_id":"tmdb-m-12573","season":0,"title":"严肃的男人","year":2009,"rating":7.4,"votes":24567,"fetched_at":"2026-10-14"}
+{"douban_id":"1291561","work_id":"tmdb-m-129","season":0,"title":"千与千寻","year":2001,"rating":9.4,"votes":2575711,"fetched_at":"2026-10-14"}
+{"douban_id":"2968813","work_id":"tmdb-m-13310","season":0,"title":"生人勿进","year":2008,"rating":7.6,"votes":51641,"fetched_at":"2026-10-14"}
+{"douban_id":"1292264","work_id":"tmdb-m-134","season":0,"title":"逃狱三王","year":2000,"rating":7.8,"votes":66999,"fetched_at":"2026-10-14"}
+{"douban_id":"1295836","work_id":"tmdb-m-13785","season":0,"title":"人狗对对碰","year":2000,"rating":7,"votes":409,"fetched_at":"2026-10-14"}
+{"douban_id":"1303333","work_id":"tmdb-m-1391","season":0,"title":"你妈妈也一样","year":2001,"rating":7.5,"votes":27122,"fetched_at":"2026-10-14"}
+{"douban_id":"2129039","work_id":"tmdb-m-14160","season":0,"title":"飞屋环游记","year":2009,"rating":9.1,"votes":1524762,"fetched_at":"2026-10-14"}
+{"douban_id":"1767042","work_id":"tmdb-m-1417","season":0,"title":"潘神的迷宫","year":2006,"rating":7.9,"votes":270519,"fetched_at":"2026-10-14"}
+{"douban_id":"1418834","work_id":"tmdb-m-142","season":0,"title":"断背山","year":2005,"rating":8.8,"votes":797129,"fetched_at":"2026-10-14"}
+{"douban_id":"1315316","work_id":"tmdb-m-1422","season":0,"title":"无间道风云","year":2006,"rating":7.3,"votes":146527,"fetched_at":"2026-10-14"}
+{"douban_id":"1301168","work_id":"tmdb-m-146","season":0,"title":"卧虎藏龙","year":2000,"rating":8.4,"votes":564897,"fetched_at":"2026-10-14"}
+{"douban_id":"6722879","work_id":"tmdb-m-152601","season":0,"title":"她","year":2013,"rating":8.4,"votes":503897,"fetched_at":"2026-10-14"}
+{"douban_id":"1291835","work_id":"tmdb-m-153","season":0,"title":"迷失东京","year":2003,"rating":7.8,"votes":259350,"fetched_at":"2026-10-14"}
+{"douban_id":"1851857","work_id":"tmdb-m-155","season":0,"title":"蝙蝠侠：黑暗骑士","year":2008,"rating":9.2,"votes":1215870,"fetched_at":"2026-10-14"}
+{"douban_id":"1889243","work_id":"tmdb-m-157336","season":0,"title":"星际穿越","year":2014,"rating":9.4,"votes":2233256,"fetched_at":"2026-10-14"}
+{"douban_id":"1301578","work_id":"tmdb-m-161","season":0,"title":"十一罗汉","year":2001,"rating":7.9,"votes":209075,"fetched_at":"2026-10-14"}
+{"douban_id":"1438652","work_id":"tmdb-m-16869","season":0,"title":"无耻混蛋","year":2009,"rating":8.7,"votes":578683,"fetched_at":"2026-10-14"}
+{"douban_id":"1297689","work_id":"tmdb-m-180","season":0,"title":"少数派报告","year":2002,"rating":7.9,"votes":193553,"fetched_at":"2026-10-14"}
+{"douban_id":"1292215","work_id":"tmdb-m-194","season":0,"title":"天使爱美丽","year":2001,"rating":8.7,"votes":1032416,"fetched_at":"2026-10-14"}
+{"douban_id":"1781126","work_id":"tmdb-m-1949","season":0,"title":"十二宫","year":2007,"rating":7.5,"votes":228485,"fetched_at":"2026-10-14"}
+{"douban_id":"1793491","work_id":"tmdb-m-2062","season":0,"title":"美食总动员","year":2007,"rating":8.6,"votes":462308,"fetched_at":"2026-10-14"}
+{"douban_id":"21318488","work_id":"tmdb-m-210577","season":0,"title":"消失的爱人","year":2014,"rating":8.7,"votes":1091608,"fetched_at":"2026-10-14"}
+{"douban_id":"3077739","work_id":"tmdb-m-21575","season":0,"title":"预言者","year":2009,"rating":7.6,"votes":19125,"fetched_at":"2026-10-14"}
+{"douban_id":"1689787","work_id":"tmdb-m-219","season":0,"title":"回归","year":2006,"rating":8.2,"votes":61773,"fetched_at":"2026-10-14"}
+{"douban_id":"1291580","work_id":"tmdb-m-24","season":0,"title":"杀死比尔","year":2003,"rating":8.4,"votes":659995,"fetched_at":"2026-10-14"}
+{"douban_id":"3073875","work_id":"tmdb-m-24469","season":0,"title":"鱼缸","year":2009,"rating":7.5,"votes":33996,"fetched_at":"2026-10-14"}
+{"douban_id":"25773932","work_id":"tmdb-m-244786","season":0,"title":"爆裂鼓手","year":2014,"rating":8.6,"votes":706998,"fetched_at":"2026-10-14"}
+{"douban_id":"1292434","work_id":"tmdb-m-25538","season":0,"title":"一一","year":2000,"rating":9.1,"votes":531584,"fetched_at":"2026-10-14"}
+{"douban_id":"10757577","work_id":"tmdb-m-258480","season":0,"title":"卡罗尔","year":2015,"rating":8.4,"votes":316327,"fetched_at":"2026-10-14"}
+{"douban_id":"3541415","work_id":"tmdb-m-27205","season":0,"title":"盗梦空间","year":2010,"rating":9.4,"votes":2363224,"fetched_at":"2026-10-14"}
+{"douban_id":"1302193","work_id":"tmdb-m-2757","season":0,"title":"改编剧本","year":2002,"rating":7.6,"votes":29762,"fetched_at":"2026-10-14"}
+{"douban_id":"6390825","work_id":"tmdb-m-284054","season":0,"title":"黑豹","year":2018,"rating":6.5,"votes":478841,"fetched_at":"2026-10-14"}
+{"douban_id":"25954475","work_id":"tmdb-m-314365","season":0,"title":"聚焦","year":2015,"rating":8.8,"votes":282541,"fetched_at":"2026-10-14"}
+{"douban_id":"21324900","work_id":"tmdb-m-329865","season":0,"title":"降临","year":2016,"rating":7.8,"votes":537987,"fetched_at":"2026-10-14"}
+{"douban_id":"24872189","work_id":"tmdb-m-374475","season":0,"title":"托尼·厄德曼","year":2016,"rating":7.6,"votes":30162,"fetched_at":"2026-10-14"}
+{"douban_id":"26628282","work_id":"tmdb-m-375262","season":0,"title":"宠儿","year":2018,"rating":7.5,"votes":94061,"fetched_at":"2026-10-14"}
+{"douban_id":"26648249","work_id":"tmdb-m-376867","season":0,"title":"月光男孩","year":2016,"rating":7.4,"votes":160256,"fetched_at":"2026-10-14"}
+{"douban_id":"3205624","work_id":"tmdb-m-37799","season":0,"title":"社交网络","year":2010,"rating":8.2,"votes":509725,"fetched_at":"2026-10-14"}
+{"douban_id":"1308777","work_id":"tmdb-m-38","season":0,"title":"暖暖内含光","year":2004,"rating":8.5,"votes":307944,"fetched_at":"2026-10-14"}
+{"douban_id":"26588314","work_id":"tmdb-m-391713","season":0,"title":"伯德小姐","year":2017,"rating":7.9,"votes":361911,"fetched_at":"2026-10-14"}
+{"douban_id":"26778790","work_id":"tmdb-m-394117","season":0,"title":"佛罗里达乐园","year":2017,"rating":8.1,"votes":135756,"fetched_at":"2026-10-14"}
+{"douban_id":"26799731","work_id":"tmdb-m-398818","season":0,"title":"请以你的名字呼唤我","year":2017,"rating":8.8,"votes":841999,"fetched_at":"2026-10-14"}
+{"douban_id":"26809592","work_id":"tmdb-m-400617","season":0,"title":"魅影缝匠","year":2017,"rating":7.5,"votes":110957,"fetched_at":"2026-10-14"}
+{"douban_id":"26688480","work_id":"tmdb-m-419430","season":0,"title":"逃出绝命镇","year":2017,"rating":7.8,"votes":454391,"fetched_at":"2026-10-14"}
+{"douban_id":"1950330","work_id":"tmdb-m-426426","season":0,"title":"罗马","year":2018,"rating":8.2,"votes":157706,"fetched_at":"2026-10-14"}
+{"douban_id":"1978709","work_id":"tmdb-m-44214","season":0,"title":"黑天鹅","year":2010,"rating":8.6,"votes":859414,"fetched_at":"2026-10-14"}
+{"douban_id":"1301279","work_id":"tmdb-m-44379","season":0,"title":"拾穗者","year":2000,"rating":9.1,"votes":15634,"fetched_at":"2026-10-14"}
+{"douban_id":"1905790","work_id":"tmdb-m-4566","season":0,"title":"迈克尔·克莱顿","year":2007,"rating":7,"votes":12024,"fetched_at":"2026-10-14"}
+{"douban_id":"27087724","work_id":"tmdb-m-466272","season":0,"title":"好莱坞往事","year":2019,"rating":7.3,"votes":275247,"fetched_at":"2026-10-14"}
+{"douban_id":"35169716","work_id":"tmdb-m-467244","season":0,"title":"利益区域","year":2023,"rating":7.4,"votes":44874,"fetched_at":"2026-10-14"}
+{"douban_id":"27045860","work_id":"tmdb-m-473033","season":0,"title":"原钻","year":2019,"rating":7.3,"votes":44012,"fetched_at":"2026-10-14"}
+{"douban_id":"3793783","work_id":"tmdb-m-49047","season":0,"title":"地心引力","year":2013,"rating":7.9,"votes":475570,"fetched_at":"2026-10-14"}
+{"douban_id":"1870044","work_id":"tmdb-m-496","season":0,"title":"波拉特","year":2006,"rating":7.4,"votes":61708,"fetched_at":"2026-10-14"}
+{"douban_id":"27010768","work_id":"tmdb-m-496243","season":0,"title":"寄生虫","year":2019,"rating":8.8,"votes":1574019,"fetched_at":"2026-10-14"}
+{"douban_id":"1422951","work_id":"tmdb-m-501","season":0,"title":"灰熊人","year":2005,"rating":8.4,"votes":8441,"fetched_at":"2026-10-14"}
+{"douban_id":"30257175","work_id":"tmdb-m-531428","season":0,"title":"燃烧女子的肖像","year":2019,"rating":8.8,"votes":282390,"fetched_at":"2026-10-14"}
+{"douban_id":"30314848","work_id":"tmdb-m-545611","season":0,"title":"瞬息全宇宙","year":2022,"rating":7.5,"votes":651449,"fetched_at":"2026-10-14"}
+{"douban_id":"3880545","work_id":"tmdb-m-55721","season":0,"title":"伴娘","year":2011,"rating":6.9,"votes":68830,"fetched_at":"2026-10-14"}
+{"douban_id":"1900841","work_id":"tmdb-m-582","season":0,"title":"窃听风暴","year":2006,"rating":9.2,"votes":641239,"fetched_at":"2026-10-14"}
+{"douban_id":"1292208","work_id":"tmdb-m-598","season":0,"title":"上帝之城","year":2002,"rating":9,"votes":339508,"fetched_at":"2026-10-14"}
+{"douban_id":"5964718","work_id":"tmdb-m-60243","season":0,"title":"一次别离","year":2011,"rating":8.7,"votes":272248,"fetched_at":"2026-10-14"}
+{"douban_id":"3023164","work_id":"tmdb-m-60308","season":0,"title":"点球成金","year":2011,"rating":8.3,"votes":122092,"fetched_at":"2026-10-14"}
+{"douban_id":"4086853","work_id":"tmdb-m-62215","season":0,"title":"忧郁症","year":2011,"rating":7.2,"votes":40044,"fetched_at":"2026-10-14"}
+{"douban_id":"34447553","work_id":"tmdb-m-660120","season":0,"title":"世界上最糟糕的人","year":2021,"rating":7.9,"votes":127884,"fetched_at":"2026-10-14"}
+{"douban_id":"34963356","work_id":"tmdb-m-666277","season":0,"title":"过往人生","year":2023,"rating":7.7,"votes":113147,"fetched_at":"2026-10-14"}
+{"douban_id":"1308865","work_id":"tmdb-m-670","season":0,"title":"老男孩","year":2003,"rating":8.2,"votes":339095,"fetched_at":"2026-10-14"}
+{"douban_id":"6433905","work_id":"tmdb-m-68722","season":0,"title":"大师","year":2012,"rating":7.4,"votes":24504,"fetched_at":"2026-10-14"}
+{"douban_id":"1857099","work_id":"tmdb-m-6977","season":0,"title":"老无所依","year":2007,"rating":8.4,"votes":366129,"fetched_at":"2026-10-14"}
+{"douban_id":"1945780","work_id":"tmdb-m-7345","season":0,"title":"血色将至","year":2007,"rating":8.4,"votes":114612,"fetched_at":"2026-10-14"}
+{"douban_id":"6879185","work_id":"tmdb-m-76203","season":0,"title":"为奴十二年","year":2013,"rating":8.3,"votes":276303,"fetched_at":"2026-10-14"}
+{"douban_id":"3592854","work_id":"tmdb-m-76341","season":0,"title":"疯狂的麦克斯4：狂暴之路","year":2015,"rating":8.7,"votes":631115,"fetched_at":"2026-10-14"}
+{"douban_id":"1304447","work_id":"tmdb-m-77","season":0,"title":"记忆碎片","year":2000,"rating":8.7,"votes":725078,"fetched_at":"2026-10-14"}
+{"douban_id":"1777612","work_id":"tmdb-m-773","season":0,"title":"阳光小美女","year":2006,"rating":8.4,"votes":292929,"fetched_at":"2026-10-14"}
+{"douban_id":"1292352","work_id":"tmdb-m-786","season":0,"title":"几近成名","year":2000,"rating":8,"votes":33100,"fetched_at":"2026-10-14"}
+{"douban_id":"1291990","work_id":"tmdb-m-80","season":0,"title":"爱在日落黄昏时","year":2004,"rating":8.9,"votes":670499,"fetched_at":"2026-10-14"}
+{"douban_id":"1300211","work_id":"tmdb-m-8051","season":0,"title":"私恋失调","year":2002,"rating":7.9,"votes":30368,"fetched_at":"2026-10-14"}
+{"douban_id":"35430833","work_id":"tmdb-m-817758","season":0,"title":"塔尔","year":2022,"rating":7.4,"votes":34098,"fetched_at":"2026-10-14"}
+{"douban_id":"2059310","work_id":"tmdb-m-8363","season":0,"title":"太坏了","year":2007,"rating":6.9,"votes":24852,"fetched_at":"2026-10-14"}
+{"douban_id":"1291557","work_id":"tmdb-m-843","season":0,"title":"花样年华","year":2000,"rating":8.8,"votes":824907,"fetched_at":"2026-10-14"}
+{"douban_id":"2209575","work_id":"tmdb-m-85350","season":0,"title":"少年时代","year":2014,"rating":8.5,"votes":233969,"fetched_at":"2026-10-14"}
+{"douban_id":"6887029","work_id":"tmdb-m-86829","season":0,"title":"醉乡民谣","year":2013,"rating":8.1,"votes":142484,"fetched_at":"2026-10-14"}
+{"douban_id":"4798707","work_id":"tmdb-m-86837","season":0,"title":"爱","year":2012,"rating":8.6,"votes":101624,"fetched_at":"2026-10-14"}
+{"douban_id":"1308770","work_id":"tmdb-m-8699","season":0,"title":"王牌播音员","year":2004,"rating":6.2,"votes":5733,"fetched_at":"2026-10-14"}
+{"douban_id":"35593344","work_id":"tmdb-m-872585","season":0,"title":"奥本海默","year":2023,"rating":8.8,"votes":850894,"fetched_at":"2026-10-14"}
+{"douban_id":"2336735","work_id":"tmdb-m-8967","season":0,"title":"生命之树","year":2011,"rating":7.2,"votes":49752,"fetched_at":"2026-10-14"}
+{"douban_id":"35633650","work_id":"tmdb-m-915935","season":0,"title":"坠落的审判","year":2023,"rating":8.7,"votes":413708,"fetched_at":"2026-10-14"}
+{"douban_id":"1306031","work_id":"tmdb-m-9428","season":0,"title":"天才一族","year":2001,"rating":8,"votes":57672,"fetched_at":"2026-10-14"}
+{"douban_id":"35876302","work_id":"tmdb-m-965150","season":0,"title":"晒后假日","year":2022,"rating":8.2,"votes":145993,"fetched_at":"2026-10-14"}
+{"douban_id":"1478064","work_id":"tmdb-m-9693","season":0,"title":"人类之子","year":2006,"rating":7.6,"votes":97370,"fetched_at":"2026-10-14"}
+{"douban_id":"3749974","work_id":"tmdb-m-97370","season":0,"title":"皮囊之下","year":2013,"rating":6.3,"votes":51079,"fetched_at":"2026-10-14"}
+{"douban_id":"1293530","work_id":"tmdb-m-98","season":0,"title":"角斗士","year":2000,"rating":8.6,"votes":267134,"fetched_at":"2026-10-14"}
+{"douban_id":"34919073","work_id":"tmdb-tv-102619","season":1,"title":"我可以毁掉你","year":2020,"rating":8.4,"votes":2332,"fetched_at":"2026-10-14"}
+{"douban_id":"1871906","work_id":"tmdb-tv-1044","season":1,"title":"地球脉动 第一季","year":2006,"rating":9.7,"votes":62796,"fetched_at":"2026-10-14"}
+{"douban_id":"35153481","work_id":"tmdb-tv-106308","season":1,"title":"某人某地 第一季","year":2022,"rating":8.3,"votes":1595,"fetched_at":"2026-10-14"}
+{"douban_id":"35861320","work_id":"tmdb-tv-106308","season":2,"title":"某人某地 第二季","year":2023,"rating":8.7,"votes":761,"fetched_at":"2026-10-14"}
+{"douban_id":"36430977","work_id":"tmdb-tv-106308","season":3,"title":"某人某地 第三季","year":2024,"rating":8.8,"votes":503,"fetched_at":"2026-10-14"}
+{"douban_id":"2149047","work_id":"tmdb-tv-1104","season":1,"title":"广告狂人 第一季","year":2007,"rating":8.7,"votes":46168,"fetched_at":"2026-10-14"}
+{"douban_id":"3231824","work_id":"tmdb-tv-1104","season":2,"title":"广告狂人  第二季","year":2008,"rating":9.1,"votes":20763,"fetched_at":"2026-10-14"}
+{"douban_id":"3807886","work_id":"tmdb-tv-1104","season":3,"title":"广告狂人  第三季","year":2009,"rating":9.3,"votes":17528,"fetched_at":"2026-10-14"}
+{"douban_id":"4765764","work_id":"tmdb-tv-1104","season":4,"title":"广告狂人  第四季","year":2010,"rating":9.3,"votes":16149,"fetched_at":"2026-10-14"}
+{"douban_id":"6859640","work_id":"tmdb-tv-1104","season":5,"title":"广告狂人 第五季","year":2012,"rating":9.3,"votes":15354,"fetched_at":"2026-10-14"}
+{"douban_id":"11584411","work_id":"tmdb-tv-1104","season":6,"title":"广告狂人 第六季","year":2013,"rating":9.2,"votes":13319,"fetched_at":"2026-10-14"}
+{"douban_id":"24859448","work_id":"tmdb-tv-1104","season":7,"title":"广告狂人 第七季","year":2014,"rating":9.4,"votes":16354,"fetched_at":"2026-10-14"}
+{"douban_id":"35205588","work_id":"tmdb-tv-110971","season":1,"title":"约翰·威尔逊的十万个怎么做 第一季","year":2020,"rating":9.5,"votes":29150,"fetched_at":"2026-10-14"}
+{"douban_id":"35401261","work_id":"tmdb-tv-110971","season":2,"title":"约翰·威尔逊的十万个怎么做 第二季","year":2021,"rating":9.4,"votes":10450,"fetched_at":"2026-10-14"}
+{"douban_id":"36151441","work_id":"tmdb-tv-110971","season":3,"title":"约翰·威尔逊的十万个怎么做 第三季","year":2023,"rating":9.1,"votes":4780,"fetched_at":"2026-10-14"}
+{"douban_id":"35506348","work_id":"tmdb-tv-111803","season":1,"title":"白莲花度假村 第一季","year":2021,"rating":8,"votes":157465,"fetched_at":"2026-10-14"}
+{"douban_id":"35561222","work_id":"tmdb-tv-111803","season":2,"title":"白莲花度假村 第二季","year":2022,"rating":8.4,"votes":122173,"fetched_at":"2026-10-14"}
+{"douban_id":"36161782","work_id":"tmdb-tv-111803","season":3,"title":"白莲花度假村 第三季","year":2025,"rating":6.8,"votes":73212,"fetched_at":"2026-10-14"}
+{"douban_id":"30441731","work_id":"tmdb-tv-115004","season":1,"title":"东城梦魇 第一季","year":2021,"rating":8.8,"votes":189004,"fetched_at":"2026-10-14"}
+{"douban_id":"35445834","work_id":"tmdb-tv-124101","season":1,"title":"绝望写手 第一季","year":2021,"rating":8.9,"votes":69442,"fetched_at":"2026-10-14"}
+{"douban_id":"35524211","work_id":"tmdb-tv-124101","season":2,"title":"绝望写手 第二季","year":2022,"rating":9.4,"votes":52358,"fetched_at":"2026-10-14"}
+{"douban_id":"35932853","work_id":"tmdb-tv-124101","season":3,"title":"绝望写手 第三季","year":2024,"rating":9.5,"votes":45543,"fetched_at":"2026-10-14"}
+{"douban_id":"36910966","work_id":"tmdb-tv-124101","season":4,"title":"绝望写手 第四季","year":2025,"rating":9.2,"votes":40673,"fetched_at":"2026-10-14"}
+{"douban_id":"37370438","work_id":"tmdb-tv-124101","season":5,"title":"绝望写手 第五季","year":2026,"rating":9.7,"votes":39218,"fetched_at":"2026-10-14"}
+{"douban_id":"30291334","work_id":"tmdb-tv-126308","season":1,"title":"幕府将军 第一季","year":2024,"rating":7.8,"votes":40898,"fetched_at":"2026-10-14"}
+{"douban_id":"1353727","work_id":"tmdb-tv-1274","season":1,"title":"六尺之下 第一季","year":2001,"rating":8.8,"votes":12618,"fetched_at":"2026-10-14"}
+{"douban_id":"2036597","work_id":"tmdb-tv-1274","season":2,"title":"六尺之下 第二季","year":2002,"rating":9,"votes":4338,"fetched_at":"2026-10-14"}
+{"douban_id":"2326183","work_id":"tmdb-tv-1274","season":3,"title":"六尺之下  第三季","year":2003,"rating":9,"votes":3403,"fetched_at":"2026-10-14"}
+{"douban_id":"2153952","work_id":"tmdb-tv-1274","season":4,"title":"六尺之下 第四季","year":2004,"rating":8.9,"votes":2908,"fetched_at":"2026-10-14"}
+{"douban_id":"2153951","work_id":"tmdb-tv-1274","season":5,"title":"六尺之下 第五季","year":2005,"rating":9.3,"votes":4217,"fetched_at":"2026-10-14"}
+{"douban_id":"35900652","work_id":"tmdb-tv-136315","season":1,"title":"熊家餐馆 第一季","year":2022,"rating":8.4,"votes":44249,"fetched_at":"2026-10-14"}
+{"douban_id":"35993168","work_id":"tmdb-tv-136315","season":2,"title":"熊家餐馆 第二季","year":2023,"rating":8.8,"votes":27225,"fetched_at":"2026-10-14"}
+{"douban_id":"36631942","work_id":"tmdb-tv-136315","season":3,"title":"熊家餐馆 第三季","year":2024,"rating":8,"votes":13969,"fetched_at":"2026-10-14"}
+{"douban_id":"36812851","work_id":"tmdb-tv-136315","season":4,"title":"熊家餐馆 第四季","year":2025,"rating":7.9,"votes":8120,"fetched_at":"2026-10-14"}
+{"douban_id":"37415674","work_id":"tmdb-tv-136315","season":5,"title":"熊家餐馆 第五季","year":2026,"rating":8.6,"votes":5330,"fetched_at":"2026-10-14"}
+{"douban_id":"2373195","work_id":"tmdb-tv-1396","season":1,"title":"绝命毒师 第一季","year":2008,"rating":9.2,"votes":393129,"fetched_at":"2026-10-10"}
+{"douban_id":"3586996","work_id":"tmdb-tv-1396","season":2,"title":"绝命毒师  第二季","year":2009,"rating":9.3,"votes":250284,"fetched_at":"2026-10-10"}
+{"douban_id":"4256328","work_id":"tmdb-tv-1396","season":3,"title":"绝命毒师  第三季","year":2010,"rating":9.4,"votes":222652,"fetched_at":"2026-10-10"}
+{"douban_id":"4927382","work_id":"tmdb-tv-1396","season":4,"title":"绝命毒师  第四季","year":2011,"rating":9.5,"votes":212527,"fetched_at":"2026-10-10"}
+{"douban_id":"6952149","work_id":"tmdb-tv-1396","season":5,"title":"绝命毒师  第五季","year":2012,"rating":9.7,"votes":262701,"fetched_at":"2026-10-10"}
+{"douban_id":"3016187","work_id":"tmdb-tv-1399","season":1,"title":"权力的游戏 第一季","year":2011,"rating":9.5,"votes":507383,"fetched_at":"2026-10-14"}
+{"douban_id":"6558062","work_id":"tmdb-tv-1399","season":2,"title":"权力的游戏  第二季","year":2012,"rating":9.5,"votes":297890,"fetched_at":"2026-10-14"}
+{"douban_id":"10590706","work_id":"tmdb-tv-1399","season":3,"title":"权力的游戏 第三季","year":2013,"rating":9.5,"votes":266924,"fetched_at":"2026-10-14"}
+{"douban_id":"23232876","work_id":"tmdb-tv-1399","season":4,"title":"权力的游戏 第四季","year":2014,"rating":9.6,"votes":255202,"fetched_at":"2026-10-14"}
+{"douban_id":"25826612","work_id":"tmdb-tv-1399","season":5,"title":"权力的游戏 第五季","year":2015,"rating":9.4,"votes":227806,"fetched_at":"2026-10-14"}
+{"douban_id":"25862357","work_id":"tmdb-tv-1399","season":6,"title":"权力的游戏 第六季","year":2016,"rating":9.5,"votes":237495,"fetched_at":"2026-10-14"}
+{"douban_id":"26235354","work_id":"tmdb-tv-1399","season":7,"title":"权力的游戏 第七季","year":2017,"rating":9.2,"votes":249861,"fetched_at":"2026-10-14"}
+{"douban_id":"26584183","work_id":"tmdb-tv-1399","season":8,"title":"权力的游戏 第八季","year":2019,"rating":6,"votes":311176,"fetched_at":"2026-10-14"}
+{"douban_id":"6118634","work_id":"tmdb-tv-14658","season":1,"title":"幸存者：婆罗洲 第一季","year":2000,"rating":8.2,"votes":420,"fetched_at":"2026-10-10"}
+{"douban_id":"2295982","work_id":"tmdb-tv-14658","season":2,"title":"幸存者：澳大利亚内陆 第二季","year":2001,"rating":8.2,"votes":510,"fetched_at":"2026-10-10"}
+{"douban_id":"4901926","work_id":"tmdb-tv-14658","season":3,"title":"幸存者：非洲 第三季","year":2001,"rating":7.7,"votes":186,"fetched_at":"2026-10-10"}
+{"douban_id":"3678975","work_id":"tmdb-tv-14658","season":4,"title":"幸存者：马克萨斯群岛 第四季","year":2002,"rating":7.7,"votes":229,"fetched_at":"2026-10-10"}
+{"douban_id":"10520513","work_id":"tmdb-tv-14658","season":5,"title":"幸存者：泰国 第五季","year":2002,"rating":6.9,"votes":126,"fetched_at":"2026-10-10"}
+{"douban_id":"4315598","work_id":"tmdb-tv-14658","season":6,"title":"幸存者：亚马逊 第六季","year":2003,"rating":7.5,"votes":249,"fetched_at":"2026-10-10"}
+{"douban_id":"3271362","work_id":"tmdb-tv-14658","season":7,"title":"幸存者：珍珠岛 第七季","year":2003,"rating":8.6,"votes":797,"fetched_at":"2026-10-10"}
+{"douban_id":"6517029","work_id":"tmdb-tv-14658","season":8,"title":"幸存者：全明星 第八季","year":2004,"rating":8.4,"votes":673,"fetched_at":"2026-10-10"}
+{"douban_id":"3679045","work_id":"tmdb-tv-14658","season":9,"title":"幸存者：瓦努阿图 第九季","year":2004,"rating":7.2,"votes":195,"fetched_at":"2026-10-10"}
+{"douban_id":"2295997","work_id":"tmdb-tv-14658","season":10,"title":"幸存者：帕劳 第十季","year":2005,"rating":8.4,"votes":563,"fetched_at":"2026-10-10"}
+{"douban_id":"3679059","work_id":"tmdb-tv-14658","season":11,"title":"幸存者：危地马拉 第十一季","year":2005,"rating":7.4,"votes":211,"fetched_at":"2026-10-10"}
+{"douban_id":"4298617","work_id":"tmdb-tv-14658","season":12,"title":"幸存者：巴拿马 第十二季","year":2006,"rating":7.6,"votes":295,"fetched_at":"2026-10-10"}
+{"douban_id":"3271357","work_id":"tmdb-tv-14658","season":13,"title":"幸存者：库克群岛 第十三季","year":2006,"rating":9.3,"votes":2132,"fetched_at":"2026-10-10"}
+{"douban_id":"3091479","work_id":"tmdb-tv-14658","season":15,"title":"幸存者：中国 第十五季","year":2007,"rating":7.7,"votes":1492,"fetched_at":"2026-10-10"}
+{"douban_id":"3271361","work_id":"tmdb-tv-14658","season":16,"title":"幸存者：密克罗尼西亚 第十六季","year":2008,"rating":8.8,"votes":1431,"fetched_at":"2026-10-10"}
+{"douban_id":"3227204","work_id":"tmdb-tv-14658","season":17,"title":"幸存者：加蓬 第十七季","year":2008,"rating":8,"votes":979,"fetched_at":"2026-10-10"}
+{"douban_id":"3538969","work_id":"tmdb-tv-14658","season":18,"title":"幸存者：托坎廷斯 第十八季","year":2009,"rating":7.6,"votes":800,"fetched_at":"2026-10-10"}
+{"douban_id":"4037007","work_id":"tmdb-tv-14658","season":19,"title":"幸存者：萨摩亚 第十九季","year":2009,"rating":8.7,"votes":1378,"fetched_at":"2026-10-10"}
+{"douban_id":"4282504","work_id":"tmdb-tv-14658","season":20,"title":"幸存者：正邪之争 第二十季","year":2010,"rating":9.2,"votes":2084,"fetched_at":"2026-10-10"}
+{"douban_id":"5032142","work_id":"tmdb-tv-14658","season":21,"title":"幸存者：尼加拉瓜 第二十一季","year":2010,"rating":7.2,"votes":822,"fetched_at":"2026-10-10"}
+{"douban_id":"5951990","work_id":"tmdb-tv-14658","season":22,"title":"幸存者: 救赎岛 第二十二季","year":2011,"rating":7.6,"votes":994,"fetched_at":"2026-10-10"}
+{"douban_id":"6844794","work_id":"tmdb-tv-14658","season":23,"title":"幸存者：南太平洋 第二十三季","year":2011,"rating":7.5,"votes":772,"fetched_at":"2026-10-10"}
+{"douban_id":"7163452","work_id":"tmdb-tv-14658","season":24,"title":"幸存者：同一个世界 第二十四季","year":2012,"rating":6.9,"votes":911,"fetched_at":"2026-10-10"}
+{"douban_id":"11615468","work_id":"tmdb-tv-14658","season":25,"title":"幸存者：菲律宾 第二十五季","year":2012,"rating":8.2,"votes":884,"fetched_at":"2026-10-10"}
+{"douban_id":"20471026","work_id":"tmdb-tv-14658","season":26,"title":"幸存者：卡拉摩安 第二十六季","year":2013,"rating":8.2,"votes":919,"fetched_at":"2026-10-10"}
+{"douban_id":"24298414","work_id":"tmdb-tv-14658","season":27,"title":"幸存者：血浓于水 第二十七季","year":2013,"rating":7.7,"votes":758,"fetched_at":"2026-10-10"}
+{"douban_id":"25791945","work_id":"tmdb-tv-14658","season":28,"title":"幸存者：卡加延 第二十八季","year":2014,"rating":8.7,"votes":1216,"fetched_at":"2026-10-10"}
+{"douban_id":"25894892","work_id":"tmdb-tv-14658","season":29,"title":"幸存者：南圣胡安之血浓于水 第二十九季","year":2014,"rating":7.4,"votes":530,"fetched_at":"2026-10-10"}
+{"douban_id":"26286106","work_id":"tmdb-tv-14658","season":30,"title":"幸存者：阶级斗争 第三十季","year":2015,"rating":8.1,"votes":722,"fetched_at":"2026-10-10"}
+{"douban_id":"26387831","work_id":"tmdb-tv-14658","season":31,"title":"幸存者：柬埔寨之第二次机会 第三十一季","year":2015,"rating":8.9,"votes":1056,"fetched_at":"2026-10-10"}
+{"douban_id":"26688717","work_id":"tmdb-tv-14658","season":32,"title":"幸存者：瓜隆岛 第三十二季","year":2016,"rating":7.5,"votes":630,"fetched_at":"2026-10-10"}
+{"douban_id":"26758802","work_id":"tmdb-tv-14658","season":33,"title":"幸存者：老少对决 第三十三季","year":2016,"rating":9.1,"votes":1490,"fetched_at":"2026-10-10"}
+{"douban_id":"26933292","work_id":"tmdb-tv-14658","season":34,"title":"幸存者：规则改变者 第三十四季","year":2017,"rating":7.7,"votes":737,"fetched_at":"2026-10-10"}
+{"douban_id":"27003710","work_id":"tmdb-tv-14658","season":35,"title":"幸存者：角色之争 第三十五季","year":2017,"rating":7.1,"votes":612,"fetched_at":"2026-10-10"}
+{"douban_id":"27162474","work_id":"tmdb-tv-14658","season":36,"title":"幸存者：幽灵岛 第三十六季","year":2018,"rating":5.8,"votes":496,"fetched_at":"2026-10-10"}
+{"douban_id":"30231081","work_id":"tmdb-tv-14658","season":37,"title":"幸存者：强弱之争 第三十七季","year":2018,"rating":8.9,"votes":1363,"fetched_at":"2026-10-10"}
+{"douban_id":"30409551","work_id":"tmdb-tv-14658","season":38,"title":"幸存者：毁灭边缘 第三十八季","year":2019,"rating":7.5,"votes":676,"fetched_at":"2026-10-10"}
+{"douban_id":"33431442","work_id":"tmdb-tv-14658","season":39,"title":"幸存者：偶像之岛 第三十九季","year":2019,"rating":5.4,"votes":513,"fetched_at":"2026-10-10"}
+{"douban_id":"34856187","work_id":"tmdb-tv-14658","season":40,"title":"幸存者：王者决战 第四十季","year":2020,"rating":9.3,"votes":1902,"fetched_at":"2026-10-10"}
+{"douban_id":"35422691","work_id":"tmdb-tv-14658","season":41,"title":"幸存者 第四十一季","year":2021,"rating":7.1,"votes":502,"fetched_at":"2026-10-10"}
+{"douban_id":"35660959","work_id":"tmdb-tv-14658","season":42,"title":"幸存者 第四十二季","year":2022,"rating":8.3,"votes":598,"fetched_at":"2026-10-10"}
+{"douban_id":"35932187","work_id":"tmdb-tv-14658","season":43,"title":"幸存者 第四十三季","year":2022,"rating":6.9,"votes":335,"fetched_at":"2026-10-10"}
+{"douban_id":"36188179","work_id":"tmdb-tv-14658","season":44,"title":"幸存者 第四十四季","year":2023,"rating":7.1,"votes":335,"fetched_at":"2026-10-10"}
+{"douban_id":"36421319","work_id":"tmdb-tv-14658","season":45,"title":"幸存者 第四十五季","year":2023,"rating":7,"votes":274,"fetched_at":"2026-10-10"}
+{"douban_id":"36706003","work_id":"tmdb-tv-14658","season":46,"title":"幸存者 第四十六季","year":2024,"rating":null,"votes":0,"fetched_at":"2026-10-10"}
+{"douban_id":"36929293","work_id":"tmdb-tv-14658","season":47,"title":"幸存者 第四十七季","year":2024,"rating":null,"votes":0,"fetched_at":"2026-10-10"}
+{"douban_id":"37163598","work_id":"tmdb-tv-14658","season":48,"title":"幸存者 第四十八季","year":2025,"rating":null,"votes":0,"fetched_at":"2026-10-10"}
+{"douban_id":"37370020","work_id":"tmdb-tv-14658","season":49,"title":"幸存者 第四十九季","year":2025,"rating":null,"votes":0,"fetched_at":"2026-10-10"}
+{"douban_id":"37372601","work_id":"tmdb-tv-14658","season":50,"title":"幸存者：粉丝主宰 第五十季","year":2026,"rating":null,"votes":0,"fetched_at":"2026-10-10"}
+{"douban_id":"38221101","work_id":"tmdb-tv-14658","season":51,"title":"幸存者 第五十一季","year":2026,"rating":null,"votes":0,"fetched_at":"2026-10-10"}
+{"douban_id":"26088510","work_id":"tmdb-tv-1920","season":3,"title":"双峰 第三季","year":2017,"rating":8.9,"votes":15993,"fetched_at":"2026-10-10"}
+{"douban_id":"10439547","work_id":"tmdb-tv-34549","season":1,"title":"英国家庭烘焙大赛 第一季","year":2010,"rating":8.5,"votes":371,"fetched_at":"2026-10-10"}
+{"douban_id":"27054012","work_id":"tmdb-tv-34549","season":2,"title":"英国家庭烘焙大赛 第二季","year":2011,"rating":8.4,"votes":139,"fetched_at":"2026-10-10"}
+{"douban_id":"25658308","work_id":"tmdb-tv-34549","season":3,"title":"英国家庭烘焙大赛 第三季","year":2012,"rating":8.9,"votes":223,"fetched_at":"2026-10-10"}
+{"douban_id":"25719327","work_id":"tmdb-tv-34549","season":4,"title":"英国家庭烘焙大赛 第四季","year":2013,"rating":8.6,"votes":206,"fetched_at":"2026-10-10"}
+{"douban_id":"25960942","work_id":"tmdb-tv-34549","season":5,"title":"英国家庭烘焙大赛 第五季","year":2014,"rating":9,"votes":273,"fetched_at":"2026-10-10"}
+{"douban_id":"26656803","work_id":"tmdb-tv-34549","season":6,"title":"英国家庭烘焙大赛 第六季","year":2015,"rating":8.9,"votes":269,"fetched_at":"2026-10-10"}
+{"douban_id":"26897024","work_id":"tmdb-tv-34549","season":7,"title":"英国家庭烘焙大赛 第七季","year":2016,"rating":8.9,"votes":253,"fetched_at":"2026-10-10"}
+{"douban_id":"27185077","work_id":"tmdb-tv-34549","season":8,"title":"英国家庭烘焙大赛 第八季","year":2017,"rating":9,"votes":404,"fetched_at":"2026-10-10"}
+{"douban_id":"30373166","work_id":"tmdb-tv-34549","season":9,"title":"英国家庭烘焙大赛 第九季","year":2018,"rating":9.2,"votes":677,"fetched_at":"2026-10-10"}
+{"douban_id":"34833598","work_id":"tmdb-tv-34549","season":10,"title":"英国家庭烘焙大赛 第十季","year":2019,"rating":9.2,"votes":558,"fetched_at":"2026-10-10"}
+{"douban_id":"35211105","work_id":"tmdb-tv-34549","season":11,"title":"英国家庭烘焙大赛 第十一季","year":2020,"rating":8.9,"votes":531,"fetched_at":"2026-10-10"}
+{"douban_id":"35609243","work_id":"tmdb-tv-34549","season":12,"title":"英国家庭烘焙大赛 第十二季","year":2021,"rating":9.5,"votes":655,"fetched_at":"2026-10-10"}
+{"douban_id":"36094833","work_id":"tmdb-tv-34549","season":13,"title":"英国家庭烘焙大赛 第十三季","year":2022,"rating":9.1,"votes":601,"fetched_at":"2026-10-10"}
+{"douban_id":"36580241","work_id":"tmdb-tv-34549","season":14,"title":"英国家庭烘焙大赛 第十四季","year":2023,"rating":8.7,"votes":149,"fetched_at":"2026-10-10"}
+{"douban_id":"37068310","work_id":"tmdb-tv-34549","season":15,"title":"英国家庭烘焙大赛 第十五季","year":2024,"rating":null,"votes":0,"fetched_at":"2026-10-10"}
+{"douban_id":"37490891","work_id":"tmdb-tv-34549","season":16,"title":"英国家庭烘焙大赛 第十六季","year":2025,"rating":null,"votes":0,"fetched_at":"2026-10-10"}
+{"douban_id":"38916724","work_id":"tmdb-tv-34549","season":17,"title":"英国家庭烘焙大赛 第十七季","year":2026,"rating":null,"votes":0,"fetched_at":"2026-10-10"}
+{"douban_id":"10748120","work_id":"tmdb-tv-46648","season":1,"title":"真探 第一季","year":2014,"rating":9.2,"votes":230467,"fetched_at":"2026-10-10"}

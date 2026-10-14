@@ -1,0 +1,266 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import Bi from "../../components/Bi.astro";
+
+export async function getStaticPaths() {
+  const people = await getCollection("people");
+  return people.map((person) => ({ params: { id: person.id }, props: { person } }));
+}
+
+const { person } = Astro.props;
+const p = person.data;
+const titleZh = p.zh ? `${p.zh} · 场刊` : `${p.en} · 场刊`;
+const titleEn = `${p.en} · Playbill`;
+
+const roleOrder = ["creator", "director", "writer", "cast"] as const;
+const roleZh: Record<string, string> = {
+  creator: "主创",
+  director: "导演",
+  writer: "编剧",
+  cast: "主演",
+};
+const roleEn: Record<string, string> = {
+  creator: "Creator",
+  director: "Director",
+  writer: "Writer",
+  cast: "Cast",
+};
+
+const workIds = new Set(p.works.map((w) => w.id));
+const byRole = roleOrder
+  .map((role) => ({
+    role,
+    works: p.works.filter((w) => w.role === role),
+  }))
+  .filter((g) => g.works.length);
+
+const collaborators = p.collaborators ?? [];
+---
+
+<Base titleZh={titleZh} titleEn={titleEn}>
+  <header class="mast person-mast" data-zh={p.zh ?? p.en} data-en={p.en}>
+    <div class="wrap person-head">
+      {
+        p.photo ? (
+          <button type="button" class="poster person-photo" aria-label={p.zh ? `${p.zh} 照片` : `${p.en} photo`}>
+            <img
+              data-src={p.photo}
+              alt={p.zh ? `${p.zh} 照片` : `${p.en} photo`}
+              data-alt-zh={p.zh ? `${p.zh} 照片` : `${p.en} photo`}
+              data-alt-en={`${p.en} photo`}
+              width="342"
+              height="513"
+              decoding="async"
+            />
+          </button>
+        ) : (
+          <div class="poster person-photo empty" aria-hidden="true" />
+        )
+      }
+      <div>
+        <p class="kicker"><Bi zh="人物" en="Person" /></p>
+        <h1>
+          {p.zh ? (
+            <>
+              <span class="zh">{p.zh}</span>
+              <span class="lat">{p.en}</span>
+            </>
+          ) : (
+            p.en
+          )}
+        </h1>
+        {
+          (p.bioZh || p.bioEn) && (
+            <div class="person-bio">
+              <p class="zh">{p.bioZh || p.bioEn}</p>
+              <p class="en">{p.bioEn || p.bioZh}</p>
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap person-main">
+    <section class="person-section">
+      <h2 class="person-works-title">
+        <Bi zh={`作品 ${workIds.size}`} en={`Works ${workIds.size}`} />
+      </h2>
+      {
+        byRole.map((g) => (
+          <div class="person-role-block">
+            <h3 class="person-role-label">
+              <Bi zh={roleZh[g.role]} en={roleEn[g.role]} />
+            </h3>
+            <ul class="person-works">
+              {g.works.map((w) => {
+                const href = w.listId && w.rank != null ? `/${w.listId}/#show-${w.rank}` : undefined;
+                return (
+                  <li class="person-work" data-zh={w.zh ?? w.en} data-en={w.en}>
+                    {w.poster ? (
+                      <button type="button" class="poster" aria-label={w.zh ? `《${w.zh}》海报` : `${w.en} poster`}>
+                        <img
+                          data-src={w.poster}
+                          alt={w.zh ? `《${w.zh}》海报` : `${w.en} poster`}
+                          data-alt-zh={w.zh ? `《${w.zh}》海报` : `${w.en} poster`}
+                          data-alt-en={`${w.en} poster`}
+                          width="342"
+                          height="513"
+                          decoding="async"
+                        />
+                      </button>
+                    ) : (
+                      <div class="poster empty" aria-hidden="true" />
+                    )}
+                    {href ? (
+                      <a class="body" href={href}>
+                        <span class="title">
+                          {w.zh ? (
+                            <>
+                              <span class="zh">{w.zh}</span>
+                              <span class="lat">{w.en}</span>
+                            </>
+                          ) : (
+                            w.en
+                          )}
+                        </span>
+                        <span class="meta">{w.yearStart}</span>
+                      </a>
+                    ) : (
+                      <div class="body">
+                        <span class="title">
+                          {w.zh ? (
+                            <>
+                              <span class="zh">{w.zh}</span>
+                              <span class="lat">{w.en}</span>
+                            </>
+                          ) : (
+                            w.en
+                          )}
+                        </span>
+                        <span class="meta">{w.yearStart}</span>
+                      </div>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        ))
+      }
+    </section>
+
+    {
+      collaborators.length > 0 && (
+        <section class="person-section">
+          <h2 class="person-works-title">
+            <Bi zh={`合作 ${collaborators.length}`} en={`Collaborators ${collaborators.length}`} />
+          </h2>
+          <ul class="person-collabs">
+            {collaborators.map((c) => (
+              <li class="person-collab" data-zh={c.zh ?? c.en} data-en={c.en}>
+                <a class="person-collab-link" href={`/people/${c.id}/`}>
+                  {c.photo ? (
+                    <img
+                      class="person-collab-photo"
+                      data-src={c.photo}
+                      alt=""
+                      width="96"
+                      height="144"
+                      decoding="async"
+                    />
+                  ) : (
+                    <span class="person-collab-photo empty" aria-hidden="true" />
+                  )}
+                  <span class="body">
+                    <span class="title">
+                      {c.zh ? (
+                        <>
+                          <span class="zh">{c.zh}</span>
+                          <span class="lat">{c.en}</span>
+                        </>
+                      ) : (
+                        c.en
+                      )}
+                    </span>
+                    <span class="meta">
+                      <span class="zh">
+                        共同作品 {c.count}
+                        {c.works.length
+                          ? ` · ${c.works.map((w) => w.zh ?? w.en).join("、")}`
+                          : ""}
+                      </span>
+                      <span class="en">
+                        {c.count} shared
+                        {c.works.length ? ` · ${c.works.map((w) => w.en).join(", ")}` : ""}
+                      </span>
+                    </span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+  </main>
+
+  <dialog id="poster-view">
+    <button type="button" class="x" data-close><Bi zh="关闭" en="Close" /></button>
+    <img alt="" width="342" height="513" />
+    <p class="cap"></p>
+  </dialog>
+</Base>
+
+<script>
+  const posterImgs = Array.from(
+    document.querySelectorAll<HTMLImageElement>(".poster img[data-src], .person-collab-photo[data-src]"),
+  );
+  const loadPoster = (img: HTMLImageElement) => {
+    if (!img.dataset.src) return;
+    img.src = img.dataset.src;
+    img.removeAttribute("data-src");
+  };
+  if (posterImgs.length && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const en of entries) {
+          if (!en.isIntersecting) continue;
+          const img = en.target as HTMLImageElement;
+          loadPoster(img);
+          io.unobserve(img);
+        }
+      },
+      { rootMargin: "600px 0px" },
+    );
+    posterImgs.forEach((img) => io.observe(img));
+  } else {
+    posterImgs.forEach(loadPoster);
+  }
+
+  const dialog = document.getElementById("poster-view") as HTMLDialogElement | null;
+  const viewImg = dialog?.querySelector("img");
+  const viewCap = dialog?.querySelector(".cap");
+  dialog?.querySelector("[data-close]")?.addEventListener("click", () => dialog.close());
+  dialog?.addEventListener("click", (e) => {
+    if (e.target === dialog) dialog.close();
+  });
+  document.querySelectorAll<HTMLButtonElement>("button.poster").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (!dialog || !viewImg || !viewCap) return;
+      const img = btn.querySelector("img");
+      const src = img?.getAttribute("src") || img?.dataset.src;
+      if (!src || !img) return;
+      loadPoster(img);
+      const en = document.documentElement.classList.contains("lang-en");
+      const host = btn.closest("[data-zh]");
+      viewImg.src = src;
+      viewImg.alt = img.alt;
+      const zh = host instanceof HTMLElement ? (host.dataset.zh ?? "") : "";
+      const enName = host instanceof HTMLElement ? (host.dataset.en ?? "") : "";
+      viewCap.textContent = en ? enName || zh : zh || enName;
+      dialog.showModal();
+    });
+  });
+</script>

@@ -1,5 +1,10 @@
 PRAGMA foreign_keys = ON;
 
+-- works.id is stable and unique across the catalog:
+--   tmdb-m-{id} / tmdb-tv-{id} when TMDB is known (preferred),
+--   douban-{id} when only Douban is known,
+--   local-… provisional until one of the above is adopted.
+-- Do not use ":" in ids (poster filenames are public/posters/{id}.jpg).
 CREATE TABLE IF NOT EXISTS works (
   id          TEXT PRIMARY KEY,
   kind        TEXT NOT NULL CHECK (kind IN ('tv', 'movie')),
@@ -27,29 +32,33 @@ CREATE TABLE IF NOT EXISTS work_aliases (
 );
 
 CREATE TABLE IF NOT EXISTS people (
-  id      INTEGER PRIMARY KEY,
-  en      TEXT NOT NULL,
+  id        INTEGER PRIMARY KEY,
+  en        TEXT NOT NULL,
   zh        TEXT,
   tmdb_id   INTEGER UNIQUE,
-  douban_id TEXT UNIQUE
+  douban_id TEXT UNIQUE,
+  photo     TEXT,
+  bio_zh    TEXT,
+  bio_en    TEXT
 );
 
 CREATE TABLE IF NOT EXISTS credits (
   work_id   TEXT NOT NULL REFERENCES works(id) ON DELETE CASCADE,
-  role      TEXT NOT NULL CHECK (role IN ('creator', 'director', 'cast')),
+  role      TEXT NOT NULL CHECK (role IN ('creator', 'director', 'writer', 'cast')),
   ord       INTEGER NOT NULL,
   person_id INTEGER NOT NULL REFERENCES people(id),
   PRIMARY KEY (work_id, role, ord)
 );
 
--- Our own writing. Only rows with reviewed = 1 are published.
+-- Our own writing on a work. Only rows with reviewed = 1 are published.
+-- playbill / playbill_en are the 场刊 notes that stay with the work across lists.
 CREATE TABLE IF NOT EXISTS editorial (
-  work_id  TEXT PRIMARY KEY REFERENCES works(id) ON DELETE CASCADE,
-  plot     TEXT,
-  hook     TEXT,
-  plot_en  TEXT,
-  hook_en  TEXT,
-  reviewed INTEGER NOT NULL DEFAULT 0
+  work_id     TEXT PRIMARY KEY REFERENCES works(id) ON DELETE CASCADE,
+  plot        TEXT,
+  plot_en     TEXT,
+  playbill    TEXT,
+  playbill_en TEXT,
+  reviewed    INTEGER NOT NULL DEFAULT 0
 );
 
 -- Douban rates each TV season as its own subject; season is 0 for films.
@@ -103,4 +112,13 @@ CREATE TABLE IF NOT EXISTS list_entries (
   section_id TEXT,
   PRIMARY KEY (list_id, rank),
   FOREIGN KEY (list_id, section_id) REFERENCES list_sections(list_id, id)
+);
+
+-- List-native blurbs (看点), e.g. a New York Times note for that list entry.
+CREATE TABLE IF NOT EXISTS list_highlights (
+  list_id TEXT NOT NULL REFERENCES lists(id) ON DELETE CASCADE,
+  work_id TEXT NOT NULL REFERENCES works(id) ON DELETE CASCADE,
+  hook    TEXT,
+  hook_en TEXT,
+  PRIMARY KEY (list_id, work_id)
 );

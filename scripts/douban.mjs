@@ -7,6 +7,13 @@
 //        npm run douban -- --refresh     (re-fetch scores for every work)
 //        npm run douban -- breaking-bad  (only these works)
 import { openDb, exportDb, cachedJson, forget, tx } from "./lib/db.mjs";
+import {
+  preferredWorkId,
+  shouldAdoptWorkId,
+  renameWork,
+  renamePosterFile,
+  workIdFromTmdb,
+} from "./lib/work-id.mjs";
 
 const MIN_VOTES = 1000;
 const GAP_MS = 1500;
@@ -15,10 +22,10 @@ const UA =
 
 // Douban titles that our Chinese title, aliases and English title don't find on their own.
 const HINTS = {
-  "the-office-us": { query: "办公室" },
-  "the-office-uk": { query: "办公室" },
-  "twin-peaks-the-return": { query: "双峰 第三季" },
-  "the-great-british-baking-show": { query: "英国家庭烘焙大赛" },
+  "tmdb-tv-2316": { query: "办公室" },
+  "tmdb-tv-2996": { query: "办公室" },
+  "tmdb-tv-1920": { query: "双峰 第三季" },
+  "tmdb-tv-34549": { query: "英国家庭烘焙大赛" },
 };
 const PLACES = { 美英: ["美国", "英国"] };
 
@@ -216,11 +223,39 @@ const report = [];
 const works = db.prepare("SELECT * FROM works ORDER BY id").all();
 for (const w of works) {
   if (only.size && !only.has(w.id)) continue;
+
+  // Adopt a canonical id from an already-known TMDB match without re-fetching Douban.
+  if (w.tmdb_id) {
+    const tmdbWant = workIdFromTmdb(w.kind, w.tmdb_id);
+    if (shouldAdoptWorkId(w.id, tmdbWant)) {
+      const from = w.id;
+      renameWork(db, from, tmdbWant);
+      await renamePosterFile(from, tmdbWant);
+      w.id = tmdbWant;
+      report.push(`id    ${from} → ${tmdbWant}`);
+    }
+  }
+
   const known = db.prepare("SELECT count(*) n FROM douban_subjects WHERE work_id = ?").get(w.id).n;
-  if (known && !refresh && !only.size) continue;
+  if (known && !refresh && !only.size) {
+    if (!w.tmdb_id) {
+      const row = db.prepare(
+        "SELECT douban_id FROM douban_subjects WHERE work_id = ? ORDER BY season LIMIT 1",
+      ).get(w.id);
+      const want = preferredWorkId({ kind: w.kind, doubanId: row?.douban_id, currentId: w.id });
+      if (shouldAdoptWorkId(w.id, want)) {
+        const from = w.id;
+        renameWork(db, from, want);
+        await renamePosterFile(from, want);
+        report.push(`id    ${from} → ${want}`);
+      }
+    }
+    continue;
+  }
 
   const aliases = db.prepare("SELECT alias FROM work_aliases WHERE work_id = ? ORDER BY ord").all(w.id).map((a) => a.alias);
-  const queries = [...new Set([HINTS[w.id]?.query, w.zh, ...aliases, w.original, w.en].filter(Boolean))];
+  const hintKey = w.tmdb_id ? workIdFromTmdb(w.kind, w.tmdb_id) : w.id;
+  const queries = [...new Set([HINTS[hintKey]?.query ?? HINTS[w.id]?.query, w.zh, ...aliases, w.original, w.en].filter(Boolean))];
   try {
     let subjects;
     if (w.kind === "tv") {
@@ -236,6 +271,19 @@ for (const w of works) {
     if (!subjects?.length) {
       report.push(`MISS  ${w.id}  (tried ${queries.join(" / ")})`);
       continue;
+    }
+
+    // No TMDB: adopt Douban subject id as the stable work id.
+    if (!w.tmdb_id) {
+      const primaryDouban = [...subjects].sort((a, b) => a.season - b.season)[0]?.id;
+      const want = preferredWorkId({ kind: w.kind, doubanId: primaryDouban, currentId: w.id });
+      if (shouldAdoptWorkId(w.id, want)) {
+        const from = w.id;
+        renameWork(db, from, want);
+        await renamePosterFile(from, want);
+        w.id = want;
+        report.push(`id    ${from} → ${want}`);
+      }
     }
 
     const seasons = subjects
