@@ -1,0 +1,270 @@
+---
+import Bi from "./Bi.astro";
+import PersonName from "./PersonName.astro";
+import { formEn, placeEn, yearsEn } from "../i18n";
+
+interface Person {
+  id: string;
+  zh?: string;
+  en: string;
+}
+
+interface Tag {
+  id: string;
+  group: string;
+  zh: string;
+  en: string;
+}
+
+interface Rating {
+  value: number;
+  detail?: { seasons?: { season: number; value: number; votes: number }[] };
+}
+
+interface Work {
+  zh?: string;
+  en: string;
+  alias: string[];
+  years: string;
+  place?: string;
+  form?: string;
+  poster?: string;
+  plot?: string;
+  plotEn?: string;
+  playbill?: string;
+  playbillEn?: string;
+  creators: Person[];
+  writers: Person[];
+  cast: Person[];
+  ratings: { douban?: Rating; imdb?: Rating };
+}
+
+interface Props {
+  rank: number;
+  section: string;
+  sectionColor: string;
+  sectionName?: string;
+  sectionNameEn?: string;
+  showSectionInMeta?: boolean;
+  tags: Tag[];
+  work: Work;
+  hook?: string;
+  hookEn?: string;
+  rankPad: number;
+  blob: string;
+  catalogExtra?: boolean;
+  lead?: boolean;
+  lazyExtras?: boolean;
+  linkPeople?: boolean;
+  useTags?: boolean;
+  creatorLabel: string;
+  creatorLabelEn: string;
+}
+
+const {
+  rank,
+  section,
+  sectionColor,
+  sectionName,
+  sectionNameEn,
+  showSectionInMeta = false,
+  tags,
+  work: w,
+  hook,
+  hookEn,
+  rankPad,
+  blob,
+  catalogExtra = false,
+  lead = false,
+  lazyExtras = false,
+  linkPeople = true,
+  useTags = false,
+  creatorLabel,
+  creatorLabelEn,
+} = Astro.props;
+
+const pad = (n: number) => String(n).padStart(rankPad, "0");
+const douban = w.ratings.douban;
+const imdb = w.ratings.imdb;
+const seasons = douban?.detail?.seasons;
+const seasonList = seasons && seasons.length >= 2 ? seasons : undefined;
+const noteZh = seasonList && "各季平均：" + seasonList.map((x) => `第${x.season}季 ${x.value.toFixed(1)}`).join("，");
+const noteEn = seasonList && "Average of seasons: " + seasonList.map((x) => `S${x.season} ${x.value.toFixed(1)}`).join(", ");
+const line = (parts: (string | undefined)[]) => parts.filter(Boolean).join(" · ");
+const metaZh = line([w.years, w.place, w.form, showSectionInMeta ? sectionName : undefined]);
+const metaEn = line([yearsEn(w.years), placeEn(w.place), formEn(w.form), showSectionInMeta ? (sectionNameEn ?? sectionName) : undefined]);
+const tagIds = tags.map((t) => t.id).join(" ");
+const showCopy = lazyExtras
+  ? !!(hook || hookEn || w.plot || w.playbill)
+  : !!(w.plot || hook || hookEn || w.playbill);
+---
+
+<article
+  class:list={["show", { lead }, { "catalog-extra": catalogExtra }]}
+  id={`show-${rank}`}
+  data-rank={rank}
+  data-section={section}
+  data-tags={tagIds}
+  data-zh={w.zh ?? w.en}
+  data-en={w.zh ? w.en : ""}
+  data-blob={blob}
+  style={`--sec:${sectionColor}`}
+>
+  <p class="rank">{pad(rank)}</p>
+  {w.poster && (
+    <button type="button" class="poster" aria-label={w.zh ? `《${w.zh}》海报` : `${w.en} poster`}>
+      <img
+        data-src={w.poster}
+        alt={w.zh ? `《${w.zh}》海报` : `${w.en} poster`}
+        data-alt-zh={w.zh ? `《${w.zh}》海报` : `${w.en} poster`}
+        data-alt-en={`${w.en} poster`}
+        width="342"
+        height="513"
+        decoding="async"
+      />
+    </button>
+  )}
+  <div class="body">
+    <h3>
+      {w.zh ? (
+        <>
+          <span class="zh">{w.zh}</span>
+          <span class="lat">{w.en}</span>
+        </>
+      ) : (
+        w.en
+      )}
+    </h3>
+    {w.alias.length > 0 && <p class="alias zh">亦称 {w.alias.join("、")}</p>}
+    <p class="meta">
+      <Bi zh={metaZh} en={metaEn} />
+    </p>
+    {useTags && tags.length > 0 && (
+      <p class="tag-chips">
+        {tags.map((t) => (
+          <span class={`chip chip-${t.group}`}>
+            <Bi zh={t.zh} en={t.en} />
+          </span>
+        ))}
+      </p>
+    )}
+    {(douban || imdb) && (
+      <p class="scores">
+        {douban && (
+          <>
+            <span class="zh" title={noteZh}>
+              豆瓣 <b>{douban.value.toFixed(1)}</b>
+              {noteZh && <sup>均</sup>}
+            </span>
+            <span class="en" title={noteEn}>
+              Douban <b>{douban.value.toFixed(1)}</b>
+              {noteEn && <sup>avg</sup>}
+            </span>
+          </>
+        )}
+        {imdb && (
+          <span>
+            IMDb <b>{imdb.value.toFixed(1)}</b>
+          </span>
+        )}
+      </p>
+    )}
+    {w.creators.length > 0 && (
+      <p class="people">
+        <span class="lab">
+          <Bi zh={creatorLabel} en={creatorLabelEn} />
+        </span>
+        <span>
+          {w.creators.map((p, j) => (
+            <>
+              {j > 0 && (
+                <>
+                  <span class="zh">、</span>
+                  <span class="en">, </span>
+                </>
+              )}
+              <PersonName id={p.id} zh={p.zh} en={p.en} />
+            </>
+          ))}
+        </span>
+      </p>
+    )}
+    {w.writers.length > 0 && (
+      <p class="people">
+        <span class="lab">
+          <Bi zh="编剧" en="Writers" />
+        </span>
+        <span>
+          {w.writers.map((p, j) => (
+            <>
+              {j > 0 && (
+                <>
+                  <span class="zh">、</span>
+                  <span class="en">, </span>
+                </>
+              )}
+              <PersonName id={p.id} zh={p.zh} en={p.en} linked={linkPeople} />
+            </>
+          ))}
+        </span>
+      </p>
+    )}
+    {w.cast.length > 0 && (
+      <p class="people">
+        <span class="lab">
+          <Bi zh="主演" en="Cast" />
+        </span>
+        <span>
+          {w.cast.map((p, j) => (
+            <>
+              {j > 0 && (
+                <>
+                  <span class="zh">、</span>
+                  <span class="en">, </span>
+                </>
+              )}
+              <PersonName id={p.id} zh={p.zh} en={p.en} linked={linkPeople} />
+            </>
+          ))}
+        </span>
+      </p>
+    )}
+    {showCopy && (
+      <div class="copy" data-extras-for={lazyExtras && (w.plot || w.playbill) ? rank : undefined}>
+        {!lazyExtras && w.plot && (
+          <p class="plot">
+            <span class="lab">
+              <Bi zh="剧情" en="Plot" />
+            </span>
+            <span>
+              <span class="zh">{w.plot}</span>
+              {w.plotEn && <span class="en">{w.plotEn}</span>}
+            </span>
+          </p>
+        )}
+        {(hook || hookEn) && (
+          <p class="hook">
+            <span class="lab">
+              <Bi zh="看点" en="Highlight" />
+            </span>
+            <span>
+              <span class="zh">{hook || hookEn}</span>
+              <span class="en">{hookEn || hook}</span>
+            </span>
+          </p>
+        )}
+        {!lazyExtras && w.playbill && (
+          <p class="playbill">
+            <span class="lab">
+              <Bi zh="场刊" en="Playbill" />
+            </span>
+            <span>
+              <span class="zh">{w.playbill}</span>
+              {w.playbillEn && <span class="en">{w.playbillEn}</span>}
+            </span>
+          </p>
+        )}
+      </div>
+    )}
+  </div>
+</article>

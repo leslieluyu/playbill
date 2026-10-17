@@ -1,0 +1,397 @@
+---
+import Base from "../layouts/Base.astro";
+import { openDb } from "../../scripts/lib/db.mjs";
+import { collectCoverage, LIST_METRICS } from "../../scripts/lib/coverage.mjs";
+
+const db = openDb();
+const report = collectCoverage(db);
+db.close();
+
+function pct(done: number, total: number) {
+  if (!total) return 100;
+  return Math.round((1000 * done) / total) / 10;
+}
+function level(p: number) {
+  if (p >= 95) return "ok";
+  if (p >= 50) return "mid";
+  return "low";
+}
+
+const photoPct = pct(report.people.photo.done, report.people.photo.total);
+const awardsPct = pct(report.people.awards.done, report.people.awards.total);
+---
+
+<Base titleZh="场刊 · 数据完整性" titleEn="Playbill · Coverage" description="片单数据完整性：看点、剧情、海报、评分与人物照片。">
+  <header class="status-head">
+    <div class="wrap">
+      <p class="kicker">Status</p>
+      <h1>数据完整性</h1>
+      <p class="dek">
+        构建时从数据库统计。生成于 <time datetime={report.generatedAt}>{report.generatedAt}</time>
+      </p>
+    </div>
+  </header>
+
+  <main class="wrap status-main">
+    <div class="status-strip">
+      <div class={`status-card ${level(photoPct)}`}>
+        <div class="label">人物照片</div>
+        <div class="big">
+          {report.people.photo.done}<em> / {report.people.photo.total} · {photoPct}%</em>
+        </div>
+        <div class="bar"><i style={`width:${photoPct}%`} /></div>
+      </div>
+      <div class={`status-card ${level(awardsPct)}`}>
+        <div class="label">人物获奖（≥1 条）</div>
+        <div class="big">
+          {report.people.awards.done}<em> / {report.people.awards.total} · {awardsPct}%</em>
+        </div>
+        <div class="bar"><i style={`width:${awardsPct}%`} /></div>
+      </div>
+    </div>
+
+    <h2>片单总览</h2>
+    <div class="status-table-wrap">
+      <table class="status-overview">
+        <thead>
+          <tr>
+            <th>片单</th>
+            {LIST_METRICS.map((m) => <th>{m.label}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {
+            report.lists.map((l) => (
+              <tr>
+                <th scope="row">
+                  <a href={`#list-${l.id}`}>{l.title}</a>
+                  <div class="sub">
+                    <a href={`/${l.id}/`}>{l.id}</a> · {l.entryCount} 部
+                  </div>
+                </th>
+                {LIST_METRICS.map((m) => {
+                  const cov = l.metrics[m.id as keyof typeof l.metrics];
+                  const p = pct(cov.done, cov.total);
+                  return (
+                    <td class={`metric ${level(p)}`}>
+                      <div class="nums">
+                        <b>{cov.done}</b>
+                        <span>/{cov.total}</span> <em>{p}%</em>
+                      </div>
+                      <div class="bar">
+                        <i style={`width:${p}%`} />
+                      </div>
+                    </td>
+                  );
+                })}
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <h2>缺失明细</h2>
+    <p class="status-note">只列出未满 100% 的项；每项最多 200 条。</p>
+
+    {
+      report.lists.map((l) => (
+        <>
+          <h3 id={`list-${l.id}`} class="status-list-title">
+            <a href={`/${l.id}/`}>{l.title}</a>
+          </h3>
+          {LIST_METRICS.map((m) => {
+            const cov = l.metrics[m.id as keyof typeof l.metrics];
+            if (cov.done === cov.total) return null;
+            const p = pct(cov.done, cov.total);
+            return (
+              <details class={`status-gap ${level(p)}`}>
+                <summary>
+                  {l.title} · {m.label}缺失
+                  <span class="badge">
+                    {cov.done}/{cov.total} · 缺 {cov.missingTotal}
+                  </span>
+                </summary>
+                <table class="status-missing">
+                  <thead>
+                    <tr>
+                      <th>名次</th>
+                      <th>标题</th>
+                      <th>id</th>
+                      <th>原因</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {cov.missing.map((item) => (
+                      <tr>
+                        <td class="rank">{item.rank ?? ""}</td>
+                        <td>
+                          {item.href ? <a href={item.href}>{item.title}</a> : item.title}
+                        </td>
+                        <td class="mono">{item.id}</td>
+                        <td>{item.detail ?? ""}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                {cov.missingTotal > cov.missing.length && (
+                  <p class="more">还有 {cov.missingTotal - cov.missing.length} 条未列出。</p>
+                )}
+              </details>
+            );
+          })}
+        </>
+      ))
+    }
+
+    <h3 id="people" class="status-list-title">人物（片单有出演）</h3>
+    {
+      [report.people.photo, report.people.awards].map((cov) => {
+        if (cov.done === cov.total) return null;
+        const p = pct(cov.done, cov.total);
+        return (
+          <details class={`status-gap ${level(p)}`}>
+            <summary>
+              {cov.label}缺失
+              <span class="badge">
+                {cov.done}/{cov.total} · 缺 {cov.missingTotal}
+              </span>
+            </summary>
+            <table class="status-missing">
+              <thead>
+                <tr>
+                  <th>名次</th>
+                  <th>标题</th>
+                  <th>id</th>
+                  <th>原因</th>
+                </tr>
+              </thead>
+              <tbody>
+                {cov.missing.map((item) => (
+                  <tr>
+                    <td class="rank">{item.rank ?? ""}</td>
+                    <td>{item.href ? <a href={item.href}>{item.title}</a> : item.title}</td>
+                    <td class="mono">{item.id}</td>
+                    <td>{item.detail ?? ""}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            {cov.missingTotal > cov.missing.length && (
+              <p class="more">还有 {cov.missingTotal - cov.missing.length} 条未列出。</p>
+            )}
+          </details>
+        );
+      })
+    }
+  </main>
+</Base>
+
+<style is:global>
+  .status-head {
+    padding: 2.5rem 0 1.5rem;
+    border-bottom: 1px solid var(--rule, #ddd6c8);
+  }
+  .status-head h1 {
+    margin: 0.2rem 0 0.5rem;
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+  }
+  .status-head .dek {
+    color: var(--muted, #6b655c);
+    max-width: 40rem;
+  }
+  .status-main {
+    padding: 1.5rem 0 4rem;
+  }
+  .status-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+  }
+  .status-card {
+    border: 1px solid var(--rule, #ddd6c8);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    background: color-mix(in srgb, var(--paper, #fffdf8) 92%, transparent);
+  }
+  .status-card .label {
+    color: var(--muted, #6b655c);
+    font-size: 0.85rem;
+  }
+  .status-card .big {
+    font-size: 1.75rem;
+    font-weight: 650;
+    margin: 0.2rem 0;
+  }
+  .status-card .big em {
+    font-style: normal;
+    font-size: 1rem;
+    color: var(--muted, #6b655c);
+    font-weight: 500;
+  }
+  .status-card.ok .big {
+    color: #2f6b45;
+  }
+  .status-card.mid .big {
+    color: #a65f18;
+  }
+  .status-card.low .big {
+    color: #b33a2a;
+  }
+  .status-main h2 {
+    margin: 1.75rem 0 0.75rem;
+    font-size: 1.15rem;
+  }
+  .status-list-title {
+    margin: 1.5rem 0 0.5rem;
+    font-size: 1.05rem;
+  }
+  .status-list-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .status-list-title a:hover {
+    text-decoration: underline;
+  }
+  .status-note {
+    color: var(--muted, #6b655c);
+    margin: -0.25rem 0 1rem;
+    font-size: 0.92rem;
+  }
+  .status-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--rule, #ddd6c8);
+    border-radius: 8px;
+  }
+  .status-overview {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 720px;
+  }
+  .status-overview th,
+  .status-overview td {
+    border-bottom: 1px solid var(--rule, #ddd6c8);
+    padding: 0.65rem 0.7rem;
+    vertical-align: middle;
+    text-align: left;
+  }
+  .status-overview thead th {
+    font-size: 0.78rem;
+    color: var(--muted, #6b655c);
+    font-weight: 600;
+    background: color-mix(in srgb, var(--rule, #ddd6c8) 35%, transparent);
+  }
+  .status-overview tbody th {
+    font-weight: 600;
+    min-width: 10rem;
+  }
+  .status-overview .sub {
+    font-weight: 400;
+    color: var(--muted, #6b655c);
+    font-size: 0.78rem;
+    margin-top: 0.15rem;
+  }
+  .status-overview a {
+    color: inherit;
+  }
+  .metric .nums {
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .metric .nums b {
+    font-weight: 650;
+  }
+  .metric .nums span,
+  .metric .nums em {
+    color: var(--muted, #6b655c);
+    font-style: normal;
+    font-size: 0.85em;
+  }
+  .bar {
+    margin-top: 0.35rem;
+    height: 4px;
+    background: #e7e0d4;
+    border-radius: 2px;
+    overflow: hidden;
+    min-width: 4.5rem;
+  }
+  .bar i {
+    display: block;
+    height: 100%;
+    background: #b33a2a;
+  }
+  .metric.ok .bar i,
+  .status-card.ok .bar i {
+    background: #2f6b45;
+  }
+  .metric.mid .bar i,
+  .status-card.mid .bar i {
+    background: #a65f18;
+  }
+  .metric.low .bar i,
+  .status-card.low .bar i {
+    background: #b33a2a;
+  }
+  .status-gap {
+    border: 1px solid var(--rule, #ddd6c8);
+    border-radius: 8px;
+    margin: 0.5rem 0;
+    padding: 0.55rem 0.85rem;
+  }
+  .status-gap summary {
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .status-gap .badge {
+    font-weight: 500;
+    color: var(--muted, #6b655c);
+    font-size: 0.88rem;
+    margin-left: 0.35rem;
+  }
+  .status-gap.low .badge {
+    color: #b33a2a;
+  }
+  .status-gap.mid .badge {
+    color: #a65f18;
+  }
+  .status-missing {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.75rem 0 0.25rem;
+    font-size: 0.88rem;
+  }
+  .status-missing th,
+  .status-missing td {
+    border-top: 1px solid var(--rule, #ddd6c8);
+    padding: 0.35rem 0.4rem;
+    text-align: left;
+  }
+  .status-missing th {
+    color: var(--muted, #6b655c);
+    font-weight: 600;
+    font-size: 0.78rem;
+  }
+  .status-missing .rank {
+    width: 3rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--muted, #6b655c);
+  }
+  .status-missing .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.82em;
+  }
+  .status-missing a {
+    color: #1a4f8a;
+  }
+  .status-gap .more {
+    color: var(--muted, #6b655c);
+    font-size: 0.85rem;
+    margin: 0.35rem 0 0.5rem;
+  }
+  @media (max-width: 800px) {
+    .status-strip {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

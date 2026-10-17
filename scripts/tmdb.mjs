@@ -2,6 +2,7 @@
 // Usage: npm run tmdb                    (works missing any of those)
 //        npm run tmdb -- breaking-bad    (only these works)
 //        npm run tmdb -- --force         (re-search and re-download everything)
+//        npm run tmdb -- --genres        (backfill work_genres for works that already have tmdb_id)
 import { writeFile, mkdir, access } from "node:fs/promises";
 import { openDb, exportDb, cachedJson } from "./lib/db.mjs";
 import {
@@ -28,10 +29,35 @@ const HINTS = {
   "tmdb-tv-34549": { query: "The Great British Bake Off", year: 2010 },
   // A 19-minute Brazilian film shares the English title and the 2013 search year.
   "tmdb-m-97370": { id: 97370 }, // Under the Skin
+  // Criterion spines whose shop titles / years do not match TMDB search alone.
+  "local-all-that-money-can-buy-aka-the-devil-and-daniel-webster": { id: 29451 },
+  "local-fanny-and-alexander-theatrical-version": { id: 5961 },
+  "local-fanny-and-alexander-television-version": { id: 33153 },
+  "tmdb-tv-33153": { id: 33153 },
+  "local-jeanne-dielman-23-quai-du-commerce-1080-bruxelles": { id: 44012, query: "Jeanne Dielman, 23", year: 1976 },
+  "tmdb-m-44012": { id: 44012 },
+  "local-jimi-plays-monterey-and-shake-otis-at-monterey": { id: 26028 },
+  "local-les-blank-always-for-pleasure": { id: 85637, year: 1978 },
+  "local-symbiopsychotaxiplasm-two-takes-by-william-greaves": { id: 44783 },
+  "local-tanner-88": { id: 1804 },
+  "tmdb-tv-1804": { id: 1804 },
+  "local-the-complete-mr-arkadin": { id: 44026 },
+  // AFI ballot lists 1926; TMDB dates the silent film 1925-12-25.
+  "local-ben-hur-1926": { id: 31510, query: "Ben-Hur: A Tale of the Christ", year: 1925 },
+  "tmdb-m-31510": { id: 31510 },
+  // Bare “Hotel Rwanda” search can hit the making-of short instead of the feature.
+  "tmdb-m-1550256": { id: 205, query: "Hotel Rwanda", year: 2004 },
+  "tmdb-m-205": { id: 205, query: "Hotel Rwanda", year: 2004 },
+  // 1967 Mel Brooks original (TMDB dates 1968); bare search prefers the 2005 musical remake.
+  "tmdb-m-9899": { id: 30197, query: "The Producers", year: 1968 },
+  "tmdb-m-30197": { id: 30197, query: "The Producers", year: 1968 },
+  "douban-1433079": { id: 318346, imdb: "tt0442256", query: "Half a Confession", year: 2004 },
+  "tmdb-m-58156": { id: 318346, imdb: "tt0442256", query: "Half a Confession", year: 2004 },
 };
 
 const args = process.argv.slice(2);
 const force = args.includes("--force");
+const genresOnly = args.includes("--genres");
 const only = new Set(args.filter((a) => !a.startsWith("--")));
 
 function tmdb(path, params = {}) {
@@ -50,6 +76,13 @@ const norm = (s) =>
 
 async function search(w, hint) {
   const type = w.kind;
+  const imdb = hint.imdb ?? w.imdb_id;
+  if (imdb) {
+    const found = await tmdb(`/find/${imdb}`, { external_source: "imdb_id" });
+    // Never cross media types: movie/206647 and tv/206647 are different works.
+    const hit = (type === "tv" ? found.tv_results : found.movie_results)?.[0];
+    if (hit?.id) return { id: hit.id, exact: true };
+  }
   const query = hint.query ?? w.en;
   const year = hint.year ?? w.year_start;
   const yearKey = type === "tv" ? "first_air_date_year" : "primary_release_year";
@@ -70,14 +103,28 @@ const COUNTRIES = {
   AR: "阿根廷", IR: "伊朗", IN: "印度", SE: "瑞典", DK: "丹麦", NO: "挪威", FI: "芬兰", PL: "波兰", AT: "奥地利",
   BE: "比利时", NL: "荷兰", CH: "瑞士", RU: "俄罗斯", RO: "罗马尼亚", HU: "匈牙利", CZ: "捷克", IL: "以色列",
   TH: "泰国", ZA: "南非", CL: "智利", CO: "哥伦比亚", TR: "土耳其", GR: "希腊", PT: "葡萄牙", ID: "印度尼西亚",
+  SU: "苏联", XC: "捷克斯洛伐克", YU: "南斯拉夫", XG: "东德", PH: "菲律宾", LV: "拉脱维亚", DZ: "阿尔及利亚",
+  SN: "塞内加尔", QA: "卡塔尔", ET: "埃塞俄比亚", NG: "尼日利亚", JM: "牙买加", EG: "埃及", CU: "古巴",
+  CM: "喀麦隆", MK: "北马其顿", TN: "突尼斯", GT: "危地马拉", BD: "孟加拉国", AO: "安哥拉",
 };
 const han = /\p{Script=Han}/u;
 
-/** Fills the Chinese title, country, format and credits that a freshly seeded work lacks. */
+function saveGenres(workId, enGenres, zhGenres) {
+  const zhById = new Map((zhGenres ?? []).map((g) => [g.id, g.name]));
+  db.prepare("DELETE FROM work_genres WHERE work_id = ?").run(workId);
+  const insert = db.prepare("INSERT INTO work_genres (work_id, genre_id, name_zh, name_en) VALUES (?, ?, ?, ?)");
+  for (const g of enGenres ?? []) {
+    if (!g?.id || !g.name) continue;
+    const nameZh = zhById.get(g.id) || g.name;
+    insert.run(workId, g.id, nameZh, g.name);
+  }
+}
+
+/** Fills the Chinese title, country, format, credits and plot that a freshly seeded work lacks. */
 async function fillFacts(w, d) {
   const sets = {};
+  const zh = await tmdb(`/${w.kind}/${d.id}`, { language: "zh-CN" });
   if (!w.zh) {
-    const zh = await tmdb(`/${w.kind}/${d.id}`, { language: "zh-CN" });
     const title = zh.title ?? zh.name;
     if (title && han.test(title)) sets.zh = title;
   }
@@ -91,17 +138,55 @@ async function fillFacts(w, d) {
     sets.form = genres.includes(99) ? "纪录片" : genres.includes(16) ? "动画" : "电影";
   }
   for (const [k, v] of Object.entries(sets)) db.prepare(`UPDATE works SET ${k} = ? WHERE id = ?`).run(v, w.id);
+  saveGenres(w.id, d.genres, zh.genres);
 
-  if (w.kind !== "movie" || db.prepare("SELECT 1 FROM credits WHERE work_id = ?").get(w.id)) return;
-  const { cast, crew } = await tmdb(`/movie/${d.id}/credits`);
-  const directors = crew.filter((c) => c.job === "Director").slice(0, 2);
-  const leads = cast.slice(0, 4);
+  const overviewZh = (zh.overview || "").trim();
+  const overviewEn = (d.overview || "").trim();
+  if (overviewZh || overviewEn) {
+    const ed = db.prepare("SELECT plot, plot_en, reviewed FROM editorial WHERE work_id = ?").get(w.id);
+    if (!ed) {
+      db.prepare("INSERT INTO editorial (work_id, plot, plot_en, reviewed) VALUES (?, ?, ?, 1)").run(
+        w.id,
+        overviewZh || null,
+        overviewEn || null,
+      );
+    } else if ((!ed.plot || !ed.plot_en) && !ed.reviewed) {
+      // Only fill empty draft rows; never overwrite reviewed hand-written copy.
+      db.prepare(
+        `UPDATE editorial SET
+           plot = coalesce(nullif(plot, ''), ?),
+           plot_en = coalesce(nullif(plot_en, ''), ?),
+           reviewed = 1
+         WHERE work_id = ? AND reviewed = 0`,
+      ).run(overviewZh || null, overviewEn || null, w.id);
+    } else if (!ed.plot || !ed.plot_en) {
+      db.prepare(
+        `UPDATE editorial SET
+           plot = coalesce(nullif(plot, ''), ?),
+           plot_en = coalesce(nullif(plot_en, ''), ?)
+         WHERE work_id = ?`,
+      ).run(overviewZh || null, overviewEn || null, w.id);
+    }
+  }
+
+  if (db.prepare("SELECT 1 FROM credits WHERE work_id = ?").get(w.id)) return;
   const person = (p) => {
     const row = db.prepare("SELECT id FROM people WHERE tmdb_id = ?").get(p.id);
     if (row) return row.id;
     return Number(db.prepare("INSERT INTO people (en, tmdb_id) VALUES (?, ?)").run(p.name, p.id).lastInsertRowid);
   };
-  directors.forEach((p, i) => db.prepare("INSERT INTO credits VALUES (?, 'director', ?, ?)").run(w.id, i, person(p)));
+  if (w.kind === "movie") {
+    const { cast, crew } = await tmdb(`/movie/${d.id}/credits`);
+    const directors = crew.filter((c) => c.job === "Director").slice(0, 2);
+    const leads = cast.slice(0, 4);
+    directors.forEach((p, i) => db.prepare("INSERT INTO credits VALUES (?, 'director', ?, ?)").run(w.id, i, person(p)));
+    leads.forEach((p, i) => db.prepare("INSERT INTO credits VALUES (?, 'cast', ?, ?)").run(w.id, i, person(p)));
+    return;
+  }
+  const { cast, crew } = await tmdb(`/tv/${d.id}/credits`);
+  const creators = (d.created_by?.length ? d.created_by : crew.filter((c) => c.job === "Creator" || c.job === "Director")).slice(0, 2);
+  const leads = cast.slice(0, 4);
+  creators.forEach((p, i) => db.prepare("INSERT INTO credits VALUES (?, 'creator', ?, ?)").run(w.id, i, person(p)));
   leads.forEach((p, i) => db.prepare("INSERT INTO credits VALUES (?, 'cast', ?, ?)").run(w.id, i, person(p)));
 }
 
@@ -112,6 +197,32 @@ const update = db.prepare(
   `UPDATE works SET tmdb_id = ?, tmdb_type = ?, tmdb_season = ?, imdb_id = ?, original = ?, runtime = ?, poster = ? WHERE id = ?`,
 );
 const report = [];
+
+if (genresOnly) {
+  let n = 0;
+  for (const w of works) {
+    if (!w.tmdb_id) continue;
+    if (only.size && !only.has(w.id)) continue;
+    if (!force && db.prepare("SELECT 1 FROM work_genres WHERE work_id = ?").get(w.id)) continue;
+    const d = await tmdb(`/${w.kind}/${w.tmdb_id}`);
+    const zh = await tmdb(`/${w.kind}/${w.tmdb_id}`, { language: "zh-CN" });
+    saveGenres(w.id, d.genres, zh.genres);
+    // Repair bare ISO leftovers in place when we can map them.
+    if (w.place && /[A-Z]{2}/.test(w.place)) {
+      const fixed = w.place
+        .split("、")
+        .map((p) => COUNTRIES[p.trim()] ?? p.trim())
+        .filter(Boolean)
+        .join("、");
+      if (fixed !== w.place) db.prepare("UPDATE works SET place = ? WHERE id = ?").run(fixed, w.id);
+    }
+    n++;
+    report.push(`genre ${w.id}`);
+  }
+  exportDb(db);
+  console.log(report.length ? `${report.length} works tagged (${n} updated)\n` + report.slice(0, 20).join("\n") + (report.length > 20 ? `\n… ${report.length} total` : "") : "nothing to do");
+  process.exit(0);
+}
 
 for (const w of works) {
   if (only.size && !only.has(w.id)) continue;
@@ -172,20 +283,22 @@ for (const w of works) {
   report.push(`ok    ${w.id.padEnd(36)} ${type}/${tmdbId} ${imdbId ?? "no-imdb"}  ${d.name ?? d.title} ${note}`);
 }
 
-const unnamed = db.prepare("SELECT id, tmdb_id, en FROM people WHERE zh IS NULL AND tmdb_id IS NOT NULL").all();
-const setZh = db.prepare("UPDATE people SET zh = ? WHERE id = ?");
-let named = 0;
-for (const p of unnamed) {
-  const d = await tmdb(`/person/${p.tmdb_id}`, { language: "zh-CN" });
-  const zh = [d.name, ...(d.also_known_as ?? [])].find((s) => s && han.test(s));
-  if (!zh) {
-    report.push(`noname ${p.en}`);
-    continue;
+if (!only.size) {
+  const unnamed = db.prepare("SELECT id, tmdb_id, en FROM people WHERE zh IS NULL AND tmdb_id IS NOT NULL").all();
+  const setZh = db.prepare("UPDATE people SET zh = ? WHERE id = ?");
+  let named = 0;
+  for (const p of unnamed) {
+    const d = await tmdb(`/person/${p.tmdb_id}`, { language: "zh-CN" });
+    const zh = [d.name, ...(d.also_known_as ?? [])].find((s) => s && han.test(s));
+    if (!zh) {
+      report.push(`noname ${p.en}`);
+      continue;
+    }
+    setZh.run(zh.replace(/\s+/g, ""), p.id);
+    named++;
   }
-  setZh.run(zh.replace(/\s+/g, ""), p.id);
-  named++;
+  if (unnamed.length) report.push(`names ${named}/${unnamed.length}`);
 }
-if (unnamed.length) report.push(`names ${named}/${unnamed.length}`);
 
 exportDb(db);
 console.log(report.join("\n") || "nothing to do");

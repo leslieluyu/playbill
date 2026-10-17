@@ -129,17 +129,104 @@ export const lists: Record<string, ListCopy> = {
   "criterion-spine": {
     title: "The Criterion Collection",
     kicker: "The Criterion Collection · by spine number",
-    dek: "The Criterion Collection catalog, ordered by spine number. Numbers come from Criterion’s official shop list; box sets and titles without a spine are left out for now. Search by spine number, English title, or director.",
+    dek: "The Criterion Collection catalog, ordered by spine number. Filter by country, genre, or form. Numbers come from Criterion’s official shop list; box sets and titles without a spine are left out for now. Search by spine number, English title, or director.",
     noun: "film",
     creator: "Director",
-    search: "Title, director, or a spine number such as 65",
+    search: "Title, director, or a spine number such as 065",
     idle: "Press Enter, or pick a result, to jump to that film.",
     empty: "No matches. Try a title, a name, or a spine number.",
     found: "Found {n}. Press Enter for the first, or pick one from the list.",
     none: "No matches.",
     sections: {},
     colophon:
-      "Chinese titles use the names most common in Chinese-speaking places, and search also accepts familiar aliases. Directors, cast, and plots are short notes from public sources. Spine numbers are Criterion’s; the list is refreshed from their shop browse page. Playbill notes are ours and stay with the work.",
+      "Chinese titles use the names most common in Chinese-speaking places, and search also accepts familiar aliases. Directors, cast, and plots are short notes from public sources. Highlights for a small set of spines are taken from Criterion’s film pages (English) with provisional Chinese translations. Spine numbers are Criterion’s; the list is refreshed from their shop browse page. Playbill notes are ours and stay with the work.",
+    ratings:
+      "Ratings are from Douban and IMDb, as of {date}. Douban scores each season separately. A show with several seasons displays the average (marked avg; hover for each season). Seasons with too few votes are left out.",
+  },
+  "sight-sound-2020": {
+    title: "Sight & Sound’s 100 Greatest Movies (2020)",
+    kicker: "Sight & Sound · a reading copy",
+    dek: "A 2020 reading of Sight & Sound’s greatest films of all time: one hundred movies rearranged into seven sections by type, kept in their original rank order inside each section. Each film has its year, director, and cast. Search by title, name, or rank to jump to it on the page.",
+    noun: "film",
+    creator: "Director",
+    search: "Title, director, or cast, or a rank such as 27",
+    idle: "Press Enter, or pick a result, to jump to that film.",
+    empty: "No matches. Try a title, a name, or a rank.",
+    found: "Found {n}. Press Enter for the first, or pick one from the list.",
+    none: "No matches.",
+    sections: {
+      crime: {
+        name: "Crime & Mystery",
+        blurb:
+          "Crime, mystery, and dread. Vertigo, Psycho, Rear Window, and North by Northwest are Hitchcock. The two Godfather films, Chinatown, M, and Touch of Evil are hard crime. Mulholland Drive and Blue Velvet play like nightmares. Breathless, Pierrot le fou, and Close-Up take the genre apart and rebuild it.",
+      },
+      love: {
+        name: "Love",
+        blurb:
+          "Romance, marriage, and the ones who miss each other. In the Mood for Love, Sunrise, Casablanca, and Children of Paradise are about love. L’Atalante and A Day in the Country are lighter. In L’Avventura, L’Eclisse, Contempt, and Journey to Italy, the relationship is already coming apart. Fear Eats the Soul, Imitation of Life, and Touki Bouki put love next to class, race, and leaving home.",
+      },
+      comedy: {
+        name: "Comedy",
+        blurb:
+          "Chaplin (City Lights, Modern Times), Keaton (The General, Sherlock Jr.), plus Singin’ in the Rain, Some Like It Hot, and Playtime. The Rules of the Game and La Dolce Vita have a sting under the laughs. Nashville is a chorus of overlapping stories.",
+      },
+      spec: {
+        name: "Sci-Fi, Fantasy & Western",
+        blurb:
+          "Science fiction includes 2001, Metropolis, Blade Runner, Stalker, and La Jetée. Fantasy and parable include Ugetsu, The Seventh Seal, A Matter of Life and Death, and The Spirit of the Beehive. The Searchers, Rio Bravo, Once Upon a Time in the West, and The Wild Bunch are westerns.",
+      },
+      history: {
+        name: "History & War",
+        blurb:
+          "History, war, and eras tipping over. Battleship Potemkin, The Passion of Joan of Arc, and Intolerance are early epics. Apocalypse Now, The Battle of Algiers, Grand Illusion, and Lawrence of Arabia are about war and empire. Seven Samurai, Andrei Rublev, The Leopard, and Barry Lyndon put one life inside a larger age.",
+      },
+      life: {
+        name: "A Life",
+        blurb:
+          "Families, growing up, and what someone makes of a life. Tokyo Story, Late Spring, Yi Yi, and Bicycle Thieves are about home. The 400 Blows is a boy’s story. Citizen Kane, 8½, Persona, The Mirror, and Jeanne Dielman turn inward. Sunset Boulevard is about the rest of a life inside Hollywood.",
+      },
+      doc: {
+        name: "Documentary & Experimental",
+        blurb:
+          "Documentaries and experiments. Shoah is a long testimony. Man with a Movie Camera, Sans Soleil, and Histoire(s) du cinéma work on the act of filming itself. An Andalusian Dog is a surrealist short that refuses a standard plot.",
+      },
+    },
+    colophon:
+      "Chinese titles use the names most common in Chinese-speaking places, and search also accepts familiar aliases. Directors, cast, and plots are short notes from public sources. Rank order follows the IMDb user list linked in the footer; reading sections are ours. Playbill notes are ours and stay with the work; they are still being filled in for this list.",
+    ratings:
+      "Ratings are from Douban and IMDb, as of {date}. Douban scores each season separately. A show with several seasons displays the average (marked avg; hover for each season). Seasons with too few votes are left out.",
+  },
+  "japan-academy-picture": {
+    title: "Japan Academy Prize · Best Picture",
+    kicker: "Japan Academy Film Prize · Picture of the Year",
+    dek: "Every Picture of the Year at the Japan Academy Film Prize (日本アカデミー賞), from the 48th ceremony down to the first. Each entry has its year, director, and cast. Search by title, name, or rank to jump to it on the page.",
+    noun: "film",
+    creator: "Director",
+    search: "Title, director, or cast, or a rank such as 27",
+    idle: "Press Enter, or pick a result, to jump to that film.",
+    empty: "No matches. Try a title, a name, or a rank.",
+    found: "Found {n}. Press Enter for the first, or pick one from the list.",
+    none: "No matches.",
+    sections: {},
+    colophon:
+      "Chinese titles use the names most common in Chinese-speaking places, and search also accepts familiar aliases. Directors, cast, and plots are short notes from public sources. Order follows the Douban doulist linked in the footer (newest ceremony first). Playbill notes are ours and stay with the work; they are still being filled in for this list.",
+    ratings:
+      "Ratings are from Douban and IMDb, as of {date}. Douban scores each season separately. A show with several seasons displays the average (marked avg; hover for each season). Seasons with too few votes are left out.",
+  },
+  "afi-100-movies": {
+    title: "AFI’s 100 Movies",
+    kicker: "AFI’s 100 Years…100 Movies · 10th Anniversary",
+    dek: "The American Film Institute’s 2007 10th-anniversary poll of the greatest American films. The page defaults to the final 100; open the full list to browse all 400 ballot nominees. Filter by country, genre, or form. Ranks 1–100 are the official winners; the rest follow ballot order among the remaining nominees.",
+    noun: "film",
+    creator: "Director",
+    search: "Title, director, or cast, or a rank such as 27",
+    idle: "Press Enter, or pick a result, to jump to that film.",
+    empty: "No matches. Try a title, a name, a tag, or a rank.",
+    found: "Found {n}. Press Enter for the first, or pick one from the list.",
+    none: "No matches.",
+    sections: {},
+    colophon:
+      "Chinese titles use the names most common in Chinese-speaking places, and search also accepts familiar aliases. Directors, cast, and plots are short notes from public sources. The top 100 follow AFI’s 2007 ranking; the remaining titles are the other films from AFI’s 400-nominee ballot, ordered by ballot number. Playbill notes are ours and stay with the work; they are still being filled in for this list.",
     ratings:
       "Ratings are from Douban and IMDb, as of {date}. Douban scores each season separately. A show with several seasons displays the average (marked avg; hover for each season). Seasons with too few votes are left out.",
   },

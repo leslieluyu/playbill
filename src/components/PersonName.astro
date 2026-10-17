@@ -3,11 +3,22 @@ interface Props {
   id: string;
   zh?: string;
   en: string;
+  /** When false, render plain text (keeps huge list pages lighter). */
+  linked?: boolean;
 }
-const { id, zh, en } = Astro.props;
+const { id, zh, en, linked = true } = Astro.props;
 ---
 
-<a class="person-link" href={`/people/${id}/`}>
-  {zh && <span class="zh">{zh} </span>}
-  <span class="lat">{en}</span>
-</a>
+{
+  linked ? (
+    <a class="person-link" href={`/people/${id}/`} data-prefetch>
+      {zh && <span class="zh">{zh} </span>}
+      <span class="lat">{en}</span>
+    </a>
+  ) : (
+    <span class="person-plain">
+      {zh && <span class="zh">{zh} </span>}
+      <span class="lat">{en}</span>
+    </span>
+  )
+}

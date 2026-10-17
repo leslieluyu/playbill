@@ -6,8 +6,25 @@
 
 - `/nyt-100-tv/`：《纽约时报》「21 世纪 100 部最佳剧集」，按类型分七个区，附剧情与看点。
 - `/nyt-100-movies/`：《纽约时报》「21 世纪 100 部最佳电影」，按类型分七个区，附剧情和看点。导演和主演的中文名来自 TMDB。电影看点译自《纽约时报》榜单页上的推荐短文。
+- `/criterion-spine/`：Criterion Collection，按官方 Spine Number 排列，可用国家、类型、形式标签筛选；看点取自各片官方介绍页。
+- `/sight-sound-2020/`：《视与听》影史百佳 2020 版整理，按类型分七个阅读分区，分区内按原榜名次排列。
+- `/afi-100-movies/`：AFI「百年百大」2007 十周年版；默认展示正式百佳，可展开当年 400 部候选，左侧用标签筛选。
+- `/japan-academy-picture/`：日本电影学院奖（日本アカデミー賞）历届最優秀作品，按届次从新到旧排列。
 
 页内搜索认中文名、英文名、别名、主创、主演和名次。回车或点选结果会跳到那一部。剧集的剧情和看点是我们自己写的，电影看点译自《纽约时报》原文，只有审过的才上页面。右上角可以在中文和英文之间切换：英文只显示英文；中文模式下标题、主创和主演保留英文，其余为中文。
+
+## 片单来源
+
+每份片单在 `lists` 表里有 `source_name` / `source_url`，页面页脚会链回去。主要来源如下：
+
+| 片单 | 路由 | 主要来源 |
+| --- | --- | --- |
+| 21 世纪百佳剧集 | `/nyt-100-tv/` | [NYT · The 100 Best TV Shows of the 21st Century](https://www.nytimes.com/bestTV) |
+| 21 世纪百佳电影 | `/nyt-100-movies/` | [NYT · The 100 Best Movies of the 21st Century](https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html) |
+| Criterion Collection | `/criterion-spine/` | [Criterion · Shop All Films（按 spine number）](https://www.criterion.com/shop/browse/list?sort=spine_number)；各片看点来自对应 `criterion.com/films/…` 介绍页 |
+| 视与听影视百佳 2020版 | `/sight-sound-2020/` | [IMDb list ls098836998](https://www.imdb.com/list/ls098836998/)（Sight & Sound’s 100 Greatest Movies of All Time, 2020 version） |
+| AFI 百大电影 | `/afi-100-movies/` | [AFI · 100 Years…100 Movies — 10th Anniversary Edition](https://www.afi.com/afis-100-years-100-movies-10th-anniversary-edition/)；候选名单见 [400-film ballot PDF](https://prdaficalmjediwestussa.blob.core.windows.net/images/2019/08/Movies_ballot_06.pdf) |
+| 日本电影学院奖最佳影片 | `/japan-academy-picture/` | [豆瓣豆列 · 历届日本电影学院奖最佳影片](https://www.douban.com/doulist/991214/) |
 
 ## 本地运行
 
@@ -37,7 +54,7 @@ npm run build    # 输出到 dist/，纯静态，可直接部署
 ## 加一份片单
 
 1. 在 `db/seed/` 放 `<name>.json`（标题、来源、类型）和 TSV（名次、英文片名、年份），参考 `nyt-100-movies`。
-2. `npm run seed -- <name>`：建片单和缺少的作品。TSV 列是 `rank`、`title`、`year`，可选 `tmdb_id`、`douban_id`、`id`（有外部 ID 时直接写成规范主键）。Criterion 片单用 `spine_number` 代替 `rank`（编号即名次）。
+2. `npm run seed -- <name>`：建片单和缺少的作品。TSV 列是 `rank`、`title`、`year`，可选 `tmdb_id`、`douban_id`、`imdb_id`、`id`（有外部 ID 时直接写成规范主键；有 `imdb_id` 时优先按 IMDb 复用已有作品，`npm run tmdb` 也会用 `/find` 精确匹配）。Criterion 片单用 `spine_number` 代替 `rank`（编号即名次）。
 3. `npm run tmdb`：匹配 TMDB，把作品 id 收成 `tmdb-m-` / `tmdb-tv-`，补中文名、原名、国家、片长、导演和主演、IMDb ID，下载海报到 `public/posters/`。
 4. `npm run people`：给人补 TMDB id（按英文名搜索）、简介和头像到 `public/people/`。人物页按角色列出场刊内作品，并列出同片合作过的人。
 5. `npm run imdb`：读 IMDb 每日公开评分文件。

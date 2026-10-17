@@ -11,6 +11,7 @@ const POSTER_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), ".
 
 const WORK_ID_COLS = [
   ["work_aliases", "work_id"],
+  ["work_genres", "work_id"],
   ["credits", "work_id"],
   ["editorial", "work_id"],
   ["douban_subjects", "work_id"],
@@ -45,11 +46,60 @@ export function shouldAdoptWorkId(current, preferred) {
   return true;
 }
 
+/**
+ * Point every FK from `from` at `to`, then delete `from`.
+ * Used when a provisional local row matches a work that already has the canonical id.
+ * list_entries / highlights that would duplicate (same list_id+rank / list_id+work) are dropped.
+ */
+export function mergeWorkInto(db, from, to) {
+  if (from === to) return false;
+  if (!db.prepare("SELECT 1 FROM works WHERE id = ?").get(from)) throw new Error(`work not found: ${from}`);
+  if (!db.prepare("SELECT 1 FROM works WHERE id = ?").get(to)) throw new Error(`work not found: ${to}`);
+
+  // list_entries: same list may already hold `to` at another rank — drop the local row.
+  const listsWithTo = db.prepare("SELECT list_id FROM list_entries WHERE work_id = ?").all(to).map((r) => r.list_id);
+  for (const listId of listsWithTo) {
+    db.prepare("DELETE FROM list_entries WHERE work_id = ? AND list_id = ?").run(from, listId);
+  }
+  db.prepare("UPDATE list_entries SET work_id = ? WHERE work_id = ?").run(to, from);
+
+  const highlightLists = db.prepare("SELECT list_id FROM list_highlights WHERE work_id = ?").all(to).map((r) => r.list_id);
+  for (const listId of highlightLists) {
+    db.prepare("DELETE FROM list_highlights WHERE work_id = ? AND list_id = ?").run(from, listId);
+  }
+  db.prepare("UPDATE list_highlights SET work_id = ? WHERE work_id = ?").run(to, from);
+
+  // 1:1 tables: keep the canonical row if both exist.
+  for (const table of ["editorial", "work_aliases", "work_genres", "credits", "douban_subjects", "ratings"]) {
+    if (table === "editorial") {
+      db.prepare("DELETE FROM editorial WHERE work_id = ? AND EXISTS (SELECT 1 FROM editorial WHERE work_id = ?)").run(from, to);
+      db.prepare("UPDATE editorial SET work_id = ? WHERE work_id = ?").run(to, from);
+    } else if (table === "work_aliases") {
+      db.prepare("DELETE FROM work_aliases WHERE work_id = ?").run(from);
+    } else if (table === "work_genres") {
+      db.prepare("DELETE FROM work_genres WHERE work_id = ?").run(from);
+    } else if (table === "credits") {
+      db.prepare("DELETE FROM credits WHERE work_id = ?").run(from);
+    } else if (table === "douban_subjects") {
+      db.prepare("UPDATE douban_subjects SET work_id = ? WHERE work_id = ?").run(to, from);
+    } else if (table === "ratings") {
+      db.prepare(
+        `DELETE FROM ratings WHERE work_id = ? AND source IN (SELECT source FROM ratings WHERE work_id = ?)`,
+      ).run(from, to);
+      db.prepare("UPDATE ratings SET work_id = ? WHERE work_id = ?").run(to, from);
+    }
+  }
+
+  db.prepare("UPDATE person_awards SET work_id = ? WHERE work_id = ?").run(to, from);
+  db.prepare("DELETE FROM works WHERE id = ?").run(from);
+  return true;
+}
+
 /** Rewrites works.id and every work_id foreign key. Caller should rename the poster file. */
 export function renameWork(db, from, to) {
   if (from === to) return false;
   if (db.prepare("SELECT 1 FROM works WHERE id = ?").get(to)) {
-    throw new Error(`work id already exists: ${to} (from ${from})`);
+    return mergeWorkInto(db, from, to);
   }
   const row = db.prepare("SELECT * FROM works WHERE id = ?").get(from);
   if (!row) throw new Error(`work not found: ${from}`);

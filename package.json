@@ -15,9 +15,14 @@
     "people": "node --no-warnings --env-file=.env scripts/people.mjs",
     "imdb": "node --no-warnings scripts/imdb.mjs",
     "douban": "node --no-warnings --env-file=.env scripts/douban.mjs",
-    "criterion": "node --no-warnings scripts/fetch-criterion.mjs"
+    "criterion": "node --no-warnings scripts/fetch-criterion.mjs",
+    "criterion-blurbs": "node --no-warnings scripts/fetch-criterion-blurbs.mjs",
+    "criterion-blurbs:import": "node --no-warnings scripts/import-criterion-blurbs.mjs",
+    "criterion-blurbs:zh": "node --no-warnings scripts/translate-criterion-blurbs.mjs",
+    "people-awards": "node --no-warnings --env-file=.env scripts/fetch-person-awards.mjs"
   },
   "dependencies": {
-    "astro": "^7.3.8"
+    "astro": "^7.3.8",
+    "undici": "^8.12.1"
   }
 }

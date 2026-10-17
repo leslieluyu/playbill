@@ -1,9 +1,12 @@
 ---
+import { mkdirSync, writeFileSync } from "node:fs";
+import path from "node:path";
 import { getCollection, getEntry } from "astro:content";
 import Base from "../layouts/Base.astro";
 import Bi from "../components/Bi.astro";
-import PersonName from "../components/PersonName.astro";
+import ShowCard from "../components/ShowCard.astro";
 import { formEn, lists as listCopy, placeEn, yearsEn } from "../i18n";
+import { buildTagGroups, tagsForWork } from "../lib/tags";
 
 export async function getStaticPaths() {
   const lists = await getCollection("lists");
@@ -15,14 +18,23 @@ const meta = list.data;
 const copy = listCopy[list.id];
 if (!copy) throw new Error(`missing English copy for ${list.id}`);
 
+const useTags = list.id === "criterion-spine" || list.id === "afi-100-movies";
+const linkPeople = list.id !== "criterion-spine";
+const featuredLimit = list.id === "afi-100-movies" ? 100 : 0;
+// Large catalogs: keep plots/场刊 out of the HTML and hydrate on scroll.
+const lazyExtras = list.id === "criterion-spine" || list.id === "afi-100-movies";
+
 const rows = await Promise.all(
   meta.entries.map(async (e) => {
     const work = await getEntry(e.work);
     if (!work) throw new Error(`${list.id}: unknown work ${e.work.id}`);
-    return { ...e, section: e.section ?? "all", work: work.data, id: work.id };
+    const tags = useTags ? tagsForWork(work.data) : [];
+    return { ...e, section: e.section ?? "all", work: work.data, id: work.id, tags };
   }),
 );
 rows.sort((a, b) => a.rank - b.rank);
+const primaryRows = featuredLimit > 0 ? rows.filter((r) => r.rank <= featuredLimit) : rows;
+const extraRows = featuredLimit > 0 ? rows.filter((r) => r.rank > featuredLimit) : [];
 
 const sectionDefs = meta.sections.length
   ? meta.sections
@@ -37,27 +49,20 @@ const sections = sectionDefs.map((s) => ({
   en: copy.sections[s.id] ?? { name: s.name, blurb: s.blurb },
   rows: rows.filter((r) => r.section === s.id),
 }));
+const tagGroups = useTags ? buildTagGroups(rows.map((r) => r.tags)) : [];
 const years = rows.flatMap((r) => r.work.years.match(/\d{4}/g) ?? []).map(Number);
 const span = years.length ? `${Math.min(...years)}–${Math.max(...years)}` : "";
 const isTv = meta.kind === "tv";
 const noun = isTv ? "剧" : "片";
 const creatorLabel = isTv ? "主创" : "导演";
-const pad = (n: number) => String(n).padStart(list.id === "criterion-spine" ? 3 : 2, "0");
-const rankHintZh = list.id === "criterion-spine" ? "编号如 65" : "名次如 27";
+const rankPad = list.id === "criterion-spine" ? 3 : 2;
+const pad = (n: number) => String(n).padStart(rankPad, "0");
+const rankDigits = list.id === "criterion-spine" ? Math.max(rankPad, ...rows.map((r) => pad(r.rank).length)) : 2;
+const rankHintZh = list.id === "criterion-spine" ? "编号如 065" : "名次如 27";
 const rankWordZh = list.id === "criterion-spine" ? "编号" : "名次";
 
 const fetched = rows.flatMap((r) => Object.values(r.work.ratings).map((x) => x?.fetchedAt ?? ""));
 const ratedOn = fetched.length ? fetched.sort().at(-1)!.slice(0, 7) : "";
-
-function doubanSeasons(d: { detail?: any }) {
-  const seasons = d.detail?.seasons as { season: number; value: number; votes: number }[] | undefined;
-  if (!seasons || seasons.length < 2) return undefined;
-  return seasons;
-}
-
-function line(parts: (string | undefined)[]) {
-  return parts.filter(Boolean).join(" · ");
-}
 
 function blob(r: (typeof rows)[number]) {
   // Keep this small: it is inlined on every article and dominated first-load HTML size.
@@ -81,12 +86,36 @@ function blob(r: (typeof rows)[number]) {
     placeEn(w.place),
     w.form,
     formEn(w.form),
+    // Tag ids already sit on data-tags; skip bilingual tag labels here on Criterion.
+    ...(useTags ? [] : r.tags.flatMap((t) => [t.zh, t.en])),
   ]
     .filter(Boolean)
     .join(" ")
     .toLowerCase();
 }
 
+// Criterion list is ~1250 films: keep plots/场刊 out of the HTML and hydrate on scroll.
+type Extras = { plot?: string; plotEn?: string; playbill?: string; playbillEn?: string };
+let extrasUrl: string | undefined;
+if (lazyExtras) {
+  const extras: Record<string, Extras> = {};
+  for (const r of rows) {
+    const w = r.work;
+    const row: Extras = {};
+    if (w.plot) row.plot = w.plot;
+    if (w.plotEn) row.plotEn = w.plotEn;
+    if (w.playbill) row.playbill = w.playbill;
+    if (w.playbillEn) row.playbillEn = w.playbillEn;
+    if (Object.keys(row).length) extras[String(r.rank)] = row;
+  }
+  // Astro copies public/ before page render, so also write into dist/ for this build.
+  const payload = JSON.stringify(extras);
+  for (const dir of [path.join(process.cwd(), "public", list.id), path.join(process.cwd(), "dist", list.id)]) {
+    mkdirSync(dir, { recursive: true });
+    writeFileSync(path.join(dir, "extras.json"), payload);
+  }
+  extrasUrl = `/${list.id}/extras.json`;
+}
 ---
 
 <Base titleZh={`${meta.title} · 场刊`} titleEn={`${copy.title} · Playbill`} description={meta.dek}>
@@ -97,9 +126,21 @@ function blob(r: (typeof rows)[number]) {
       <p class="dek"><Bi zh={meta.dek} en={copy.dek} /></p>
       <ul class="facts">
         <li>
-          <b>{rows.length}</b>
-          <span><Bi zh={`部入选${noun}目`} en={isTv ? "shows" : "films"} /></span>
+          <b>{featuredLimit ? featuredLimit : rows.length}</b>
+          <span>
+            {featuredLimit ? (
+              <Bi zh="部正式入选" en="official picks" />
+            ) : (
+              <Bi zh={`部入选${noun}目`} en={isTv ? "shows" : "films"} />
+            )}
+          </span>
         </li>
+        {featuredLimit > 0 && (
+          <li>
+            <b>{rows.length}</b>
+            <span><Bi zh="部候选名单" en="ballot nominees" /></span>
+          </li>
+        )}
         {span && (
           <li>
             <b>{span}</b>
@@ -112,14 +153,25 @@ function blob(r: (typeof rows)[number]) {
             <span><Bi zh="个阅读分区" en="sections" /></span>
           </li>
         )}
+        {useTags && (
+          <li>
+            <b>{tagGroups.reduce((n, g) => n + g.tags.length, 0)}</b>
+            <span><Bi zh="个筛选标签" en="filter tags" /></span>
+          </li>
+        )}
       </ul>
     </div>
   </header>
 
-  <div class="finder">
+  <div class="finder" data-rank-pad={rankPad} style={`--rank-digits:${rankDigits}`}>
     <div class="wrap finder-inner">
       <div class="search">
-        <label for="q"><Bi zh="页内搜索" en="Search this page" /></label>
+        <div class="search-head">
+          <label for="q"><Bi zh="页内搜索" en="Search this page" /></label>
+          <button type="button" class="back-top" id="back-top" hidden>
+            <Bi zh="回顶部" en="Top" />
+          </button>
+        </div>
         <input
           id="q"
           type="search"
@@ -138,54 +190,103 @@ function blob(r: (typeof rows)[number]) {
     </div>
   </div>
 
-  <div class="wrap shell">
-    <nav class="sections" id="nav">
-      <p><Bi zh="分区" en="Sections" /></p>
-      {
-        meta.sections.length > 0 && (
-          <button type="button" data-section="all" data-name-zh="全部" data-name-en="All" aria-current="true">
-            <span class="swatch" />
-            <span class="name">
-              <Bi zh="全部" en="All" />
-            </span>
-            <em>{rows.length}</em>
-          </button>
-        )
-      }
-      {
-        sections.map((s) => (
-          <button
-            type="button"
-            data-section={s.id}
-            data-name-zh={s.name}
-            data-name-en={s.en.name}
-            data-blurb-zh={s.blurb}
-            data-blurb-en={s.en.blurb}
-            style={`--sec:${s.color}`}
-          >
-            <span class="swatch" />
-            <span class="name">
-              <Bi zh={s.name} en={s.en.name} />
-            </span>
-            <em>{s.rows.length}</em>
-          </button>
-        ))
-      }
-    </nav>
+  <div
+    class="wrap shell"
+    style={`--rank-digits:${rankDigits}`}
+    data-extras-url={extrasUrl}
+    data-featured-limit={featuredLimit || undefined}
+    data-catalog-total={featuredLimit ? rows.length : undefined}
+  >
+    {
+      useTags ? (
+        <nav class="tags" id="nav" data-mode="tags">
+          <div class="tags-head">
+            <p><Bi zh="标签" en="Tags" /></p>
+            <button type="button" class="tags-clear" id="tags-clear" hidden>
+              <Bi zh="清除" en="Clear" />
+            </button>
+          </div>
+          {tagGroups.map((g) => (
+            <div class="tag-group" data-group={g.id} style={`--tag:${g.color}`}>
+              <h3>
+                <Bi zh={g.zh} en={g.en} />
+              </h3>
+              <div class="tag-list">
+                {g.tags.map((t) => (
+                  <button
+                    type="button"
+                    data-tag={t.id}
+                    data-group={g.id}
+                    data-name-zh={t.zh}
+                    data-name-en={t.en}
+                    aria-pressed="false"
+                  >
+                    <span class="name">
+                      <Bi zh={t.zh} en={t.en} />
+                    </span>
+                    <em data-count>{t.count}</em>
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
+        </nav>
+      ) : (
+        <nav class="sections" id="nav" data-mode="sections">
+          <p><Bi zh="分区" en="Sections" /></p>
+          {meta.sections.length > 0 && (
+            <button type="button" data-section="all" data-name-zh="全部" data-name-en="All" aria-current="true">
+              <span class="swatch" />
+              <span class="name">
+                <Bi zh="全部" en="All" />
+              </span>
+              <em>{rows.length}</em>
+            </button>
+          )}
+          {sections.map((s) => (
+            <button
+              type="button"
+              data-section={s.id}
+              data-name-zh={s.name}
+              data-name-en={s.en.name}
+              data-blurb-zh={s.blurb}
+              data-blurb-en={s.en.blurb}
+              style={`--sec:${s.color}`}
+            >
+              <span class="swatch" />
+              <span class="name">
+                <Bi zh={s.name} en={s.en.name} />
+              </span>
+              <em>{s.rows.length}</em>
+            </button>
+          ))}
+        </nav>
+      )
+    }
 
     <main id="main">
+      {featuredLimit > 0 && (
+        <div class="catalog-toggle" id="catalog-toggle" role="group" aria-label="Catalog scope">
+          <button type="button" data-catalog="featured" aria-pressed="true">
+            <Bi zh={`百佳 ${featuredLimit}`} en={`Top ${featuredLimit}`} />
+          </button>
+          <button type="button" data-catalog="all" aria-pressed="false">
+            <Bi zh={`全部候选 ${rows.length}`} en={`All ${rows.length} nominees`} />
+          </button>
+        </div>
+      )}
       <div class="topten" id="topten">
         <div class="topten-head">
           <h2><Bi zh="原榜" en="Ranking" /></h2>
           <button type="button" class="topten-more" id="topten-more" aria-expanded="false">
-            <span class="when-closed"><Bi zh={`全部 ${rows.length}`} en={`All ${rows.length}`} /></span>
+            <span class="when-closed"><Bi zh={`全部 ${featuredLimit || rows.length}`} en={`All ${featuredLimit || rows.length}`} /></span>
             <span class="when-open"><Bi zh="前十" en="Top ten" /></span>
           </button>
         </div>
         <ol>
           {
-            rows.map((r, i) => (
-              <li class={i >= 10 ? "rest" : undefined}>
+            primaryRows.map((r, i) => (
+              <li class:list={[{ rest: i >= 10 }]}>
                 <a href={`#show-${r.rank}`} data-rank={r.rank} style={`--sec:${sectionOf[r.section].color}`}>
                   <span class="n">{pad(r.rank)}</span>
                   <span>
@@ -206,7 +307,10 @@ function blob(r: (typeof rows)[number]) {
       </div>
 
       <p class="empty" id="empty" hidden>
-        <Bi zh={`没有匹配的${noun}目。可以换${noun}名、人名，或直接输入${rankWordZh}。`} en={copy.empty} />
+        <Bi
+          zh={`没有匹配的${noun}目。可以换${noun}名、人名${useTags ? "、标签" : ""}，或直接输入${rankWordZh}。`}
+          en={copy.empty}
+        />
       </p>
 
       <header class="list-section section-intro" id="section-intro" hidden>
@@ -222,179 +326,64 @@ function blob(r: (typeof rows)[number]) {
       </header>
 
       {
-        rows.map((r) => {
-              const w = r.work;
+        primaryRows.map((r) => {
+          const sec = sectionOf[r.section];
+          const secEn = copy.sections[r.section];
+          return (
+            <ShowCard
+              rank={r.rank}
+              section={r.section}
+              sectionColor={sec.color}
+              sectionName={sec.name}
+              sectionNameEn={secEn?.name}
+              showSectionInMeta={meta.sections.length > 0}
+              tags={r.tags}
+              work={r.work}
+              hook={r.hook}
+              hookEn={r.hookEn}
+              rankPad={rankPad}
+              blob={blob(r)}
+              lead={r.rank === 1}
+              lazyExtras={lazyExtras}
+              linkPeople={linkPeople}
+              useTags={useTags}
+              creatorLabel={creatorLabel}
+              creatorLabelEn={copy.creator}
+            />
+          );
+        })
+      }
+      {
+        extraRows.length > 0 && (
+          <template id="catalog-extra-src">
+            {extraRows.map((r) => {
               const sec = sectionOf[r.section];
               const secEn = copy.sections[r.section];
-              const douban = w.ratings.douban;
-              const imdb = w.ratings.imdb;
-              const seasons = douban ? doubanSeasons(douban) : undefined;
-              const noteZh = seasons && "各季平均：" + seasons.map((x) => `第${x.season}季 ${x.value.toFixed(1)}`).join("，");
-              const noteEn = seasons && "Average of seasons: " + seasons.map((x) => `S${x.season} ${x.value.toFixed(1)}`).join(", ");
-              const metaZh = line([w.years, w.place, w.form, meta.sections.length ? sec.name : undefined]);
-              const metaEn = line([yearsEn(w.years), placeEn(w.place), formEn(w.form), meta.sections.length ? (secEn?.name ?? sec.name) : undefined]);
               return (
-                <article
-                  class:list={["show", { lead: r.rank === 1 }]}
-                  id={`show-${r.rank}`}
-                  data-rank={r.rank}
-                  data-section={r.section}
-                  data-zh={w.zh ?? w.en}
-                  data-en={w.zh ? w.en : ""}
-                  data-blob={blob(r)}
-                  style={`--sec:${sec.color}`}
-                >
-                  <p class="rank">{pad(r.rank)}</p>
-                  {w.poster && (
-                    <button type="button" class="poster" aria-label={w.zh ? `《${w.zh}》海报` : `${w.en} poster`}>
-                      <img
-                        data-src={w.poster}
-                        alt={w.zh ? `《${w.zh}》海报` : `${w.en} poster`}
-                        data-alt-zh={w.zh ? `《${w.zh}》海报` : `${w.en} poster`}
-                        data-alt-en={`${w.en} poster`}
-                        width="342"
-                        height="513"
-                        decoding="async"
-                      />
-                    </button>
-                  )}
-                  <div class="body">
-                    <h3>
-                      {w.zh ? (
-                        <>
-                          <span class="zh">{w.zh}</span>
-                          <span class="lat">{w.en}</span>
-                        </>
-                      ) : (
-                        w.en
-                      )}
-                    </h3>
-                    {w.alias.length > 0 && <p class="alias zh">亦称 {w.alias.join("、")}</p>}
-                    <p class="meta">
-                      <Bi zh={metaZh} en={metaEn} />
-                    </p>
-                    {(douban || imdb) && (
-                      <p class="scores">
-                        {douban && (
-                          <>
-                            <span class="zh" title={noteZh}>
-                              豆瓣 <b>{douban.value.toFixed(1)}</b>
-                              {noteZh && <sup>均</sup>}
-                            </span>
-                            <span class="en" title={noteEn}>
-                              Douban <b>{douban.value.toFixed(1)}</b>
-                              {noteEn && <sup>avg</sup>}
-                            </span>
-                          </>
-                        )}
-                        {imdb && (
-                          <span>
-                            IMDb <b>{imdb.value.toFixed(1)}</b>
-                          </span>
-                        )}
-                      </p>
-                    )}
-                    {w.creators.length > 0 && (
-                      <p class="people">
-                        <span class="lab">
-                          <Bi zh={creatorLabel} en={copy.creator} />
-                        </span>
-                        <span>
-                          {w.creators.map((p, j) => (
-                            <>
-                              {j > 0 && (
-                                <>
-                                  <span class="zh">、</span>
-                                  <span class="en">, </span>
-                                </>
-                              )}
-                              <PersonName id={p.id} zh={p.zh} en={p.en} />
-                            </>
-                          ))}
-                        </span>
-                      </p>
-                    )}
-                    {w.writers.length > 0 && (
-                      <p class="people">
-                        <span class="lab">
-                          <Bi zh="编剧" en="Writers" />
-                        </span>
-                        <span>
-                          {w.writers.map((p, j) => (
-                            <>
-                              {j > 0 && (
-                                <>
-                                  <span class="zh">、</span>
-                                  <span class="en">, </span>
-                                </>
-                              )}
-                              <PersonName id={p.id} zh={p.zh} en={p.en} />
-                            </>
-                          ))}
-                        </span>
-                      </p>
-                    )}
-                    {w.cast.length > 0 && (
-                      <p class="people">
-                        <span class="lab">
-                          <Bi zh="主演" en="Cast" />
-                        </span>
-                        <span>
-                          {w.cast.map((p, j) => (
-                            <>
-                              {j > 0 && (
-                                <>
-                                  <span class="zh">、</span>
-                                  <span class="en">, </span>
-                                </>
-                              )}
-                              <PersonName id={p.id} zh={p.zh} en={p.en} />
-                            </>
-                          ))}
-                        </span>
-                      </p>
-                    )}
-                    {(w.plot || r.hook || w.playbill) && (
-                      <div class="copy">
-                        {w.plot && (
-                          <p class="plot">
-                            <span class="lab">
-                              <Bi zh="剧情" en="Plot" />
-                            </span>
-                            <span>
-                              <span class="zh">{w.plot}</span>
-                              {w.plotEn && <span class="en">{w.plotEn}</span>}
-                            </span>
-                          </p>
-                        )}
-                        {r.hook && (
-                          <p class="hook">
-                            <span class="lab">
-                              <Bi zh="看点" en="Highlight" />
-                            </span>
-                            <span>
-                              <span class="zh">{r.hook}</span>
-                              {r.hookEn && <span class="en">{r.hookEn}</span>}
-                            </span>
-                          </p>
-                        )}
-                        {w.playbill && (
-                          <p class="playbill">
-                            <span class="lab">
-                              <Bi zh="场刊" en="Playbill" />
-                            </span>
-                            <span>
-                              <span class="zh">{w.playbill}</span>
-                              {w.playbillEn && <span class="en">{w.playbillEn}</span>}
-                            </span>
-                          </p>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                </article>
+                <ShowCard
+                  rank={r.rank}
+                  section={r.section}
+                  sectionColor={sec.color}
+                  sectionName={sec.name}
+                  sectionNameEn={secEn?.name}
+                  showSectionInMeta={meta.sections.length > 0}
+                  tags={r.tags}
+                  work={r.work}
+                  hook={r.hook}
+                  hookEn={r.hookEn}
+                  rankPad={rankPad}
+                  blob={blob(r)}
+                  catalogExtra
+                  lazyExtras={lazyExtras}
+                  linkPeople={linkPeople}
+                  useTags={useTags}
+                  creatorLabel={creatorLabel}
+                  creatorLabelEn={copy.creator}
+                />
               );
-        })
+            })}
+          </template>
+        )
       }
     </main>
   </div>
@@ -410,9 +399,13 @@ function blob(r: (typeof rows)[number]) {
       <span class="zh">
         名单{isTv ? "与播出年份" : ""}来自
         <a href={meta.source.url}>{meta.source.name}</a>。中文名取华语地区较通行的译名，搜索同时认常见别名。{creatorLabel}、主演和剧情为依据公开资料做的简要整理。
-        {isTv
-          ? "「场刊」是我们为每部作品写的短注，挂在作品上；这份榜单的原生「看点」日后补。"
-          : "「看点」译自《纽约时报》在这篇榜单里为每部电影写的推荐短文，英文模式下显示原文；「场刊」是我们自己的短注，挂在作品上，这份榜单里还在补。"}
+        {list.id === "criterion-spine"
+          ? "「看点」摘自 Criterion 官方影片页短文（目前仅部分编号有，中文为试译）；「场刊」是我们自己的短注，挂在作品上。"
+          : list.id === "afi-100-movies"
+            ? "前 100 名为 AFI 2007 年正式榜单；其余为当年选票上的其他候选，按选票编号排列。候选名单另见 AFI 官方 ballot PDF。「场刊」是我们自己的短注，挂在作品上，这份榜单里还在补。"
+          : isTv
+            ? "「场刊」是我们为每部作品写的短注，挂在作品上；这份榜单的原生「看点」日后补。"
+            : "「看点」译自《纽约时报》在这篇榜单里为每部电影写的推荐短文，英文模式下显示原文；「场刊」是我们自己的短注，挂在作品上，这份榜单里还在补。"}
       </span>
       <span class="en">
         The list{isTv ? " and the years on air are" : " is"} from <a href={meta.source.url}>{meta.source.name}</a>. {copy.colophon}

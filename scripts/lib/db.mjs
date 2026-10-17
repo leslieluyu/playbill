@@ -2,8 +2,27 @@ import { DatabaseSync } from "node:sqlite";
 import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync, rmSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { EnvHttpProxyAgent, setGlobalDispatcher } from "undici";
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
+// Node's built-in fetch ignores HTTP(S)_PROXY; enrichment runs on the NUC through Clash.
+setGlobalDispatcher(new EnvHttpProxyAgent());
+
+// Prefer walking up to a directory that contains db/playbill.db so Astro prerender
+// bundles (under dist/.prerender/chunks) still resolve the real repo root.
+function findRoot() {
+  const starts = [path.dirname(fileURLToPath(import.meta.url)), process.cwd()];
+  for (const start of starts) {
+    let dir = start;
+    for (let i = 0; i < 10; i++) {
+      if (existsSync(path.join(dir, "db/playbill.db"))) return dir;
+      const parent = path.dirname(dir);
+      if (parent === dir) break;
+      dir = parent;
+    }
+  }
+  return path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
+}
+const ROOT = findRoot();
 export const DB_PATH = path.join(ROOT, "db/playbill.db");
 const CACHE_PATH = path.join(ROOT, "db/cache.db");
 const SCHEMA_PATH = path.join(ROOT, "db/schema.sql");
@@ -15,6 +34,7 @@ const TABLES = [
   ["list_sections", "list_id, ord"],
   ["works", "id"],
   ["work_aliases", "work_id, ord"],
+  ["work_genres", "work_id, genre_id"],
   ["people", "id"],
   ["credits", "work_id, role, ord"],
   ["editorial", "work_id"],
@@ -22,10 +42,12 @@ const TABLES = [
   ["ratings", "work_id, source, fetched_at"],
   ["list_entries", "list_id, rank"],
   ["list_highlights", "list_id, work_id"],
+  ["person_awards", "person_id, ord, year, id"],
 ];
 
 export function openDb(file = DB_PATH) {
   const db = new DatabaseSync(file);
+  db.exec("PRAGMA busy_timeout = 60000");
   db.exec(readFileSync(SCHEMA_PATH, "utf8"));
   return db;
 }
@@ -77,6 +99,7 @@ let cache;
 function cacheDb() {
   if (!cache) {
     cache = new DatabaseSync(CACHE_PATH);
+    cache.exec("PRAGMA busy_timeout = 60000");
     cache.exec(`CREATE TABLE IF NOT EXISTS raw (
       source TEXT NOT NULL, key TEXT NOT NULL, status INTEGER NOT NULL,
       body TEXT, fetched_at TEXT NOT NULL, PRIMARY KEY (source, key))`);

@@ -2,7 +2,7 @@
   "id": "criterion-spine",
   "title": "Criterion Collection",
   "kicker": "The Criterion Collection · 按收藏编号",
-  "dek": "Criterion Collection 影碟与流媒体目录，按 Spine Number（收藏编号）排列。编号来自 Criterion 官方片单；盒装与尚未单独编号的条目暂未收入。片名可搜编号、英文名或主创。",
+  "dek": "Criterion Collection 影碟与流媒体目录，按 Spine Number（收藏编号）排列。可用国家、类型、形式标签筛选。编号来自 Criterion 官方片单；盒装与尚未单独编号的条目暂未收入。片名可搜编号、英文名或主创。",
   "source": {
     "name": "The Criterion Collection · Shop All Films",
     "url": "https://www.criterion.com/shop/browse/list?sort=spine_number"

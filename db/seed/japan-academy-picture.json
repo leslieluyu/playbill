@@ -1,0 +1,13 @@
+{
+  "id": "japan-academy-picture",
+  "title": "日本电影学院奖最佳影片",
+  "kicker": "日本アカデミー賞 · 最優秀作品",
+  "dek": "日本电影学院奖（日本アカデミー賞）历届最優秀作品，按届次从新到旧排列（第 48 届至第 1 届）。每部附中英文名、年份、导演与主演；可按片名、人名或名次在页内定位。",
+  "source": {
+    "name": "豆瓣豆列 · 历届日本电影学院奖最佳影片",
+    "url": "https://www.douban.com/doulist/991214/"
+  },
+  "kind": "movie",
+  "order": 6,
+  "entries": "japan-academy-picture.tsv"
+}

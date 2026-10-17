@@ -36,6 +36,10 @@ const byRole = roleOrder
   .filter((g) => g.works.length);
 
 const collaborators = p.collaborators ?? [];
+const awards = [...(p.awards ?? [])].sort((a, b) => (b.year ?? 0) - (a.year ?? 0));
+const AWARDS_PREVIEW = 5;
+const awardsPreview = awards.slice(0, AWARDS_PREVIEW);
+const awardsRest = awards.slice(AWARDS_PREVIEW);
 ---
 
 <Base titleZh={titleZh} titleEn={titleEn}>
@@ -55,7 +59,10 @@ const collaborators = p.collaborators ?? [];
             />
           </button>
         ) : (
-          <div class="poster person-photo empty" aria-hidden="true" />
+          <div class="poster person-photo empty" aria-hidden="true">
+            <span class="zh">无图</span>
+            <span class="en">No photo</span>
+          </div>
         )
       }
       <div>
@@ -95,9 +102,26 @@ const collaborators = p.collaborators ?? [];
             </h3>
             <ul class="person-works">
               {g.works.map((w) => {
-                const href = w.listId && w.rank != null ? `/${w.listId}/#show-${w.rank}` : undefined;
+                const lists = w.lists?.length
+                  ? w.lists
+                  : w.listId && w.rank != null
+                    ? [{ listId: w.listId, rank: w.rank, zh: w.listId, en: w.listId }]
+                    : [];
+                // Single list: title may deep-link. Multiple lists: only badges link,
+                // with a ▾ cue that pulses the badges on click/hover.
+                const multi = lists.length > 1;
+                const titleHref =
+                  lists.length === 1 ? `/${lists[0].listId}/#show-${lists[0].rank}` : undefined;
+                const titleInner = w.zh ? (
+                  <>
+                    <span class="zh">{w.zh}</span>
+                    <span class="lat">{w.en}</span>
+                  </>
+                ) : (
+                  w.en
+                );
                 return (
-                  <li class="person-work" data-zh={w.zh ?? w.en} data-en={w.en}>
+                  <li class="person-work" data-zh={w.zh ?? w.en} data-en={w.en} data-multi-lists={multi || undefined}>
                     {w.poster ? (
                       <button type="button" class="poster" aria-label={w.zh ? `《${w.zh}》海报` : `${w.en} poster`}>
                         <img
@@ -111,37 +135,48 @@ const collaborators = p.collaborators ?? [];
                         />
                       </button>
                     ) : (
-                      <div class="poster empty" aria-hidden="true" />
-                    )}
-                    {href ? (
-                      <a class="body" href={href}>
-                        <span class="title">
-                          {w.zh ? (
-                            <>
-                              <span class="zh">{w.zh}</span>
-                              <span class="lat">{w.en}</span>
-                            </>
-                          ) : (
-                            w.en
-                          )}
-                        </span>
-                        <span class="meta">{w.yearStart}</span>
-                      </a>
-                    ) : (
-                      <div class="body">
-                        <span class="title">
-                          {w.zh ? (
-                            <>
-                              <span class="zh">{w.zh}</span>
-                              <span class="lat">{w.en}</span>
-                            </>
-                          ) : (
-                            w.en
-                          )}
-                        </span>
-                        <span class="meta">{w.yearStart}</span>
+                      <div class="poster empty" aria-hidden="true">
+                        <span class="zh">无图</span>
+                        <span class="en">No art</span>
                       </div>
                     )}
+                    <div class="body">
+                      <div class="work-title-row">
+                        {titleHref ? (
+                          <a class="work-title-link" href={titleHref} data-prefetch>
+                            <span class="title">{titleInner}</span>
+                          </a>
+                        ) : (
+                          <span class="title">{titleInner}</span>
+                        )}
+                        {multi && (
+                          <button
+                            type="button"
+                            class="lists-cue"
+                            aria-label={w.zh ? `查看《${w.zh}》收录的列表` : `See lists for ${w.en}`}
+                          >
+                            ▾
+                          </button>
+                        )}
+                      </div>
+                      <span class="meta">{w.yearStart}</span>
+                      {lists.length > 0 && (
+                        <p class="list-badges">
+                          <span class="list-badges-label">
+                            <Bi zh="收录于" en="On" />
+                          </span>
+                          {lists.map((L) => (
+                            <a
+                              class={`list-badge list-badge-${L.listId}`}
+                              href={`/${L.listId}/#show-${L.rank}`}
+                              data-prefetch
+                            >
+                              <Bi zh={L.zh} en={L.en} />
+                            </a>
+                          ))}
+                        </p>
+                      )}
+                    </div>
                   </li>
                 );
               })}
@@ -150,6 +185,54 @@ const collaborators = p.collaborators ?? [];
         ))
       }
     </section>
+
+    {
+      awards.length > 0 && (
+        <section class="person-section">
+          <h2 class="person-works-title">
+            <Bi zh={`获奖 ${awards.length}`} en={`Awards ${awards.length}`} />
+          </h2>
+          <ul class="person-awards">
+            {awardsPreview.map((a) => (
+              <li class={`person-award result-${a.result}`}>
+                <span class="award-year">{a.year ?? "—"}</span>
+                <span class="award-body">
+                  <span class="award-cat">{a.category}</span>
+                  <span class="award-result">
+                    <Bi zh={a.result === "won" ? "获奖" : "提名"} en={a.result === "won" ? "Won" : "Nominated"} />
+                  </span>
+                  {a.workTitle && <span class="award-work">{a.workTitle}</span>}
+                </span>
+              </li>
+            ))}
+          </ul>
+          {awardsRest.length > 0 && (
+            <details class="awards-more">
+              <summary>
+                <Bi
+                  zh={`展开其余 ${awardsRest.length} 条`}
+                  en={`Show ${awardsRest.length} more`}
+                />
+              </summary>
+              <ul class="person-awards">
+                {awardsRest.map((a) => (
+                  <li class={`person-award result-${a.result}`}>
+                    <span class="award-year">{a.year ?? "—"}</span>
+                    <span class="award-body">
+                      <span class="award-cat">{a.category}</span>
+                      <span class="award-result">
+                        <Bi zh={a.result === "won" ? "获奖" : "提名"} en={a.result === "won" ? "Won" : "Nominated"} />
+                      </span>
+                      {a.workTitle && <span class="award-work">{a.workTitle}</span>}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )}
+        </section>
+      )
+    }
 
     {
       collaborators.length > 0 && (
@@ -171,7 +254,10 @@ const collaborators = p.collaborators ?? [];
                       decoding="async"
                     />
                   ) : (
-                    <span class="person-collab-photo empty" aria-hidden="true" />
+                    <span class="person-collab-photo empty" aria-hidden="true">
+                      <span class="zh">无图</span>
+                      <span class="en">No photo</span>
+                    </span>
                   )}
                   <span class="body">
                     <span class="title">
@@ -214,6 +300,44 @@ const collaborators = p.collaborators ?? [];
 </Base>
 
 <script>
+  // Prefetch list pages before navigation (Criterion HTML is large).
+  document.addEventListener(
+    "pointerdown",
+    (e) => {
+      const a = (e.target as Element | null)?.closest?.("a[data-prefetch], a.person-collab-link");
+      if (!(a instanceof HTMLAnchorElement)) return;
+      const url = a.href.split("#")[0];
+      if (!url || document.head.querySelector(`link[rel="prefetch"][href="${url}"]`)) return;
+      const link = document.createElement("link");
+      link.rel = "prefetch";
+      link.href = url;
+      document.head.appendChild(link);
+    },
+    { capture: true },
+  );
+
+  // Multi-list ▾ cue: pulse the badges so they're obvious without drawing lines.
+  const pulseBadges = (work: HTMLElement) => {
+    const badges = work.querySelector<HTMLElement>(".list-badges");
+    if (!badges) return;
+    badges.classList.remove("is-pulse");
+    void badges.offsetWidth;
+    badges.classList.add("is-pulse");
+    badges.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  };
+  document.querySelectorAll<HTMLButtonElement>(".lists-cue").forEach((btn) => {
+    const work = btn.closest<HTMLElement>(".person-work");
+    if (!work) return;
+    btn.addEventListener("click", () => pulseBadges(work));
+    btn.addEventListener("pointerenter", () => {
+      if (window.matchMedia("(hover: hover)").matches) work.classList.add("lists-cue-hover");
+    });
+    btn.addEventListener("pointerleave", () => work.classList.remove("lists-cue-hover"));
+  });
+  document.querySelectorAll<HTMLElement>(".list-badges").forEach((el) => {
+    el.addEventListener("animationend", () => el.classList.remove("is-pulse"));
+  });
+
   const posterImgs = Array.from(
     document.querySelectorAll<HTMLImageElement>(".poster img[data-src], .person-collab-photo[data-src]"),
   );

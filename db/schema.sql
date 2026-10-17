@@ -31,6 +31,15 @@ CREATE TABLE IF NOT EXISTS work_aliases (
   PRIMARY KEY (work_id, ord)
 );
 
+-- TMDB genres attached to a work (many per work). Names stored in both languages for tags.
+CREATE TABLE IF NOT EXISTS work_genres (
+  work_id  TEXT NOT NULL REFERENCES works(id) ON DELETE CASCADE,
+  genre_id INTEGER NOT NULL,
+  name_zh  TEXT NOT NULL,
+  name_en  TEXT NOT NULL,
+  PRIMARY KEY (work_id, genre_id)
+);
+
 CREATE TABLE IF NOT EXISTS people (
   id        INTEGER PRIMARY KEY,
   en        TEXT NOT NULL,
@@ -122,3 +131,17 @@ CREATE TABLE IF NOT EXISTS list_highlights (
   hook_en TEXT,
   PRIMARY KEY (list_id, work_id)
 );
+
+-- Person awards (POC: Douban celebrity awards). result is won | nominated.
+CREATE TABLE IF NOT EXISTS person_awards (
+  id         INTEGER PRIMARY KEY,
+  person_id  INTEGER NOT NULL REFERENCES people(id) ON DELETE CASCADE,
+  source     TEXT NOT NULL,
+  year       INTEGER,
+  category   TEXT NOT NULL,
+  result     TEXT NOT NULL CHECK (result IN ('won', 'nominated')),
+  work_title TEXT,
+  work_id    TEXT REFERENCES works(id) ON DELETE SET NULL,
+  ord        INTEGER NOT NULL DEFAULT 0
+);
+CREATE INDEX IF NOT EXISTS person_awards_person ON person_awards (person_id, ord, year);

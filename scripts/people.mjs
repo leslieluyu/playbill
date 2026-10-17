@@ -111,10 +111,19 @@ for (const p of people) {
   const profilePath = en.profile_path || zh.profile_path;
   if (profilePath && (force || !(await exists(dest)))) {
     const img = await fetch(`https://image.tmdb.org/t/p/${SIZE}${profilePath}`);
-    if (!img.ok) throw new Error(`image ${img.status} for person ${p.id}`);
-    await writeFile(dest, Buffer.from(await img.arrayBuffer()));
+    if (img.ok) {
+      await writeFile(dest, Buffer.from(await img.arrayBuffer()));
+      photo = `/people/${p.id}.jpg`;
+    } else {
+      report.push(
+        `img404 ${String(p.id).padStart(4)}  tmdb/${tmdbId}  ${p.en}  ${img.status} ${profilePath}`,
+      );
+      // Keep any existing local photo; otherwise leave null.
+      if (await exists(dest)) photo = `/people/${p.id}.jpg`;
+    }
+  } else if (profilePath && (await exists(dest))) {
+    photo = `/people/${p.id}.jpg`;
   }
-  if (profilePath) photo = `/people/${p.id}.jpg`;
 
   setRow.run(cleanZh, photo, bioZh, bioEn, p.id);
   filled++;

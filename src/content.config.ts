@@ -23,6 +23,9 @@ const works = defineCollection({
     place: z.string().optional(),
     form: z.string().optional(),
     runtime: z.number().int().optional(),
+    genres: z
+      .array(z.object({ id: z.number().int(), zh: z.string(), en: z.string() }))
+      .default([]),
     creators: z.array(person),
     writers: z.array(person).default([]),
     cast: z.array(person),
@@ -88,8 +91,29 @@ const people = defineCollection({
         yearStart: z.number().int(),
         listId: z.string().optional(),
         rank: z.number().int().optional(),
+        lists: z
+          .array(
+            z.object({
+              listId: z.string(),
+              rank: z.number().int(),
+              zh: z.string(),
+              en: z.string(),
+            }),
+          )
+          .default([]),
       }),
     ),
+    awards: z
+      .array(
+        z.object({
+          year: z.number().int().optional(),
+          category: z.string(),
+          result: z.enum(["won", "nominated"]),
+          workTitle: z.string().optional(),
+          workId: z.string().optional(),
+        }),
+      )
+      .default([]),
     collaborators: z
       .array(
         z.object({

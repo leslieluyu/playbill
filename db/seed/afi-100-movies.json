@@ -1,0 +1,15 @@
+{
+  "id": "afi-100-movies",
+  "title": "AFI 百大电影",
+  "kicker": "AFI’s 100 Years…100 Movies · 10th Anniversary",
+  "dek": "美国电影学会（AFI）2007 年「百年百大」十周年版：默认展示最终入选的 100 部，可展开查看当年投票用的 400 部候选名单。左侧按国家、类型、形式标签筛选。名次 1–100 为正式榜单；其后为其余候选，按原选票编号排列。",
+  "source": {
+    "name": "AFI’s 100 Years…100 Movies — 10th Anniversary Edition",
+    "url": "https://www.afi.com/afis-100-years-100-movies-10th-anniversary-edition/"
+  },
+  "kind": "movie",
+  "order": 5,
+  "entries": "afi-100-movies.tsv",
+  "filter": "tags",
+  "featuredLimit": 100
+}

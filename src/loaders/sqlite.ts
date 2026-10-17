@@ -36,6 +36,9 @@ export function worksLoader(): Loader {
           .prepare("SELECT plot, plot_en, playbill, playbill_en FROM editorial WHERE work_id = ? AND reviewed = 1")
           .get(w.id) as Row | undefined;
         const aliases = db.prepare("SELECT alias FROM work_aliases WHERE work_id = ? ORDER BY ord").all(w.id) as Row[];
+        const genres = db
+          .prepare("SELECT genre_id AS id, name_zh AS zh, name_en AS en FROM work_genres WHERE work_id = ? ORDER BY genre_id")
+          .all(w.id) as Row[];
         const raw = {
           kind: w.kind,
           zh: w.zh ?? undefined,
@@ -47,6 +50,7 @@ export function worksLoader(): Loader {
           place: w.place ?? undefined,
           form: w.form ?? undefined,
           runtime: w.runtime ?? undefined,
+          genres: genres.map((g) => ({ id: g.id, zh: g.zh, en: g.en })),
           creators: (people.all(w.id, w.kind === "movie" ? "director" : "creator") as Row[]).map(person),
           writers: (people.all(w.id, "writer") as Row[]).map(person),
           cast: (people.all(w.id, "cast") as Row[]).map(person),
@@ -120,9 +124,27 @@ export function peopleLoader(): Loader {
          GROUP BY w.id, c.role
          ORDER BY w.year_start, w.id, c.role`,
       );
-      const listHit = db.prepare(
-        `SELECT list_id, rank FROM list_entries WHERE work_id = ? ORDER BY list_id, rank LIMIT 1`,
+      const listHits = db.prepare(
+        `SELECT le.list_id AS list_id, le.rank AS rank, l.title AS list_title, l.ord AS list_ord
+         FROM list_entries le
+         JOIN lists l ON l.id = le.list_id
+         WHERE le.work_id = ?
+         ORDER BY l.ord, le.rank`,
       );
+
+      const badgeLabel = (listId: string, rank: number) => {
+        if (listId === "criterion-spine") {
+          const n = String(rank).padStart(3, "0");
+          return { zh: `标准收藏 #${n}`, en: `Criterion #${n}` };
+        }
+        if (listId === "nyt-100-movies") {
+          return { zh: `21世纪电影 ${rank}`, en: `NYT Movies ${rank}` };
+        }
+        if (listId === "nyt-100-tv") {
+          return { zh: `21世纪剧集 ${rank}`, en: `NYT TV ${rank}` };
+        }
+        return { zh: `${listId} ${rank}`, en: `${listId} ${rank}` };
+      };
       const collabsFor = db.prepare(
         `SELECT p2.id AS id, p2.zh, p2.en, p2.photo,
                 COUNT(DISTINCT c1.work_id) AS n
@@ -149,7 +171,16 @@ export function peopleLoader(): Loader {
         const p = db.prepare("SELECT * FROM people WHERE id = ?").get(row.person_id) as Row;
         if (!p) continue;
         const works = (worksFor.all(p.id) as Row[]).map((w) => {
-          const hit = listHit.get(w.id) as Row | undefined;
+          const hits = (listHits.all(w.id) as Row[]).map((h) => {
+            const label = badgeLabel(String(h.list_id), Number(h.rank));
+            return {
+              listId: String(h.list_id),
+              rank: Number(h.rank),
+              zh: label.zh,
+              en: label.en,
+            };
+          });
+          const primary = hits[0];
           return {
             id: w.id,
             zh: w.zh ?? undefined,
@@ -158,10 +189,25 @@ export function peopleLoader(): Loader {
             kind: w.kind,
             role: w.role,
             yearStart: w.year_start,
-            listId: hit?.list_id ?? undefined,
-            rank: hit?.rank ?? undefined,
+            listId: primary?.listId,
+            rank: primary?.rank,
+            lists: hits,
           };
         });
+        const awards = (
+          db
+            .prepare(
+              `SELECT year, category, result, work_title, work_id, ord
+               FROM person_awards WHERE person_id = ? ORDER BY ord, year DESC, category`,
+            )
+            .all(p.id) as Row[]
+        ).map((a) => ({
+          year: a.year != null ? Number(a.year) : undefined,
+          category: String(a.category),
+          result: String(a.result) as "won" | "nominated",
+          workTitle: (a.work_title as string | null) ?? undefined,
+          workId: (a.work_id as string | null) ?? undefined,
+        }));
         const collaborators = (collabsFor.all(p.id) as Row[]).map((c) => ({
           id: String(c.id),
           zh: c.zh ?? undefined,
@@ -181,6 +227,7 @@ export function peopleLoader(): Loader {
           bioZh: p.bio_zh ?? undefined,
           bioEn: p.bio_en ?? undefined,
           works,
+          awards,
           collaborators,
         };
         const data = await parseData({ id: String(p.id), data: raw });
