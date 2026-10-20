@@ -10,13 +10,24 @@ const args = process.argv.slice(2);
 const all = args.includes("--all");
 const ids = all ? Object.keys(FESTIVALS) : args.filter((a) => !a.startsWith("--"));
 if (!ids.length) {
-  console.error("usage: node scripts/build-festival-seed.mjs <cannes-palme-dor|berlin-golden-bear|venice-golden-lion|--all>");
+  console.error(
+    "usage: node scripts/build-festival-seed.mjs <oscar-best-picture|cannes-palme-dor|berlin-golden-bear|venice-golden-lion|--all>",
+  );
   process.exit(1);
 }
 
-const EDITION_MAX = { cannes: 79, berlinale: 76, venice: 82 };
+const EDITION_MAX = { oscar: 97, cannes: 79, berlinale: 76, venice: 82 };
 
 const LIST_META = {
+  "oscar-best-picture": {
+    id: "oscar-best-picture",
+    title: "奥斯卡最佳影片",
+    kicker: "Academy Awards · Best Picture",
+    dek: "奥斯卡金像奖最佳影片（Best Picture）：历届获奖与提名，按典礼年份从新到旧排列。左侧可按年代、年份筛选，并用「获奖 / 提名」标签过滤。",
+    source: { name: "豆瓣电影 · 奥斯卡金像奖", url: "https://movie.douban.com/awards/oscar/" },
+    kind: "movie",
+    order: 7,
+  },
   "cannes-palme-dor": {
     id: "cannes-palme-dor",
     title: "戛纳电影节金棕榈奖",

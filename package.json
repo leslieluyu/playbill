@@ -15,6 +15,7 @@
     "preview": "astro preview",
     "db": "node --no-warnings scripts/db.mjs",
     "seed": "node --no-warnings scripts/seed-list.mjs",
+    "great-directors-seed": "python3 scripts/build-great-directors-seed.py",
     "festival-seed": "node --no-warnings --env-file=.env scripts/build-festival-seed.mjs",
     "festival-enrich": "node --no-warnings --env-file=.env scripts/festival-enrich.mjs",
     "fill-plots": "node --no-warnings --env-file=.env scripts/fill-plots.mjs",

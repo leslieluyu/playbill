@@ -11,6 +11,8 @@ import {
 } from "./list-charts.mjs";
 
 const FEATURED = { "afi-100-movies": 100 };
+/** Custom catalog pages (tile grid); no #show-N articles in list HTML. */
+const TILE_LIST_IDS = new Set(["great-directors"]);
 
 function fail(errors, listId, msg) {
   errors.push({ listId, message: msg });
@@ -139,6 +141,16 @@ function splitMainAndTemplate(html) {
 }
 
 export function verifyDistList(db, listId, distDir, errors) {
+  if (TILE_LIST_IDS.has(listId)) {
+    const roots = [
+      path.join(distDir, listId, "index.html"),
+      path.join(distDir, listId, "films", "index.html"),
+    ];
+    for (const htmlPath of roots) {
+      if (!existsSync(htmlPath)) fail(errors, listId, `missing ${htmlPath.replace(distDir, "")}`);
+    }
+    return;
+  }
   const htmlPath = path.join(distDir, listId, "index.html");
   if (!existsSync(htmlPath)) {
     fail(errors, listId, `missing ${htmlPath} (run npm run build)`);
@@ -232,6 +244,7 @@ export function verifyPersonListLinks(db, distDir, errors) {
     let m;
     while ((m = re.exec(html))) {
       const listId = m[1];
+      if (TILE_LIST_IDS.has(listId)) continue;
       const rank = Number(m[2]);
       const dbWork = entriesByListRank.get(`${listId}\t${rank}`);
       if (!dbWork) {

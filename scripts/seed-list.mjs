@@ -31,6 +31,8 @@ const iSection = idx("section");
 const iChart = idx("chart");
 const iPosition = idx("position");
 const iNote = idx("note");
+const iWikidata = idx("wikidata");
+const iDirectorEn = idx("director_en");
 if (iRank < 0 || iTitle < 0 || iYear < 0) {
   throw new Error(`seed TSV needs rank (or spine_number), title, year columns; got ${cols.join(", ")}`);
 }
@@ -64,6 +66,8 @@ for (const line of rows) {
     chart: iChart >= 0 && cells[iChart] ? String(cells[iChart]).trim() : null,
     position: iPosition >= 0 && cells[iPosition] ? Number(cells[iPosition]) : null,
     note: iNote >= 0 && cells[iNote] ? String(cells[iNote]).trim() : null,
+    wikidata: iWikidata >= 0 && cells[iWikidata] ? String(cells[iWikidata]).trim() : null,
+    directorEn: iDirectorEn >= 0 && cells[iDirectorEn] ? String(cells[iDirectorEn]).trim() : null,
   });
 }
 
@@ -82,6 +86,7 @@ function assignId(e) {
   if (e.id) return e.id;
   if (e.tmdbId) return workIdFromTmdb(meta.kind, e.tmdbId);
   if (e.doubanId) return workIdFromDouban(e.doubanId);
+  if (e.wikidata) return `wd-${String(e.wikidata).replace(/^Q/i, "Q")}`;
   const slug = slugify(e.title);
   return slug ? `local-${slug}` : `local-${meta.id}-${e.rank}`;
 }
@@ -132,6 +137,72 @@ tx(db, () => {
   const insertEntry = db.prepare(
     "INSERT INTO list_entries (list_id, rank, work_id, section_id, chart, position, note) VALUES (?, ?, ?, ?, ?, ?, ?)",
   );
+  const personByEn = new Map();
+  const findPerson = db.prepare("SELECT id, zh, en, photo, bio_zh, tmdb_id FROM people WHERE en = ?");
+  const allPeople = () => db.prepare("SELECT id, zh, en, photo, bio_zh, tmdb_id FROM people").all();
+  const insertPerson = db.prepare("INSERT INTO people (en, zh) VALUES (?, ?)");
+  const updatePersonZh = db.prepare("UPDATE people SET zh = coalesce(zh, ?) WHERE id = ?");
+  const personScore = (row) =>
+    (row.photo ? 100 : 0) +
+    (row.tmdb_id ? 40 : 0) +
+    Math.min((row.bio_zh ?? "").length, 400) / 4 +
+    (row.bio_zh && /克\/美国|^.{1,2}\//.test(row.bio_zh) ? -500 : 0);
+  const findPersonLoose = (en) => {
+    let row = findPerson.get(en);
+    if (row) return row;
+    const key = loose(en);
+    const hits = allPeople().filter((p) => loose(p.en) === key);
+    if (!hits.length) return null;
+    return hits.sort((a, b) => personScore(b) - personScore(a))[0];
+  };
+  const mergePersonDuplicates = (en) => {
+    const key = loose(en);
+    const hits = allPeople().filter((p) => loose(p.en) === key);
+    if (hits.length <= 1) return hits[0]?.id ?? null;
+    const keep = hits.sort((a, b) => personScore(b) - personScore(a))[0];
+    for (const dup of hits) {
+      if (dup.id === keep.id) continue;
+      db.prepare("UPDATE credits SET person_id = ? WHERE person_id = ?").run(keep.id, dup.id);
+      db.prepare("DELETE FROM people WHERE id = ?").run(dup.id);
+    }
+    return keep.id;
+  };
+  const isGoodCuratedBio = (bio) =>
+    bio && bio.length >= 12 && !/克\/美国/.test(bio) && !/^.{1,2}\//.test(bio);
+  const mergeCuratedBio = (personId, bioZh) => {
+    if (!isGoodCuratedBio(bioZh)) return;
+    const row = db.prepare("SELECT bio_zh FROM people WHERE id = ?").get(personId);
+    const cur = row?.bio_zh ?? "";
+    if (!cur || cur.length < bioZh.length || /克\/美国/.test(cur)) {
+      db.prepare("UPDATE people SET bio_zh = ? WHERE id = ?").run(bioZh, personId);
+    }
+  };
+  const ensurePerson = (en, zh) => {
+    let row = findPersonLoose(en);
+    if (row) {
+      if (zh && !row.zh) updatePersonZh.run(zh, row.id);
+      return row.id;
+    }
+    const id = insertPerson.run(en, zh).lastInsertRowid;
+    return id;
+  };
+  const insertCredit = db.prepare(
+    "INSERT OR IGNORE INTO credits (work_id, role, ord, person_id) VALUES (?, 'director', 0, ?)",
+  );
+  let directorsMeta = null;
+  if (meta.id === "great-directors") {
+    try {
+      directorsMeta = JSON.parse(readFileSync(`db/seed/great-directors-directors.json`, "utf8")).directors;
+      for (const d of directorsMeta) {
+        const pid = mergePersonDuplicates(d.en) ?? ensurePerson(d.en, d.zh);
+        personByEn.set(d.en, pid);
+        mergeCuratedBio(pid, d.bioZh);
+      }
+    } catch {
+      /* optional */
+    }
+  }
+
   for (const e of entries) {
     const matched = findExisting(e);
     let id = matched ?? assignId(e);
@@ -157,6 +228,11 @@ tx(db, () => {
       }
     }
     insertEntry.run(meta.id, e.rank, id, e.section, e.chart, e.position, e.note);
+    if (e.directorEn && meta.id === "great-directors") {
+      const personId = personByEn.get(e.directorEn) ?? ensurePerson(e.directorEn, null);
+      personByEn.set(e.directorEn, personId);
+      insertCredit.run(id, personId);
+    }
   }
 });
 exportDb(db);

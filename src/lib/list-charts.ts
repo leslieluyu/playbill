@@ -2,7 +2,12 @@
 
 export type ListChartId = "art" | "ent" | "jp" | "foreign" | "other" | "won" | "nom";
 
-export const FESTIVAL_LIST_IDS = ["cannes-palme-dor", "berlin-golden-bear", "venice-golden-lion"] as const;
+export const FESTIVAL_LIST_IDS = [
+  "oscar-best-picture",
+  "cannes-palme-dor",
+  "berlin-golden-bear",
+  "venice-golden-lion",
+] as const;
 
 export const FESTIVAL_AWARD_CHARTS: ListChartTag[] = [
   { id: "won", zh: "获奖", en: "Winner" },

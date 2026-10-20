@@ -10,6 +10,7 @@
 - `/sight-sound-2020/`：《视与听》影史百佳 2020 版整理，按类型分七个阅读分区，分区内按原榜名次排列。
 - `/afi-100-movies/`：AFI「百年百大」2007 十周年版；默认展示正式百佳，可展开当年 400 部候选，左侧用标签筛选。
 - `/japan-academy-picture/`：日本电影学院奖（日本アカデミー賞）历届最優秀作品，按届次从新到旧排列。
+- `/oscar-best-picture/`：奥斯卡金像奖最佳影片，历届获奖与提名；左侧按典礼年份筛选，可用「获奖／提名」标签过滤。
 - `/kinema-junpo-ten/`：《电影旬报》历年十佳（艺术／娱乐、日本／外国等分榜）；左侧按年代折叠筛选年度，并可用榜单类型标签过滤。
 - `/cannes-palme-dor/`：戛纳国际电影节主竞赛金棕榈奖，历届获奖与提名；左侧按 festival 年份筛选，可用「获奖／提名」标签过滤。
 - `/berlin-golden-bear/`：柏林国际电影节主竞赛金熊奖，历届获奖与提名；同上。
@@ -29,6 +30,7 @@
 | 视与听影视百佳 2020版 | `/sight-sound-2020/` | [IMDb list ls098836998](https://www.imdb.com/list/ls098836998/)（Sight & Sound’s 100 Greatest Movies of All Time, 2020 version） |
 | AFI 百大电影 | `/afi-100-movies/` | [AFI · 100 Years…100 Movies — 10th Anniversary Edition](https://www.afi.com/afis-100-years-100-movies-10th-anniversary-edition/)；候选名单见 [400-film ballot PDF](https://prdaficalmjediwestussa.blob.core.windows.net/images/2019/08/Movies_ballot_06.pdf) |
 | 日本电影学院奖最佳影片 | `/japan-academy-picture/` | [豆瓣豆列 · 历届日本电影学院奖最佳影片](https://www.douban.com/doulist/991214/) |
+| 奥斯卡最佳影片 | `/oscar-best-picture/` | [豆瓣电影 · 奥斯卡金像奖](https://movie.douban.com/awards/oscar/) |
 | 《电影旬报》历年十佳 | `/kinema-junpo-ten/` | [豆瓣豆列 · 《电影旬报》历年十佳](https://www.douban.com/doulist/145457359/) |
 | 戛纳金棕榈奖 | `/cannes-palme-dor/` | [豆瓣电影 · 戛纳电影节获奖/提名](https://movie.douban.com/awards/cannes/) |
 | 柏林金熊奖 | `/berlin-golden-bear/` | [豆瓣电影 · 柏林电影节获奖/提名](https://movie.douban.com/awards/berlinale/) |
@@ -88,7 +90,7 @@ TSV 列是 `spine_number`、`title`、`year`、`director`；没有年份的盒�
 三大电影节最高奖（金棕榈／金熊／金狮，含主竞赛提名）可从豆瓣获奖页生成 seed：
 
 ```bash
-npm run festival-seed -- cannes-palme-dor   # 或 berlin-golden-bear、venice-golden-lion
+npm run festival-seed -- oscar-best-picture # 或 cannes-palme-dor、berlin-golden-bear、venice-golden-lion
 npm run festival-seed -- --all              # 三个一起抓（需 .env 里 DOUBAN_COOKIE）
 npm run seed -- cannes-palme-dor
 npm run douban -- --list cannes-palme-dor

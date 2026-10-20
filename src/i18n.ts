@@ -230,6 +230,23 @@ export const lists: Record<string, ListCopy> = {
     ratings:
       "Ratings are from Douban and IMDb, as of {date}. Douban scores each season separately. A show with several seasons displays the average (marked avg; hover for each season). Seasons with too few votes are left out.",
   },
+  "oscar-best-picture": {
+    title: "Oscar · Best Picture",
+    kicker: "Academy Awards · Best Picture",
+    dek: "Academy Award for Best Picture winners and nominees, newest ceremony year first. Filter by decade and year in the sidebar, and by Winner / Nominated tags.",
+    noun: "film",
+    creator: "Director",
+    search: "Title, director, or cast, or a rank such as 27",
+    idle: "Press Enter, or pick a result, to jump to that film.",
+    empty: "No matches. Try a title, a name, a tag, or a rank.",
+    found: "Found {n}. Press Enter for the first, or pick one from the list.",
+    none: "No matches.",
+    sections: {},
+    colophon:
+      "Chinese titles use the names most common in Chinese-speaking places, and search also accepts familiar aliases. Directors, cast, and plots are short notes from public sources. Ceremony year and winner/nominee status follow Douban’s Oscar awards pages (Best Picture section). Early editions may label the category as 最佳作品奖 on Douban. Playbill notes are ours and stay with the work; they are still being filled in for this list.",
+    ratings:
+      "Ratings are from Douban and IMDb, as of {date}. Douban scores each season separately. A show with several seasons displays the average (marked avg; hover for each season). Seasons with too few votes are left out.",
+  },
   "cannes-palme-dor": {
     title: "Cannes · Palme d’Or",
     kicker: "Cannes Film Festival · Palme d’Or",
@@ -350,6 +367,22 @@ export const lists: Record<string, ListCopy> = {
       "Chinese titles use the names most common in Chinese-speaking places, and search also accepts familiar aliases. Creators, cast, and plots are short notes from public sources. Playbill notes are ours and stay with the work. List-native highlights for this ranking will be added later.",
     ratings:
       "Ratings are from Douban and IMDb, as of {date}. Douban scores each season separately. A show with several seasons displays the average (marked avg; hover for each season). Seasons with too few votes are left out.",
+  },
+  "great-directors": {
+    title: "TSPDT Top 250 Directors",
+    kicker: "They Shoot Pictures, Don't They?",
+    dek: "Curated filmographies for the TSPDT 2026 Top 250 directors: acclaimed features (classics, festival/Oscar notes, or hot picks)—shorts omitted. Browse by director or by film; filter by country, tags, and awards.",
+    noun: "film",
+    creator: "Director",
+    search: "Title or director",
+    idle: "",
+    empty: "No matches.",
+    found: "{n} found",
+    none: "No matches.",
+    sections: {},
+    colophon:
+      "Chinese titles prefer mainland usage where known. Filmographies are curated from Wikidata-based research (Grok v3); co-directed titles may appear under each director.",
+    ratings: "Ratings from Douban and IMDb when available.",
   },
 };
 

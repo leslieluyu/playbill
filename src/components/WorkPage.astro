@@ -3,6 +3,7 @@ import Base from "../layouts/Base.astro";
 import Bi from "./Bi.astro";
 import PersonName from "./PersonName.astro";
 import { formEn, lists as listCopy, placeEn, yearsEn } from "../i18n";
+import { listEntryHref } from "../lib/list-entry-href";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
@@ -218,7 +219,7 @@ const noteEn =
                 <li class="work-list-hit">
                   <a
                     class={`list-badge list-badge-${L.listId}`}
-                    href={`/${L.listId}/#show-${L.rank}`}
+                    href={listEntryHref(L.listId, L.rank, w.id, w.kind)}
                     data-prefetch
                     title={`${L.detailZh} · #${L.rank}`}
                   >

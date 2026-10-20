@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 import path from "node:path";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const lists = ["cannes-palme-dor", "berlin-golden-bear", "venice-golden-lion"];
+const lists = ["oscar-best-picture", "cannes-palme-dor", "berlin-golden-bear", "venice-golden-lion"];
 const doubanGap = process.env.DOUBAN_GAP_MS ?? "28000";
 
 function run(cmd, args, env = {}) {

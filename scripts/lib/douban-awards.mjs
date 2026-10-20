@@ -31,6 +31,13 @@ export const FESTIVALS = {
     zh: "威尼斯金狮",
     en: "Venice · Golden Lion",
   },
+  "oscar-best-picture": {
+    slug: "oscar",
+    awardRe: /^最佳(影片|作品奖)/,
+    awardExclude: /短片|动画|纪录|Unique|杰出|艺术|喜剧/i,
+    zh: "奥斯卡最佳影片",
+    en: "Oscar · Best Picture",
+  },
 };
 
 function decodeHtml(s) {

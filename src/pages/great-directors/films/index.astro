@@ -1,0 +1,181 @@
+---
+import { readFileSync } from "node:fs";
+import path from "node:path";
+import { getEntry } from "astro:content";
+import Base from "../../../layouts/Base.astro";
+import Bi from "../../../components/Bi.astro";
+import { lists as listCopy } from "../../../i18n";
+import { workPath } from "../../../lib/work-path";
+import { workSubtitle } from "../../../lib/work-display";
+import GdSidebarFilters from "../../../components/GdSidebarFilters.astro";
+import {
+  GD_AWARD_TAGS,
+  GD_MASTER_TAGS,
+  GD_STYLE_TAGS,
+  parseChartTags,
+} from "../../../lib/great-directors";
+
+const list = await getEntry("lists", "great-directors");
+if (!list) throw new Error("great-directors list missing");
+
+const copy = listCopy["great-directors"];
+const meta = list.data;
+
+const directorsPath = path.join(process.cwd(), "db/seed/great-directors-directors.json");
+const directors = JSON.parse(readFileSync(directorsPath, "utf8")).directors as Array<{
+  slug: string;
+  zh: string;
+  en: string;
+  countries: string[];
+  masterTags: string[];
+  styleTags: string[];
+}>;
+
+const directorBySlug = Object.fromEntries(directors.map((d) => [d.slug, d]));
+
+const rows = await Promise.all(
+  meta.entries.map(async (e) => {
+    const work = await getEntry(e.work);
+    if (!work) throw new Error(`unknown work ${e.work.id}`);
+    const d = directorBySlug[e.section ?? ""];
+    const chartTags = parseChartTags(e.chart);
+    return {
+      rank: e.rank,
+      directorZh: d?.zh ?? "",
+      directorEn: d?.en ?? "",
+      directorSlug: e.section,
+      countries: d?.countries ?? [],
+      masterTags: d?.masterTags ?? [],
+      styleTags: d?.styleTags ?? [],
+      chartTags,
+      year: work.data.yearStart,
+      href: workPath(work.data.kind, work.id),
+      zh: work.data.zh,
+      en: work.data.en,
+      poster: work.data.poster,
+      search: [
+        work.data.zh,
+        work.data.en,
+        work.data.original,
+        ...work.data.alias,
+        d?.zh,
+        d?.en,
+        e.note,
+      ]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase(),
+    };
+  }),
+);
+
+const countrySet = new Set<string>();
+for (const d of directors) for (const c of d.countries) countrySet.add(c);
+const countries = [...countrySet].sort((a, b) => a.localeCompare(b, "zh"));
+
+const tagCounts = new Map<string, number>();
+for (const r of rows) {
+  for (const id of [...r.masterTags, ...r.styleTags, ...r.chartTags]) {
+    tagCounts.set(id, (tagCounts.get(id) ?? 0) + 1);
+  }
+}
+
+const tagGroups = [
+  { titleZh: "大师", titleEn: "Masters", filterKind: "master" as const, tags: GD_MASTER_TAGS },
+  { titleZh: "流派 / 运动", titleEn: "Movements", filterKind: "style" as const, tags: GD_STYLE_TAGS },
+  { titleZh: "奖项 / 电影节", titleEn: "Awards", filterKind: "award" as const, tags: GD_AWARD_TAGS },
+];
+---
+
+<Base
+  titleZh="TSPDT 250 · 策展影片 · 场刊"
+  titleEn="TSPDT 250 · Films · Playbill"
+  description={meta.dek}
+>
+  <header class="mast">
+    <div class="wrap">
+      <p class="kicker"><Bi zh={meta.kicker} en={copy.kicker} /></p>
+      <h1><Bi zh="策展影片" en="Curated films" /></h1>
+      <p class="dek">
+        <Bi
+          zh="按海报浏览 TSPDT 250 导演策展片目；经典、获奖或热议长片，不含短片。"
+          en="Poster grid of curated titles from the TSPDT Top 250 directors—features only."
+        />
+      </p>
+      <nav class="gd-view-switch" aria-label="View mode">
+        <a href="/great-directors/"><Bi zh="导演" en="Directors" /></a>
+        <span class="sep">·</span>
+        <a href="/great-directors/films/" aria-current="page"><Bi zh="影片" en="Films" /></a>
+      </nav>
+      <ul class="facts">
+        <li>
+          <b>{rows.length}</b><span><Bi zh="部" en="films" /></span>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="shell wrap gd-shell">
+    <GdSidebarFilters
+      countries={countries}
+      tagGroups={tagGroups}
+      tagCounts={tagCounts}
+      searchPlaceholderZh="片名、导演…"
+      searchPlaceholderEn="Title, director…"
+      footnote={{
+        zh: "经典、获奖或热议长片；不含短片。大师/奖项可多选，流派单选。",
+        en: "Features only; master/award tags combine, one movement at a time.",
+      }}
+    />
+
+    <main class="gd-main">
+      <p class="gd-count muted" id="gd-count" data-unit-zh="部" data-unit-en="films" />
+      <div class="gd-grid" id="gd-grid">
+        {
+          rows.map((r) => (
+            <a
+              class="gd-tile"
+              href={r.href}
+              data-search={r.search}
+              data-countries={r.countries.join("|")}
+              data-master={r.masterTags.join("|")}
+              data-style={r.styleTags.join("|")}
+              data-chart={r.chartTags.join("|")}
+            >
+              <div class="gd-tile-poster">
+                {
+                  r.poster ? (
+                    <img src={r.poster} alt="" loading="lazy" width="160" height="240" />
+                  ) : (
+                    <span class="gd-tile-empty" aria-hidden="true" />
+                  )
+                }
+              </div>
+              <h2 class="gd-tile-title">{r.zh ?? r.en}</h2>
+              <p class="gd-tile-meta">
+                {r.year} ·{" "}
+                <span class="gd-tile-director" data-href={`/great-directors/${r.directorSlug}/`}>
+                  {r.directorZh || r.directorEn}
+                </span>
+              </p>
+            </a>
+          ))
+        }
+      </div>
+      <p class="gd-empty hidden" id="gd-empty">
+        <Bi zh="没有符合筛选条件的影片。" en="No films match these filters." />
+      </p>
+    </main>
+  </div>
+
+  <footer class="colophon wrap">
+    <p>
+      <Bi zh="来源：" en="Source: " />
+      <a href={meta.source.url}>{meta.source.name}</a>
+    </p>
+  </footer>
+
+  <script>
+    import "../../../scripts/gd-filter-client.ts";
+  </script>
+</Base>

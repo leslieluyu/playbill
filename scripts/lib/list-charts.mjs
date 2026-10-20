@@ -8,7 +8,12 @@ export const KINEMA_JUNPO_CHARTS = [
   { id: "other", zh: "其他", en: "Other" },
 ];
 
-export const FESTIVAL_LIST_IDS = ["cannes-palme-dor", "berlin-golden-bear", "venice-golden-lion"];
+export const FESTIVAL_LIST_IDS = [
+  "oscar-best-picture",
+  "cannes-palme-dor",
+  "berlin-golden-bear",
+  "venice-golden-lion",
+];
 
 export const FESTIVAL_AWARD_CHARTS = [
   { id: "won", zh: "获奖", en: "Winner" },

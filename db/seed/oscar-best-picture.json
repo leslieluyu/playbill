@@ -1,0 +1,680 @@
+{
+  "id": "oscar-best-picture",
+  "title": "奥斯卡最佳影片",
+  "kicker": "Academy Awards · Best Picture",
+  "dek": "奥斯卡金像奖最佳影片（Best Picture）：历届获奖与提名，按典礼年份从新到旧排列。左侧可按年代、年份筛选，并用「获奖 / 提名」标签过滤。",
+  "source": {
+    "name": "豆瓣电影 · 奥斯卡金像奖",
+    "url": "https://movie.douban.com/awards/oscar/"
+  },
+  "kind": "movie",
+  "order": 7,
+  "entries": "oscar-best-picture.tsv",
+  "sections": [
+    {
+      "id": "y2025",
+      "order": -2025,
+      "name": "2025年",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y2024",
+      "order": -2024,
+      "name": "2024年",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y2023",
+      "order": -2023,
+      "name": "2023年",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y2022",
+      "order": -2022,
+      "name": "2022年",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y2020",
+      "order": -2020,
+      "name": "2020年",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y2019",
+      "order": -2019,
+      "name": "2019年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2018",
+      "order": -2018,
+      "name": "2018年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2017",
+      "order": -2017,
+      "name": "2017年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2016",
+      "order": -2016,
+      "name": "2016年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2015",
+      "order": -2015,
+      "name": "2015年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2014",
+      "order": -2014,
+      "name": "2014年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2013",
+      "order": -2013,
+      "name": "2013年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2012",
+      "order": -2012,
+      "name": "2012年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2011",
+      "order": -2011,
+      "name": "2011年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2010",
+      "order": -2010,
+      "name": "2010年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2009",
+      "order": -2009,
+      "name": "2009年",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y2008",
+      "order": -2008,
+      "name": "2008年",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y2007",
+      "order": -2007,
+      "name": "2007年",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y2006",
+      "order": -2006,
+      "name": "2006年",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y2005",
+      "order": -2005,
+      "name": "2005年",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y2004",
+      "order": -2004,
+      "name": "2004年",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y2003",
+      "order": -2003,
+      "name": "2003年",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y2002",
+      "order": -2002,
+      "name": "2002年",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y2001",
+      "order": -2001,
+      "name": "2001年",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y2000",
+      "order": -2000,
+      "name": "2000年",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y1999",
+      "order": -1999,
+      "name": "1999年",
+      "blurb": "",
+      "color": "#4a5568"
+    },
+    {
+      "id": "y1998",
+      "order": -1998,
+      "name": "1998年",
+      "blurb": "",
+      "color": "#4a5568"
+    },
+    {
+      "id": "y1997",
+      "order": -1997,
+      "name": "1997年",
+      "blurb": "",
+      "color": "#4a5568"
+    },
+    {
+      "id": "y1996",
+      "order": -1996,
+      "name": "1996年",
+      "blurb": "",
+      "color": "#4a5568"
+    },
+    {
+      "id": "y1995",
+      "order": -1995,
+      "name": "1995年",
+      "blurb": "",
+      "color": "#4a5568"
+    },
+    {
+      "id": "y1994",
+      "order": -1994,
+      "name": "1994年",
+      "blurb": "",
+      "color": "#4a5568"
+    },
+    {
+      "id": "y1993",
+      "order": -1993,
+      "name": "1993年",
+      "blurb": "",
+      "color": "#4a5568"
+    },
+    {
+      "id": "y1992",
+      "order": -1992,
+      "name": "1992年",
+      "blurb": "",
+      "color": "#4a5568"
+    },
+    {
+      "id": "y1991",
+      "order": -1991,
+      "name": "1991年",
+      "blurb": "",
+      "color": "#4a5568"
+    },
+    {
+      "id": "y1990",
+      "order": -1990,
+      "name": "1990年",
+      "blurb": "",
+      "color": "#4a5568"
+    },
+    {
+      "id": "y1989",
+      "order": -1989,
+      "name": "1989年",
+      "blurb": "",
+      "color": "#9a7a12"
+    },
+    {
+      "id": "y1988",
+      "order": -1988,
+      "name": "1988年",
+      "blurb": "",
+      "color": "#9a7a12"
+    },
+    {
+      "id": "y1987",
+      "order": -1987,
+      "name": "1987年",
+      "blurb": "",
+      "color": "#9a7a12"
+    },
+    {
+      "id": "y1986",
+      "order": -1986,
+      "name": "1986年",
+      "blurb": "",
+      "color": "#9a7a12"
+    },
+    {
+      "id": "y1985",
+      "order": -1985,
+      "name": "1985年",
+      "blurb": "",
+      "color": "#9a7a12"
+    },
+    {
+      "id": "y1984",
+      "order": -1984,
+      "name": "1984年",
+      "blurb": "",
+      "color": "#9a7a12"
+    },
+    {
+      "id": "y1983",
+      "order": -1983,
+      "name": "1983年",
+      "blurb": "",
+      "color": "#9a7a12"
+    },
+    {
+      "id": "y1982",
+      "order": -1982,
+      "name": "1982年",
+      "blurb": "",
+      "color": "#9a7a12"
+    },
+    {
+      "id": "y1981",
+      "order": -1981,
+      "name": "1981年",
+      "blurb": "",
+      "color": "#9a7a12"
+    },
+    {
+      "id": "y1980",
+      "order": -1980,
+      "name": "1980年",
+      "blurb": "",
+      "color": "#9a7a12"
+    },
+    {
+      "id": "y1979",
+      "order": -1979,
+      "name": "1979年",
+      "blurb": "",
+      "color": "#a8456e"
+    },
+    {
+      "id": "y1978",
+      "order": -1978,
+      "name": "1978年",
+      "blurb": "",
+      "color": "#a8456e"
+    },
+    {
+      "id": "y1977",
+      "order": -1977,
+      "name": "1977年",
+      "blurb": "",
+      "color": "#a8456e"
+    },
+    {
+      "id": "y1976",
+      "order": -1976,
+      "name": "1976年",
+      "blurb": "",
+      "color": "#a8456e"
+    },
+    {
+      "id": "y1975",
+      "order": -1975,
+      "name": "1975年",
+      "blurb": "",
+      "color": "#a8456e"
+    },
+    {
+      "id": "y1974",
+      "order": -1974,
+      "name": "1974年",
+      "blurb": "",
+      "color": "#a8456e"
+    },
+    {
+      "id": "y1973",
+      "order": -1973,
+      "name": "1973年",
+      "blurb": "",
+      "color": "#a8456e"
+    },
+    {
+      "id": "y1972",
+      "order": -1972,
+      "name": "1972年",
+      "blurb": "",
+      "color": "#a8456e"
+    },
+    {
+      "id": "y1971",
+      "order": -1971,
+      "name": "1971年",
+      "blurb": "",
+      "color": "#a8456e"
+    },
+    {
+      "id": "y1970",
+      "order": -1970,
+      "name": "1970年",
+      "blurb": "",
+      "color": "#a8456e"
+    },
+    {
+      "id": "y1969",
+      "order": -1969,
+      "name": "1969年",
+      "blurb": "",
+      "color": "#b33a2a"
+    },
+    {
+      "id": "y1968",
+      "order": -1968,
+      "name": "1968年",
+      "blurb": "",
+      "color": "#b33a2a"
+    },
+    {
+      "id": "y1967",
+      "order": -1967,
+      "name": "1967年",
+      "blurb": "",
+      "color": "#b33a2a"
+    },
+    {
+      "id": "y1966",
+      "order": -1966,
+      "name": "1966年",
+      "blurb": "",
+      "color": "#b33a2a"
+    },
+    {
+      "id": "y1965",
+      "order": -1965,
+      "name": "1965年",
+      "blurb": "",
+      "color": "#b33a2a"
+    },
+    {
+      "id": "y1964",
+      "order": -1964,
+      "name": "1964年",
+      "blurb": "",
+      "color": "#b33a2a"
+    },
+    {
+      "id": "y1963",
+      "order": -1963,
+      "name": "1963年",
+      "blurb": "",
+      "color": "#b33a2a"
+    },
+    {
+      "id": "y1962",
+      "order": -1962,
+      "name": "1962年",
+      "blurb": "",
+      "color": "#b33a2a"
+    },
+    {
+      "id": "y1961",
+      "order": -1961,
+      "name": "1961年",
+      "blurb": "",
+      "color": "#b33a2a"
+    },
+    {
+      "id": "y1960",
+      "order": -1960,
+      "name": "1960年",
+      "blurb": "",
+      "color": "#b33a2a"
+    },
+    {
+      "id": "y1959",
+      "order": -1959,
+      "name": "1959年",
+      "blurb": "",
+      "color": "#a65f18"
+    },
+    {
+      "id": "y1958",
+      "order": -1958,
+      "name": "1958年",
+      "blurb": "",
+      "color": "#a65f18"
+    },
+    {
+      "id": "y1957",
+      "order": -1957,
+      "name": "1957年",
+      "blurb": "",
+      "color": "#a65f18"
+    },
+    {
+      "id": "y1956",
+      "order": -1956,
+      "name": "1956年",
+      "blurb": "",
+      "color": "#a65f18"
+    },
+    {
+      "id": "y1955",
+      "order": -1955,
+      "name": "1955年",
+      "blurb": "",
+      "color": "#a65f18"
+    },
+    {
+      "id": "y1954",
+      "order": -1954,
+      "name": "1954年",
+      "blurb": "",
+      "color": "#a65f18"
+    },
+    {
+      "id": "y1953",
+      "order": -1953,
+      "name": "1953年",
+      "blurb": "",
+      "color": "#a65f18"
+    },
+    {
+      "id": "y1952",
+      "order": -1952,
+      "name": "1952年",
+      "blurb": "",
+      "color": "#a65f18"
+    },
+    {
+      "id": "y1951",
+      "order": -1951,
+      "name": "1951年",
+      "blurb": "",
+      "color": "#a65f18"
+    },
+    {
+      "id": "y1950",
+      "order": -1950,
+      "name": "1950年",
+      "blurb": "",
+      "color": "#a65f18"
+    },
+    {
+      "id": "y1949",
+      "order": -1949,
+      "name": "1949年",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y1948",
+      "order": -1948,
+      "name": "1948年",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y1947",
+      "order": -1947,
+      "name": "1947年",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y1946",
+      "order": -1946,
+      "name": "1946年",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y1945",
+      "order": -1945,
+      "name": "1945年",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y1944",
+      "order": -1944,
+      "name": "1944年",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y1943",
+      "order": -1943,
+      "name": "1943年",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y1942",
+      "order": -1942,
+      "name": "1942年",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y1941",
+      "order": -1941,
+      "name": "1941年",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y1940",
+      "order": -1940,
+      "name": "1940年",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y1939",
+      "order": -1939,
+      "name": "1939年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y1938",
+      "order": -1938,
+      "name": "1938年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y1937",
+      "order": -1937,
+      "name": "1937年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y1936",
+      "order": -1936,
+      "name": "1936年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y1935",
+      "order": -1935,
+      "name": "1935年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y1934",
+      "order": -1934,
+      "name": "1934年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y1932",
+      "order": -1932,
+      "name": "1932年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y1931",
+      "order": -1931,
+      "name": "1931年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y1930",
+      "order": -1930,
+      "name": "1930年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y1929",
+      "order": -1929,
+      "name": "1929年",
+      "blurb": "",
+      "color": "#2f6b45"
+    }
+  ]
+}

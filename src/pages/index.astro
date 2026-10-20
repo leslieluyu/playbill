@@ -25,14 +25,21 @@ const lists = (await getCollection("lists")).sort((a, b) => a.data.order - b.dat
       {
         lists.map((l) => {
           const en = listCopy[l.id];
+          const href = l.id === "great-directors" ? "/great-directors/" : `/${l.id}/`;
+          const titleZh = l.id === "great-directors" ? "TSPDT 250 大导演" : l.data.title;
+          const titleEn = l.id === "great-directors" ? "TSPDT Top 250 Directors" : (en?.title ?? l.data.title);
+          const countZh =
+            l.id === "great-directors" ? `${l.data.sections.length} 位` : `${l.data.entries.length} 部`;
+          const countEn =
+            l.id === "great-directors" ? String(l.data.sections.length) : String(l.data.entries.length);
           return (
             <li>
-              <a href={`/${l.id}/`}>
+              <a href={href}>
                 <span class="title">
-                  <Bi zh={l.data.title} en={en?.title ?? l.data.title} />
+                  <Bi zh={titleZh} en={titleEn} />
                 </span>
                 <span class="count">
-                  <Bi zh={`${l.data.entries.length} 部`} en={String(l.data.entries.length)} />
+                  <Bi zh={countZh} en={countEn} />
                 </span>
                 <span class="desc">
                   <Bi zh={l.data.kicker} en={en?.kicker ?? l.data.kicker} />

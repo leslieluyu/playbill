@@ -7,12 +7,18 @@
 {"work_id":"douban-10450409","ord":1,"alias":"真正的人"}
 {"work_id":"douban-10450409","ord":2,"alias":"Warriors of the Rainbow: Seediq Bale - Part 1: the Sun Flag"}
 {"work_id":"douban-10458658","ord":0,"alias":"The Land of Hope"}
+{"work_id":"douban-10462605","ord":0,"alias":"Coming Home"}
+{"work_id":"douban-10479762","ord":0,"alias":"The Experts"}
+{"work_id":"douban-10482320","ord":0,"alias":"My Father's Happy Years"}
+{"work_id":"douban-10512737","ord":0,"alias":"Life or Death"}
 {"work_id":"douban-10518895","ord":0,"alias":"История арканарской резни"}
 {"work_id":"douban-10518895","ord":1,"alias":"Istoriya arkanarskoy rezni"}
 {"work_id":"douban-10518895","ord":2,"alias":"Trudno byt bogom"}
 {"work_id":"douban-10518895","ord":3,"alias":"History of the Arkanar Massacre"}
 {"work_id":"douban-10518895","ord":4,"alias":"The Story of the Arcanar Massacre"}
 {"work_id":"douban-10518895","ord":5,"alias":"Hard to Be a God"}
+{"work_id":"douban-10548976","ord":0,"alias":"莱拉·弗利"}
+{"work_id":"douban-10548976","ord":1,"alias":"蕾拉·弗瑞"}
 {"work_id":"douban-10576419","ord":0,"alias":"蓝色茱莉(台)"}
 {"work_id":"douban-10576419","ord":1,"alias":"情迷蓝茉莉(港)"}
 {"work_id":"douban-10576419","ord":2,"alias":"蓝茉莉"}
@@ -27,13 +33,19 @@
 {"work_id":"douban-10756638","ord":3,"alias":"Backwater"}
 {"work_id":"douban-10756638","ord":4,"alias":"Tomogui"}
 {"work_id":"douban-10756638","ord":5,"alias":"Dog Eat Dog"}
+{"work_id":"douban-10770430","ord":0,"alias":"The Widow Montiel"}
+{"work_id":"douban-10806221","ord":0,"alias":"Opettaja"}
+{"work_id":"douban-10806221","ord":1,"alias":"The Teacher"}
+{"work_id":"douban-10806239","ord":0,"alias":"The Raven's Dance"}
 {"work_id":"douban-11500954","ord":0,"alias":"字里人间(港)"}
 {"work_id":"douban-11500954","ord":1,"alias":"宅男的恋爱字典(台)"}
 {"work_id":"douban-11500954","ord":2,"alias":"大渡海"}
 {"work_id":"douban-11500954","ord":3,"alias":"字里人生"}
 {"work_id":"douban-11500954","ord":4,"alias":"The Great Passage"}
+{"work_id":"douban-11501806","ord":0,"alias":"The Hour of Liberation Has Arrived"}
 {"work_id":"douban-11523496","ord":0,"alias":"去看小洋葱妈妈(台)"}
 {"work_id":"douban-11523496","ord":1,"alias":"Pecoross' Mother and Her Days"}
+{"work_id":"douban-11601781","ord":0,"alias":"Madalena"}
 {"work_id":"douban-1291545","ord":0,"alias":"大鱼奇缘(港)"}
 {"work_id":"douban-1291545","ord":1,"alias":"大智若鱼(台)"}
 {"work_id":"douban-1291545","ord":2,"alias":"大鱼老爸"}
@@ -131,6 +143,8 @@
 {"work_id":"douban-1292444","ord":1,"alias":"东京圣战"}
 {"work_id":"douban-1292444","ord":2,"alias":"Battle Royale"}
 {"work_id":"douban-1292444","ord":3,"alias":"大逃杀"}
+{"work_id":"douban-1292496","ord":0,"alias":"孽海狂涛"}
+{"work_id":"douban-1292496","ord":1,"alias":"狂野是风"}
 {"work_id":"douban-1292532","ord":0,"alias":"义胆雄心(港)"}
 {"work_id":"douban-1292532","ord":1,"alias":"不可触犯"}
 {"work_id":"douban-1292541","ord":0,"alias":"一路到底：脱线舞男(台)"}
@@ -181,8 +195,8 @@
 {"work_id":"douban-1293162","ord":0,"alias":"Scandal"}
 {"work_id":"douban-1293162","ord":1,"alias":"丑闻"}
 {"work_id":"douban-1293167","ord":0,"alias":"捍卫战警(台)"}
-{"work_id":"douban-1293241","ord":0,"alias":"The Clowns"}
-{"work_id":"douban-1293241","ord":1,"alias":"小丑"}
+{"work_id":"douban-1293184","ord":0,"alias":"照明"}
+{"work_id":"douban-1293184","ord":1,"alias":"先知"}
 {"work_id":"douban-1293299","ord":0,"alias":"戏中戏(港)"}
 {"work_id":"douban-1293299","ord":1,"alias":"幽灵王国"}
 {"work_id":"douban-1293299","ord":2,"alias":"日以继夜"}
@@ -205,6 +219,13 @@
 {"work_id":"douban-1293329","ord":0,"alias":"The Story of the Last Chrysanthemums"}
 {"work_id":"douban-1293329","ord":1,"alias":"Zangiku monogatari"}
 {"work_id":"douban-1293402","ord":0,"alias":"消失的美国人"}
+{"work_id":"douban-1293455","ord":0,"alias":"一生何求(港)"}
+{"work_id":"douban-1293455","ord":1,"alias":"永远的一天(台)"}
+{"work_id":"douban-1293455","ord":2,"alias":"永远与一天"}
+{"work_id":"douban-1293455","ord":3,"alias":"永恒的一日"}
+{"work_id":"douban-1293455","ord":4,"alias":"永恒的一天"}
+{"work_id":"douban-1293455","ord":5,"alias":"比永远多一天"}
+{"work_id":"douban-1293455","ord":6,"alias":"Eternity and a Day"}
 {"work_id":"douban-1293505","ord":0,"alias":"再见女郎"}
 {"work_id":"douban-1293553","ord":0,"alias":"茱莉亚"}
 {"work_id":"douban-1293703","ord":0,"alias":"Rikyu"}
@@ -251,16 +272,25 @@
 {"work_id":"douban-1293995","ord":2,"alias":"凶暴的男人"}
 {"work_id":"douban-1294007","ord":0,"alias":"The Road Home"}
 {"work_id":"douban-1294007","ord":1,"alias":"My Father and Mother"}
+{"work_id":"douban-1294060","ord":0,"alias":"史蒂哥"}
+{"work_id":"douban-1294060","ord":1,"alias":"史蒂科"}
 {"work_id":"douban-1294068","ord":0,"alias":"和平生活"}
+{"work_id":"douban-1294090","ord":0,"alias":"哈林之怒"}
+{"work_id":"douban-1294176","ord":0,"alias":"Gruppa krovi nol"}
 {"work_id":"douban-1294191","ord":0,"alias":"天涯歌女(港)"}
 {"work_id":"douban-1294191","ord":1,"alias":"悲歌一曲"}
 {"work_id":"douban-1294191","ord":2,"alias":"Seopyeonje"}
 {"work_id":"douban-1294191","ord":3,"alias":"Sopyonje"}
+{"work_id":"douban-1294223","ord":0,"alias":"包和他的兄弟"}
+{"work_id":"douban-1294223","ord":1,"alias":"鲍和他的兄弟"}
+{"work_id":"douban-1294223","ord":2,"alias":"Pau and His Brother"}
 {"work_id":"douban-1294224","ord":0,"alias":"海神号"}
 {"work_id":"douban-1294224","ord":1,"alias":"海神号遇险记"}
 {"work_id":"douban-1294224","ord":2,"alias":"海神号历险记"}
 {"work_id":"douban-1294224","ord":3,"alias":"海神波塞冬号"}
 {"work_id":"douban-1294224","ord":4,"alias":"波塞冬历险"}
+{"work_id":"douban-1294264","ord":0,"alias":"船长"}
+{"work_id":"douban-1294264","ord":1,"alias":"队长"}
 {"work_id":"douban-1294287","ord":0,"alias":"爱之物语(台)"}
 {"work_id":"douban-1294287","ord":1,"alias":"情义两心知"}
 {"work_id":"douban-1294287","ord":2,"alias":"Fall Guy"}
@@ -268,6 +298,9 @@
 {"work_id":"douban-1294357","ord":1,"alias":"Storm Over Asia"}
 {"work_id":"douban-1294378","ord":0,"alias":"情死天网岛"}
 {"work_id":"douban-1294378","ord":1,"alias":"Double Suicide"}
+{"work_id":"douban-1294410","ord":0,"alias":"尘海遗珠"}
+{"work_id":"douban-1294410","ord":1,"alias":"还珠记"}
+{"work_id":"douban-1294410","ord":2,"alias":"失踪的小男孩"}
 {"work_id":"douban-1294418","ord":0,"alias":"扭计师爷古惑仔(港)"}
 {"work_id":"douban-1294418","ord":1,"alias":"头版"}
 {"work_id":"douban-1294433","ord":0,"alias":"一个秋天的下午"}
@@ -280,6 +313,7 @@
 {"work_id":"douban-1294580","ord":2,"alias":"后来的事"}
 {"work_id":"douban-1294580","ord":3,"alias":"Sorekara"}
 {"work_id":"douban-1294580","ord":4,"alias":"And Then"}
+{"work_id":"douban-1294606","ord":0,"alias":"疯狂派对"}
 {"work_id":"douban-1294634","ord":0,"alias":"魔宫传奇(港)"}
 {"work_id":"douban-1294634","ord":1,"alias":"蔷薇的记号(台)"}
 {"work_id":"douban-1294634","ord":2,"alias":"玫瑰的名字"}
@@ -311,9 +345,6 @@
 {"work_id":"douban-1294848","ord":0,"alias":"天意"}
 {"work_id":"douban-1294859","ord":0,"alias":"酩酊天使"}
 {"work_id":"douban-1294859","ord":1,"alias":"Drunken Angel"}
-{"work_id":"douban-1294867","ord":0,"alias":"原子劫"}
-{"work_id":"douban-1294867","ord":1,"alias":"Black Rain"}
-{"work_id":"douban-1294867","ord":2,"alias":"黑雨"}
 {"work_id":"douban-1294940","ord":0,"alias":"我要复仇"}
 {"work_id":"douban-1294940","ord":1,"alias":"Vengeance Is Mine"}
 {"work_id":"douban-1294940","ord":2,"alias":"复仇在我"}
@@ -324,14 +355,25 @@
 {"work_id":"douban-1295172","ord":1,"alias":"Violence at Noon"}
 {"work_id":"douban-1295172","ord":2,"alias":"The Daylight Demon"}
 {"work_id":"douban-1295172","ord":3,"alias":"Hakuchû no tôrima"}
+{"work_id":"douban-1295199","ord":0,"alias":"冠军季节"}
+{"work_id":"douban-1295199","ord":1,"alias":"锦标赛季节"}
+{"work_id":"douban-1295199","ord":2,"alias":"散挡(港)"}
 {"work_id":"douban-1295452","ord":0,"alias":"子弹穿过百老汇"}
 {"work_id":"douban-1295452","ord":1,"alias":"百老汇上空的子弹"}
 {"work_id":"douban-1295452","ord":2,"alias":"子弹横飞百老汇"}
 {"work_id":"douban-1295482","ord":0,"alias":"万世巨星"}
 {"work_id":"douban-1295504","ord":0,"alias":"犯罪的都市"}
-{"work_id":"douban-1295614","ord":0,"alias":"士兵叙事曲"}
-{"work_id":"douban-1295614","ord":1,"alias":"Ballad of a Soldier"}
+{"work_id":"douban-1295511","ord":0,"alias":"柔情常在我心间"}
+{"work_id":"douban-1295511","ord":1,"alias":"A Tailor's Maid"}
+{"work_id":"douban-1295511","ord":2,"alias":"父与子"}
+{"work_id":"douban-1295698","ord":0,"alias":"恐惧与爱情"}
+{"work_id":"douban-1295698","ord":1,"alias":"Trois soeurs"}
+{"work_id":"douban-1295698","ord":2,"alias":"Three Sisters"}
+{"work_id":"douban-1295698","ord":3,"alias":"Love and Fear"}
 {"work_id":"douban-1295706","ord":0,"alias":"天伦之旅"}
+{"work_id":"douban-1295741","ord":0,"alias":"狂人血债(港)"}
+{"work_id":"douban-1295741","ord":1,"alias":"奇男奇女奇情"}
+{"work_id":"douban-1295741","ord":2,"alias":"汉默．史密斯出走"}
 {"work_id":"douban-1295751","ord":0,"alias":"那个辉煌的星期天"}
 {"work_id":"douban-1295751","ord":1,"alias":"One Wonderful Sunday"}
 {"work_id":"douban-1295753","ord":0,"alias":"日出：两个人的爱情之歌"}
@@ -346,16 +388,11 @@
 {"work_id":"douban-1295763","ord":2,"alias":"月之吟"}
 {"work_id":"douban-1295763","ord":3,"alias":"Moonlight Whispers"}
 {"work_id":"douban-1295763","ord":4,"alias":"月吟"}
-{"work_id":"douban-1295774","ord":0,"alias":"道路"}
-{"work_id":"douban-1295774","ord":1,"alias":"The Way"}
-{"work_id":"douban-1295774","ord":2,"alias":"自由之路"}
-{"work_id":"douban-1295812","ord":0,"alias":"沙之女"}
-{"work_id":"douban-1295812","ord":1,"alias":"Suna no onna"}
-{"work_id":"douban-1295812","ord":2,"alias":"Woman in the Dunes"}
 {"work_id":"douban-1295815","ord":0,"alias":"那年夏天最宁静的海"}
 {"work_id":"douban-1295815","ord":1,"alias":"夏日，在寂静的海边"}
 {"work_id":"douban-1295815","ord":2,"alias":"A Scene at the Sea"}
 {"work_id":"douban-1295815","ord":3,"alias":"那年夏天，宁静的海"}
+{"work_id":"douban-1295832","ord":0,"alias":"Roberto Succo"}
 {"work_id":"douban-1295859","ord":0,"alias":"少年盖普的烦恼"}
 {"work_id":"douban-1295859","ord":1,"alias":"加普的世界观"}
 {"work_id":"douban-1295873","ord":0,"alias":"单车失窃记(台)"}
@@ -367,11 +404,7 @@
 {"work_id":"douban-1295888","ord":3,"alias":"野麦峰"}
 {"work_id":"douban-1295913","ord":0,"alias":"Beauty and the Beast"}
 {"work_id":"douban-1295913","ord":1,"alias":"美女与野兽"}
-{"work_id":"douban-1295967","ord":0,"alias":"人生長恨水長東(港)"}
-{"work_id":"douban-1295967","ord":1,"alias":"黑色奥菲士"}
-{"work_id":"douban-1295967","ord":2,"alias":"黑人奥菲斯"}
-{"work_id":"douban-1295967","ord":3,"alias":"黑色俄耳甫斯"}
-{"work_id":"douban-1295967","ord":4,"alias":"Black Orpheus"}
+{"work_id":"douban-1295959","ord":0,"alias":"The Anchorite"}
 {"work_id":"douban-1296147","ord":0,"alias":"哭泣与低诉"}
 {"work_id":"douban-1296147","ord":1,"alias":"哭泣与耳语"}
 {"work_id":"douban-1296147","ord":2,"alias":"呼喊与低语"}
@@ -379,16 +412,19 @@
 {"work_id":"douban-1296147","ord":4,"alias":"哭泣与呢喃"}
 {"work_id":"douban-1296147","ord":5,"alias":"Cries and Whispers"}
 {"work_id":"douban-1296147","ord":6,"alias":"呼喊与细语"}
+{"work_id":"douban-1296149","ord":0,"alias":"追捕逃亡者"}
+{"work_id":"douban-1296149","ord":1,"alias":"The Chasers"}
+{"work_id":"douban-1296150","ord":0,"alias":"禁闭"}
+{"work_id":"douban-1296150","ord":1,"alias":"没有出路"}
 {"work_id":"douban-1296160","ord":0,"alias":"拳王奋斗史"}
-{"work_id":"douban-1296177","ord":0,"alias":"樱桃之味"}
-{"work_id":"douban-1296177","ord":1,"alias":"Taste of Cherry"}
-{"work_id":"douban-1296177","ord":2,"alias":"Ta'm e guilass"}
+{"work_id":"douban-1296174","ord":0,"alias":"The Women on the Roof"}
 {"work_id":"douban-1296196","ord":0,"alias":"乱日本战国时代"}
 {"work_id":"douban-1296196","ord":1,"alias":"Revolt"}
 {"work_id":"douban-1296196","ord":2,"alias":"Ran"}
 {"work_id":"douban-1296223","ord":0,"alias":"传奇女王伊利沙伯(港)"}
 {"work_id":"douban-1296223","ord":1,"alias":"伊莉莎白(台)"}
 {"work_id":"douban-1296223","ord":2,"alias":"传奇女王依利莎伯"}
+{"work_id":"douban-1296490","ord":0,"alias":"吾家有子初长成"}
 {"work_id":"douban-1296563","ord":0,"alias":"隔壁的女人"}
 {"work_id":"douban-1296563","ord":1,"alias":"邻家女"}
 {"work_id":"douban-1296563","ord":2,"alias":"邻家的女人"}
@@ -398,33 +434,24 @@
 {"work_id":"douban-1296591","ord":0,"alias":"该诅咒的人"}
 {"work_id":"douban-1296591","ord":1,"alias":"The Damned"}
 {"work_id":"douban-1296591","ord":2,"alias":"Die Verdammten"}
-{"work_id":"douban-1296620","ord":0,"alias":"公寓之恋"}
-{"work_id":"douban-1296620","ord":1,"alias":"M. Hire"}
 {"work_id":"douban-1296627","ord":0,"alias":"抢钱家族"}
 {"work_id":"douban-1296627","ord":1,"alias":"The Yen Family"}
 {"work_id":"douban-1296627","ord":2,"alias":"Kimurake no hitobito"}
 {"work_id":"douban-1296669","ord":0,"alias":"不设防城市(港/台)"}
 {"work_id":"douban-1296669","ord":1,"alias":"罗马不设防"}
 {"work_id":"douban-1296669","ord":2,"alias":"Rome, Open City"}
-{"work_id":"douban-1296703","ord":0,"alias":"The Ballad of Narayama"}
 {"work_id":"douban-1296798","ord":0,"alias":"Taifu Club"}
 {"work_id":"douban-1296798","ord":1,"alias":"Typhoon Club"}
 {"work_id":"douban-1296834","ord":0,"alias":"龙爪花"}
 {"work_id":"douban-1296834","ord":1,"alias":"Higanbana"}
 {"work_id":"douban-1296834","ord":2,"alias":"Equinox Flower"}
+{"work_id":"douban-1296841","ord":0,"alias":"好像是爱情"}
+{"work_id":"douban-1296841","ord":1,"alias":"像恋爱一样"}
 {"work_id":"douban-1296872","ord":0,"alias":"平原烈火"}
 {"work_id":"douban-1296872","ord":1,"alias":"Fires on the Plain"}
 {"work_id":"douban-1296872","ord":2,"alias":"Nobi"}
-{"work_id":"douban-1296902","ord":0,"alias":"Kagi"}
-{"work_id":"douban-1296902","ord":1,"alias":"The Key"}
-{"work_id":"douban-1296902","ord":2,"alias":"Odd Obsession"}
-{"work_id":"douban-1296902","ord":3,"alias":"钥匙"}
 {"work_id":"douban-1297007","ord":0,"alias":"钢琴师(台)"}
 {"work_id":"douban-1297007","ord":1,"alias":"闪亮"}
-{"work_id":"douban-1297046","ord":0,"alias":"软玉温香"}
-{"work_id":"douban-1297046","ord":1,"alias":"The Soft Skin"}
-{"work_id":"douban-1297105","ord":0,"alias":"菲茨卡拉多"}
-{"work_id":"douban-1297105","ord":1,"alias":"陆上行舟"}
 {"work_id":"douban-1297128","ord":0,"alias":"大家都说我爱你"}
 {"work_id":"douban-1297128","ord":1,"alias":"为你唱情歌"}
 {"work_id":"douban-1297128","ord":2,"alias":"人人都说我爱你"}
@@ -445,6 +472,9 @@
 {"work_id":"douban-1297290","ord":1,"alias":"3比4X10月"}
 {"work_id":"douban-1297290","ord":2,"alias":"棒下不留情"}
 {"work_id":"douban-1297290","ord":3,"alias":"Boiling Point"}
+{"work_id":"douban-1297328","ord":0,"alias":"一对眼睛，十二双手"}
+{"work_id":"douban-1297328","ord":1,"alias":"双只眼,十二双手"}
+{"work_id":"douban-1297328","ord":2,"alias":"Two Eyes, Twelve Hands"}
 {"work_id":"douban-1297331","ord":0,"alias":"在底层"}
 {"work_id":"douban-1297331","ord":1,"alias":"深渊"}
 {"work_id":"douban-1297331","ord":2,"alias":"The Lower Depths"}
@@ -452,52 +482,61 @@
 {"work_id":"douban-1297359","ord":1,"alias":"幽灵少女"}
 {"work_id":"douban-1297359","ord":2,"alias":"物之怪姬"}
 {"work_id":"douban-1297359","ord":3,"alias":"Princess Mononoke"}
-{"work_id":"douban-1297388","ord":0,"alias":"尊尼拿起了枪"}
-{"work_id":"douban-1297388","ord":1,"alias":"约翰尼拿到了自己的枪"}
-{"work_id":"douban-1297388","ord":2,"alias":"强尼上战场"}
-{"work_id":"douban-1297388","ord":3,"alias":"无语问苍天"}
+{"work_id":"douban-1297434","ord":0,"alias":"四海姐妹"}
+{"work_id":"douban-1297434","ord":1,"alias":"一起的走过的日子"}
+{"work_id":"douban-1297468","ord":0,"alias":"Early Works"}
+{"work_id":"douban-1297495","ord":0,"alias":"东非暗杀奇案"}
 {"work_id":"douban-1297506","ord":0,"alias":"彩凤清歌"}
 {"work_id":"douban-1297506","ord":1,"alias":"万户笙歌"}
 {"work_id":"douban-1297506","ord":2,"alias":"感人的音乐"}
 {"work_id":"douban-1297507","ord":0,"alias":"天赋"}
 {"work_id":"douban-1297507","ord":1,"alias":"天赐奇才"}
 {"work_id":"douban-1297507","ord":2,"alias":"天生好手"}
+{"work_id":"douban-1297512","ord":0,"alias":"开花·花朵·花环"}
+{"work_id":"douban-1297512","ord":1,"alias":"梦想的花"}
+{"work_id":"douban-1297512","ord":2,"alias":"Flowers of Reverie"}
 {"work_id":"douban-1297556","ord":0,"alias":"Naniwa erejî"}
 {"work_id":"douban-1297556","ord":1,"alias":"Naniwa Elegy"}
 {"work_id":"douban-1297556","ord":2,"alias":"Osaka Elegy"}
 {"work_id":"douban-1297556","ord":3,"alias":"Woman of Osaka"}
 {"work_id":"douban-1297560","ord":0,"alias":"八甲田山"}
-{"work_id":"douban-1297606","ord":0,"alias":"男欢女爱"}
-{"work_id":"douban-1297606","ord":1,"alias":"男与女"}
-{"work_id":"douban-1297606","ord":2,"alias":"A Man and a Woman"}
-{"work_id":"douban-1297606","ord":3,"alias":"一个男人和一个女人"}
 {"work_id":"douban-1297715","ord":0,"alias":"星战毁灭者(台)"}
 {"work_id":"douban-1297715","ord":1,"alias":"火星人大侵袭"}
 {"work_id":"douban-1297715","ord":2,"alias":"外星人进攻"}
 {"work_id":"douban-1297715","ord":3,"alias":"火星人袭击地球"}
+{"work_id":"douban-1297719","ord":0,"alias":"明天在亚拉巴马"}
 {"work_id":"douban-1297769","ord":0,"alias":"轻声细语"}
 {"work_id":"douban-1297769","ord":1,"alias":"情深说话未曾讲"}
 {"work_id":"douban-1297769","ord":2,"alias":"与马说话的人"}
 {"work_id":"douban-1297769","ord":3,"alias":"马语者"}
+{"work_id":"douban-1297806","ord":0,"alias":"The Escort"}
+{"work_id":"douban-1297806","ord":1,"alias":"The Bodyguards"}
+{"work_id":"douban-1297806","ord":2,"alias":"四大天王"}
+{"work_id":"douban-1297831","ord":0,"alias":"火线三壮士"}
+{"work_id":"douban-1297831","ord":1,"alias":"征站几人回  / 征戰幾人回 (港)"}
 {"work_id":"douban-1297878","ord":0,"alias":"大绑架"}
 {"work_id":"douban-1297878","ord":1,"alias":"Rainbow Kids"}
 {"work_id":"douban-1297880","ord":0,"alias":"Hibiscus Town"}
+{"work_id":"douban-1297937","ord":0,"alias":"The Death of Mario Ricci"}
+{"work_id":"douban-1297937","ord":1,"alias":"马里奥·列齐之死"}
 {"work_id":"douban-1297969","ord":0,"alias":"乱世浮生"}
-{"work_id":"douban-1298043","ord":0,"alias":"才子梦惊魂(港)"}
-{"work_id":"douban-1298043","ord":1,"alias":"巴顿芬克"}
-{"work_id":"douban-1298053","ord":0,"alias":"稚情"}
-{"work_id":"douban-1298053","ord":1,"alias":"Miracle of Marcelino"}
-{"work_id":"douban-1298053","ord":2,"alias":"污秽的城市"}
+{"work_id":"douban-1298025","ord":0,"alias":"列宁在波兰"}
+{"work_id":"douban-1298025","ord":1,"alias":"Lenin v Polshe"}
 {"work_id":"douban-1298095","ord":0,"alias":"枪杀钢琴师"}
 {"work_id":"douban-1298095","ord":1,"alias":"枪击钢琴师"}
 {"work_id":"douban-1298095","ord":2,"alias":"Shoot The Pianist"}
 {"work_id":"douban-1298095","ord":3,"alias":"Shoot the Piano Player"}
+{"work_id":"douban-1298142","ord":0,"alias":"请求庇护"}
+{"work_id":"douban-1298142","ord":1,"alias":"Seeking Asylum"}
 {"work_id":"douban-1298168","ord":0,"alias":"万世流芳"}
 {"work_id":"douban-1298168","ord":1,"alias":"巴斯德传"}
 {"work_id":"douban-1298246","ord":0,"alias":"大歌舞"}
 {"work_id":"douban-1298246","ord":1,"alias":"平步青云"}
 {"work_id":"douban-1298246","ord":2,"alias":"歌舞线上"}
 {"work_id":"douban-1298257","ord":0,"alias":"War and Peace: Part I"}
+{"work_id":"douban-1298292","ord":0,"alias":"Red Kiss"}
+{"work_id":"douban-1298292","ord":1,"alias":"红色的吻"}
+{"work_id":"douban-1298292","ord":2,"alias":"热吻"}
 {"work_id":"douban-1298351","ord":0,"alias":"小奏鸣曲"}
 {"work_id":"douban-1298351","ord":1,"alias":"Sonatine"}
 {"work_id":"douban-1298357","ord":0,"alias":"Edo Porn"}
@@ -512,6 +551,7 @@
 {"work_id":"douban-1298485","ord":1,"alias":"妳嫁给我吧"}
 {"work_id":"douban-1298485","ord":2,"alias":"荒唐的贝克兄弟"}
 {"work_id":"douban-1298485","ord":3,"alias":"一曲相思情未了"}
+{"work_id":"douban-1298674","ord":0,"alias":"情系快餐车"}
 {"work_id":"douban-1298704","ord":0,"alias":"Soshun"}
 {"work_id":"douban-1298704","ord":1,"alias":"Early Spring"}
 {"work_id":"douban-1298733","ord":0,"alias":"红楼金粉(港)"}
@@ -520,15 +560,8 @@
 {"work_id":"douban-1298754","ord":1,"alias":"未休矣"}
 {"work_id":"douban-1298754","ord":2,"alias":"Madadayo"}
 {"work_id":"douban-1298754","ord":3,"alias":"Not Yet"}
-{"work_id":"douban-1298764","ord":0,"alias":"终点站"}
-{"work_id":"douban-1298764","ord":1,"alias":"Indiscretion of an American Wife"}
-{"work_id":"douban-1298764","ord":2,"alias":"Terminal Station"}
-{"work_id":"douban-1298784","ord":0,"alias":"赤子雄心(港)"}
-{"work_id":"douban-1298784","ord":1,"alias":"比利小英雄(台)"}
-{"work_id":"douban-1298784","ord":2,"alias":"征服者佩利"}
-{"work_id":"douban-1298784","ord":3,"alias":"征服者贝莱"}
-{"work_id":"douban-1298784","ord":4,"alias":"征服者佩莱"}
-{"work_id":"douban-1298784","ord":5,"alias":"Pelle the Conqueror"}
+{"work_id":"douban-1298787","ord":0,"alias":"残暴"}
+{"work_id":"douban-1298787","ord":1,"alias":"狂暴者"}
 {"work_id":"douban-1298817","ord":0,"alias":"淘金热"}
 {"work_id":"douban-1298870","ord":0,"alias":"Ukigumo"}
 {"work_id":"douban-1298870","ord":1,"alias":"Floating Clouds"}
@@ -548,13 +581,18 @@
 {"work_id":"douban-1299125","ord":3,"alias":"众神的渴望"}
 {"work_id":"douban-1299131","ord":0,"alias":"教父续集(港)"}
 {"work_id":"douban-1299131","ord":1,"alias":"教父II"}
-{"work_id":"douban-1299163","ord":0,"alias":"圣洛伦索之夜"}
-{"work_id":"douban-1299163","ord":1,"alias":"疾走繁星夜"}
-{"work_id":"douban-1299163","ord":2,"alias":"Night of the Shooting Stars"}
+{"work_id":"douban-1299152","ord":0,"alias":"凤求凰"}
+{"work_id":"douban-1299152","ord":1,"alias":"问任何姑娘"}
+{"work_id":"douban-1299187","ord":0,"alias":"甜蜜的艾玛，亲爱的芭比"}
+{"work_id":"douban-1299187","ord":1,"alias":"甜蜜艾玛，亲爱宝蓓"}
+{"work_id":"douban-1299187","ord":2,"alias":"Dear Emma, Sweet Böbe"}
 {"work_id":"douban-1299195","ord":0,"alias":"The Castle of Sand"}
 {"work_id":"douban-1299195","ord":1,"alias":"砂器"}
 {"work_id":"douban-1299195","ord":2,"alias":"曲终魂断"}
 {"work_id":"douban-1299195","ord":3,"alias":"砂之器"}
+{"work_id":"douban-1299225","ord":0,"alias":"柯特莱特家族"}
+{"work_id":"douban-1299225","ord":1,"alias":"七十好年华（法国版）"}
+{"work_id":"douban-1299225","ord":2,"alias":"色情家族"}
 {"work_id":"douban-1299257","ord":0,"alias":"游击队"}
 {"work_id":"douban-1299257","ord":1,"alias":"战火的彼岸"}
 {"work_id":"douban-1299257","ord":2,"alias":"老乡"}
@@ -565,46 +603,54 @@
 {"work_id":"douban-1299360","ord":3,"alias":"Otona no miru ehon - Umarete wa mita keredo"}
 {"work_id":"douban-1299360","ord":4,"alias":"Umarete wa mita keredo"}
 {"work_id":"douban-1299360","ord":5,"alias":"我出生了，但……"}
+{"work_id":"douban-1299381","ord":0,"alias":"蒂佐"}
+{"work_id":"douban-1299381","ord":1,"alias":"蒂查克"}
 {"work_id":"douban-1299383","ord":0,"alias":"最后武士(港)"}
 {"work_id":"douban-1299383","ord":1,"alias":"末代武士(台)"}
 {"work_id":"douban-1299383","ord":2,"alias":"The Last Samurai: Bushidou"}
 {"work_id":"douban-1299383","ord":3,"alias":"最后的武士"}
-{"work_id":"douban-1299401","ord":0,"alias":"女炫"}
-{"work_id":"douban-1299401","ord":1,"alias":"女衔"}
-{"work_id":"douban-1299401","ord":2,"alias":"贩卖妇女的人"}
-{"work_id":"douban-1299401","ord":3,"alias":"ぜげん"}
-{"work_id":"douban-1299401","ord":4,"alias":"Zegen"}
 {"work_id":"douban-1299466","ord":0,"alias":"Munekata kyodai"}
+{"work_id":"douban-1299597","ord":0,"alias":"The Falcons"}
+{"work_id":"douban-1299597","ord":1,"alias":"鹰"}
+{"work_id":"douban-1299597","ord":2,"alias":"隼"}
 {"work_id":"douban-1299603","ord":0,"alias":"霸道横行(台)"}
 {"work_id":"douban-1299603","ord":1,"alias":"水库狗"}
 {"work_id":"douban-1299607","ord":0,"alias":"Tokyo Biyori"}
-{"work_id":"douban-1299944","ord":0,"alias":"大特写"}
-{"work_id":"douban-1299944","ord":1,"alias":"危机"}
-{"work_id":"douban-1299944","ord":2,"alias":"China Syndrome"}
-{"work_id":"douban-1299944","ord":3,"alias":"中国综合症"}
+{"work_id":"douban-1299625","ord":0,"alias":"Live Today for Tomorrow"}
+{"work_id":"douban-1299793","ord":0,"alias":"小男人之苦"}
+{"work_id":"douban-1299793","ord":1,"alias":"The Seduction of Mimi"}
+{"work_id":"douban-1299793","ord":2,"alias":"咪咪的诱惑"}
 {"work_id":"douban-1299945","ord":0,"alias":"援助交际俱乐部"}
 {"work_id":"douban-1299945","ord":1,"alias":"Leaving"}
 {"work_id":"douban-1299945","ord":2,"alias":"Bounce Ko Gals"}
 {"work_id":"douban-1299949","ord":0,"alias":"化石"}
+{"work_id":"douban-1299982","ord":0,"alias":"一次饥荒的剖析"}
+{"work_id":"douban-1299982","ord":1,"alias":"In Search of Famine"}
+{"work_id":"douban-1299982","ord":2,"alias":"寻找饥荒"}
 {"work_id":"douban-1299994","ord":0,"alias":"May Fools"}
 {"work_id":"douban-1300034","ord":0,"alias":"德苏乌札拉"}
 {"work_id":"douban-1300034","ord":1,"alias":"德尔苏乌扎拉"}
 {"work_id":"douban-1300034","ord":2,"alias":"デルス・ウザーラ"}
 {"work_id":"douban-1300034","ord":3,"alias":"Dersu Uzala"}
 {"work_id":"douban-1300034","ord":4,"alias":"德尔苏·乌扎拉"}
+{"work_id":"douban-1300053","ord":0,"alias":"眼神与微笑"}
 {"work_id":"douban-1300055","ord":0,"alias":"烈血焚城(港)"}
 {"work_id":"douban-1300055","ord":1,"alias":"金甲部队(台)"}
 {"work_id":"douban-1300055","ord":2,"alias":"金甲战士"}
-{"work_id":"douban-1300056","ord":0,"alias":"四百下"}
-{"work_id":"douban-1300056","ord":1,"alias":"胡作非为"}
-{"work_id":"douban-1300056","ord":2,"alias":"The 400 Blows"}
 {"work_id":"douban-1300154","ord":0,"alias":"夫妇善哉"}
 {"work_id":"douban-1300154","ord":1,"alias":"Meoto zenzai"}
+{"work_id":"douban-1300225","ord":0,"alias":"十四孤雏"}
+{"work_id":"douban-1300225","ord":1,"alias":"离别圣诞节"}
+{"work_id":"douban-1300225","ord":2,"alias":"Existence"}
+{"work_id":"douban-1300225","ord":3,"alias":"The Fourteen"}
+{"work_id":"douban-1300225","ord":4,"alias":"The Wild Little Bunch"}
 {"work_id":"douban-1300293","ord":0,"alias":"Happiness of Us Alone"}
 {"work_id":"douban-1300299","ord":0,"alias":"谋杀回忆"}
 {"work_id":"douban-1300299","ord":1,"alias":"杀手回忆录"}
 {"work_id":"douban-1300299","ord":2,"alias":"Salinui chueok"}
 {"work_id":"douban-1300299","ord":3,"alias":"Memories of Murder"}
+{"work_id":"douban-1300315","ord":0,"alias":"春风入罗幛"}
+{"work_id":"douban-1300315","ord":1,"alias":"春风入罗帐"}
 {"work_id":"douban-1300353","ord":0,"alias":"巴黎最后探戈"}
 {"work_id":"douban-1300353","ord":1,"alias":"Last Tango in Paris"}
 {"work_id":"douban-1300353","ord":2,"alias":"Le dernier Tango à Paris"}
@@ -616,6 +662,8 @@
 {"work_id":"douban-1300375","ord":2,"alias":"天堂的儿女"}
 {"work_id":"douban-1300375","ord":3,"alias":"天堂的孩子们"}
 {"work_id":"douban-1300375","ord":4,"alias":"Children of Paradise"}
+{"work_id":"douban-1300398","ord":0,"alias":"缄默嘶喊"}
+{"work_id":"douban-1300398","ord":1,"alias":"无声的叫喊"}
 {"work_id":"douban-1300468","ord":0,"alias":"起尾注"}
 {"work_id":"douban-1300468","ord":1,"alias":"终有光明天"}
 {"work_id":"douban-1300468","ord":2,"alias":"光辉岁月"}
@@ -629,31 +677,40 @@
 {"work_id":"douban-1300578","ord":0,"alias":"偷走太阳的男人"}
 {"work_id":"douban-1300578","ord":1,"alias":"窃取太阳的男人"}
 {"work_id":"douban-1300578","ord":2,"alias":"The Man Who Stole the Sun"}
+{"work_id":"douban-1300597","ord":0,"alias":"母亲的微笑"}
+{"work_id":"douban-1300597","ord":1,"alias":"My Mother's Smile"}
 {"work_id":"douban-1300612","ord":0,"alias":"Rônin-gai"}
+{"work_id":"douban-1300628","ord":0,"alias":"Wielki tydzien"}
+{"work_id":"douban-1300628","ord":1,"alias":"Holy Week"}
+{"work_id":"douban-1300628","ord":2,"alias":"聖週間(日)"}
+{"work_id":"douban-1300634","ord":0,"alias":"以民众之名"}
+{"work_id":"douban-1300634","ord":1,"alias":"以人民的名义"}
+{"work_id":"douban-1300634","ord":2,"alias":"In the Name of the People"}
 {"work_id":"douban-1300643","ord":0,"alias":"The Village"}
 {"work_id":"douban-1300652","ord":0,"alias":"大冤狱(台)"}
 {"work_id":"douban-1300652","ord":1,"alias":"深冤"}
 {"work_id":"douban-1300652","ord":2,"alias":"The Confession"}
+{"work_id":"douban-1300710","ord":0,"alias":"瑞典制"}
+{"work_id":"douban-1300710","ord":1,"alias":"瑞典制造"}
 {"work_id":"douban-1300725","ord":0,"alias":"大审判"}
 {"work_id":"douban-1300738","ord":0,"alias":"叛逆"}
 {"work_id":"douban-1300738","ord":1,"alias":"Samurai Rebellion"}
 {"work_id":"douban-1300738","ord":2,"alias":"Rebellion: Receive the Wife"}
+{"work_id":"douban-1300782","ord":0,"alias":"乌兹伯爵"}
+{"work_id":"douban-1300782","ord":1,"alias":"奥兹伯爵"}
 {"work_id":"douban-1300789","ord":0,"alias":"长屋绅士录"}
 {"work_id":"douban-1300789","ord":1,"alias":"Record of a Tenement Gentleman"}
-{"work_id":"douban-1300912","ord":0,"alias":"威尼斯之死"}
-{"work_id":"douban-1300912","ord":1,"alias":"Death in Venice"}
-{"work_id":"douban-1300912","ord":2,"alias":"魂断威尼斯"}
+{"work_id":"douban-1300797","ord":0,"alias":"黑衣姑娘"}
+{"work_id":"douban-1300797","ord":1,"alias":"A Girl in Black"}
+{"work_id":"douban-1300950","ord":0,"alias":"卡多什"}
+{"work_id":"douban-1300950","ord":1,"alias":"因圣爱之名"}
+{"work_id":"douban-1300950","ord":2,"alias":"向日葵"}
+{"work_id":"douban-1300950","ord":3,"alias":"禁城之恋"}
+{"work_id":"douban-1300950","ord":4,"alias":"Kadosh"}
+{"work_id":"douban-1300950","ord":5,"alias":"Sacred"}
 {"work_id":"douban-1300958","ord":0,"alias":"The Silence"}
 {"work_id":"douban-1300958","ord":1,"alias":"沉默"}
-{"work_id":"douban-1300977","ord":0,"alias":"索拉里斯"}
-{"work_id":"douban-1300977","ord":1,"alias":"星球疏拉利斯"}
-{"work_id":"douban-1300977","ord":2,"alias":"梭拉丽斯"}
-{"work_id":"douban-1300977","ord":3,"alias":"索拉瑞斯"}
-{"work_id":"douban-1300977","ord":4,"alias":"Solaris"}
-{"work_id":"douban-1300977","ord":5,"alias":"Solyaris"}
-{"work_id":"douban-1301000","ord":0,"alias":"Genji monogatari"}
-{"work_id":"douban-1301000","ord":1,"alias":"The Tale of Genji"}
-{"work_id":"douban-1301000","ord":2,"alias":"源氏物语"}
+{"work_id":"douban-1300987","ord":0,"alias":"寂寞的男人"}
 {"work_id":"douban-1301005","ord":0,"alias":"Lullaby of the Earth"}
 {"work_id":"douban-1301005","ord":1,"alias":"Daichi no komoriuta"}
 {"work_id":"douban-1301049","ord":0,"alias":"Shimanto-gawa"}
@@ -669,18 +726,22 @@
 {"work_id":"douban-1301169","ord":2,"alias":"比利·艾略特"}
 {"work_id":"douban-1301169","ord":3,"alias":"穷人的孩子爱芭蕾"}
 {"work_id":"douban-1301169","ord":4,"alias":"跳出我天地"}
-{"work_id":"douban-1301214","ord":0,"alias":"美丽坏女人(台)"}
-{"work_id":"douban-1301214","ord":1,"alias":"游戏曲"}
-{"work_id":"douban-1301214","ord":2,"alias":"The Beautiful Troublemaker"}
 {"work_id":"douban-1301243","ord":0,"alias":"A Class to Remember"}
 {"work_id":"douban-1301260","ord":0,"alias":"Waga seishun ni kuinashi"}
 {"work_id":"douban-1301260","ord":1,"alias":"No Regrets for Our Youth"}
 {"work_id":"douban-1301260","ord":2,"alias":"无愧于我的青春"}
+{"work_id":"douban-1301295","ord":0,"alias":"摄影家马丁"}
+{"work_id":"douban-1301295","ord":1,"alias":"摄影师马田"}
+{"work_id":"douban-1301295","ord":2,"alias":"摄影师马丁"}
 {"work_id":"douban-1301359","ord":0,"alias":"水男孩(台)"}
 {"work_id":"douban-1301359","ord":1,"alias":"水花公子"}
 {"work_id":"douban-1301359","ord":2,"alias":"五个扑水少年"}
 {"work_id":"douban-1301359","ord":3,"alias":"Waterboys"}
+{"work_id":"douban-1301387","ord":0,"alias":"拥抱激情"}
 {"work_id":"douban-1301429","ord":0,"alias":"相逢何必曾相识(港)"}
+{"work_id":"douban-1301432","ord":0,"alias":"一百零一夜"}
+{"work_id":"douban-1301432","ord":1,"alias":"A Hundred and One Nights of Simon Cinema"}
+{"work_id":"douban-1301432","ord":2,"alias":"101夜"}
 {"work_id":"douban-1301444","ord":0,"alias":"征空救星(港)"}
 {"work_id":"douban-1301444","ord":1,"alias":"太空大哥大(台)"}
 {"work_id":"douban-1301444","ord":2,"alias":"太空牛仔"}
@@ -688,52 +749,61 @@
 {"work_id":"douban-1301487","ord":1,"alias":"苏丝姑娘"}
 {"work_id":"douban-1301487","ord":2,"alias":"新汉普夏饭店"}
 {"work_id":"douban-1301487","ord":3,"alias":"故事"}
+{"work_id":"douban-1301516","ord":0,"alias":"漂亮宝贝"}
+{"work_id":"douban-1301516","ord":1,"alias":"雏妓"}
+{"work_id":"douban-1301516","ord":2,"alias":"艳娃传"}
+{"work_id":"douban-1301577","ord":0,"alias":"心魔惊魂(港)"}
+{"work_id":"douban-1301577","ord":1,"alias":"致命化身(台)"}
+{"work_id":"douban-1301577","ord":2,"alias":"血魔惊魂"}
+{"work_id":"douban-1301583","ord":0,"alias":"派克夫人的情人"}
+{"work_id":"douban-1301583","ord":1,"alias":"帕克夫人的情人"}
 {"work_id":"douban-1301617","ord":0,"alias":"恋恋情深(台)"}
 {"work_id":"douban-1301617","ord":1,"alias":"什么吞噬着吉尔伯特·格雷普"}
 {"work_id":"douban-1301617","ord":2,"alias":"吉尔伯特·格雷普在烦恼什么"}
+{"work_id":"douban-1301670","ord":0,"alias":"重拾逝去时光(港)"}
+{"work_id":"douban-1301670","ord":1,"alias":"追忆似水流年"}
+{"work_id":"douban-1301670","ord":2,"alias":"Time Regained"}
+{"work_id":"douban-1301674","ord":0,"alias":"My Brother-in-Law Killed My Sister"}
 {"work_id":"douban-1301685","ord":0,"alias":"玛侬的复仇"}
 {"work_id":"douban-1301685","ord":1,"alias":"恩怨情天"}
 {"work_id":"douban-1301685","ord":2,"alias":"女人的复仇"}
 {"work_id":"douban-1301685","ord":3,"alias":"Manon of the Spring"}
 {"work_id":"douban-1301685","ord":4,"alias":"Jean de Florette II"}
 {"work_id":"douban-1301685","ord":5,"alias":"甘泉玛侬"}
+{"work_id":"douban-1301761","ord":0,"alias":"下一站格林威治村"}
+{"work_id":"douban-1301761","ord":1,"alias":"前衛青年(港)"}
 {"work_id":"douban-1301818","ord":0,"alias":"大盗龙虎榜"}
 {"work_id":"douban-1301818","ord":1,"alias":"大贼龙虎榜"}
 {"work_id":"douban-1301818","ord":2,"alias":"大盗迪林杰"}
-{"work_id":"douban-1301866","ord":0,"alias":"以祖国之名(台)"}
-{"work_id":"douban-1301867","ord":0,"alias":"毒太阳(港)"}
-{"work_id":"douban-1301867","ord":1,"alias":"烈日灼身(台)"}
-{"work_id":"douban-1301867","ord":2,"alias":"烈日当空"}
-{"work_id":"douban-1301867","ord":3,"alias":"Utomlyonnye solntsem"}
-{"work_id":"douban-1301867","ord":4,"alias":"Burnt by the Sun"}
-{"work_id":"douban-1301867","ord":5,"alias":"Soleil Trompeur"}
 {"work_id":"douban-1301897","ord":0,"alias":"踏破铁鞋无觅处(港)"}
 {"work_id":"douban-1301897","ord":1,"alias":"Where Is the Friend's Home?"}
 {"work_id":"douban-1301897","ord":2,"alias":"Khane-ye doust kodjast?"}
 {"work_id":"douban-1301924","ord":0,"alias":"不良少女"}
 {"work_id":"douban-1301924","ord":1,"alias":"非行少女"}
 {"work_id":"douban-1301924","ord":2,"alias":"Each Day I Cry"}
+{"work_id":"douban-1302008","ord":0,"alias":"绿色奇迹"}
+{"work_id":"douban-1302008","ord":1,"alias":"Green Magic"}
+{"work_id":"douban-1302008","ord":2,"alias":"Jungle Spell"}
 {"work_id":"douban-1302058","ord":0,"alias":"Shiiku"}
-{"work_id":"douban-1302062","ord":0,"alias":"生物的记录"}
-{"work_id":"douban-1302062","ord":1,"alias":"I Live in Fear"}
 {"work_id":"douban-1302082","ord":0,"alias":"Scattered Clouds"}
 {"work_id":"douban-1302082","ord":1,"alias":"Two in the Shadow"}
 {"work_id":"douban-1302102","ord":0,"alias":"A Dedicated Life"}
 {"work_id":"douban-1302178","ord":0,"alias":"Sumo Do, Sumo Don't"}
 {"work_id":"douban-1302178","ord":1,"alias":"大相扑"}
-{"work_id":"douban-1302213","ord":0,"alias":"兄弟"}
-{"work_id":"douban-1302213","ord":1,"alias":"Otôto"}
-{"work_id":"douban-1302213","ord":2,"alias":"Her Brother"}
 {"work_id":"douban-1302282","ord":0,"alias":"老师"}
 {"work_id":"douban-1302282","ord":1,"alias":"Gakko II"}
 {"work_id":"douban-1302282","ord":2,"alias":"A Class to Remember 2"}
 {"work_id":"douban-1302282","ord":3,"alias":"The Learning Circle"}
+{"work_id":"douban-1302329","ord":0,"alias":"特殊待遇"}
+{"work_id":"douban-1302329","ord":1,"alias":"Special Treatment"}
 {"work_id":"douban-1302346","ord":0,"alias":"黑之雨(台)"}
 {"work_id":"douban-1302346","ord":1,"alias":"雨过天晴"}
 {"work_id":"douban-1302346","ord":2,"alias":"大雨天"}
 {"work_id":"douban-1302347","ord":0,"alias":"大不了的童年"}
 {"work_id":"douban-1302347","ord":1,"alias":"Zamani barayé masti asbha"}
 {"work_id":"douban-1302347","ord":2,"alias":"A Time For Drunken Horses"}
+{"work_id":"douban-1302521","ord":0,"alias":"A Lost Life"}
+{"work_id":"douban-1302521","ord":1,"alias":"失去的生命"}
 {"work_id":"douban-1302605","ord":0,"alias":"远山呼唤"}
 {"work_id":"douban-1302605","ord":1,"alias":"A Distant Cry from Spring"}
 {"work_id":"douban-1302619","ord":0,"alias":"Rhapsody in August"}
@@ -744,15 +814,12 @@
 {"work_id":"douban-1302646","ord":1,"alias":"La Fleur de pierre"}
 {"work_id":"douban-1302646","ord":2,"alias":"Kamennyj tsvetok"}
 {"work_id":"douban-1302766","ord":0,"alias":"Death by Hanging"}
-{"work_id":"douban-1302789","ord":0,"alias":"鹳鸟的踟躇"}
-{"work_id":"douban-1302789","ord":1,"alias":"To meteoro vima tou pelargou"}
-{"work_id":"douban-1302789","ord":2,"alias":"The Suspended Step of the Stork"}
 {"work_id":"douban-1302922","ord":0,"alias":"清白之軀"}
 {"work_id":"douban-1302922","ord":1,"alias":"无辜的人"}
 {"work_id":"douban-1302922","ord":2,"alias":"The Innocent"}
-{"work_id":"douban-1302941","ord":0,"alias":"Puppetmaster"}
-{"work_id":"douban-1302941","ord":1,"alias":"The Puppet Master"}
 {"work_id":"douban-1302944","ord":0,"alias":"无赖汉"}
+{"work_id":"douban-1302946","ord":0,"alias":"纸婚"}
+{"work_id":"douban-1302946","ord":1,"alias":"Noces de papier, Les"}
 {"work_id":"douban-1302949","ord":0,"alias":"Tsugumi"}
 {"work_id":"douban-1302993","ord":0,"alias":"Shoeshine"}
 {"work_id":"douban-1302993","ord":1,"alias":"Shoe Shine"}
@@ -761,26 +828,10 @@
 {"work_id":"douban-1303021","ord":2,"alias":"Children of Heaven"}
 {"work_id":"douban-1303021","ord":3,"alias":"Bacheha-Ye aseman"}
 {"work_id":"douban-1303021","ord":4,"alias":"بچههای آسمان"}
-{"work_id":"douban-1303036","ord":0,"alias":"山雨欲来"}
-{"work_id":"douban-1303036","ord":1,"alias":"雨前"}
-{"work_id":"douban-1303036","ord":2,"alias":"Before the Rain"}
-{"work_id":"douban-1303036","ord":3,"alias":"Pred dozhdot"}
-{"work_id":"douban-1303056","ord":0,"alias":"爸爸出差时"}
-{"work_id":"douban-1303056","ord":1,"alias":"爸爸离家去上班"}
-{"work_id":"douban-1303056","ord":2,"alias":"爸爸出差了"}
-{"work_id":"douban-1303056","ord":3,"alias":"When Father Was Away on Business"}
-{"work_id":"douban-1303056","ord":4,"alias":"Otac na sluzbenom putu"}
-{"work_id":"douban-1303061","ord":0,"alias":"卡门"}
-{"work_id":"douban-1303064","ord":0,"alias":"梅菲斯特"}
-{"work_id":"douban-1303064","ord":1,"alias":"Mephisto"}
-{"work_id":"douban-1303064","ord":2,"alias":"恶魔"}
 {"work_id":"douban-1303065","ord":0,"alias":"泥河"}
 {"work_id":"douban-1303065","ord":1,"alias":"泥水河"}
 {"work_id":"douban-1303065","ord":2,"alias":"Muddy River"}
 {"work_id":"douban-1303065","ord":3,"alias":"Doro no kawa"}
-{"work_id":"douban-1303067","ord":0,"alias":"影子武士"}
-{"work_id":"douban-1303067","ord":1,"alias":"Kagemusha"}
-{"work_id":"douban-1303067","ord":2,"alias":"Kagemusha the Shadow Warrior"}
 {"work_id":"douban-1303071","ord":0,"alias":"欲望的隐晦目的"}
 {"work_id":"douban-1303071","ord":1,"alias":"That Obscure Object of Desire"}
 {"work_id":"douban-1303071","ord":2,"alias":"朦胧的欲望"}
@@ -790,10 +841,6 @@
 {"work_id":"douban-1303077","ord":3,"alias":"Dô desu ka den"}
 {"work_id":"douban-1303077","ord":4,"alias":"Dodes'ka-den"}
 {"work_id":"douban-1303077","ord":5,"alias":"电车狂"}
-{"work_id":"douban-1303083","ord":0,"alias":"奇谈"}
-{"work_id":"douban-1303083","ord":1,"alias":"怪谈"}
-{"work_id":"douban-1303083","ord":2,"alias":"Kwaidan"}
-{"work_id":"douban-1303083","ord":3,"alias":"Ghost Stories"}
 {"work_id":"douban-1303087","ord":0,"alias":"星期日与西贝儿"}
 {"work_id":"douban-1303087","ord":1,"alias":"星期天和女神"}
 {"work_id":"douban-1303087","ord":2,"alias":"Sundays and Cybèle"}
@@ -806,13 +853,6 @@
 {"work_id":"douban-1303145","ord":0,"alias":"Peppermint Candy"}
 {"work_id":"douban-1303174","ord":0,"alias":"Popiol i diament"}
 {"work_id":"douban-1303174","ord":1,"alias":"Ashes and Diamonds"}
-{"work_id":"douban-1303186","ord":0,"alias":"Divorce - Italian Style"}
-{"work_id":"douban-1303186","ord":1,"alias":"意大利式离婚"}
-{"work_id":"douban-1303224","ord":0,"alias":"恶魔山庄"}
-{"work_id":"douban-1303224","ord":1,"alias":"诱饵"}
-{"work_id":"douban-1303224","ord":2,"alias":"在郊外的一个星期天"}
-{"work_id":"douban-1303224","ord":3,"alias":"乡村星期天"}
-{"work_id":"douban-1303224","ord":4,"alias":"A Sunday in the Country"}
 {"work_id":"douban-1303258","ord":0,"alias":"四谷怪谈"}
 {"work_id":"douban-1303319","ord":0,"alias":"月夜行车(台)"}
 {"work_id":"douban-1303319","ord":1,"alias":"月亮在哪里"}
@@ -832,37 +872,24 @@
 {"work_id":"douban-1303445","ord":2,"alias":"二分之一的母亲(台)"}
 {"work_id":"douban-1303452","ord":0,"alias":"肝病医生"}
 {"work_id":"douban-1303452","ord":1,"alias":"Dr Akagi"}
-{"work_id":"douban-1303453","ord":0,"alias":"Unagi"}
-{"work_id":"douban-1303453","ord":1,"alias":"The Eel"}
-{"work_id":"douban-1303465","ord":0,"alias":"穿越橄榄树林"}
-{"work_id":"douban-1303465","ord":1,"alias":"Zire darakhatan zeyton"}
-{"work_id":"douban-1303465","ord":2,"alias":"Through The Olive Trees"}
 {"work_id":"douban-1303478","ord":0,"alias":"忍者武艺帐"}
 {"work_id":"douban-1303478","ord":1,"alias":"Band of Ninja"}
-{"work_id":"douban-1303512","ord":0,"alias":"流浪奇男子"}
-{"work_id":"douban-1303512","ord":1,"alias":"同是天涯沦落人"}
-{"work_id":"douban-1303512","ord":2,"alias":"稻草人"}
+{"work_id":"douban-1303481","ord":0,"alias":"阖家不欢"}
 {"work_id":"douban-1303521","ord":0,"alias":"نمای نزدیک"}
 {"work_id":"douban-1303521","ord":1,"alias":"Close-Up"}
 {"work_id":"douban-1303521","ord":2,"alias":"Nema-ye Nazdik"}
 {"work_id":"douban-1303555","ord":0,"alias":"春情金丝猫(港)"}
 {"work_id":"douban-1303555","ord":1,"alias":"轻蔑"}
 {"work_id":"douban-1303555","ord":2,"alias":"Contempt"}
-{"work_id":"douban-1303562","ord":0,"alias":"最后逃生"}
-{"work_id":"douban-1303562","ord":1,"alias":"抵抗"}
-{"work_id":"douban-1303562","ord":2,"alias":"Le vent souffle où il veut"}
-{"work_id":"douban-1303562","ord":3,"alias":"A Man Escaped"}
-{"work_id":"douban-1303578","ord":0,"alias":"慈航普渡"}
-{"work_id":"douban-1303578","ord":1,"alias":"Miracle in Milan"}
-{"work_id":"douban-1303578","ord":2,"alias":"米兰奇迹"}
 {"work_id":"douban-1303598","ord":0,"alias":"午后的遗书"}
 {"work_id":"douban-1303598","ord":1,"alias":"午后的遗言状"}
 {"work_id":"douban-1303598","ord":2,"alias":"Gogo no Yuigon-jo"}
 {"work_id":"douban-1303598","ord":3,"alias":"A Last Note"}
-{"work_id":"douban-1303600","ord":0,"alias":"The Crucified Lovers"}
-{"work_id":"douban-1303600","ord":1,"alias":"A Story from Chikamatsu"}
 {"work_id":"douban-1303602","ord":0,"alias":"祇园稚子"}
 {"work_id":"douban-1303602","ord":1,"alias":"A Geisha"}
+{"work_id":"douban-1303620","ord":0,"alias":"艾维亚的夏天"}
+{"work_id":"douban-1303620","ord":1,"alias":"阿维亚的夏天"}
+{"work_id":"douban-1303620","ord":2,"alias":"Aviya's Summer(英)"}
 {"work_id":"douban-1303660","ord":0,"alias":"A Pool Without Water"}
 {"work_id":"douban-1303667","ord":0,"alias":"Sanmoplayer"}
 {"work_id":"douban-1303667","ord":1,"alias":"By Player"}
@@ -874,12 +901,16 @@
 {"work_id":"douban-1303723","ord":1,"alias":"奇异的乐园"}
 {"work_id":"douban-1303723","ord":2,"alias":"天堂陌影"}
 {"work_id":"douban-1303793","ord":0,"alias":"荡寇志"}
+{"work_id":"douban-1303833","ord":0,"alias":"绝望人生"}
 {"work_id":"douban-1303838","ord":0,"alias":"Jiken"}
 {"work_id":"douban-1303854","ord":0,"alias":"Good Morning, Babylon"}
 {"work_id":"douban-1303907","ord":0,"alias":"平成狸合战"}
 {"work_id":"douban-1303907","ord":1,"alias":"狸猫物语"}
 {"work_id":"douban-1303907","ord":2,"alias":"The Raccoon War"}
 {"work_id":"douban-1303907","ord":3,"alias":"Pom Poko"}
+{"work_id":"douban-1303945","ord":0,"alias":"七个疯子"}
+{"work_id":"douban-1303945","ord":1,"alias":"The Seven Madmen"}
+{"work_id":"douban-1303945","ord":2,"alias":"The Revolution of the Seven Madmen"}
 {"work_id":"douban-1303950","ord":0,"alias":"火警119"}
 {"work_id":"douban-1303963","ord":0,"alias":"The Last Billionaire"}
 {"work_id":"douban-1303982","ord":0,"alias":"忠次旅日记"}
@@ -889,13 +920,20 @@
 {"work_id":"douban-1304054","ord":1,"alias":"越过天城"}
 {"work_id":"douban-1304054","ord":2,"alias":"Amagi Pass"}
 {"work_id":"douban-1304087","ord":0,"alias":"王将"}
+{"work_id":"douban-1304198","ord":0,"alias":"马拉基阿斯神父的奇迹"}
+{"work_id":"douban-1304198","ord":1,"alias":"The Miracle of Father Malachia"}
 {"work_id":"douban-1304317","ord":0,"alias":"The Brothers and Sisters of the Toda Family"}
 {"work_id":"douban-1304317","ord":1,"alias":"户田家兄妹"}
+{"work_id":"douban-1304387","ord":0,"alias":"百灵鸟"}
 {"work_id":"douban-1304405","ord":0,"alias":"父亲在世时"}
 {"work_id":"douban-1304405","ord":1,"alias":"离开父亲的日子"}
 {"work_id":"douban-1304405","ord":2,"alias":"从前有位父亲"}
 {"work_id":"douban-1304405","ord":3,"alias":"Chichi ariki"}
 {"work_id":"douban-1304405","ord":4,"alias":"There Was a Father"}
+{"work_id":"douban-1304413","ord":0,"alias":"亲爱的米歇尔"}
+{"work_id":"douban-1304552","ord":0,"alias":"活生生的沙漠"}
+{"work_id":"douban-1304552","ord":1,"alias":"活沙漠"}
+{"work_id":"douban-1304552","ord":2,"alias":"沙漠奇观"}
 {"work_id":"douban-1304563","ord":0,"alias":"东京合唱"}
 {"work_id":"douban-1304626","ord":0,"alias":"心情直播，不NG(台)"}
 {"work_id":"douban-1304626","ord":1,"alias":"爆肚风云(港)"}
@@ -914,17 +952,17 @@
 {"work_id":"douban-1304687","ord":2,"alias":"魂断多瑙河"}
 {"work_id":"douban-1304687","ord":3,"alias":"The Night Porter"}
 {"work_id":"douban-1304711","ord":0,"alias":"W的悲剧"}
-{"work_id":"douban-1304749","ord":0,"alias":"流云世事(台)"}
-{"work_id":"douban-1304749","ord":1,"alias":"流云"}
-{"work_id":"douban-1304749","ord":2,"alias":"浮云纪事"}
-{"work_id":"douban-1304749","ord":3,"alias":"流云逝事"}
-{"work_id":"douban-1304749","ord":4,"alias":"Drifting Clouds"}
+{"work_id":"douban-1304751","ord":0,"alias":"我是象，夫人"}
+{"work_id":"douban-1304751","ord":1,"alias":"夫人，我是一头大象"}
 {"work_id":"douban-1304752","ord":0,"alias":"乒乓"}
 {"work_id":"douban-1304774","ord":0,"alias":"刑法第三十九条"}
 {"work_id":"douban-1304774","ord":1,"alias":"杀人无罪"}
-{"work_id":"douban-1304920","ord":0,"alias":"剖腹"}
-{"work_id":"douban-1304920","ord":1,"alias":"Harakiri"}
-{"work_id":"douban-1304920","ord":2,"alias":"Seppuku"}
+{"work_id":"douban-1304918","ord":0,"alias":"The Fair"}
+{"work_id":"douban-1304950","ord":0,"alias":"迷惑"}
+{"work_id":"douban-1304952","ord":0,"alias":"老师的黑板"}
+{"work_id":"douban-1304952","ord":1,"alias":"The Blackboard"}
+{"work_id":"douban-1304952","ord":2,"alias":"Takhté siah"}
+{"work_id":"douban-1304952","ord":3,"alias":"Blackboards"}
 {"work_id":"douban-1305020","ord":0,"alias":"Boy"}
 {"work_id":"douban-1305020","ord":1,"alias":"少年"}
 {"work_id":"douban-1305045","ord":0,"alias":"Diary of a Shinjuku Burglar"}
@@ -934,64 +972,43 @@
 {"work_id":"douban-1305080","ord":2,"alias":"紫色正午"}
 {"work_id":"douban-1305080","ord":3,"alias":"阳光明媚"}
 {"work_id":"douban-1305080","ord":4,"alias":"Purple Noon"}
-{"work_id":"douban-1305081","ord":0,"alias":"写乐的感官世界"}
-{"work_id":"douban-1305081","ord":1,"alias":"写楽"}
+{"work_id":"douban-1305099","ord":0,"alias":"第七个问题"}
 {"work_id":"douban-1305228","ord":0,"alias":"Aru eiga-kantoku no shogai"}
 {"work_id":"douban-1305228","ord":1,"alias":"Kenji Mizoguchi: The Life of a Film Director"}
 {"work_id":"douban-1305294","ord":0,"alias":"幸福黄手绢"}
 {"work_id":"douban-1305294","ord":1,"alias":"The Yellow Handkerchief of Happiness"}
 {"work_id":"douban-1305402","ord":0,"alias":"Watashi ga suteta onna"}
-{"work_id":"douban-1305429","ord":0,"alias":"热情之梦"}
-{"work_id":"douban-1305429","ord":1,"alias":"理想夫人"}
+{"work_id":"douban-1305450","ord":0,"alias":"凯德玛"}
+{"work_id":"douban-1305450","ord":1,"alias":"Kedma"}
 {"work_id":"douban-1305550","ord":0,"alias":"The Family Game"}
 {"work_id":"douban-1305567","ord":0,"alias":"Strait of Hunger"}
 {"work_id":"douban-1305567","ord":1,"alias":"A Fugitive from the Past"}
 {"work_id":"douban-1305574","ord":0,"alias":"Movie Actress"}
-{"work_id":"douban-1305750","ord":0,"alias":"企业家之死"}
-{"work_id":"douban-1305750","ord":1,"alias":"马太伊事件"}
-{"work_id":"douban-1305750","ord":2,"alias":"玛蒂的爱情"}
-{"work_id":"douban-1305750","ord":3,"alias":"马泰事件"}
-{"work_id":"douban-1305750","ord":4,"alias":"The Mattei Affair"}
+{"work_id":"douban-1305597","ord":0,"alias":"Vlyublyon po sobstvennomu zhelaniyu"}
+{"work_id":"douban-1305597","ord":1,"alias":"应求的爱"}
+{"work_id":"douban-1305597","ord":2,"alias":"愿意爱谁就能爱上谁"}
+{"work_id":"douban-1305597","ord":3,"alias":"Love by Request"}
 {"work_id":"douban-1305771","ord":0,"alias":"阿娴"}
 {"work_id":"douban-1305771","ord":1,"alias":"Ohan"}
-{"work_id":"douban-1305857","ord":0,"alias":"吾父，吾主"}
-{"work_id":"douban-1305857","ord":1,"alias":"我父，我主"}
-{"work_id":"douban-1305857","ord":2,"alias":"我父我主"}
 {"work_id":"douban-1305931","ord":0,"alias":"提灯"}
 {"work_id":"douban-1305931","ord":1,"alias":"Chōchin"}
-{"work_id":"douban-1305952","ord":0,"alias":"孽爱伤痕(港)"}
-{"work_id":"douban-1305952","ord":1,"alias":"拥抱艳阳天(台)"}
-{"work_id":"douban-1305952","ord":2,"alias":"死囚的妻子"}
-{"work_id":"douban-1305952","ord":3,"alias":"怪兽舞会"}
 {"work_id":"douban-1305997","ord":0,"alias":"ぼくんち"}
 {"work_id":"douban-1306002","ord":0,"alias":"天谴(港/台)"}
 {"work_id":"douban-1306002","ord":1,"alias":"阿奎尔，上帝的愤怒"}
 {"work_id":"douban-1306002","ord":2,"alias":"阿吉尔，上帝的愤怒"}
 {"work_id":"douban-1306002","ord":3,"alias":"三侠屠龙"}
 {"work_id":"douban-1306002","ord":4,"alias":"Aguirre, the Wrath of God"}
-{"work_id":"douban-1306019","ord":0,"alias":"大路之歌"}
-{"work_id":"douban-1306019","ord":1,"alias":"道路之歌"}
-{"work_id":"douban-1306019","ord":2,"alias":"小路之歌"}
-{"work_id":"douban-1306019","ord":3,"alias":"潘查理父亲"}
-{"work_id":"douban-1306019","ord":4,"alias":"Pather Panchali"}
-{"work_id":"douban-1306019","ord":5,"alias":"Song of the Little Road"}
-{"work_id":"douban-1306019","ord":6,"alias":"The Lament of the Path"}
-{"work_id":"douban-1306019","ord":7,"alias":"The Saga of the Road"}
 {"work_id":"douban-1306044","ord":0,"alias":"末路奇花"}
 {"work_id":"douban-1306044","ord":1,"alias":"脸"}
 {"work_id":"douban-1306044","ord":2,"alias":"Kao"}
 {"work_id":"douban-1306053","ord":0,"alias":"伟大的星期三"}
 {"work_id":"douban-1306053","ord":1,"alias":"长路任我闯"}
-{"work_id":"douban-1306166","ord":0,"alias":"铁道员"}
-{"work_id":"douban-1306166","ord":1,"alias":"The Railroad Man"}
 {"work_id":"douban-1306170","ord":0,"alias":"甜蜜咖啡屋"}
 {"work_id":"douban-1306170","ord":1,"alias":"发达咖啡室"}
 {"work_id":"douban-1306170","ord":2,"alias":"Bagdad Cafe"}
 {"work_id":"douban-1306178","ord":0,"alias":"青春恋爱梦"}
 {"work_id":"douban-1306201","ord":0,"alias":"青春杀人犯"}
 {"work_id":"douban-1306201","ord":1,"alias":"The Youth Killer"}
-{"work_id":"douban-1306266","ord":0,"alias":"The Tree of Wooden Clogs"}
-{"work_id":"douban-1306266","ord":1,"alias":"木屐树"}
 {"work_id":"douban-1306279","ord":0,"alias":"爱在东京"}
 {"work_id":"douban-1306279","ord":1,"alias":"東京之戀"}
 {"work_id":"douban-1306279","ord":2,"alias":"愛について、東京"}
@@ -1009,24 +1026,13 @@
 {"work_id":"douban-1306483","ord":0,"alias":"Nihon no higeki"}
 {"work_id":"douban-1306483","ord":1,"alias":"Japanese Melodrama"}
 {"work_id":"douban-1306483","ord":2,"alias":"日本的悲剧"}
-{"work_id":"douban-1306505","ord":0,"alias":"Red Sorghum"}
-{"work_id":"douban-1306505","ord":1,"alias":"Sorgo rojo"}
 {"work_id":"douban-1306634","ord":0,"alias":"Poppoya"}
 {"work_id":"douban-1306634","ord":1,"alias":"Railroad Man"}
 {"work_id":"douban-1306659","ord":0,"alias":"日本之夜与雾"}
 {"work_id":"douban-1306659","ord":1,"alias":"Night and Fog in Japan"}
 {"work_id":"douban-1306659","ord":2,"alias":"Nihon no yoru to kiri"}
-{"work_id":"douban-1306664","ord":0,"alias":"JSA安全地带(港)"}
-{"work_id":"douban-1306664","ord":1,"alias":"共同警戒区JSA(台)"}
-{"work_id":"douban-1306664","ord":2,"alias":"JSA共同警戒区(台)"}
-{"work_id":"douban-1306664","ord":3,"alias":"共同警备区域JSA"}
-{"work_id":"douban-1306664","ord":4,"alias":"联合防卫领域"}
-{"work_id":"douban-1306664","ord":5,"alias":"Joint Security Area"}
 {"work_id":"douban-1306725","ord":0,"alias":"A Man Vanishes"}
 {"work_id":"douban-1306725","ord":1,"alias":"人间蒸发"}
-{"work_id":"douban-1306735","ord":0,"alias":"生路"}
-{"work_id":"douban-1306735","ord":1,"alias":"Putyovka v zhizn"}
-{"work_id":"douban-1306735","ord":2,"alias":"Road to Life"}
 {"work_id":"douban-1306771","ord":0,"alias":"居酒屋幽灵"}
 {"work_id":"douban-1306798","ord":0,"alias":"The Sands of Kurobe"}
 {"work_id":"douban-1306854","ord":0,"alias":"Under the Roofs of Paris"}
@@ -1063,8 +1069,6 @@
 {"work_id":"douban-1307290","ord":1,"alias":"星閃閃"}
 {"work_id":"douban-1307294","ord":0,"alias":"瞬间的幻想"}
 {"work_id":"douban-1307294","ord":1,"alias":"Passing Fancy"}
-{"work_id":"douban-1307306","ord":0,"alias":"黄昏清兵卫"}
-{"work_id":"douban-1307306","ord":1,"alias":"The Twilight Samurai"}
 {"work_id":"douban-1307367","ord":0,"alias":"冲动杀人，儿子啊！"}
 {"work_id":"douban-1307367","ord":1,"alias":"My Son! My Son!"}
 {"work_id":"douban-1307367","ord":2,"alias":"Shodo satsujin: Musuko yo"}
@@ -1136,7 +1140,6 @@
 {"work_id":"douban-1308447","ord":3,"alias":"You Were Like a Wild Chrysanthemum"}
 {"work_id":"douban-1308447","ord":4,"alias":"She Was Like a Wild Chrysanthemum"}
 {"work_id":"douban-1308458","ord":0,"alias":"A Chain of Islands"}
-{"work_id":"douban-1308538","ord":0,"alias":"The Sea and Poison"}
 {"work_id":"douban-1308551","ord":0,"alias":"阿吽"}
 {"work_id":"douban-1308551","ord":1,"alias":"阿哞"}
 {"work_id":"douban-1308551","ord":2,"alias":"A Un"}
@@ -1150,13 +1153,6 @@
 {"work_id":"douban-1308663","ord":2,"alias":"落叶梧桐"}
 {"work_id":"douban-1308813","ord":0,"alias":"总统的理发师(台)"}
 {"work_id":"douban-1308813","ord":1,"alias":"The President's Barber"}
-{"work_id":"douban-1309003","ord":0,"alias":"长眠地中海"}
-{"work_id":"douban-1309003","ord":1,"alias":"情流心海"}
-{"work_id":"douban-1309003","ord":2,"alias":"内心之海"}
-{"work_id":"douban-1309003","ord":3,"alias":"点燃生命之海"}
-{"work_id":"douban-1309003","ord":4,"alias":"The Sea Inside"}
-{"work_id":"douban-1309003","ord":5,"alias":"深海长眠"}
-{"work_id":"douban-1309005","ord":0,"alias":"The Hidden Blade"}
 {"work_id":"douban-1309043","ord":0,"alias":"King Kong: The Eighth Wonder of the World"}
 {"work_id":"douban-1309078","ord":0,"alias":"星球大战前传III：黑帝君临(港)"}
 {"work_id":"douban-1309078","ord":1,"alias":"星际大战三部曲：西斯大帝的复仇(台)"}
@@ -1174,28 +1170,13 @@
 {"work_id":"douban-1310173","ord":2,"alias":"Vibrator"}
 {"work_id":"douban-1310173","ord":3,"alias":"振荡器"}
 {"work_id":"douban-1316683","ord":0,"alias":"Under the Flag of the Rising Sun"}
-{"work_id":"douban-1353745","ord":0,"alias":"断了气(港/台)"}
-{"work_id":"douban-1353745","ord":1,"alias":"欲海惊魂(港)"}
-{"work_id":"douban-1353745","ord":2,"alias":"筋疲力尽"}
-{"work_id":"douban-1353745","ord":3,"alias":"精疲力竭"}
-{"work_id":"douban-1353745","ord":4,"alias":"穷途末路"}
-{"work_id":"douban-1353745","ord":5,"alias":"气喘吁吁"}
-{"work_id":"douban-1353745","ord":6,"alias":"Breathless"}
 {"work_id":"douban-1361254","ord":0,"alias":"喇叭书院(港)"}
 {"work_id":"douban-1361254","ord":1,"alias":"摇摆女孩(台)"}
 {"work_id":"douban-1361254","ord":2,"alias":"竞乐少女"}
 {"work_id":"douban-1361254","ord":3,"alias":"Swing Girls"}
-{"work_id":"douban-1366165","ord":0,"alias":"死在田园"}
-{"work_id":"douban-1366165","ord":1,"alias":"Pastoral: To Die in the Country"}
-{"work_id":"douban-1366165","ord":2,"alias":"Pastoral Hide and Seek"}
-{"work_id":"douban-1366165","ord":3,"alias":"Den-en ni shisu"}
 {"work_id":"douban-1388175","ord":0,"alias":"Kamikaze Girls"}
 {"work_id":"douban-1388175","ord":1,"alias":"Shimotsuma monogatari"}
 {"work_id":"douban-1388176","ord":0,"alias":"Blood and Bones"}
-{"work_id":"douban-1388180","ord":0,"alias":"希腊三部曲之哭泣的绿地"}
-{"work_id":"douban-1388180","ord":1,"alias":"三部曲I：哭泣的绿地"}
-{"work_id":"douban-1388180","ord":2,"alias":"希腊首部曲：悲伤草原"}
-{"work_id":"douban-1388180","ord":3,"alias":"Trilogy: The Weeping Meadow"}
 {"work_id":"douban-1394342","ord":0,"alias":"电梯到死刑台(港)"}
 {"work_id":"douban-1394342","ord":1,"alias":"死刑台与电梯(台)"}
 {"work_id":"douban-1394342","ord":2,"alias":"往死刑台的电梯"}
@@ -1207,13 +1188,6 @@
 {"work_id":"douban-1394518","ord":0,"alias":"Battles Without Honor And Humanity"}
 {"work_id":"douban-1394518","ord":1,"alias":"The Yakuza Papers, Vol. 1: Battles Without Honor and Humanity"}
 {"work_id":"douban-1394535","ord":0,"alias":"Umbrella Flower"}
-{"work_id":"douban-1395247","ord":0,"alias":"无法到达"}
-{"work_id":"douban-1395247","ord":1,"alias":"The Fire Within"}
-{"work_id":"douban-1395247","ord":2,"alias":"A Time to Live and a Time to Die"}
-{"work_id":"douban-1400240","ord":0,"alias":"去年在马伦巴(台)"}
-{"work_id":"douban-1400240","ord":1,"alias":"去年在马里安巴"}
-{"work_id":"douban-1400240","ord":2,"alias":"去年在马里昂巴"}
-{"work_id":"douban-1400240","ord":3,"alias":"Last Year at Marienbad"}
 {"work_id":"douban-1400935","ord":0,"alias":"会飞的海龟"}
 {"work_id":"douban-1400935","ord":1,"alias":"乌龟能飞"}
 {"work_id":"douban-1400935","ord":2,"alias":"Lakposhtha parvaz mikonand"}
@@ -1221,8 +1195,6 @@
 {"work_id":"douban-1401174","ord":0,"alias":"Beijing Watermelon"}
 {"work_id":"douban-1401174","ord":1,"alias":"Pekin no suika"}
 {"work_id":"douban-1401174","ord":2,"alias":"ぺきんのすいか"}
-{"work_id":"douban-1401175","ord":0,"alias":"The Sting of Death"}
-{"work_id":"douban-1401175","ord":1,"alias":"L'aculeo della morte"}
 {"work_id":"douban-1401209","ord":0,"alias":"Toto the Hero"}
 {"work_id":"douban-1401209","ord":1,"alias":"托托小英雄"}
 {"work_id":"douban-1401209","ord":2,"alias":"英雄陶陶"}
@@ -1233,8 +1205,6 @@
 {"work_id":"douban-1401328","ord":0,"alias":"Heat Shimmer Theater"}
 {"work_id":"douban-1401328","ord":1,"alias":"Heat-Haze Theatre"}
 {"work_id":"douban-1401328","ord":2,"alias":"Kagero-za"}
-{"work_id":"douban-1401329","ord":0,"alias":"Zigeunerweisen"}
-{"work_id":"douban-1401329","ord":1,"alias":"流浪者之歌"}
 {"work_id":"douban-1401332","ord":0,"alias":"Akanishi Kakita"}
 {"work_id":"douban-1401332","ord":1,"alias":"Capricious Young Man"}
 {"work_id":"douban-1401332","ord":2,"alias":"赤西蛎太"}
@@ -1250,14 +1220,6 @@
 {"work_id":"douban-1401520","ord":1,"alias":"Throw Away Your Books, Rally in the Streets"}
 {"work_id":"douban-1401520","ord":2,"alias":"Sho o suteyo machi e deyou"}
 {"work_id":"douban-1401520","ord":3,"alias":"抛掉书本上街去"}
-{"work_id":"douban-1401522","ord":0,"alias":"再见，箱舟"}
-{"work_id":"douban-1401522","ord":1,"alias":"Farewell to the Ark"}
-{"work_id":"douban-1401522","ord":2,"alias":"Goodbye Ark"}
-{"work_id":"douban-1401522","ord":3,"alias":"Saraba hakobune"}
-{"work_id":"douban-1401529","ord":0,"alias":"光之梦(港)"}
-{"work_id":"douban-1401529","ord":1,"alias":"果树阳光"}
-{"work_id":"douban-1401529","ord":2,"alias":"Quince Tree of the Sun"}
-{"work_id":"douban-1401529","ord":3,"alias":"Dream of Light"}
 {"work_id":"douban-1401613","ord":0,"alias":"精彩的尸体"}
 {"work_id":"douban-1401613","ord":1,"alias":"Illustrious Corpses"}
 {"work_id":"douban-1401613","ord":2,"alias":"Cadavres Exquis"}
@@ -1300,40 +1262,23 @@
 {"work_id":"douban-1418625","ord":0,"alias":"Tokyo Fist"}
 {"work_id":"douban-1418625","ord":1,"alias":"东京铁拳"}
 {"work_id":"douban-1418918","ord":0,"alias":"Wife! Be Like a Rose!"}
-{"work_id":"douban-1419005","ord":0,"alias":"阿尔及利亚的战争"}
-{"work_id":"douban-1419005","ord":1,"alias":"The Battle of Algiers"}
-{"work_id":"douban-1419005","ord":2,"alias":"阿尔及尔之战"}
 {"work_id":"douban-1419520","ord":0,"alias":"莱妮·里芬斯塔尔传"}
 {"work_id":"douban-1419520","ord":1,"alias":"莱妮·里芬斯塔尔壮观而可怕的一生"}
 {"work_id":"douban-1419520","ord":2,"alias":"The Wonderful, Horrible Life of Leni Riefenstahl"}
 {"work_id":"douban-1419520","ord":3,"alias":"图像的力量：莱尼·里芬施塔尔"}
 {"work_id":"douban-1420283","ord":0,"alias":"Pigs and Battleships"}
 {"work_id":"douban-1420283","ord":1,"alias":"Hogs and Warships"}
-{"work_id":"douban-1420289","ord":0,"alias":"哥哥"}
-{"work_id":"douban-1420289","ord":1,"alias":"次弟"}
-{"work_id":"douban-1420289","ord":2,"alias":"My Second Brother"}
-{"work_id":"douban-1420289","ord":3,"alias":"二哥"}
 {"work_id":"douban-1420673","ord":0,"alias":"Muno no hito"}
 {"work_id":"douban-1420673","ord":1,"alias":"Nowhere Man"}
 {"work_id":"douban-1420673","ord":2,"alias":"无能之人(港)"}
 {"work_id":"douban-1421304","ord":0,"alias":"Osaka monogatari"}
 {"work_id":"douban-1421304","ord":1,"alias":"Osaka Story"}
 {"work_id":"douban-1421307","ord":0,"alias":"Tokyo Lullaby"}
-{"work_id":"douban-1421933","ord":0,"alias":"被禁忌的游戏"}
-{"work_id":"douban-1421933","ord":1,"alias":"禁止的游戏"}
-{"work_id":"douban-1421933","ord":2,"alias":"无情战火有情天"}
-{"work_id":"douban-1421933","ord":3,"alias":"偷十字架的小孩"}
-{"work_id":"douban-1421933","ord":4,"alias":"Forbidden Games"}
-{"work_id":"douban-1421933","ord":5,"alias":"The Secret Game"}
-{"work_id":"douban-1421933","ord":6,"alias":"禁忌的游戏"}
 {"work_id":"douban-1421942","ord":0,"alias":"Childhood Days"}
 {"work_id":"douban-1421942","ord":1,"alias":"Shonen jidai"}
 {"work_id":"douban-1421942","ord":2,"alias":"少年时代"}
 {"work_id":"douban-1422193","ord":0,"alias":"Girls in Uniform"}
 {"work_id":"douban-1422193","ord":1,"alias":"Maedchen in Uniform"}
-{"work_id":"douban-1422957","ord":0,"alias":"冷血字传(港)"}
-{"work_id":"douban-1422957","ord":1,"alias":"柯波帝：冷血告白(台)"}
-{"work_id":"douban-1422957","ord":2,"alias":"凯波特"}
 {"work_id":"douban-1422977","ord":0,"alias":"我的广岛父亲(台)"}
 {"work_id":"douban-1422977","ord":1,"alias":"如果和父亲生活"}
 {"work_id":"douban-1422977","ord":2,"alias":"若与父亲同住"}
@@ -1379,15 +1324,10 @@
 {"work_id":"douban-1433577","ord":0,"alias":"迷失决胜分(港)"}
 {"work_id":"douban-1433577","ord":1,"alias":"爱情决胜点(台)"}
 {"work_id":"douban-1433577","ord":2,"alias":"赛点"}
-{"work_id":"douban-1436764","ord":0,"alias":"奥菲斯三部曲之二：奥菲斯"}
-{"work_id":"douban-1436764","ord":1,"alias":"Orpheus"}
-{"work_id":"douban-1436764","ord":2,"alias":"奥菲斯"}
 {"work_id":"douban-1437096","ord":0,"alias":"森林复活记(台)"}
 {"work_id":"douban-1437096","ord":1,"alias":"浴血金銮殿(港)"}
 {"work_id":"douban-1438116","ord":0,"alias":"Canary"}
 {"work_id":"douban-1438116","ord":1,"alias":"金丝雀"}
-{"work_id":"douban-1438600","ord":0,"alias":"武士道残酷物语"}
-{"work_id":"douban-1438600","ord":1,"alias":"武士道"}
 {"work_id":"douban-1439206","ord":0,"alias":"Sleeping Man"}
 {"work_id":"douban-1439858","ord":0,"alias":"Erosu purasu Gyakusatsu"}
 {"work_id":"douban-1439858","ord":1,"alias":"Eros + Massacre"}
@@ -1400,15 +1340,6 @@
 {"work_id":"douban-1440214","ord":4,"alias":"Nabbie no koi"}
 {"work_id":"douban-1440359","ord":0,"alias":"This Transient Life"}
 {"work_id":"douban-1440359","ord":1,"alias":"Mujo"}
-{"work_id":"douban-1440379","ord":0,"alias":"苏古诺夫之太阳"}
-{"work_id":"douban-1440379","ord":1,"alias":"日之丸"}
-{"work_id":"douban-1440379","ord":2,"alias":"The Sun"}
-{"work_id":"douban-1440379","ord":3,"alias":"Solntse"}
-{"work_id":"douban-1440978","ord":0,"alias":"一个梦者的四个晚上(港)"}
-{"work_id":"douban-1440978","ord":1,"alias":"一个男人的四个夜晚"}
-{"work_id":"douban-1440978","ord":2,"alias":"白夜"}
-{"work_id":"douban-1440978","ord":3,"alias":"梦想者四夜"}
-{"work_id":"douban-1440978","ord":4,"alias":"Four Nights of a Dreamer"}
 {"work_id":"douban-1441038","ord":0,"alias":"何以为人(第三、四部)"}
 {"work_id":"douban-1441038","ord":1,"alias":"做人的条件"}
 {"work_id":"douban-1441038","ord":2,"alias":"The Human Condition III-IV"}
@@ -1426,7 +1357,6 @@
 {"work_id":"douban-1452055","ord":1,"alias":"埃波里的传说"}
 {"work_id":"douban-1452055","ord":2,"alias":"Christ Stopped at Eboli"}
 {"work_id":"douban-1453496","ord":0,"alias":"The Straits of Love and Hate"}
-{"work_id":"douban-1457015","ord":0,"alias":"Final Take: The Golden Age of Movies"}
 {"work_id":"douban-1459148","ord":0,"alias":"遇人不熟(台)"}
 {"work_id":"douban-1459148","ord":1,"alias":"东京一夜"}
 {"work_id":"douban-1459148","ord":2,"alias":"我的带衰日記"}
@@ -1446,8 +1376,6 @@
 {"work_id":"douban-1466839","ord":0,"alias":"旧与新"}
 {"work_id":"douban-1466839","ord":1,"alias":"Old and New"}
 {"work_id":"douban-1466839","ord":2,"alias":"The General Line"}
-{"work_id":"douban-1466847","ord":0,"alias":"Biruma no tategoto"}
-{"work_id":"douban-1466847","ord":1,"alias":"The Burmese Harp"}
 {"work_id":"douban-1467020","ord":0,"alias":"流逝(港)"}
 {"work_id":"douban-1467020","ord":1,"alias":"Flowing"}
 {"work_id":"douban-1467020","ord":2,"alias":"Nagarer"}
@@ -1456,16 +1384,8 @@
 {"work_id":"douban-1467039","ord":2,"alias":"夜夜作梦"}
 {"work_id":"douban-1467626","ord":0,"alias":"Morning for the Osone Family"}
 {"work_id":"douban-1467626","ord":1,"alias":"大曾根家的早晨"}
-{"work_id":"douban-1470718","ord":0,"alias":"Inferno of First Love"}
-{"work_id":"douban-1470718","ord":1,"alias":"Nanami, First Love"}
-{"work_id":"douban-1470845","ord":0,"alias":"Prima del diluvio"}
-{"work_id":"douban-1470845","ord":1,"alias":"Before the Deluge"}
 {"work_id":"douban-1471781","ord":0,"alias":"The Herd"}
 {"work_id":"douban-1471781","ord":1,"alias":"羊群"}
-{"work_id":"douban-1471839","ord":0,"alias":"茱莉叶"}
-{"work_id":"douban-1471839","ord":1,"alias":"茱莉小姐"}
-{"work_id":"douban-1471839","ord":2,"alias":"Miss Julie"}
-{"work_id":"douban-1471839","ord":3,"alias":"朱丽小姐"}
 {"work_id":"douban-1474416","ord":0,"alias":"Living On The River Agano"}
 {"work_id":"douban-1477917","ord":0,"alias":"春季来的人"}
 {"work_id":"douban-1477917","ord":1,"alias":"Wait & See"}
@@ -1517,15 +1437,11 @@
 {"work_id":"douban-1547199","ord":0,"alias":"老子拼了"}
 {"work_id":"douban-1547199","ord":1,"alias":"Dotsuitarunen"}
 {"work_id":"douban-1547199","ord":2,"alias":"Knockout"}
-{"work_id":"douban-1547203","ord":0,"alias":"绑架金大中"}
-{"work_id":"douban-1547203","ord":1,"alias":"케이티"}
 {"work_id":"douban-1547206","ord":0,"alias":"Darkness at Noon"}
 {"work_id":"douban-1547206","ord":1,"alias":"暗无天日"}
 {"work_id":"douban-1547210","ord":0,"alias":"重逢之前"}
 {"work_id":"douban-1547211","ord":0,"alias":"Himeyuri no tô"}
 {"work_id":"douban-1547211","ord":1,"alias":"姬百合之塔"}
-{"work_id":"douban-1547212","ord":0,"alias":"Kome"}
-{"work_id":"douban-1547212","ord":1,"alias":"The Rice People"}
 {"work_id":"douban-1548743","ord":0,"alias":"Kiku to Isamu"}
 {"work_id":"douban-1548765","ord":0,"alias":"Tenkôsei"}
 {"work_id":"douban-1548765","ord":1,"alias":"I Are You, You Am Me"}
@@ -1553,10 +1469,6 @@
 {"work_id":"douban-1729037","ord":0,"alias":"Inugamike no ichizoku"}
 {"work_id":"douban-1729037","ord":1,"alias":"The Clan of Dog-God Household"}
 {"work_id":"douban-1729037","ord":2,"alias":"The Inugami Family"}
-{"work_id":"douban-1755008","ord":0,"alias":"Kyupora no aru machi"}
-{"work_id":"douban-1755008","ord":1,"alias":"Foundry Town"}
-{"work_id":"douban-1755008","ord":2,"alias":"化铁炉的街"}
-{"work_id":"douban-1755008","ord":3,"alias":"化铁炉林立的街"}
 {"work_id":"douban-1755415","ord":0,"alias":"Chiyari Fuji"}
 {"work_id":"douban-1755415","ord":1,"alias":"A Bloody Spear on Mount Fuji"}
 {"work_id":"douban-1758164","ord":0,"alias":"Doing Time"}
@@ -1581,9 +1493,6 @@
 {"work_id":"douban-1770493","ord":1,"alias":"A Broken Drum"}
 {"work_id":"douban-1771234","ord":0,"alias":"Kurutta ippêji"}
 {"work_id":"douban-1771234","ord":1,"alias":"A Page of Madness"}
-{"work_id":"douban-1772405","ord":0,"alias":"瀨戶內月光小夜曲"}
-{"work_id":"douban-1772405","ord":1,"alias":"濑户内月光小夜曲"}
-{"work_id":"douban-1772405","ord":2,"alias":"Setouchi Moonlight Serenade"}
 {"work_id":"douban-1774258","ord":0,"alias":"AIKI"}
 {"work_id":"douban-1774258","ord":1,"alias":"合气道"}
 {"work_id":"douban-1776772","ord":0,"alias":"洁白的手"}
@@ -1595,10 +1504,6 @@
 {"work_id":"douban-1779098","ord":1,"alias":"We Shall Overcome Someday"}
 {"work_id":"douban-1779098","ord":2,"alias":"Pacchigi!"}
 {"work_id":"douban-1779098","ord":3,"alias":"奔放青春"}
-{"work_id":"douban-1779354","ord":0,"alias":"在晴朗的一天收档"}
-{"work_id":"douban-1779354","ord":1,"alias":"草原一家亲"}
-{"work_id":"douban-1779354","ord":2,"alias":"大家来我家"}
-{"work_id":"douban-1779354","ord":3,"alias":"牧场之家好做伴"}
 {"work_id":"douban-1782904","ord":0,"alias":"黑色的十个女人"}
 {"work_id":"douban-1782904","ord":1,"alias":"Kuroi junin no onna"}
 {"work_id":"douban-1782904","ord":2,"alias":"Ten Black Women"}
@@ -1630,8 +1535,6 @@
 {"work_id":"douban-1788940","ord":4,"alias":"Hula Girls"}
 {"work_id":"douban-1788940","ord":5,"alias":"扶桑花女孩"}
 {"work_id":"douban-1789461","ord":0,"alias":"向雪祈愿"}
-{"work_id":"douban-1790577","ord":0,"alias":"放逐"}
-{"work_id":"douban-1790577","ord":1,"alias":"Exiled"}
 {"work_id":"douban-1792922","ord":0,"alias":"梦幻女郎"}
 {"work_id":"douban-1792922","ord":1,"alias":"追梦女郎"}
 {"work_id":"douban-1792922","ord":2,"alias":"寻梦女郎"}
@@ -1659,10 +1562,6 @@
 {"work_id":"douban-1819305","ord":1,"alias":"Elegant Beast"}
 {"work_id":"douban-1828106","ord":0,"alias":"The Neighbor's Wife and Mine"}
 {"work_id":"douban-1828106","ord":1,"alias":"夫人与老婆"}
-{"work_id":"douban-1828115","ord":0,"alias":"色|戒"}
-{"work_id":"douban-1828115","ord":1,"alias":"色·戒"}
-{"work_id":"douban-1828115","ord":2,"alias":"色戒"}
-{"work_id":"douban-1828115","ord":3,"alias":"Lust, Caution"}
 {"work_id":"douban-1828123","ord":0,"alias":"The Revenge Champion"}
 {"work_id":"douban-1828126","ord":0,"alias":"A Living Puppet"}
 {"work_id":"douban-1828126","ord":1,"alias":"Ikeru ningyo"}
@@ -1709,11 +1608,6 @@
 {"work_id":"douban-1863661","ord":0,"alias":"Tokyo saiban"}
 {"work_id":"douban-1863661","ord":1,"alias":"Tokyo Trial"}
 {"work_id":"douban-1863661","ord":2,"alias":"东京审判"}
-{"work_id":"douban-1866264","ord":0,"alias":"英女皇(港)"}
-{"work_id":"douban-1866264","ord":1,"alias":"黛妃与女皇(台)"}
-{"work_id":"douban-1866264","ord":2,"alias":"女王"}
-{"work_id":"douban-1872133","ord":0,"alias":"长江哀歌"}
-{"work_id":"douban-1872133","ord":1,"alias":"Still Life"}
 {"work_id":"douban-1884684","ord":0,"alias":"沈默(台)"}
 {"work_id":"douban-1884684","ord":1,"alias":"沈黙"}
 {"work_id":"douban-1892530","ord":0,"alias":"黑幕迷情(港/台)"}
@@ -1779,8 +1673,6 @@
 {"work_id":"douban-1950148","ord":1,"alias":"救赎"}
 {"work_id":"douban-1951030","ord":0,"alias":"婚之惑"}
 {"work_id":"douban-1951030","ord":1,"alias":"新婚趣史(港)"}
-{"work_id":"douban-1958039","ord":0,"alias":"Chinmoku"}
-{"work_id":"douban-1958039","ord":1,"alias":"Silence"}
 {"work_id":"douban-1959212","ord":0,"alias":"Death of Honor"}
 {"work_id":"douban-1959212","ord":1,"alias":"Graveyard of Honour"}
 {"work_id":"douban-1959212","ord":2,"alias":"Jingi no hakaba"}
@@ -1814,7 +1706,6 @@
 {"work_id":"douban-19955955","ord":3,"alias":"现实的舞蹈"}
 {"work_id":"douban-19955955","ord":4,"alias":"Dance Reality"}
 {"work_id":"douban-19955955","ord":5,"alias":"The Dance of Reality"}
-{"work_id":"douban-2000741","ord":0,"alias":"Kabei: Our Mother"}
 {"work_id":"douban-2001296","ord":0,"alias":"时间的灰烬"}
 {"work_id":"douban-2001296","ord":1,"alias":"岁月风尘"}
 {"work_id":"douban-2001296","ord":2,"alias":"The Dust of Time"}
@@ -1835,10 +1726,6 @@
 {"work_id":"douban-2028677","ord":6,"alias":"The Invention of Hugo Cabret"}
 {"work_id":"douban-2032143","ord":0,"alias":"Tokyo Sonata"}
 {"work_id":"douban-2032143","ord":1,"alias":"东京奏鸣曲"}
-{"work_id":"douban-20389706","ord":0,"alias":"东京小屋(港)"}
-{"work_id":"douban-20389706","ord":1,"alias":"东京小屋的回忆(台)"}
-{"work_id":"douban-20389706","ord":2,"alias":"Chiisai Ouchi"}
-{"work_id":"douban-20389706","ord":3,"alias":"The Little House"}
 {"work_id":"douban-2042162","ord":0,"alias":"拖斗车里的狗"}
 {"work_id":"douban-2042162","ord":1,"alias":"路边车的狗"}
 {"work_id":"douban-2042162","ord":2,"alias":"Dog in a Sidecar"}
@@ -1850,12 +1737,7 @@
 {"work_id":"douban-2042219","ord":1,"alias":"A Gentle Breeze in the Village"}
 {"work_id":"douban-2042219","ord":2,"alias":"Tennen kokekkô"}
 {"work_id":"douban-2042573","ord":0,"alias":"Yunagi City, Sakura Country"}
-{"work_id":"douban-20438962","ord":0,"alias":"飞鸟侠(港)"}
-{"work_id":"douban-20438962","ord":1,"alias":"无知的意外之美"}
-{"work_id":"douban-20438962","ord":2,"alias":"Birdman"}
 {"work_id":"douban-20497905","ord":0,"alias":"纽泽西男孩"}
-{"work_id":"douban-2051742","ord":0,"alias":"再见吧！可爱的大地"}
-{"work_id":"douban-2051742","ord":1,"alias":"Farewell to the Land"}
 {"work_id":"douban-2051749","ord":0,"alias":"十九岁的地图"}
 {"work_id":"douban-2056797","ord":0,"alias":"Rock yo shizukani nagareyo"}
 {"work_id":"douban-2063937","ord":0,"alias":"Kofuku"}
@@ -1891,7 +1773,6 @@
 {"work_id":"douban-2136824","ord":3,"alias":"不可战胜"}
 {"work_id":"douban-2136824","ord":4,"alias":"永不屈服"}
 {"work_id":"douban-2143102","ord":0,"alias":"Diary of Early Winter Shower"}
-{"work_id":"douban-2147918","ord":0,"alias":"Gamlet"}
 {"work_id":"douban-2148321","ord":0,"alias":"Waga shogai no kagayakeru hi"}
 {"work_id":"douban-2148321","ord":1,"alias":"The Most Beautiful Day of My Life"}
 {"work_id":"douban-2148321","ord":2,"alias":"わが生涯のかがやける日"}
@@ -1954,10 +1835,6 @@
 {"work_id":"douban-2228249","ord":2,"alias":"Body and Soul"}
 {"work_id":"douban-2238019","ord":0,"alias":"Shanghai Landing Party"}
 {"work_id":"douban-2238019","ord":1,"alias":"Shanghai Military"}
-{"work_id":"douban-2241840","ord":0,"alias":"The Moment of Truth"}
-{"work_id":"douban-2241840","ord":1,"alias":"真实时刻"}
-{"work_id":"douban-2241840","ord":2,"alias":"农民斗牛士之死"}
-{"work_id":"douban-2241840","ord":3,"alias":"一个斗牛士的命运"}
 {"work_id":"douban-2265987","ord":0,"alias":"白鲸"}
 {"work_id":"douban-2267314","ord":0,"alias":"Onna no naka ni iru tanin"}
 {"work_id":"douban-2267314","ord":1,"alias":"The Stranger Within a Woman"}
@@ -1993,8 +1870,6 @@
 {"work_id":"douban-2327879","ord":0,"alias":"Snow Trail"}
 {"work_id":"douban-2327883","ord":0,"alias":"Four Love Stories"}
 {"work_id":"douban-2327883","ord":1,"alias":"四个爱情故事"}
-{"work_id":"douban-2343766","ord":0,"alias":"Apart from Life"}
-{"work_id":"douban-2343766","ord":1,"alias":"大地的群像"}
 {"work_id":"douban-2343808","ord":0,"alias":"明天"}
 {"work_id":"douban-2343825","ord":0,"alias":"扒手"}
 {"work_id":"douban-2344152","ord":0,"alias":"Deep River"}
@@ -2006,7 +1881,6 @@
 {"work_id":"douban-23776064","ord":3,"alias":"Our Family"}
 {"work_id":"douban-2377835","ord":0,"alias":"艳曲樱魂(港)"}
 {"work_id":"douban-2377835","ord":1,"alias":"破晓的逃脱"}
-{"work_id":"douban-2378023","ord":0,"alias":"An Inn at Osaka"}
 {"work_id":"douban-24839101","ord":0,"alias":"阳光在那边灿烂(港)"}
 {"work_id":"douban-24839101","ord":1,"alias":"阳光只在这里灿烂(台)"}
 {"work_id":"douban-24839101","ord":2,"alias":"阳光只在那里灿烂"}
@@ -2052,13 +1926,6 @@
 {"work_id":"douban-25910109","ord":1,"alias":"Being Good"}
 {"work_id":"douban-25910109","ord":2,"alias":"Kimi wa iiko"}
 {"work_id":"douban-25919930","ord":0,"alias":"The Voice of Water"}
-{"work_id":"douban-25934014","ord":0,"alias":"星声梦里人(港)"}
-{"work_id":"douban-25934014","ord":1,"alias":"乐来越爱你(台)"}
-{"work_id":"douban-25934014","ord":2,"alias":"爵士情缘"}
-{"work_id":"douban-25934014","ord":3,"alias":"啦啦之地"}
-{"work_id":"douban-25934696","ord":0,"alias":"塚本晋也之野火(台)"}
-{"work_id":"douban-25934696","ord":1,"alias":"Nobi"}
-{"work_id":"douban-25934696","ord":2,"alias":"Fires On The Plain"}
 {"work_id":"douban-25945408","ord":0,"alias":"Soromon no gishou 2"}
 {"work_id":"douban-25945408","ord":1,"alias":"Solomon's Perjury Part 2: Judgement"}
 {"work_id":"douban-25980443","ord":0,"alias":"情系海边之城(港)"}
@@ -2084,7 +1951,6 @@
 {"work_id":"douban-26284955","ord":2,"alias":"若与母亲同住"}
 {"work_id":"douban-26284955","ord":3,"alias":"Nagasaki: Memories of My Son"}
 {"work_id":"douban-26284955","ord":4,"alias":"Living with My Mother"}
-{"work_id":"douban-26292622","ord":0,"alias":"11 Minutes"}
 {"work_id":"douban-26326443","ord":0,"alias":"Rolling"}
 {"work_id":"douban-26391951","ord":0,"alias":"跨越栏杆"}
 {"work_id":"douban-26391951","ord":1,"alias":"爱情，突如其来(港)"}
@@ -2120,8 +1986,6 @@
 {"work_id":"douban-26607693","ord":0,"alias":"邓寇克大行动(港)"}
 {"work_id":"douban-26607693","ord":1,"alias":"敦克尔克大行动(台)"}
 {"work_id":"douban-26607693","ord":2,"alias":"敦刻尔克大撤退"}
-{"work_id":"douban-26611804","ord":0,"alias":"广告牌杀人事件(港)"}
-{"work_id":"douban-26611804","ord":1,"alias":"意外(台)"}
 {"work_id":"douban-26615208","ord":0,"alias":"NASA无名英雌(港)"}
 {"work_id":"douban-26615208","ord":1,"alias":"关键少数(台)"}
 {"work_id":"douban-26664345","ord":0,"alias":"吹不响的小风琴(港)"}
@@ -2129,9 +1993,6 @@
 {"work_id":"douban-26664345","ord":2,"alias":"临渊而栗(台)"}
 {"work_id":"douban-26664345","ord":3,"alias":"小风琴"}
 {"work_id":"douban-26664345","ord":4,"alias":"Harmonium"}
-{"work_id":"douban-26678509","ord":0,"alias":"希望在彼方(港)"}
-{"work_id":"douban-26678509","ord":1,"alias":"希望在世界另一端(台)"}
-{"work_id":"douban-26678509","ord":2,"alias":"The Other Side of Hope"}
 {"work_id":"douban-26684909","ord":0,"alias":"曼谷不羁夜(台)"}
 {"work_id":"douban-26684909","ord":1,"alias":"Bangkok Nites"}
 {"work_id":"douban-26687790","ord":0,"alias":"The Scent of Incense"}
@@ -2152,9 +2013,6 @@
 {"work_id":"douban-26814623","ord":5,"alias":"Dear Etranger"}
 {"work_id":"douban-26842503","ord":0,"alias":"Ah, Wilderness"}
 {"work_id":"douban-26842503","ord":1,"alias":"Wilderness: Part One"}
-{"work_id":"douban-26844993","ord":0,"alias":"出狱的女人(港)"}
-{"work_id":"douban-26844993","ord":1,"alias":"离去的女人"}
-{"work_id":"douban-26844993","ord":2,"alias":"The Woman Who Left"}
 {"work_id":"douban-26846714","ord":0,"alias":"Hanagatami"}
 {"work_id":"douban-26847445","ord":0,"alias":"东京夜空最深蓝(港)"}
 {"work_id":"douban-26847445","ord":1,"alias":"夜空总是最大密度的蓝色"}
@@ -2172,10 +2030,6 @@
 {"work_id":"douban-26928304","ord":1,"alias":"她不知道那些鸟的名字(台)"}
 {"work_id":"douban-26928304","ord":2,"alias":"未闻鸟名(豆友译名)"}
 {"work_id":"douban-26928304","ord":3,"alias":"Birds Without Names"}
-{"work_id":"douban-26952153","ord":0,"alias":"第三度杀人(港)"}
-{"work_id":"douban-26952153","ord":1,"alias":"第三次杀人(台)"}
-{"work_id":"douban-26952153","ord":2,"alias":"Sandome no satsujin"}
-{"work_id":"douban-26952153","ord":3,"alias":"The Third Murder"}
 {"work_id":"douban-26969120","ord":0,"alias":"函馆夜空更深蓝(港)"}
 {"work_id":"douban-26969120","ord":1,"alias":"你的鸟儿能歌唱"}
 {"work_id":"douban-26969120","ord":2,"alias":"And Your Bird Can Sing"}
@@ -2196,12 +2050,6 @@
 {"work_id":"douban-27060077","ord":0,"alias":"绿簿旅友(港)"}
 {"work_id":"douban-27060077","ord":1,"alias":"幸福绿皮书(台)"}
 {"work_id":"douban-27060077","ord":2,"alias":"绿书"}
-{"work_id":"douban-27098888","ord":0,"alias":"给我一个道歉(港)"}
-{"work_id":"douban-27098888","ord":1,"alias":"你只欠我一个道歉(台)"}
-{"work_id":"douban-27098888","ord":2,"alias":"侮辱"}
-{"work_id":"douban-27098888","ord":3,"alias":"诋毁"}
-{"work_id":"douban-27098888","ord":4,"alias":"The Insult"}
-{"work_id":"douban-27098888","ord":5,"alias":"L'insulte"}
 {"work_id":"douban-27101860","ord":0,"alias":"My Friend 'A'"}
 {"work_id":"douban-27101860","ord":1,"alias":"Yûzai"}
 {"work_id":"douban-27119724","ord":0,"alias":"小丑起源电影：罗密欧"}
@@ -2332,13 +2180,6 @@
 {"work_id":"douban-3113252","ord":0,"alias":"Genta: The Long Sword"}
 {"work_id":"douban-3118747","ord":0,"alias":"爵士大名"}
 {"work_id":"douban-3118747","ord":1,"alias":"Dixieland Daimyo"}
-{"work_id":"douban-3120852","ord":0,"alias":"影子灭杀令(港)"}
-{"work_id":"douban-3120852","ord":1,"alias":"猎杀幽灵写手(台)"}
-{"work_id":"douban-3120852","ord":2,"alias":"捉刀手"}
-{"work_id":"douban-3120852","ord":3,"alias":"枪手"}
-{"work_id":"douban-3120852","ord":4,"alias":"代笔作家"}
-{"work_id":"douban-3120852","ord":5,"alias":"幽灵写手"}
-{"work_id":"douban-3120852","ord":6,"alias":"The Ghost"}
 {"work_id":"douban-3129740","ord":0,"alias":"A Promise"}
 {"work_id":"douban-3129740","ord":1,"alias":"约定"}
 {"work_id":"douban-3129740","ord":2,"alias":"人的约定"}
@@ -2359,9 +2200,6 @@
 {"work_id":"douban-3139119","ord":1,"alias":"维荣的妻子"}
 {"work_id":"douban-3139119","ord":2,"alias":"维庸之妻"}
 {"work_id":"douban-3139119","ord":3,"alias":"Villon's Wife"}
-{"work_id":"douban-3139288","ord":0,"alias":"Alone Across the Pacific"}
-{"work_id":"douban-3139288","ord":1,"alias":"Taiheiyo hitori-botchi"}
-{"work_id":"douban-3139288","ord":2,"alias":"独渡太平洋"}
 {"work_id":"douban-3139774","ord":0,"alias":"Shunkinsho: Okoto to Sasuke"}
 {"work_id":"douban-3140182","ord":0,"alias":"Preparation for the Festival"}
 {"work_id":"douban-3140182","ord":1,"alias":"节日的准备"}
@@ -2395,15 +2233,10 @@
 {"work_id":"douban-3228189","ord":0,"alias":"Battles Without Honor and Humanity: Aftermath(英)"}
 {"work_id":"douban-3229396","ord":0,"alias":"The Four Days of Naples"}
 {"work_id":"douban-3233200","ord":0,"alias":"The Living Corpse"}
-{"work_id":"douban-3238016","ord":0,"alias":"Nihon no seishun"}
-{"work_id":"douban-3238016","ord":1,"alias":"Hymn to a Tired Man"}
-{"work_id":"douban-3238016","ord":2,"alias":"Youth of Japan"}
 {"work_id":"douban-3241523","ord":0,"alias":"ＢＩＧ　ＳＨＯＷ！　Ｓｉｇｉｎｇ　ｉｎ　Ｈａｗａｉｉハワイ"}
 {"work_id":"douban-3241523","ord":1,"alias":"Big show! Hawaii ni utaeba"}
 {"work_id":"douban-3241523","ord":2,"alias":"赛歌"}
 {"work_id":"douban-3271800","ord":0,"alias":"Pirosmani"}
-{"work_id":"douban-3285632","ord":0,"alias":"都灵老马(港)"}
-{"work_id":"douban-3285632","ord":1,"alias":"The Turin Horse"}
 {"work_id":"douban-3287326","ord":0,"alias":"The Red Head"}
 {"work_id":"douban-3287715","ord":0,"alias":"安洁莉卡的奇幻旅程"}
 {"work_id":"douban-3287715","ord":1,"alias":"The Strange Case of Angelica"}
@@ -2418,8 +2251,6 @@
 {"work_id":"douban-3319772","ord":1,"alias":"Chizuko's Younger Sister"}
 {"work_id":"douban-3319772","ord":2,"alias":"Us Two"}
 {"work_id":"douban-3319772","ord":3,"alias":"Futari"}
-{"work_id":"douban-3324210","ord":0,"alias":"Shadow"}
-{"work_id":"douban-3324210","ord":1,"alias":"Тень"}
 {"work_id":"douban-3328719","ord":0,"alias":"海隅逐客"}
 {"work_id":"douban-3329193","ord":0,"alias":"不落的太阳"}
 {"work_id":"douban-3329193","ord":1,"alias":"The Sun That Doesn't Set"}
@@ -2510,9 +2341,6 @@
 {"work_id":"douban-3534824","ord":1,"alias":"援胶女郎(港)"}
 {"work_id":"douban-3534824","ord":2,"alias":"充气娃娃"}
 {"work_id":"douban-3534824","ord":3,"alias":"Air Doll"}
-{"work_id":"douban-35360296","ord":0,"alias":"偶然与想象之轮(港)"}
-{"work_id":"douban-35360296","ord":1,"alias":"命运与幻想之轮"}
-{"work_id":"douban-35360296","ord":2,"alias":"Wheel of Fortune and Fantasy"}
 {"work_id":"douban-3536264","ord":0,"alias":"ai no kawaki"}
 {"work_id":"douban-3536264","ord":1,"alias":"Thirst for Love"}
 {"work_id":"douban-3536346","ord":0,"alias":"白与黑"}
@@ -2535,7 +2363,6 @@
 {"work_id":"douban-3555352","ord":2,"alias":"Shin gokudô: Bô no kanashimi"}
 {"work_id":"douban-3555364","ord":0,"alias":"Uhohho tankentai"}
 {"work_id":"douban-3555364","ord":1,"alias":"喔嚯嚯控险队"}
-{"work_id":"douban-3555387","ord":0,"alias":"浊流"}
 {"work_id":"douban-35580265","ord":0,"alias":"那个男人(台)"}
 {"work_id":"douban-35580265","ord":1,"alias":"那个男人"}
 {"work_id":"douban-35580265","ord":2,"alias":"A Man"}
@@ -2640,9 +2467,6 @@
 {"work_id":"douban-4034263","ord":0,"alias":"内幕交易"}
 {"work_id":"douban-4034263","ord":1,"alias":"Shaso"}
 {"work_id":"douban-4034368","ord":0,"alias":"无桥的河流"}
-{"work_id":"douban-4036367","ord":0,"alias":"毛毛虫"}
-{"work_id":"douban-4036367","ord":1,"alias":"欲虫(台)"}
-{"work_id":"douban-4036367","ord":2,"alias":"Caterpillar"}
 {"work_id":"douban-4043790","ord":0,"alias":"The Collar Button"}
 {"work_id":"douban-4044840","ord":0,"alias":"Tenraku"}
 {"work_id":"douban-4050016","ord":0,"alias":"Chuji tabi nikki: Shinshu kessho hen"}
@@ -2686,6 +2510,8 @@
 {"work_id":"douban-4122199","ord":1,"alias":"镇上的文身汉"}
 {"work_id":"douban-4124595","ord":0,"alias":"The Summer Battle of Osaka"}
 {"work_id":"douban-4124595","ord":1,"alias":"Osaka natsu no jin"}
+{"work_id":"douban-4124621","ord":0,"alias":"Crybaby Apprentice"}
+{"work_id":"douban-4124621","ord":1,"alias":"Nakimushi kozo"}
 {"work_id":"douban-4124628","ord":0,"alias":"Ah, My Home Town"}
 {"work_id":"douban-4127164","ord":0,"alias":"Mother and Child"}
 {"work_id":"douban-4127164","ord":1,"alias":"Haha"}
@@ -2743,24 +2569,217 @@
 {"work_id":"douban-4152728","ord":2,"alias":"Natsukashiki fue ya taiko"}
 {"work_id":"douban-4160490","ord":0,"alias":"Sword of Desperation"}
 {"work_id":"douban-4160490","ord":1,"alias":"Hisshiken Torisashi"}
+{"work_id":"douban-4161999","ord":0,"alias":"En toiu onna"}
+{"work_id":"douban-4161999","ord":1,"alias":"阿婉的故事"}
+{"work_id":"douban-4161999","ord":2,"alias":"一个叫婉的女子"}
+{"work_id":"douban-4162148","ord":0,"alias":"Death Match"}
+{"work_id":"douban-4162148","ord":1,"alias":"Miyamoto Musashi VI"}
+{"work_id":"douban-4162148","ord":2,"alias":"Samurai, Part VI"}
+{"work_id":"douban-4162148","ord":3,"alias":"Swords of Death"}
+{"work_id":"douban-4162148","ord":4,"alias":"Shinken shobu"}
+{"work_id":"douban-4162151","ord":0,"alias":"Those Quiet Japanese"}
+{"work_id":"douban-4162151","ord":1,"alias":"Yasashii Nippon jin"}
+{"work_id":"douban-4166696","ord":0,"alias":"My Way"}
+{"work_id":"douban-4166696","ord":1,"alias":"Waga michi"}
+{"work_id":"douban-4166869","ord":0,"alias":"哥儿们"}
+{"work_id":"douban-4166869","ord":1,"alias":"Brother and Sister"}
+{"work_id":"douban-4166869","ord":2,"alias":"Older Sister, Younger Brother"}
+{"work_id":"douban-4166869","ord":3,"alias":"Older Brother, Younger Sister"}
+{"work_id":"douban-4166869","ord":4,"alias":"Ani imôto"}
+{"work_id":"douban-4168875","ord":0,"alias":"Kaerazaru hibi"}
+{"work_id":"douban-4168875","ord":1,"alias":"The Days of No Return"}
+{"work_id":"douban-4168897","ord":0,"alias":"Dynamite Bang Bang"}
+{"work_id":"douban-4168897","ord":1,"alias":"Dainamaito dondon"}
+{"work_id":"douban-4169165","ord":0,"alias":"Gassan"}
+{"work_id":"douban-4169191","ord":0,"alias":"Chichi yo haha yo!"}
+{"work_id":"douban-4169191","ord":1,"alias":"父亲啊，母亲啊！"}
+{"work_id":"douban-4173051","ord":0,"alias":"Hometown"}
+{"work_id":"douban-4173051","ord":1,"alias":"Furusato"}
+{"work_id":"douban-4173051","ord":2,"alias":"故乡"}
+{"work_id":"douban-4173061","ord":0,"alias":"Chi-n-pi-ra"}
+{"work_id":"douban-4173642","ord":0,"alias":"Bu-Su"}
+{"work_id":"douban-4173642","ord":1,"alias":"Wretched"}
+{"work_id":"douban-4173652","ord":0,"alias":"Sakura-tai Chiru"}
+{"work_id":"douban-4173654","ord":0,"alias":"Revolver"}
+{"work_id":"douban-4180784","ord":0,"alias":"Netorare Sosuke"}
+{"work_id":"douban-4180784","ord":1,"alias":"Sosuke Loses His Lover"}
+{"work_id":"douban-4195740","ord":0,"alias":"Sketches of Kaitan City"}
+{"work_id":"douban-4195740","ord":1,"alias":"Kaitanshi jokei"}
+{"work_id":"douban-4206436","ord":0,"alias":"雷霆战驹(港)"}
+{"work_id":"douban-4268598","ord":0,"alias":"自白"}
+{"work_id":"douban-4268598","ord":1,"alias":"母亲"}
+{"work_id":"douban-4268598","ord":2,"alias":"Kokuhaku"}
+{"work_id":"douban-4268598","ord":3,"alias":"Confessions"}
+{"work_id":"douban-4319218","ord":0,"alias":"情迷午夜巴黎(港)"}
+{"work_id":"douban-4319218","ord":1,"alias":"午夜·巴黎(台)"}
+{"work_id":"douban-4709671","ord":0,"alias":"强‧艾德格(台)"}
+{"work_id":"douban-4709671","ord":1,"alias":"J.艾德格(港)"}
+{"work_id":"douban-4709671","ord":2,"alias":"J·埃德加·胡佛"}
+{"work_id":"douban-4709671","ord":3,"alias":"胡佛传"}
+{"work_id":"douban-4727548","ord":0,"alias":"蚬贝小小姐"}
+{"work_id":"douban-4727548","ord":1,"alias":"从河底问好"}
+{"work_id":"douban-4734701","ord":0,"alias":"The Hero Show"}
+{"work_id":"douban-4830236","ord":0,"alias":"冷血金鱼佬(港)"}
+{"work_id":"douban-4830236","ord":1,"alias":"Tsumetai nettaigyo"}
+{"work_id":"douban-4830236","ord":2,"alias":"Cold FIsh"}
+{"work_id":"douban-4837005","ord":0,"alias":"My Back Page"}
+{"work_id":"douban-4853331","ord":0,"alias":"战场上的明信片(港)"}
+{"work_id":"douban-4853331","ord":1,"alias":"一张明信片(台)"}
+{"work_id":"douban-4853331","ord":2,"alias":"Postcard"}
+{"work_id":"douban-4853331","ord":3,"alias":"Ichimai no hagaki"}
+{"work_id":"douban-4853410","ord":0,"alias":"裸夜"}
+{"work_id":"douban-4853410","ord":1,"alias":"A Night in Nude: Salvation"}
+{"work_id":"douban-4853410","ord":2,"alias":"裸体之夜：掠夺狂爱"}
+{"work_id":"douban-4903533","ord":0,"alias":"天堂物语(港)"}
+{"work_id":"douban-4903533","ord":1,"alias":"陌路。天堂(台)"}
+{"work_id":"douban-4903533","ord":2,"alias":"天堂故事"}
+{"work_id":"douban-4903533","ord":3,"alias":"Heaven's Story"}
+{"work_id":"douban-4903614","ord":0,"alias":"多田便利屋"}
+{"work_id":"douban-4903614","ord":1,"alias":"Mahoro Ekimae Tada Benriken"}
+{"work_id":"douban-4903614","ord":2,"alias":"Tada's Do-It-All House"}
+{"work_id":"douban-4935242","ord":0,"alias":"烈火焚身(台)"}
+{"work_id":"douban-4935242","ord":1,"alias":"母亲的告白(港)"}
+{"work_id":"douban-4935242","ord":2,"alias":"焦头烂额"}
+{"work_id":"douban-4935242","ord":3,"alias":"烈火焚城"}
+{"work_id":"douban-4935242","ord":4,"alias":"中东的希腊悲剧"}
+{"work_id":"douban-4935242","ord":5,"alias":"黎巴嫩的俄狄浦斯"}
+{"work_id":"douban-5075157","ord":0,"alias":"仇与孝(港)"}
+{"work_id":"douban-5075157","ord":1,"alias":"北海渔夫(台)"}
+{"work_id":"douban-5075523","ord":0,"alias":"Thirteen Men and a Girl"}
+{"work_id":"douban-5075523","ord":1,"alias":"最后的中队"}
+{"work_id":"douban-5083779","ord":0,"alias":"Burg Theatre"}
+{"work_id":"douban-5286821","ord":0,"alias":"全员恶人完结(港)"}
+{"work_id":"douban-5286821","ord":1,"alias":"アウトレイジ 2"}
+{"work_id":"douban-5286821","ord":2,"alias":"Outrage Beyond"}
+{"work_id":"douban-5295610","ord":0,"alias":"第八日的蝉"}
+{"work_id":"douban-5295610","ord":1,"alias":"Youkame no Semi"}
+{"work_id":"douban-5295610","ord":2,"alias":"The Eighth Day"}
+{"work_id":"douban-5295610","ord":3,"alias":"Rebirth"}
+{"work_id":"douban-5300054","ord":0,"alias":"波希米亚狂想曲：摇滚传说(港)"}
+{"work_id":"douban-5300054","ord":1,"alias":"波希米亚狂想曲(台)"}
+{"work_id":"douban-5364967","ord":0,"alias":"Tokyo Kouen"}
+{"work_id":"douban-5432221","ord":0,"alias":"本性难移"}
+{"work_id":"douban-5432221","ord":1,"alias":"固有缺陷"}
+{"work_id":"douban-5913516","ord":0,"alias":"Itsuka harerukana"}
+{"work_id":"douban-5913516","ord":1,"alias":"SOMEDAY"}
+{"work_id":"douban-5968674","ord":0,"alias":"Marks"}
+{"work_id":"douban-5968674","ord":1,"alias":"不思議人吃人事件"}
+{"work_id":"douban-5975206","ord":0,"alias":"母亲爱的手札(港)"}
+{"work_id":"douban-5975206","ord":1,"alias":"我的母亲手记(台)"}
+{"work_id":"douban-5975206","ord":2,"alias":"我的母亲"}
+{"work_id":"douban-5975206","ord":3,"alias":"Chronicle Of My Mother"}
+{"work_id":"douban-5975206","ord":4,"alias":"Waga Haha"}
+{"work_id":"douban-6023509","ord":0,"alias":"泡吧侦探"}
+{"work_id":"douban-6041222","ord":0,"alias":"草食男之桃花期(港)"}
+{"work_id":"douban-6041222","ord":1,"alias":"桃花期 电影版"}
+{"work_id":"douban-6041222","ord":2,"alias":"Love Strikes!"}
+{"work_id":"douban-6041222","ord":3,"alias":"Moteki"}
+{"work_id":"douban-6393127","ord":0,"alias":"赛德克·巴莱(下)：彩虹桥"}
+{"work_id":"douban-6393127","ord":1,"alias":"真正的人"}
+{"work_id":"douban-6393127","ord":2,"alias":"Warriors of the Rainbow: Seediq Bale - Part 2: the Rainbow Bridge"}
+{"work_id":"douban-6535907","ord":0,"alias":"不道德的夫妻(港)"}
+{"work_id":"douban-6535907","ord":1,"alias":"Dreams for Sale"}
+{"work_id":"douban-6549903","ord":0,"alias":"ARGO - 救参任务(港)"}
+{"work_id":"douban-6549903","ord":1,"alias":"亚果出任务(台)"}
+{"work_id":"douban-6549903","ord":2,"alias":"逃离伊朗"}
+{"work_id":"douban-6724666","ord":0,"alias":"乡愁"}
+{"work_id":"douban-6724666","ord":1,"alias":"渴望"}
+{"work_id":"douban-6724666","ord":2,"alias":"Saudade"}
+{"work_id":"douban-6724666","ord":3,"alias":"Saudâji"}
+{"work_id":"douban-6791750","ord":0,"alias":"风起了(港)"}
+{"work_id":"douban-6791750","ord":1,"alias":"风起(台)"}
+{"work_id":"douban-6791750","ord":2,"alias":"风儿起"}
+{"work_id":"douban-6791750","ord":3,"alias":"风平浪静"}
+{"work_id":"douban-6791750","ord":4,"alias":"风雪黄昏"}
+{"work_id":"douban-6791750","ord":5,"alias":"起风之时"}
+{"work_id":"douban-6791750","ord":6,"alias":"Kaze tachinu"}
+{"work_id":"douban-6791750","ord":7,"alias":"The Wind Rises"}
+{"work_id":"douban-6803494","ord":0,"alias":"一级双雄(港)"}
+{"work_id":"douban-6803494","ord":1,"alias":"决战终点线(台)"}
+{"work_id":"douban-6803494","ord":2,"alias":"F1双雄"}
+{"work_id":"douban-6803494","ord":3,"alias":"冲刺"}
+{"work_id":"douban-6803494","ord":4,"alias":"极速冲刺"}
+{"work_id":"douban-6803494","ord":5,"alias":"竞速风流"}
+{"work_id":"douban-6849035","ord":0,"alias":"亲人的国度"}
+{"work_id":"douban-6849035","ord":1,"alias":"家人的国度"}
+{"work_id":"douban-6849035","ord":2,"alias":"Our Homeland"}
+{"work_id":"douban-6849035","ord":3,"alias":"Kazoku no kuni"}
+{"work_id":"douban-6880497","ord":0,"alias":"落KEY人生(台)"}
+{"work_id":"douban-6880497","ord":1,"alias":"钥匙贼的办法"}
+{"work_id":"douban-6880497","ord":2,"alias":"钥匙贼的方法"}
+{"work_id":"douban-6880497","ord":3,"alias":"窃匙之盗"}
+{"work_id":"douban-6880497","ord":4,"alias":"Key of Life"}
+{"work_id":"douban-6959207","ord":0,"alias":"临终信托(台)"}
+{"work_id":"douban-7053706","ord":0,"alias":"不中用的我仰望天空(台)"}
+{"work_id":"douban-7053706","ord":1,"alias":"Cowards Who Looked to the Sky"}
+{"work_id":"douban-7058117","ord":0,"alias":"The Drudgery Train"}
+{"work_id":"douban-7058117","ord":1,"alias":"Kueki ressha"}
+{"work_id":"douban-7152895","ord":0,"alias":"桐岛失踪后(港)"}
+{"work_id":"douban-7152895","ord":1,"alias":"听说桐岛退社了(台)"}
+{"work_id":"douban-7152895","ord":2,"alias":"Kirishima, Bukatsu Yamerutteyo"}
+{"work_id":"douban-7152895","ord":3,"alias":"The Kirishima Thing"}
 {"work_id":"tmdb-m-10149","ord":0,"alias":"生命中不能承受的烟"}
 {"work_id":"tmdb-m-10149","ord":1,"alias":"烟"}
 {"work_id":"tmdb-m-102146","ord":0,"alias":"枪圣权三"}
 {"work_id":"tmdb-m-102146","ord":1,"alias":"枪之权三"}
 {"work_id":"tmdb-m-102146","ord":2,"alias":"Gonza the Spearman"}
+{"work_id":"tmdb-m-103328","ord":0,"alias":"花都魅影(台)"}
+{"work_id":"tmdb-m-103328","ord":1,"alias":"巴黎圣骑士(港)"}
+{"work_id":"tmdb-m-103328","ord":2,"alias":"老千奥斯卡"}
+{"work_id":"tmdb-m-103328","ord":3,"alias":"悸动的冬青木"}
+{"work_id":"tmdb-m-103328","ord":4,"alias":"霍利车行"}
+{"work_id":"tmdb-m-103393","ord":0,"alias":"The Sea and Poison"}
+{"work_id":"tmdb-m-104251","ord":0,"alias":"死在田园"}
+{"work_id":"tmdb-m-104251","ord":1,"alias":"Pastoral: To Die in the Country"}
+{"work_id":"tmdb-m-104251","ord":2,"alias":"Pastoral Hide and Seek"}
+{"work_id":"tmdb-m-104251","ord":3,"alias":"Den-en ni shisu"}
+{"work_id":"tmdb-m-104292","ord":0,"alias":"再见，箱舟"}
+{"work_id":"tmdb-m-104292","ord":1,"alias":"Farewell to the Ark"}
+{"work_id":"tmdb-m-104292","ord":2,"alias":"Goodbye Ark"}
+{"work_id":"tmdb-m-104292","ord":3,"alias":"Saraba hakobune"}
+{"work_id":"tmdb-m-104450","ord":0,"alias":"Apart from Life"}
+{"work_id":"tmdb-m-104450","ord":1,"alias":"大地的群像"}
 {"work_id":"tmdb-m-1075","ord":0,"alias":"库斯图里卡的猫"}
 {"work_id":"tmdb-m-1075","ord":1,"alias":"Crna macka, beli macor"}
 {"work_id":"tmdb-m-1075","ord":2,"alias":"Black Cat, White Cat"}
 {"work_id":"tmdb-m-10889","ord":0,"alias":"铁血娘子歌莉亚(港)"}
 {"work_id":"tmdb-m-10889","ord":1,"alias":"葛洛丽亚"}
 {"work_id":"tmdb-m-10889","ord":2,"alias":"女煞葛洛莉"}
+{"work_id":"tmdb-m-11040","ord":0,"alias":"小人物"}
+{"work_id":"tmdb-m-11040","ord":1,"alias":"小大人"}
+{"work_id":"tmdb-m-11040","ord":2,"alias":"小巨人"}
 {"work_id":"tmdb-m-1116","ord":0,"alias":"吹动大麦的风(台)"}
 {"work_id":"tmdb-m-1116","ord":1,"alias":"风吹稻浪"}
+{"work_id":"tmdb-m-11174","ord":0,"alias":"赤子雄心(港)"}
+{"work_id":"tmdb-m-11174","ord":1,"alias":"比利小英雄(台)"}
+{"work_id":"tmdb-m-11174","ord":2,"alias":"征服者佩利"}
+{"work_id":"tmdb-m-11174","ord":3,"alias":"征服者贝莱"}
+{"work_id":"tmdb-m-11174","ord":4,"alias":"征服者佩莱"}
+{"work_id":"tmdb-m-11174","ord":5,"alias":"Pelle the Conqueror"}
 {"work_id":"tmdb-m-111988","ord":0,"alias":"亚历山大大帝"}
 {"work_id":"tmdb-m-111988","ord":1,"alias":"Alexander the Great"}
 {"work_id":"tmdb-m-11216","ord":0,"alias":"星光伴我心(港)"}
 {"work_id":"tmdb-m-11216","ord":1,"alias":"新天堂乐园(台)"}
 {"work_id":"tmdb-m-11216","ord":2,"alias":"Cinema Paradiso"}
+{"work_id":"tmdb-m-11239","ord":0,"alias":"谈谈情，跳跳舞"}
+{"work_id":"tmdb-m-11239","ord":1,"alias":"大家來跳舞"}
+{"work_id":"tmdb-m-11239","ord":2,"alias":"Shall We Dance?"}
+{"work_id":"tmdb-m-11331","ord":0,"alias":"老人与海"}
+{"work_id":"tmdb-m-113458","ord":0,"alias":"魔鬼与修女"}
+{"work_id":"tmdb-m-113458","ord":1,"alias":"天使嫫嫫约安娜"}
+{"work_id":"tmdb-m-113458","ord":2,"alias":"修女院院长约安娜"}
+{"work_id":"tmdb-m-113458","ord":3,"alias":"猫妈妈泰雷"}
+{"work_id":"tmdb-m-113458","ord":4,"alias":"Matka Joanna od aniolow"}
+{"work_id":"tmdb-m-113458","ord":5,"alias":"Mother Joan of the Angels"}
+{"work_id":"tmdb-m-113458","ord":6,"alias":"Joan of the Angels"}
+{"work_id":"tmdb-m-113458","ord":7,"alias":"The Devil and the Nun"}
+{"work_id":"tmdb-m-11439","ord":0,"alias":"影子灭杀令(港)"}
+{"work_id":"tmdb-m-11439","ord":1,"alias":"猎杀幽灵写手(台)"}
+{"work_id":"tmdb-m-11439","ord":2,"alias":"捉刀手"}
+{"work_id":"tmdb-m-11439","ord":3,"alias":"枪手"}
+{"work_id":"tmdb-m-11439","ord":4,"alias":"代笔作家"}
+{"work_id":"tmdb-m-11439","ord":5,"alias":"幽灵写手"}
+{"work_id":"tmdb-m-11439","ord":6,"alias":"The Ghost"}
 {"work_id":"tmdb-m-11447","ord":0,"alias":"人间有情天"}
 {"work_id":"tmdb-m-11447","ord":1,"alias":"生命中的最痛"}
 {"work_id":"tmdb-m-11447","ord":2,"alias":"The Son's Room"}
@@ -2770,13 +2789,30 @@
 {"work_id":"tmdb-m-11490","ord":2,"alias":"孩子"}
 {"work_id":"tmdb-m-1164","ord":0,"alias":"巴别塔(港)"}
 {"work_id":"tmdb-m-1164","ord":1,"alias":"火线交错(台)"}
+{"work_id":"tmdb-m-1165","ord":0,"alias":"英女皇(港)"}
+{"work_id":"tmdb-m-1165","ord":1,"alias":"黛妃与女皇(台)"}
+{"work_id":"tmdb-m-1165","ord":2,"alias":"女王"}
 {"work_id":"tmdb-m-11902","ord":0,"alias":"地下社会(台)"}
 {"work_id":"tmdb-m-11902","ord":1,"alias":"没有天空的都市"}
 {"work_id":"tmdb-m-11902","ord":2,"alias":"Underground"}
+{"work_id":"tmdb-m-11911","ord":0,"alias":"梅菲斯特"}
+{"work_id":"tmdb-m-11911","ord":1,"alias":"Mephisto"}
+{"work_id":"tmdb-m-11911","ord":2,"alias":"恶魔"}
 {"work_id":"tmdb-m-12468","ord":0,"alias":"Death of a Tea Master"}
 {"work_id":"tmdb-m-12468","ord":1,"alias":"一位茶道大师之死"}
 {"work_id":"tmdb-m-12470","ord":0,"alias":"山打根八号娼馆"}
 {"work_id":"tmdb-m-12470","ord":1,"alias":"Sandakan No. 8"}
+{"work_id":"tmdb-m-12627","ord":0,"alias":"美丽坏女人(台)"}
+{"work_id":"tmdb-m-12627","ord":1,"alias":"游戏曲"}
+{"work_id":"tmdb-m-12627","ord":2,"alias":"The Beautiful Troublemaker"}
+{"work_id":"tmdb-m-128775","ord":0,"alias":"The Sting of Death"}
+{"work_id":"tmdb-m-128775","ord":1,"alias":"L'aculeo della morte"}
+{"work_id":"tmdb-m-1365","ord":0,"alias":"孽爱伤痕(港)"}
+{"work_id":"tmdb-m-1365","ord":1,"alias":"拥抱艳阳天(台)"}
+{"work_id":"tmdb-m-1365","ord":2,"alias":"死囚的妻子"}
+{"work_id":"tmdb-m-1365","ord":3,"alias":"怪兽舞会"}
+{"work_id":"tmdb-m-13807","ord":0,"alias":"放逐"}
+{"work_id":"tmdb-m-13807","ord":1,"alias":"Exiled"}
 {"work_id":"tmdb-m-1394","ord":0,"alias":"怀乡"}
 {"work_id":"tmdb-m-1394","ord":1,"alias":"Nostalghia"}
 {"work_id":"tmdb-m-1394","ord":2,"alias":"Nostalgia"}
@@ -2784,8 +2820,14 @@
 {"work_id":"tmdb-m-1394249","ord":1,"alias":"尤里卡"}
 {"work_id":"tmdb-m-1394249","ord":2,"alias":"寻获人生"}
 {"work_id":"tmdb-m-1394249","ord":3,"alias":"Eureka"}
+{"work_id":"tmdb-m-156081","ord":0,"alias":"再见吧！可爱的大地"}
+{"work_id":"tmdb-m-156081","ord":1,"alias":"Farewell to the Land"}
 {"work_id":"tmdb-m-16","ord":0,"alias":"天黑黑(港)"}
 {"work_id":"tmdb-m-16","ord":1,"alias":"在黑暗中漫舞(台)"}
+{"work_id":"tmdb-m-16328","ord":0,"alias":"尊尼拿起了枪"}
+{"work_id":"tmdb-m-16328","ord":1,"alias":"约翰尼拿到了自己的枪"}
+{"work_id":"tmdb-m-16328","ord":2,"alias":"强尼上战场"}
+{"work_id":"tmdb-m-16328","ord":3,"alias":"无语问苍天"}
 {"work_id":"tmdb-m-1653","ord":0,"alias":"哲古华拉少年日记(港)"}
 {"work_id":"tmdb-m-1653","ord":1,"alias":"革命前夕的摩托车日记(台)"}
 {"work_id":"tmdb-m-1653","ord":2,"alias":"摩托车之旅"}
@@ -2810,14 +2852,53 @@
 {"work_id":"tmdb-m-18329","ord":0,"alias":"一起快乐"}
 {"work_id":"tmdb-m-18329","ord":1,"alias":"Happy Together"}
 {"work_id":"tmdb-m-18329","ord":2,"alias":"Buenos Aires Affair"}
+{"work_id":"tmdb-m-1913","ord":0,"alias":"长眠地中海"}
+{"work_id":"tmdb-m-1913","ord":1,"alias":"情流心海"}
+{"work_id":"tmdb-m-1913","ord":2,"alias":"内心之海"}
+{"work_id":"tmdb-m-1913","ord":3,"alias":"点燃生命之海"}
+{"work_id":"tmdb-m-1913","ord":4,"alias":"The Sea Inside"}
+{"work_id":"tmdb-m-1913","ord":5,"alias":"深海长眠"}
+{"work_id":"tmdb-m-194662","ord":0,"alias":"飞鸟侠(港)"}
+{"work_id":"tmdb-m-194662","ord":1,"alias":"无知的意外之美"}
+{"work_id":"tmdb-m-194662","ord":2,"alias":"Birdman"}
+{"work_id":"tmdb-m-198431","ord":0,"alias":"写乐的感官世界"}
+{"work_id":"tmdb-m-198431","ord":1,"alias":"写楽"}
+{"work_id":"tmdb-m-198458","ord":0,"alias":"女炫"}
+{"work_id":"tmdb-m-198458","ord":1,"alias":"女衔"}
+{"work_id":"tmdb-m-198458","ord":2,"alias":"贩卖妇女的人"}
+{"work_id":"tmdb-m-198458","ord":3,"alias":"ぜげん"}
+{"work_id":"tmdb-m-198458","ord":4,"alias":"Zegen"}
+{"work_id":"tmdb-m-199219","ord":0,"alias":"Shadow"}
+{"work_id":"tmdb-m-199219","ord":1,"alias":"Тень"}
+{"work_id":"tmdb-m-199431","ord":0,"alias":"Prima del diluvio"}
+{"work_id":"tmdb-m-199431","ord":1,"alias":"Before the Deluge"}
+{"work_id":"tmdb-m-204117","ord":0,"alias":"Final Take: The Golden Age of Movies"}
+{"work_id":"tmdb-m-20506","ord":0,"alias":"Unagi"}
+{"work_id":"tmdb-m-20506","ord":1,"alias":"The Eel"}
 {"work_id":"tmdb-m-20617","ord":0,"alias":"武士的禁忌"}
 {"work_id":"tmdb-m-20617","ord":1,"alias":"Gohatto"}
 {"work_id":"tmdb-m-20617","ord":2,"alias":"Taboo"}
+{"work_id":"tmdb-m-21042","ord":0,"alias":"爸爸出差时"}
+{"work_id":"tmdb-m-21042","ord":1,"alias":"爸爸离家去上班"}
+{"work_id":"tmdb-m-21042","ord":2,"alias":"爸爸出差了"}
+{"work_id":"tmdb-m-21042","ord":3,"alias":"When Father Was Away on Business"}
+{"work_id":"tmdb-m-21042","ord":4,"alias":"Otac na sluzbenom putu"}
+{"work_id":"tmdb-m-218508","ord":0,"alias":"瀨戶內月光小夜曲"}
+{"work_id":"tmdb-m-218508","ord":1,"alias":"濑户内月光小夜曲"}
+{"work_id":"tmdb-m-218508","ord":2,"alias":"Setouchi Moonlight Serenade"}
 {"work_id":"tmdb-m-22549","ord":0,"alias":"尤里西斯的生命之旅"}
 {"work_id":"tmdb-m-22549","ord":1,"alias":"尤里西斯之旅"}
 {"work_id":"tmdb-m-22549","ord":2,"alias":"尤利西斯的凝望"}
 {"work_id":"tmdb-m-22549","ord":3,"alias":"尤利西斯的凝视"}
 {"work_id":"tmdb-m-22549","ord":4,"alias":"Ulysses' Gaze"}
+{"work_id":"tmdb-m-2346","ord":0,"alias":"长江哀歌"}
+{"work_id":"tmdb-m-2346","ord":1,"alias":"Still Life"}
+{"work_id":"tmdb-m-2440","ord":0,"alias":"JSA安全地带(港)"}
+{"work_id":"tmdb-m-2440","ord":1,"alias":"共同警戒区JSA(台)"}
+{"work_id":"tmdb-m-2440","ord":2,"alias":"JSA共同警戒区(台)"}
+{"work_id":"tmdb-m-2440","ord":3,"alias":"共同警备区域JSA"}
+{"work_id":"tmdb-m-2440","ord":4,"alias":"联合防卫领域"}
+{"work_id":"tmdb-m-2440","ord":5,"alias":"Joint Security Area"}
 {"work_id":"tmdb-m-246","ord":0,"alias":"盲侠座头市"}
 {"work_id":"tmdb-m-246","ord":1,"alias":"盲剑侠"}
 {"work_id":"tmdb-m-246","ord":2,"alias":"Zatoichi"}
@@ -2836,6 +2917,11 @@
 {"work_id":"tmdb-m-253450","ord":0,"alias":"聂隐娘"}
 {"work_id":"tmdb-m-253450","ord":1,"alias":"The Assassin"}
 {"work_id":"tmdb-m-253450","ord":2,"alias":"The Hidden Heroine"}
+{"work_id":"tmdb-m-254679","ord":0,"alias":"东京小屋(港)"}
+{"work_id":"tmdb-m-254679","ord":1,"alias":"东京小屋的回忆(台)"}
+{"work_id":"tmdb-m-254679","ord":2,"alias":"Chiisai Ouchi"}
+{"work_id":"tmdb-m-254679","ord":3,"alias":"The Little House"}
+{"work_id":"tmdb-m-25746","ord":0,"alias":"Kabei: Our Mother"}
 {"work_id":"tmdb-m-25838","ord":0,"alias":"Devils on the Doorstep"}
 {"work_id":"tmdb-m-263514","ord":0,"alias":"爸不得爱你(港)"}
 {"work_id":"tmdb-m-263514","ord":1,"alias":"归乡(台)"}
@@ -2843,6 +2929,9 @@
 {"work_id":"tmdb-m-263514","ord":3,"alias":"回家"}
 {"work_id":"tmdb-m-263514","ord":4,"alias":"The Return"}
 {"work_id":"tmdb-m-263514","ord":5,"alias":"Vozvrashchenie"}
+{"work_id":"tmdb-m-263812","ord":0,"alias":"The Far Road"}
+{"work_id":"tmdb-m-263812","ord":1,"alias":"Toi ippon no michi"}
+{"work_id":"tmdb-m-263812","ord":2,"alias":"遥远的一条路"}
 {"work_id":"tmdb-m-265169","ord":0,"alias":"冬日苏醒(港/台)"}
 {"work_id":"tmdb-m-265169","ord":1,"alias":"冬日甦醒"}
 {"work_id":"tmdb-m-265169","ord":2,"alias":"Winter Sleep"}
@@ -2851,11 +2940,27 @@
 {"work_id":"tmdb-m-26955","ord":1,"alias":"爱的绿洲"}
 {"work_id":"tmdb-m-26955","ord":2,"alias":"Oasis"}
 {"work_id":"tmdb-m-26955","ord":3,"alias":"绿洲"}
+{"work_id":"tmdb-m-285812","ord":0,"alias":"塚本晋也之野火(台)"}
+{"work_id":"tmdb-m-285812","ord":1,"alias":"Nobi"}
+{"work_id":"tmdb-m-285812","ord":2,"alias":"Fires On The Plain"}
+{"work_id":"tmdb-m-290","ord":0,"alias":"才子梦惊魂(港)"}
+{"work_id":"tmdb-m-290","ord":1,"alias":"巴顿芬克"}
+{"work_id":"tmdb-m-313369","ord":0,"alias":"星声梦里人(港)"}
+{"work_id":"tmdb-m-313369","ord":1,"alias":"乐来越爱你(台)"}
+{"work_id":"tmdb-m-313369","ord":2,"alias":"爵士情缘"}
+{"work_id":"tmdb-m-313369","ord":3,"alias":"啦啦之地"}
+{"work_id":"tmdb-m-314371","ord":0,"alias":"11 Minutes"}
+{"work_id":"tmdb-m-31587","ord":0,"alias":"流浪奇男子"}
+{"work_id":"tmdb-m-31587","ord":1,"alias":"同是天涯沦落人"}
+{"work_id":"tmdb-m-31587","ord":2,"alias":"稻草人"}
+{"work_id":"tmdb-m-34019","ord":0,"alias":"The Hidden Blade"}
 {"work_id":"tmdb-m-3580","ord":0,"alias":"陌生的孩子(台)"}
 {"work_id":"tmdb-m-3580","ord":1,"alias":"换命谎言(港)"}
 {"work_id":"tmdb-m-3580","ord":2,"alias":"调包婴儿"}
 {"work_id":"tmdb-m-3580","ord":3,"alias":"换婴记"}
 {"work_id":"tmdb-m-3580","ord":4,"alias":"换亲子迷雾"}
+{"work_id":"tmdb-m-359940","ord":0,"alias":"广告牌杀人事件(港)"}
+{"work_id":"tmdb-m-359940","ord":1,"alias":"意外(台)"}
 {"work_id":"tmdb-m-36102","ord":0,"alias":"The Swindle"}
 {"work_id":"tmdb-m-36102","ord":1,"alias":"The Swindlers"}
 {"work_id":"tmdb-m-36102","ord":2,"alias":"IL bidone"}
@@ -2872,22 +2977,63 @@
 {"work_id":"tmdb-m-36346","ord":5,"alias":"Close to Eden"}
 {"work_id":"tmdb-m-36346","ord":6,"alias":"Urga"}
 {"work_id":"tmdb-m-36346","ord":7,"alias":"蒙古精神"}
+{"work_id":"tmdb-m-36652","ord":0,"alias":"大地"}
+{"work_id":"tmdb-m-370755","ord":0,"alias":"柏德逊(港)"}
+{"work_id":"tmdb-m-370755","ord":1,"alias":"派特森(台)"}
+{"work_id":"tmdb-m-37230","ord":0,"alias":"周六晚与周日晨"}
+{"work_id":"tmdb-m-37230","ord":1,"alias":"年少莫轻狂"}
+{"work_id":"tmdb-m-37230","ord":2,"alias":"狂野的周末"}
+{"work_id":"tmdb-m-37230","ord":3,"alias":"浪子春潮"}
+{"work_id":"tmdb-m-37247","ord":0,"alias":"Le lauréat"}
+{"work_id":"tmdb-m-37247","ord":1,"alias":"Die Reifeprüfung"}
 {"work_id":"tmdb-m-37903","ord":0,"alias":"白色恐惧(港)"}
 {"work_id":"tmdb-m-37903","ord":1,"alias":"白色缎带(台)"}
 {"work_id":"tmdb-m-37903","ord":2,"alias":"白色丝带"}
 {"work_id":"tmdb-m-37903","ord":3,"alias":"The White Ribbon"}
 {"work_id":"tmdb-m-37903","ord":4,"alias":"Le Ruban Blanc"}
+{"work_id":"tmdb-m-37952","ord":0,"alias":"希腊三部曲之哭泣的绿地"}
+{"work_id":"tmdb-m-37952","ord":1,"alias":"三部曲I：哭泣的绿地"}
+{"work_id":"tmdb-m-37952","ord":2,"alias":"希腊首部曲：悲伤草原"}
+{"work_id":"tmdb-m-37952","ord":3,"alias":"Trilogy: The Weeping Meadow"}
 {"work_id":"tmdb-m-38143","ord":0,"alias":"The Story of Qiu-Ju"}
 {"work_id":"tmdb-m-38143","ord":1,"alias":"Qiu Ju Goes to Court"}
+{"work_id":"tmdb-m-385221","ord":0,"alias":"Biruma no tategoto"}
+{"work_id":"tmdb-m-385221","ord":1,"alias":"The Burmese Harp"}
+{"work_id":"tmdb-m-38695","ord":0,"alias":"公寓之恋"}
+{"work_id":"tmdb-m-38695","ord":1,"alias":"M. Hire"}
+{"work_id":"tmdb-m-38884","ord":0,"alias":"以祖国之名(台)"}
+{"work_id":"tmdb-m-398","ord":0,"alias":"冷血字传(港)"}
+{"work_id":"tmdb-m-398","ord":1,"alias":"柯波帝：冷血告白(台)"}
+{"work_id":"tmdb-m-398","ord":2,"alias":"凯波特"}
 {"work_id":"tmdb-m-404","ord":0,"alias":"斯特雷德的故事"}
 {"work_id":"tmdb-m-404","ord":1,"alias":"路直路弯"}
+{"work_id":"tmdb-m-408542","ord":0,"alias":"出狱的女人(港)"}
+{"work_id":"tmdb-m-408542","ord":1,"alias":"离去的女人"}
+{"work_id":"tmdb-m-408542","ord":2,"alias":"The Woman Who Left"}
+{"work_id":"tmdb-m-4105","ord":0,"alias":"原子劫"}
+{"work_id":"tmdb-m-4105","ord":1,"alias":"Black Rain"}
+{"work_id":"tmdb-m-4105","ord":2,"alias":"黑雨"}
 {"work_id":"tmdb-m-4147","ord":0,"alias":"末路骄阳(港)"}
 {"work_id":"tmdb-m-4147","ord":1,"alias":"非法正义(台)"}
 {"work_id":"tmdb-m-4147","ord":2,"alias":"地狱之路"}
+{"work_id":"tmdb-m-42006","ord":0,"alias":"Red Sorghum"}
+{"work_id":"tmdb-m-42006","ord":1,"alias":"Sorgo rojo"}
+{"work_id":"tmdb-m-42102","ord":0,"alias":"恶魔山庄"}
+{"work_id":"tmdb-m-42102","ord":1,"alias":"诱饵"}
+{"work_id":"tmdb-m-42102","ord":2,"alias":"在郊外的一个星期天"}
+{"work_id":"tmdb-m-42102","ord":3,"alias":"乡村星期天"}
+{"work_id":"tmdb-m-42102","ord":4,"alias":"A Sunday in the Country"}
+{"work_id":"tmdb-m-42106","ord":0,"alias":"卡门"}
 {"work_id":"tmdb-m-42122","ord":0,"alias":"近身"}
 {"work_id":"tmdb-m-42122","ord":1,"alias":"服装师"}
 {"work_id":"tmdb-m-42122","ord":2,"alias":"化妆师"}
 {"work_id":"tmdb-m-42122","ord":3,"alias":"风雨守衣箱"}
+{"work_id":"tmdb-m-42130","ord":0,"alias":"圣洛伦索之夜"}
+{"work_id":"tmdb-m-42130","ord":1,"alias":"疾走繁星夜"}
+{"work_id":"tmdb-m-42130","ord":2,"alias":"Night of the Shooting Stars"}
+{"work_id":"tmdb-m-42225","ord":0,"alias":"吾父，吾主"}
+{"work_id":"tmdb-m-42225","ord":1,"alias":"我父，我主"}
+{"work_id":"tmdb-m-42225","ord":2,"alias":"我父我主"}
 {"work_id":"tmdb-m-42232","ord":0,"alias":"奔向光荣"}
 {"work_id":"tmdb-m-42232","ord":1,"alias":"迈向光荣"}
 {"work_id":"tmdb-m-423","ord":0,"alias":"钢琴战曲(港)"}
@@ -2895,23 +3041,71 @@
 {"work_id":"tmdb-m-423","ord":2,"alias":"战地琴声"}
 {"work_id":"tmdb-m-423","ord":3,"alias":"钢琴师"}
 {"work_id":"tmdb-m-423","ord":4,"alias":"钢琴家"}
+{"work_id":"tmdb-m-42590","ord":0,"alias":"The Clowns"}
+{"work_id":"tmdb-m-42590","ord":1,"alias":"小丑"}
 {"work_id":"tmdb-m-4291","ord":0,"alias":"菊次郎之夏"}
 {"work_id":"tmdb-m-4291","ord":1,"alias":"Kikujirô no natsu"}
 {"work_id":"tmdb-m-4291","ord":2,"alias":"Kikujiro"}
 {"work_id":"tmdb-m-44658","ord":0,"alias":"Dark Eyes"}
 {"work_id":"tmdb-m-44768","ord":0,"alias":"Warm Water Under a Red Bridge"}
+{"work_id":"tmdb-m-4588","ord":0,"alias":"色|戒"}
+{"work_id":"tmdb-m-4588","ord":1,"alias":"色·戒"}
+{"work_id":"tmdb-m-4588","ord":2,"alias":"色戒"}
+{"work_id":"tmdb-m-4588","ord":3,"alias":"Lust, Caution"}
+{"work_id":"tmdb-m-46106","ord":0,"alias":"毛毛虫"}
+{"work_id":"tmdb-m-46106","ord":1,"alias":"欲虫(台)"}
+{"work_id":"tmdb-m-46106","ord":2,"alias":"Caterpillar"}
+{"work_id":"tmdb-m-468284","ord":0,"alias":"给我一个道歉(港)"}
+{"work_id":"tmdb-m-468284","ord":1,"alias":"你只欠我一个道歉(台)"}
+{"work_id":"tmdb-m-468284","ord":2,"alias":"侮辱"}
+{"work_id":"tmdb-m-468284","ord":3,"alias":"诋毁"}
+{"work_id":"tmdb-m-468284","ord":4,"alias":"The Insult"}
+{"work_id":"tmdb-m-468284","ord":5,"alias":"L'insulte"}
+{"work_id":"tmdb-m-46999","ord":0,"alias":"热情之梦"}
+{"work_id":"tmdb-m-46999","ord":1,"alias":"理想夫人"}
+{"work_id":"tmdb-m-47432","ord":0,"alias":"鹳鸟的踟躇"}
+{"work_id":"tmdb-m-47432","ord":1,"alias":"To meteoro vima tou pelargou"}
+{"work_id":"tmdb-m-47432","ord":2,"alias":"The Suspended Step of the Stork"}
 {"work_id":"tmdb-m-47795","ord":0,"alias":"Landscape in the Mist"}
 {"work_id":"tmdb-m-47795","ord":1,"alias":"雾中风景"}
+{"work_id":"tmdb-m-48212","ord":0,"alias":"绑架金大中"}
+{"work_id":"tmdb-m-48212","ord":1,"alias":"케이티"}
 {"work_id":"tmdb-m-49982","ord":0,"alias":"A City of Sadness"}
 {"work_id":"tmdb-m-49982","ord":1,"alias":"A Cidade da Dor"}
+{"work_id":"tmdb-m-50797","ord":0,"alias":"毒太阳(港)"}
+{"work_id":"tmdb-m-50797","ord":1,"alias":"烈日灼身(台)"}
+{"work_id":"tmdb-m-50797","ord":2,"alias":"烈日当空"}
+{"work_id":"tmdb-m-50797","ord":3,"alias":"Utomlyonnye solntsem"}
+{"work_id":"tmdb-m-50797","ord":4,"alias":"Burnt by the Sun"}
+{"work_id":"tmdb-m-50797","ord":5,"alias":"Soleil Trompeur"}
 {"work_id":"tmdb-m-522","ord":0,"alias":"艾活传(港)"}
 {"work_id":"tmdb-m-522","ord":1,"alias":"艾得伍德"}
 {"work_id":"tmdb-m-522","ord":2,"alias":"爱在好莱坞的日子"}
 {"work_id":"tmdb-m-522","ord":3,"alias":"埃德·伍德"}
+{"work_id":"tmdb-m-52556","ord":0,"alias":"道路"}
+{"work_id":"tmdb-m-52556","ord":1,"alias":"The Way"}
+{"work_id":"tmdb-m-52556","ord":2,"alias":"自由之路"}
 {"work_id":"tmdb-m-54291","ord":0,"alias":"The River"}
 {"work_id":"tmdb-m-54291","ord":1,"alias":"La rivière"}
+{"work_id":"tmdb-m-55847","ord":0,"alias":"一个梦者的四个晚上(港)"}
+{"work_id":"tmdb-m-55847","ord":1,"alias":"一个男人的四个夜晚"}
+{"work_id":"tmdb-m-55847","ord":2,"alias":"白夜"}
+{"work_id":"tmdb-m-55847","ord":3,"alias":"梦想者四夜"}
+{"work_id":"tmdb-m-55847","ord":4,"alias":"Four Nights of a Dreamer"}
+{"work_id":"tmdb-m-56960","ord":0,"alias":"A Man of Straw"}
+{"work_id":"tmdb-m-56960","ord":1,"alias":"假想敌"}
+{"work_id":"tmdb-m-57969","ord":0,"alias":"铁道员"}
+{"work_id":"tmdb-m-57969","ord":1,"alias":"The Railroad Man"}
 {"work_id":"tmdb-m-5910","ord":0,"alias":"はなび"}
 {"work_id":"tmdb-m-5910","ord":1,"alias":"Fireworks"}
+{"work_id":"tmdb-m-62382","ord":0,"alias":"企业家之死"}
+{"work_id":"tmdb-m-62382","ord":1,"alias":"马太伊事件"}
+{"work_id":"tmdb-m-62382","ord":2,"alias":"玛蒂的爱情"}
+{"work_id":"tmdb-m-62382","ord":3,"alias":"马泰事件"}
+{"work_id":"tmdb-m-62382","ord":4,"alias":"The Mattei Affair"}
+{"work_id":"tmdb-m-62395","ord":0,"alias":"稚情"}
+{"work_id":"tmdb-m-62395","ord":1,"alias":"Miracle of Marcelino"}
+{"work_id":"tmdb-m-62395","ord":2,"alias":"污秽的城市"}
 {"work_id":"tmdb-m-637","ord":0,"alias":"一个快乐的传说(港)"}
 {"work_id":"tmdb-m-637","ord":1,"alias":"Life Is Beautiful"}
 {"work_id":"tmdb-m-64690","ord":0,"alias":"极速罪驾(港)"}
@@ -2927,6 +3121,13 @@
 {"work_id":"tmdb-m-69184","ord":3,"alias":"Maboroshi no hikari"}
 {"work_id":"tmdb-m-7294","ord":0,"alias":"扑头前失魂后"}
 {"work_id":"tmdb-m-7294","ord":1,"alias":"The Man Without a Past"}
+{"work_id":"tmdb-m-81401","ord":0,"alias":"都灵老马(港)"}
+{"work_id":"tmdb-m-81401","ord":1,"alias":"The Turin Horse"}
+{"work_id":"tmdb-m-8214","ord":0,"alias":"流云世事(台)"}
+{"work_id":"tmdb-m-8214","ord":1,"alias":"流云"}
+{"work_id":"tmdb-m-8214","ord":2,"alias":"浮云纪事"}
+{"work_id":"tmdb-m-8214","ord":3,"alias":"流云逝事"}
+{"work_id":"tmdb-m-8214","ord":4,"alias":"Drifting Clouds"}
 {"work_id":"tmdb-m-8342","ord":0,"alias":"三不管地带(台)"}
 {"work_id":"tmdb-m-8342","ord":1,"alias":"无人地带"}
 {"work_id":"tmdb-m-8342","ord":2,"alias":"无人之地"}
@@ -2934,8 +3135,28 @@
 {"work_id":"tmdb-m-914475","ord":0,"alias":"Platform"}
 {"work_id":"tmdb-m-9300","ord":0,"alias":"奥兰度(港)"}
 {"work_id":"tmdb-m-9300","ord":1,"alias":"美丽佳人欧兰朵(台)"}
+{"work_id":"tmdb-m-9343","ord":0,"alias":"菲茨卡拉多"}
+{"work_id":"tmdb-m-9343","ord":1,"alias":"陆上行舟"}
 {"work_id":"tmdb-m-93858","ord":0,"alias":"禁恋(台)"}
 {"work_id":"tmdb-m-93858","ord":1,"alias":"忌讳"}
+{"work_id":"tmdb-m-94706","ord":0,"alias":"光之梦(港)"}
+{"work_id":"tmdb-m-94706","ord":1,"alias":"果树阳光"}
+{"work_id":"tmdb-m-94706","ord":2,"alias":"Quince Tree of the Sun"}
+{"work_id":"tmdb-m-94706","ord":3,"alias":"Dream of Light"}
+{"work_id":"tmdb-m-9526","ord":0,"alias":"在晴朗的一天收档"}
+{"work_id":"tmdb-m-9526","ord":1,"alias":"草原一家亲"}
+{"work_id":"tmdb-m-9526","ord":2,"alias":"大家来我家"}
+{"work_id":"tmdb-m-9526","ord":3,"alias":"牧场之家好做伴"}
+{"work_id":"tmdb-m-96712","ord":0,"alias":"Puppetmaster"}
+{"work_id":"tmdb-m-96712","ord":1,"alias":"The Puppet Master"}
+{"work_id":"tmdb-m-98246","ord":0,"alias":"苏古诺夫之太阳"}
+{"work_id":"tmdb-m-98246","ord":1,"alias":"日之丸"}
+{"work_id":"tmdb-m-98246","ord":2,"alias":"The Sun"}
+{"work_id":"tmdb-m-98246","ord":3,"alias":"Solntse"}
+{"work_id":"tmdb-m-988","ord":0,"alias":"大特写"}
+{"work_id":"tmdb-m-988","ord":1,"alias":"危机"}
+{"work_id":"tmdb-m-988","ord":2,"alias":"China Syndrome"}
+{"work_id":"tmdb-m-988","ord":3,"alias":"中国综合症"}
 {"work_id":"tmdb-tv-102619","ord":0,"alias":"生命转弯那一天"}
 {"work_id":"tmdb-tv-1044","ord":0,"alias":"行星地球"}
 {"work_id":"tmdb-tv-106308","ord":0,"alias":"堪萨斯之歌"}

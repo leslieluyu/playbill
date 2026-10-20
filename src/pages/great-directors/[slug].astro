@@ -1,0 +1,254 @@
+---
+import { readFileSync } from "node:fs";
+import path from "node:path";
+import { getCollection, getEntry } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import Bi from "../../components/Bi.astro";
+import { workPath } from "../../lib/work-path";
+import { workSubtitle } from "../../lib/work-display";
+import { parseChartTags } from "../../lib/great-directors";
+import { gdTagLabel } from "../../lib/great-directors-labels";
+import { findPersonByEn } from "../../lib/person-match";
+
+export async function getStaticPaths() {
+  const directorsPath = path.join(process.cwd(), "db/seed/great-directors-directors.json");
+  const allDirectors = JSON.parse(readFileSync(directorsPath, "utf8")).directors as {
+    slug: string;
+    en: string;
+  }[];
+  const list = await getEntry("lists", "great-directors");
+  if (!list) return [];
+  const active = new Set(list.data.sections.map((s) => s.id));
+  const reserved = new Set(["directors", "films"]);
+  return allDirectors
+    .filter((d) => active.has(d.slug) && !reserved.has(d.slug))
+    .map((d) => ({ params: { slug: d.slug }, props: { director: d } }));
+}
+
+const { director: d } = Astro.props;
+const list = await getEntry("lists", "great-directors");
+if (!list) throw new Error("great-directors missing");
+
+const entries = list.data.entries.filter((e) => e.section === d.slug);
+
+const films = await Promise.all(
+  entries.map(async (e) => {
+    const work = await getEntry(e.work);
+    if (!work) return null;
+    return {
+      position: e.position,
+      note: e.note,
+      chart: e.chart,
+      work: work.data,
+      id: work.id,
+      href: workPath(work.data.kind, work.id),
+      subtitle: workSubtitle(work.data),
+      yearStart: work.data.yearStart ?? 0,
+    };
+  }),
+)
+  .then((xs) => xs.filter(Boolean))
+  .then((xs) => xs.sort((a, b) => b!.yearStart - a!.yearStart));
+
+// Collaborators: frequent cast on this director's phase-1 films
+const collabCounts = new Map<string, { zh?: string; en: string; n: number }>();
+for (const f of films) {
+  for (const p of f!.work.cast.slice(0, 6)) {
+    const key = p.en;
+    const cur = collabCounts.get(key) ?? { zh: p.zh, en: p.en, n: 0 };
+    cur.n++;
+    collabCounts.set(key, cur);
+  }
+}
+const collaborators = [...collabCounts.values()]
+  .filter((c) => c.n >= 2)
+  .sort((a, b) => b.n - a.n)
+  .slice(0, 12);
+
+const people = await getCollection("people");
+const person = findPersonByEn(people, d.en);
+const photo = person?.data.photo;
+
+const chartFromFilms = [
+  ...new Set(entries.flatMap((e) => parseChartTags(e.chart))),
+];
+const tagIds = [
+  ...new Set([
+    ...(d.masterTags ?? []),
+    ...(d.styleTags ?? []),
+    ...chartFromFilms,
+  ]),
+];
+const tagLabels = tagIds.map((id) => gdTagLabel(id)).filter(Boolean);
+
+const curatedBio = (d.bioZh ?? "").trim();
+const personBio = (person?.data.bioZh ?? "").trim();
+const badBio = (s: string) => /克\/美国|^.{0,2}\//.test(s) || s.length < 20;
+const displayCurated = curatedBio && !badBio(curatedBio) ? curatedBio : "";
+const displayPersonBio =
+  personBio && (!displayCurated || personBio.length > displayCurated.length + 40)
+    ? personBio
+    : personBio && badBio(displayCurated)
+      ? personBio
+      : "";
+const countryLine = (d.countries ?? []).filter(Boolean);
+
+const awardSnippets = [
+  ...new Set(
+    entries
+      .map((e) => e.note)
+      .filter((n) => n && /奥斯卡|戛纳|柏林|威尼斯|金球|BAFTA|凯撒/.test(n))
+      .slice(0, 8),
+  ),
+];
+
+const titleZh = `${d.zh} · 导演 · 场刊`;
+const titleEn = `${d.en} · Director · Playbill`;
+---
+
+<Base titleZh={titleZh} titleEn={titleEn}>
+  <header class="mast">
+    <div class="wrap">
+      <p class="kicker">
+        <a href="/great-directors/"><Bi zh="全部导演" en="All directors" /></a>
+        · <a href="/great-directors/films/"><Bi zh="全部影片" en="All films" /></a>
+        · TSPDT #{d.tspdtRank}
+      </p>
+      <div class="gd-director-hero">
+        {
+          photo ? (
+            <img
+              class="gd-director-photo"
+              src={photo}
+              alt=""
+              width="160"
+              height="160"
+              loading="eager"
+            />
+          ) : (
+            <span class="gd-director-photo gd-director-photo--empty" aria-hidden="true">
+              <span class="zh">暂无照片</span>
+            </span>
+          )
+        }
+        <div class="gd-director-hero-text">
+          <h1><Bi zh={d.zh} en={d.en} /></h1>
+      {
+        tagLabels.length ? (
+          <ul class="gd-director-tags" aria-label="Tags">
+            {tagLabels.map((t) => (
+              <li>
+                <Bi zh={t!.zh} en={t!.en} />
+              </li>
+            ))}
+          </ul>
+        ) : null
+      }
+          <p class="dek facts-inline">
+            {countryLine.length ? countryLine.join(" / ") : ""}
+            {
+              d.tspdt1000Count != null ? (
+                <span class="muted">
+                  {countryLine.length ? " · " : ""}
+                  TSPDT 1000: {d.tspdt1000Count} / {d.tspdtOtherCount ?? 0}
+                </span>
+              ) : null
+            }
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap gd-director-main">
+    {
+      displayCurated || displayPersonBio ? (
+        <section class="gd-director-bio">
+          {displayCurated ? (
+            <>
+              <h2><Bi zh="TSPDT 评点" en="TSPDT notes" /></h2>
+              <p>{displayCurated}</p>
+            </>
+          ) : null}
+          {displayPersonBio ? (
+            <>
+              <h2>
+                <Bi
+                  zh={displayCurated ? "人物资料" : "介绍"}
+                  en={displayCurated ? "Biography" : "About"}
+                />
+              </h2>
+              <p>{displayPersonBio}</p>
+            </>
+          ) : null}
+        </section>
+      ) : null
+    }
+
+    {
+      awardSnippets.length ? (
+        <section class="gd-director-awards">
+          <h2><Bi zh="获奖与提名（片单摘录）" en="Awards (from list notes)" /></h2>
+          <ul class="gd-award-list">
+            {awardSnippets.map((a) => (
+              <li>{a}</li>
+            ))}
+          </ul>
+        </section>
+      ) : null
+    }
+
+    {
+      collaborators.length ? (
+        <section class="gd-director-collab">
+          <h2><Bi zh="常见合作演员" en="Frequent collaborators" /></h2>
+          <ul class="gd-collab-list">
+            {
+              collaborators.map((c) => (
+                <li>
+                  {c.zh ?? c.en}
+                  <span class="muted"> ×{c.n}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+      ) : null
+    }
+
+    {
+      person ? (
+        <p class="gd-person-link">
+          <a href={`/people/${person.id}/`}>
+            <Bi zh="在场刊人物页查看完整关联" en="Full person page on Playbill" />
+          </a>
+        </p>
+      ) : null
+    }
+
+    <section class="gd-director-films">
+      <h2>
+        <Bi zh={`作品（${films.length}，新→旧）`} en={`Films (${films.length}, newest first)`} />
+      </h2>
+      <div class="gd-grid gd-grid--director">
+        {
+          films.map((f) => (
+            <a class="gd-tile" href={f!.href}>
+              <div class="gd-tile-poster">
+                {
+                  f!.work.poster ? (
+                    <img src={f!.work.poster} alt="" loading="lazy" width="160" height="240" />
+                  ) : (
+                    <span class="gd-tile-empty" aria-hidden="true" />
+                  )
+                }
+              </div>
+              <h3 class="gd-tile-title">{f!.work.zh ?? f!.work.en}</h3>
+              <p class="gd-tile-meta">{f!.work.years}</p>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+</Base>

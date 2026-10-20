@@ -1,0 +1,604 @@
+rank	title	year	douban_id	section	chart	position	note
+1	阿诺拉 Anora	2025	36195543	y2025	won	1	第97届
+2	魔法坏女巫 Wicked	2025	3148694	y2025	nom	2	第97届
+3	粗野派 The Brutalist	2025	30388206	y2025	nom	3	第97届
+4	摇滚诗人：未知的传奇 A Complete Unknown	2025	34940704	y2025	nom	4	第97届
+5	我仍在此 Ainda estou aqui	2025	35512487	y2025	nom	5	第97届
+6	沙丘2 Dune: Part Two	2025	35575567	y2025	nom	6	第97届
+7	某种物质 The Substance	2025	35882838	y2025	nom	7	第97届
+8	艾米莉亚·佩雷斯 Emilia Pérez	2025	35900114	y2025	nom	8	第97届
+9	秘密会议 Conclave	2025	35948807	y2025	nom	9	第97届
+10	五分钱男孩 Nickel Boys	2025	36449043	y2025	nom	10	第97届
+11	奥本海默 Oppenheimer	2024	35593344	y2024	won	1	第96届
+12	芭比 Barbie	2024	4058939	y2024	nom	2	第96届
+13	音乐大师 Maestro	2024	26653386	y2024	nom	3	第96届
+14	花月杀手 Killers of the Flower Moon	2024	26745332	y2024	nom	4	第96届
+15	过往人生 Past Lives	2024	34963356	y2024	nom	5	第96届
+16	利益区域 The Zone of Interest	2024	35169716	y2024	nom	6	第96届
+17	可怜的东西 Poor Things	2024	35350109	y2024	nom	7	第96届
+18	留校联盟 The Holdovers	2024	35496212	y2024	nom	8	第96届
+19	坠落的审判 Anatomie d'une chute	2024	35633650	y2024	nom	9	第96届
+20	美国小说 American Fiction	2024	36212631	y2024	nom	10	第96届
+21	瞬息全宇宙 Everything Everywhere All at Once	2023	30314848	y2023	won	1	第95届
+22	西线无战事 Im Westen nichts Neues	2023	3042261	y2023	nom	2	第95届
+23	阿凡达：水之道 Avatar: The Way of Water	2023	4811774	y2023	nom	3	第95届
+24	壮志凌云2：独行侠 Top Gun: Maverick	2023	6893932	y2023	nom	4	第95届
+25	猫王 Elvis	2023	26305582	y2023	nom	5	第95届
+26	悲情三角 Triangle of Sadness	2023	27066152	y2023	nom	6	第95届
+27	伊尼舍林的报丧女妖 The Banshees of Inisherin	2023	34969348	y2023	nom	7	第95届
+28	女人们的谈话 Women Talking	2023	35290372	y2023	nom	8	第95届
+29	造梦之家 The Fabelmans	2023	35390098	y2023	nom	9	第95届
+30	塔尔 Tár	2023	35430833	y2023	nom	10	第95届
+31	健听女孩 CODA	2022	35048413	y2022	won	1	第94届
+32	沙丘 Dune	2022	3001114	y2022	nom	2	第94届
+33	西区故事 West Side Story	2022	26820621	y2022	nom	3	第94届
+34	玉面情魔 Nightmare Alley	2022	27605105	y2022	nom	4	第94届
+35	国王理查德 King Richard	2022	30481476	y2022	nom	5	第94届
+36	犬之力 The Power of the Dog	2022	33437152	y2022	nom	6	第94届
+37	不要抬头 Don't Look Up	2022	34884712	y2022	nom	7	第94届
+38	甘草披萨 Licorice Pizza	2022	34888057	y2022	nom	8	第94届
+39	驾驶我的车 ドライブ・マイ・カー	2022	35235502	y2022	nom	9	第94届
+40	贝尔法斯特 Belfast	2022	35299584	y2022	nom	10	第94届
+41	寄生虫 기생충	2020	27010768	y2020	won	1	第92届
+42	极速车王 Ford v Ferrari	2020	6538866	y2020	nom	2	第92届
+43	爱尔兰人 The Irishman	2020	6981153	y2020	nom	3	第92届
+44	小妇人 Little Women	2020	26348103	y2020	nom	4	第92届
+45	好莱坞往事 Once Upon a Time... in Hollywood	2020	27087724	y2020	nom	5	第92届
+46	小丑 Joker	2020	27119724	y2020	nom	6	第92届
+47	婚姻故事 Marriage Story	2020	27202818	y2020	nom	7	第92届
+48	乔乔的异想世界 Jojo Rabbit	2020	30170546	y2020	nom	8	第92届
+49	1917	2020	30252495	y2020	nom	9	第92届
+50	绿皮书 Green Book	2019	27060077	y2019	won	1	第91届
+51	罗马 Roma	2019	1950330	y2019	nom	2	第91届
+52	一个明星的诞生 A Star Is Born	2019	4058933	y2019	nom	3	第91届
+53	波西米亚狂想曲 Bohemian Rhapsody	2019	5300054	y2019	nom	4	第91届
+54	黑豹 Black Panther	2019	6390825	y2019	nom	5	第91届
+55	宠儿 The Favourite	2019	26628282	y2019	nom	6	第91届
+56	副总统 Vice	2019	26920842	y2019	nom	7	第91届
+57	黑色党徒 BlacKkKlansman	2019	27133913	y2019	nom	8	第91届
+58	水形物语 The Shape of Water	2018	26752852	y2018	won	1	第90届
+59	伯德小姐 Lady Bird	2018	26588314	y2018	nom	2	第90届
+60	敦刻尔克 Dunkirk	2018	26607693	y2018	nom	3	第90届
+61	三块广告牌 Three Billboards Outside Ebbing, Missouri	2018	26611804	y2018	nom	4	第90届
+62	逃出绝命镇 Get Out	2018	26688480	y2018	nom	5	第90届
+63	至暗时刻 Darkest Hour	2018	26761416	y2018	nom	6	第90届
+64	请以你的名字呼唤我 Call Me by Your Name	2018	26799731	y2018	nom	7	第90届
+65	魅影缝匠 Phantom Thread	2018	26809592	y2018	nom	8	第90届
+66	华盛顿邮报 The Post	2018	26990609	y2018	nom	9	第90届
+67	月光男孩 Moonlight	2017	26648249	y2017	won	1	第89届
+68	降临 Arrival	2017	21324900	y2017	nom	2	第89届
+69	藩篱 Fences	2017	21339682	y2017	nom	3	第89届
+70	爱乐之城 La La Land	2017	25934014	y2017	nom	4	第89届
+71	海边的曼彻斯特 Manchester by the Sea	2017	25980443	y2017	nom	5	第89届
+72	雄狮 Lion	2017	26220650	y2017	nom	6	第89届
+73	血战钢锯岭 Hacksaw Ridge	2017	26325320	y2017	nom	7	第89届
+74	赴汤蹈火 Hell or High Water	2017	26389148	y2017	nom	8	第89届
+75	隐藏人物 Hidden Figures	2017	26615208	y2017	nom	9	第89届
+76	聚焦 Spotlight	2016	25954475	y2016	won	1	第88届
+77	疯狂的麦克斯4：狂暴之路 Mad Max: Fury Road	2016	3592854	y2016	nom	2	第88届
+78	荒野猎人 The Revenant	2016	5327268	y2016	nom	3	第88届
+79	布鲁克林 Brooklyn	2016	10741220	y2016	nom	4	第88届
+80	房间 Room	2016	25724855	y2016	nom	5	第88届
+81	火星救援 The Martian	2016	25864085	y2016	nom	6	第88届
+82	间谍之桥 Bridge of Spies	2016	25908051	y2016	nom	7	第88届
+83	大空头 The Big Short	2016	26303622	y2016	nom	8	第88届
+84	鸟人 Birdman or (The Unexpected Virtue of Ignorance)	2015	20438962	y2015	won	1	第87届
+85	少年时代 Boyhood	2015	2209575	y2015	nom	2	第87届
+86	塞尔玛 Selma	2015	3089638	y2015	nom	3	第87届
+87	模仿游戏 The Imitation Game	2015	10463953	y2015	nom	4	第87届
+88	布达佩斯大饭店 The Grand Budapest Hotel	2015	11525673	y2015	nom	5	第87届
+89	美国狙击手 American Sniper	2015	21263666	y2015	nom	6	第87届
+90	万物理论 The Theory of Everything	2015	24815950	y2015	nom	7	第87届
+91	爆裂鼓手 Whiplash	2015	25773932	y2015	nom	8	第87届
+92	为奴十二年 12 Years a Slave	2014	6879185	y2014	won	1	第86届
+93	达拉斯买家俱乐部 Dallas Buyers Club	2014	1793929	y2014	nom	2	第86届
+94	华尔街之狼 The Wolf of Wall Street	2014	2997076	y2014	nom	3	第86届
+95	地心引力 Gravity	2014	3793783	y2014	nom	4	第86届
+96	菲利普船长 Captain Phillips	2014	4116480	y2014	nom	5	第86届
+97	内布拉斯加 Nebraska	2014	6538833	y2014	nom	6	第86届
+98	她 Her	2014	6722879	y2014	nom	7	第86届
+99	美国骗局 American Hustle	2014	6873657	y2014	nom	8	第86届
+100	菲洛梅娜 Philomena	2014	19973780	y2014	nom	9	第86届
+101	逃离德黑兰 Argo	2013	6549903	y2013	won	1	第85届
+102	林肯 Lincoln	2013	1889242	y2013	nom	2	第85届
+103	少年派的奇幻漂流 Life of Pi	2013	1929463	y2013	nom	3	第85届
+104	乌云背后的幸福线 Silver Linings Playbook	2013	3094909	y2013	nom	4	第85届
+105	爱 Amour	2013	4798707	y2013	nom	5	第85届
+106	被解救的姜戈 Django Unchained	2013	6307447	y2013	nom	6	第85届
+107	猎杀本·拉登 Zero Dark Thirty	2013	6430835	y2013	nom	7	第85届
+108	悲惨世界 Les Misérables	2013	6860160	y2013	nom	8	第85届
+109	南国野兽 Beasts of the Southern Wild	2013	7015714	y2013	nom	9	第85届
+110	艺术家 The Artist	2012	6097775	y2012	won	1	第84届
+111	雨果 Hugo	2012	2028677	y2012	nom	2	第84届
+112	生命之树 The Tree of Life	2012	2336735	y2012	nom	3	第84届
+113	点球成金 Moneyball	2012	3023164	y2012	nom	4	第84届
+114	后裔 The Descendants	2012	3071509	y2012	nom	5	第84届
+115	特别响，非常近 Extremely Loud and Incredibly Close	2012	3078514	y2012	nom	6	第84届
+116	相助 The Help	2012	3792848	y2012	nom	7	第84届
+117	战马 War Horse	2012	4206436	y2012	nom	8	第84届
+118	午夜巴黎 Midnight in Paris	2012	4319218	y2012	nom	9	第84届
+119	国王的演讲 The King's Speech	2011	4023638	y2011	won	1	第83届
+120	玩具总动员3 Toy Story 3	2011	1858711	y2011	nom	2	第83届
+121	黑天鹅 Black Swan	2011	1978709	y2011	nom	3	第83届
+122	斗士 The Fighter	2011	2056093	y2011	nom	4	第83届
+123	社交网络 The Social Network	2011	3205624	y2011	nom	5	第83届
+124	盗梦空间 Inception	2011	3541415	y2011	nom	6	第83届
+125	孩子们都很好 The Kids Are All Right	2011	3569969	y2011	nom	7	第83届
+126	冬天的骨头 Winter's Bone	2011	3610676	y2011	nom	8	第83届
+127	大地惊雷 True Grit	2011	3626372	y2011	nom	9	第83届
+128	127小时 127 Hours	2011	4164444	y2011	nom	10	第83届
+129	拆弹部队 The Hurt Locker	2010	2028645	y2010	won	1	第82届
+130	无耻混蛋 Inglourious Basterds	2010	1438652	y2010	nom	2	第82届
+131	阿凡达 Avatar	2010	1652587	y2010	nom	3	第82届
+132	飞屋环游记 Up	2010	2129039	y2010	nom	4	第82届
+133	第九区 District 9	2010	3006772	y2010	nom	5	第82届
+134	珍爱 Precious	2010	3011072	y2010	nom	6	第82届
+135	成长教育 An Education	2010	3011093	y2010	nom	7	第82届
+136	在云端 Up in the Air	2010	3077791	y2010	nom	8	第82届
+137	严肃的男人 A Serious Man	2010	3135483	y2010	nom	9	第82届
+138	弱点 The Blind Side	2010	3552028	y2010	nom	10	第82届
+139	贫民窟的百万富翁 Slumdog Millionaire	2009	2209573	y2009	won	1	第81届
+140	本杰明·巴顿奇事 The Curious Case of Benjamin Button	2009	1485260	y2009	nom	2	第81届
+141	对话尼克松 Frost/Nixon	2009	2062678	y2009	nom	3	第81届
+142	朗读者 The Reader	2009	2213597	y2009	nom	4	第81届
+143	米尔克 Milk	2009	2336737	y2009	nom	5	第81届
+144	老无所依 No Country for Old Men	2008	1857099	y2008	won	1	第80届
+145	迈克尔·克莱顿 Michael Clayton	2008	1905790	y2008	nom	2	第80届
+146	血色将至 There Will Be Blood	2008	1945780	y2008	nom	3	第80届
+147	赎罪 Atonement	2008	1950148	y2008	nom	4	第80届
+148	朱诺 Juno	2008	2132495	y2008	nom	5	第80届
+149	无间道风云 The Departed	2007	1315316	y2007	won	1	第79届
+150	通天塔 Babel	2007	1498818	y2007	nom	2	第79届
+151	阳光小美女 Little Miss Sunshine	2007	1777612	y2007	nom	3	第79届
+152	女王 The Queen	2007	1866264	y2007	nom	4	第79届
+153	硫磺岛的来信 Letters from Iwo Jima	2007	1917171	y2007	nom	5	第79届
+154	撞车 Crash	2006	1388216	y2006	won	1	第78届
+155	断背山 Brokeback Mountain	2006	1418834	y2006	nom	2	第78届
+156	卡波特 Capote	2006	1422957	y2006	nom	3	第78届
+157	晚安，好运 Good Night, and Good Luck.	2006	1431617	y2006	nom	4	第78届
+158	慕尼黑 Munich	2006	1438338	y2006	nom	5	第78届
+159	百万美元宝贝 Million Dollar Baby	2005	1309016	y2005	won	1	第77届
+160	杯酒人生 Sideways	2005	1291833	y2005	nom	2	第77届
+161	寻找梦幻岛 Finding Neverland	2005	1308831	y2005	nom	3	第77届
+162	飞行家 The Aviator	2005	1309070	y2005	nom	4	第77届
+163	灵魂歌王 Ray	2005	1309085	y2005	nom	5	第77届
+164	指环王3：王者无敌 The Lord of the Rings: The Return of the King	2004	1291552	y2004	won	1	第76届
+165	迷失东京 Lost in Translation	2004	1291835	y2004	nom	2	第76届
+166	奔腾年代 Seabiscuit	2004	1307535	y2004	nom	3	第76届
+167	神秘河 Mystic River	2004	1307748	y2004	nom	4	第76届
+168	怒海争锋 Master and Commander: The Far Side of the World	2004	1307749	y2004	nom	5	第76届
+169	芝加哥 Chicago	2003	1307697	y2003	won	1	第75届
+170	指环王2：双塔奇兵 The Lord of the Rings: The Two Towers	2003	1291572	y2003	nom	2	第75届
+171	钢琴家 The Pianist	2003	1296736	y2003	nom	3	第75届
+172	纽约黑帮 Gangs of New York	2003	1301061	y2003	nom	4	第75届
+173	时时刻刻 The Hours	2003	1305666	y2003	nom	5	第75届
+174	美丽心灵 A Beautiful Mind	2002	1306029	y2002	won	1	第74届
+175	指环王1：护戒使者 The Lord of the Rings: The Fellowship of the Ring	2002	1291571	y2002	nom	2	第74届
+176	红磨坊 Moulin Rouge!	2002	1304641	y2002	nom	3	第74届
+177	意外边缘 In the Bedroom	2002	1306604	y2002	nom	4	第74届
+178	高斯福庄园 Gosford Park	2002	1306860	y2002	nom	5	第74届
+179	角斗士 Gladiator	2001	1293530	y2001	won	1	第73届
+180	永不妥协 Erin Brockovich	2001	1293050	y2001	nom	2	第73届
+181	毒品网络 Traffic	2001	1299235	y2001	nom	3	第73届
+182	卧虎藏龙 臥虎藏龍	2001	1301168	y2001	nom	4	第73届
+183	浓情巧克力 Chocolat	2001	1301890	y2001	nom	5	第73届
+184	美国丽人 American Beauty	2000	1292062	y2000	won	1	第72届
+185	惊曝内幕 The Insider	2000	1292660	y2000	nom	2	第72届
+186	苹果酒屋法则 The Cider House Rules	2000	1296821	y2000	nom	3	第72届
+187	第六感 The Sixth Sense	2000	1297630	y2000	nom	4	第72届
+188	绿里奇迹 The Green Mile	2000	1300374	y2000	nom	5	第72届
+189	莎翁情史 Shakespeare in Love	1999	1300220	y1999	won	1	第71届
+190	美丽人生 La vita è bella	1999	1292063	y1999	nom	2	第71届
+191	细细的红线 The Thin Red Line	1999	1292781	y1999	nom	3	第71届
+192	拯救大兵瑞恩 Saving Private Ryan	1999	1292849	y1999	nom	4	第71届
+193	伊丽莎白 Elizabeth	1999	1296223	y1999	nom	5	第71届
+194	泰坦尼克号 Titanic	1998	1292722	y1998	won	1	第70届
+195	洛城机密 L.A. Confidential	1998	1292348	y1998	nom	2	第70届
+196	光猪六壮士 The Full Monty	1998	1292541	y1998	nom	3	第70届
+197	心灵捕手 Good Will Hunting	1998	1292656	y1998	nom	4	第70届
+198	尽善尽美 As Good as It Gets	1998	1293917	y1998	nom	5	第70届
+199	英国病人 The English Patient	1997	1291853	y1997	won	1	第69届
+200	冰血暴 Fargo	1997	1292067	y1997	nom	2	第69届
+201	甜心先生 Jerry Maguire	1997	1293158	y1997	nom	3	第69届
+202	秘密与谎言 Secrets & Lies	1997	1294477	y1997	nom	4	第69届
+203	闪亮的风采 Shine	1997	1297007	y1997	nom	5	第69届
+204	勇敢的心 Braveheart	1996	1294639	y1996	won	1	第68届
+205	小猪宝贝 Babe	1996	1292765	y1996	nom	2	第68届
+206	阿波罗13号 Apollo 13	1996	1293785	y1996	nom	3	第68届
+207	邮差 Il postino	1996	1298468	y1996	nom	4	第68届
+208	理智与情感 Sense and Sensibility	1996	1299193	y1996	nom	5	第68届
+209	阿甘正传 Forrest Gump	1995	1292720	y1995	won	1	第67届
+210	低俗小说 Pulp Fiction	1995	1291832	y1995	nom	2	第67届
+211	肖申克的救赎 The Shawshank Redemption	1995	1292052	y1995	nom	3	第67届
+212	机智问答 Quiz Show	1995	1292759	y1995	nom	4	第67届
+213	四个婚礼和一个葬礼 Four Weddings and a Funeral	1995	1294950	y1995	nom	5	第67届
+214	辛德勒的名单 Schindler's List	1994	1295124	y1994	won	1	第66届
+215	告别有情天 The Remains of the Day	1994	1293004	y1994	nom	2	第66届
+216	钢琴课 The Piano	1994	1293818	y1994	nom	3	第66届
+217	因父之名 In the Name of the Father	1994	1297009	y1994	nom	4	第66届
+218	亡命天涯 The Fugitive	1994	1297229	y1994	nom	5	第66届
+219	不可饶恕 Unforgiven	1993	1293566	y1993	won	1	第65届
+220	霍华德庄园 Howards End	1993	1293706	y1993	nom	2	第65届
+221	好人寥寥 A Few Good Men	1993	1295260	y1993	nom	3	第65届
+222	哭泣的游戏 The Crying Game	1993	1298370	y1993	nom	4	第65届
+223	闻香识女人 Scent of a Woman	1993	1298624	y1993	nom	5	第65届
+224	沉默的羔羊 The Silence of the Lambs	1992	1293544	y1992	won	1	第64届
+225	刺杀肯尼迪 JFK	1992	1292230	y1992	nom	2	第64届
+226	豪情四海 Bugsy	1992	1292452	y1992	nom	3	第64届
+227	潮浪王子 The Prince of Tides	1992	1297398	y1992	nom	4	第64届
+228	美女与野兽 Beauty and the Beast	1992	1297995	y1992	nom	5	第64届
+229	与狼共舞 Dances with Wolves	1991	1293764	y1991	won	1	第63届
+230	好家伙 GoodFellas	1991	1292268	y1991	nom	2	第63届
+231	人鬼情未了 Ghost	1991	1293203	y1991	nom	3	第63届
+232	教父3 The Godfather: Part III	1991	1294240	y1991	nom	4	第63届
+233	无语问苍天 Awakenings	1991	1296805	y1991	nom	5	第63届
+234	为黛西小姐开车 Driving Miss Daisy	1990	1293204	y1990	won	1	第62届
+235	死亡诗社 Dead Poets Society	1990	1291548	y1990	nom	2	第62届
+236	生于七月四日 Born on the Fourth of July	1990	1292874	y1990	nom	3	第62届
+237	我的左脚 My Left Foot	1990	1294000	y1990	nom	4	第62届
+238	梦幻之地 Field of Dreams	1990	1294070	y1990	nom	5	第62届
+239	雨人 Rain Man	1989	1291870	y1989	won	1	第61届
+240	意外的旅客 The Accidental Tourist	1989	1293736	y1989	nom	2	第61届
+241	上班女郎 Working Girl	1989	1294849	y1989	nom	3	第61届
+242	危险关系 Dangerous Liaisons	1989	1295713	y1989	nom	4	第61届
+243	烈血大风暴 Mississippi Burning	1989	1300365	y1989	nom	5	第61届
+244	末代皇帝 The Last Emperor	1988	1293172	y1988	won	1	第60届
+245	收播新闻 Broadcast News	1988	1292511	y1988	nom	2	第60届
+246	月色撩人 Moonstruck	1988	1292869	y1988	nom	3	第60届
+247	希望与荣耀 Hope and Glory	1988	1294245	y1988	nom	4	第60届
+248	致命诱惑 Fatal Attraction	1988	1294587	y1988	nom	5	第60届
+249	野战排 Platoon	1987	1293396	y1987	won	1	第59届
+250	汉娜姐妹 Hannah and Her Sisters	1987	1292764	y1987	nom	2	第59届
+251	看得见风景的房间 A Room with a View	1987	1293926	y1987	nom	3	第59届
+252	教会 The Mission	1987	1294620	y1987	nom	4	第59届
+253	失宠于上帝的孩子们 Children of a Lesser God	1987	1300422	y1987	nom	5	第59届
+254	走出非洲 Out of Africa	1986	1291840	y1986	won	1	第58届
+255	证人 Witness	1986	1293229	y1986	nom	2	第58届
+256	普里兹家族的荣誉 Prizzi's Honor	1986	1293804	y1986	nom	3	第58届
+257	紫色 The Color Purple	1986	1294503	y1986	nom	4	第58届
+258	蜘蛛女之吻 Kiss of the Spider Woman	1986	1299879	y1986	nom	5	第58届
+259	莫扎特传 Amadeus	1985	1293399	y1985	won	1	第57届
+260	印度之行 A Passage to India	1985	1291834	y1985	nom	2	第57届
+261	我心深处 Places in the Heart	1985	1292667	y1985	nom	3	第57届
+262	大兵 A Soldier's Story	1985	1294327	y1985	nom	4	第57届
+263	杀戮战场 The Killing Fields	1985	1296617	y1985	nom	5	第57届
+264	母女情深 Terms of Endearment	1984	1293341	y1984	won	1	第56届
+265	太空先锋 The Right Stuff	1984	1293371	y1984	nom	2	第56届
+266	大寒 The Big Chill	1984	1293796	y1984	nom	3	第56届
+267	换装师 The Dresser	1984	1295692	y1984	nom	4	第56届
+268	温柔的怜悯 Tender Mercies	1984	1300520	y1984	nom	5	第56届
+269	甘地传 Gandhi	1983	1292238	y1983	won	1	第55届
+270	大失踪 Missing	1983	1292927	y1983	nom	2	第55届
+271	E.T.外星人 E.T. the Extra-Terrestrial	1983	1294638	y1983	nom	3	第55届
+272	窈窕淑男 Tootsie	1983	1297737	y1983	nom	4	第55届
+273	大审判 The Verdict	1983	1300725	y1983	nom	5	第55届
+274	烈火战车 Chariots of Fire	1982	1300487	y1982	won	1	第54届
+275	烽火赤焰万里情 Reds	1982	1292891	y1982	nom	2	第54届
+276	金色池塘 On Golden Pond	1982	1293767	y1982	nom	3	第54届
+277	大西洋城 Atlantic City	1982	1294508	y1982	nom	4	第54届
+278	夺宝奇兵 Raiders of the Lost Ark	1982	1296717	y1982	nom	5	第54届
+279	普通人 Ordinary People	1981	1294925	y1981	won	1	第53届
+280	苔丝 Tess	1981	1291872	y1981	nom	2	第53届
+281	愤怒的公牛 Raging Bull	1981	1293155	y1981	nom	3	第53届
+282	象人 The Elephant Man	1981	1293200	y1981	nom	4	第53届
+283	矿工的女儿 Coal Miner's Daughter	1981	1295805	y1981	nom	5	第53届
+284	克莱默夫妇 Kramer vs. Kramer	1980	1300685	y1980	won	1	第52届
+285	现代启示录 Apocalypse Now	1980	1292260	y1980	nom	2	第52届
+286	告别昨日 Breaking Away	1980	1292932	y1980	nom	3	第52届
+287	诺玛·蕾 Norma Rae	1980	1294986	y1980	nom	4	第52届
+288	爵士春秋 All That Jazz	1980	1299330	y1980	nom	5	第52届
+289	猎鹿人 The Deer Hunter	1979	1292403	y1979	won	1	第51届
+290	不结婚的女人 An Unmarried Woman	1979	1293163	y1979	nom	2	第51届
+291	上错天堂投错胎 Heaven Can Wait	1979	1293809	y1979	nom	3	第51届
+292	荣归 Coming Home	1979	1295688	y1979	nom	4	第51届
+293	午夜快车 Midnight Express	1979	1296827	y1979	nom	5	第51届
+294	安妮·霍尔 Annie Hall	1978	1296987	y1978	won	1	第50届
+295	转折点 The Turning Point	1978	1292563	y1978	nom	2	第50届
+296	再见女郎 The Goodbye Girl	1978	1293505	y1978	nom	3	第50届
+297	茱莉亚 Julia	1978	1293553	y1978	nom	4	第50届
+298	星球大战 Star Wars	1978	1293838	y1978	nom	5	第50届
+299	洛奇 Rocky	1977	1295742	y1977	won	1	第49届
+300	出租车司机 Taxi Driver	1977	1292222	y1977	nom	2	第49届
+301	光荣何价 Bound for Glory	1977	1293194	y1977	nom	3	第49届
+302	总统班底 All the President's Men	1977	1293715	y1977	nom	4	第49届
+303	电视台风云 Network	1977	1297531	y1977	nom	5	第49届
+304	飞越疯人院 One Flew Over the Cuckoo's Nest	1976	1292224	y1976	won	1	第48届
+305	巴里·林登 Barry Lyndon	1976	1292472	y1976	nom	2	第48届
+306	纳什维尔 Nashville	1976	1293037	y1976	nom	3	第48届
+307	热天午后 Dog Day Afternoon	1976	1293374	y1976	nom	4	第48届
+308	大白鲨 Jaws	1976	1294941	y1976	nom	5	第48届
+309	教父2 The Godfather: Part II	1975	1299131	y1975	won	1	第47届
+310	唐人街 Chinatown	1975	1293889	y1975	nom	2	第47届
+311	伦尼的故事 Lenny	1975	1294087	y1975	nom	3	第47届
+312	窃听大阴谋 The Conversation	1975	1296908	y1975	nom	4	第47届
+313	火烧摩天楼 The Towering Inferno	1975	1298056	y1975	nom	5	第47届
+314	骗中骗 The Sting	1974	1292269	y1974	won	1	第46届
+315	金屋梦痕 A Touch of Class	1974	1292941	y1974	nom	2	第46届
+316	驱魔人 The Exorcist	1974	1293755	y1974	nom	3	第46届
+317	呼喊与细语 Viskningar och rop	1974	1296147	y1974	nom	4	第46届
+318	美国风情画 American Graffiti	1974	1300106	y1974	nom	5	第46届
+319	教父 The Godfather	1973	1291841	y1973	won	1	第45届
+320	儿子离家时 Sounder	1973	1293307	y1973	nom	2	第45届
+321	生死狂澜 Deliverance	1973	1293561	y1973	nom	3	第45届
+322	大移民 Utvandrarna	1973	1295184	y1973	nom	4	第45届
+323	歌厅 Cabaret	1973	1296282	y1973	nom	5	第45届
+324	法国贩毒网 The French Connection	1972	3013046	y1972	won	1	第44届
+325	发条橙 A Clockwork Orange	1972	1292233	y1972	nom	2	第44届
+326	俄宫秘史 Nicholas and Alexandra	1972	1295425	y1972	nom	3	第44届
+327	最后一场电影 The Last Picture Show	1972	1298026	y1972	nom	4	第44届
+328	屋顶上的小提琴手 Fiddler on the Roof	1972	1298517	y1972	nom	5	第44届
+329	巴顿将军 Patton	1971	1298308	y1971	won	1	第43届
+330	陆军野战医院 MASH	1971	1292766	y1971	nom	2	第43届
+331	国际机场 Airport	1971	1293348	y1971	nom	3	第43届
+332	爱情故事 Love Story	1971	1294768	y1971	nom	4	第43届
+333	五支歌 Five Easy Pieces	1971	1298192	y1971	nom	5	第43届
+334	午夜牛郎 Midnight Cowboy	1970	1297628	y1970	won	1	第42届
+335	我爱红娘 Hello, Dolly!	1970	1293094	y1970	nom	2	第42届
+336	虎豹小霸王 Butch Cassidy and the Sundance Kid	1970	1297602	y1970	nom	3	第42届
+337	安妮的一千日 Anne of the Thousand Days	1970	1298762	y1970	nom	4	第42届
+338	焦点新闻 Z	1970	1299026	y1970	nom	5	第42届
+339	雾都孤儿 Oliver!	1969	1293219	y1969	won	1	第41届
+340	冬狮 The Lion in Winter	1969	1293104	y1969	nom	2	第41届
+341	巧妇怨 Rachel, Rachel	1969	1293413	y1969	nom	3	第41届
+342	罗密欧与朱丽叶 Romeo and Juliet	1969	1295467	y1969	nom	4	第41届
+343	妙女郎 Funny Girl	1969	1300891	y1969	nom	5	第41届
+344	炎热的夜晚 In the Heat of the Night	1968	1295480	y1968	won	1	第40届
+345	毕业生 The Graduate	1968	1292271	y1968	nom	2	第40届
+346	猜猜谁来吃晚餐 Guess Who's Coming to Dinner	1968	1293688	y1968	nom	3	第40届
+347	雌雄大盗 Bonnie and Clyde	1968	1294584	y1968	nom	4	第40届
+348	杜立德医生 Doctor Dolittle	1968	1298410	y1968	nom	5	第40届
+349	日月精忠 A Man for All Seasons	1967	1296260	y1967	won	1	第39届
+350	俄国人来了！俄国人来了！ The Russians Are Coming! The Russians Are Coming!	1967	1292566	y1967	nom	2	第39届
+351	灵欲春宵 Who's Afraid of Virginia Woolf?	1967	1295137	y1967	nom	3	第39届
+352	圣保罗炮艇 The Sand Pebbles	1967	1298812	y1967	nom	4	第39届
+353	阿尔菲 Alfie	1967	1483944	y1967	nom	5	第39届
+354	音乐之声 The Sound of Music	1966	1294408	y1966	won	1	第38届
+355	愚人船 Ship of Fools	1966	1293228	y1966	nom	2	第38届
+356	一千个小丑 A Thousand Clowns	1966	1297205	y1966	nom	3	第38届
+357	日瓦戈医生 Doctor Zhivago	1966	1389949	y1966	nom	4	第38届
+358	亲爱的 Darling	1966	1437774	y1966	nom	5	第38届
+359	窈窕淑女 My Fair Lady	1965	1297965	y1965	won	1	第37届
+360	欢乐满人间 Mary Poppins	1965	1292658	y1965	nom	2	第37届
+361	奇爱博士 Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb	1965	1322848	y1965	nom	3	第37届
+362	希腊人佐巴 Zorba the Greek	1965	1417676	y1965	nom	4	第37届
+363	贝克特 Becket	1965	1947729	y1965	nom	5	第37届
+364	汤姆·琼斯 Tom Jones	1964	1292591	y1964	won	1	第36届
+365	埃及艳后 Cleopatra	1964	1292550	y1964	nom	2	第36届
+366	野百合 Lilies of the Field	1964	1294920	y1964	nom	3	第36届
+367	西部开拓史 How the West Was Won	1964	1296467	y1964	nom	4	第36届
+368	美国，美国 America, America	1964	1469159	y1964	nom	5	第36届
+369	阿拉伯的劳伦斯 Lawrence of Arabia	1963	1292349	y1963	won	1	第35届
+370	叛舰喋血记 Mutiny on the Bounty	1963	1292862	y1963	nom	2	第35届
+371	最长的一天 The Longest Day	1963	1293626	y1963	nom	3	第35届
+372	欢乐音乐妙无穷 The Music Man	1963	1296180	y1963	nom	4	第35届
+373	杀死一只知更鸟 To Kill a Mockingbird	1963	1297991	y1963	nom	5	第35届
+374	西区故事 West Side Story	1962	1295225	y1962	won	1	第34届
+375	纽伦堡的审判 Judgment at Nuremberg	1962	1292589	y1962	nom	2	第34届
+376	春江花月夜 Fanny	1962	1293775	y1962	nom	3	第34届
+377	纳瓦隆大炮 The Guns of Navarone	1962	1298721	y1962	nom	4	第34届
+378	江湖浪子 The Hustler	1962	1299517	y1962	nom	5	第34届
+379	桃色公寓 The Apartment	1961	1394218	y1961	won	1	第33届
+380	游牧客 The Sundowners	1961	1292657	y1961	nom	2	第33届
+381	孽海痴魂 Elmer Gantry	1961	1293813	y1961	nom	3	第33届
+382	儿子与情人 Sons and Lovers	1961	1299477	y1961	nom	4	第33届
+383	锦绣山河烈士血 The Alamo	1961	2995714	y1961	nom	5	第33届
+384	宾虚 Ben-Hur	1960	1293150	y1960	won	1	第32届
+385	修女传 The Nun's Story	1960	1292535	y1960	nom	2	第32届
+386	桃色血案 Anatomy of a Murder	1960	1293177	y1960	nom	3	第32届
+387	金屋泪 Room at the Top	1960	1293449	y1960	nom	4	第32届
+388	安妮少女日记 The Diary of Anne Frank	1960	1299783	y1960	nom	5	第32届
+389	金粉世界 Gigi	1959	1298127	y1959	won	1	第31届
+390	朱门巧妇 Cat on a Hot Tin Roof	1959	1294376	y1959	nom	2	第31届
+391	鸳鸯谱 Separate Tables	1959	1296262	y1959	nom	3	第31届
+392	逃狱惊魂 The Defiant Ones	1959	1297121	y1959	nom	4	第31届
+393	欢乐梅姑 Auntie Mame	1959	1926816	y1959	nom	5	第31届
+394	桂河大桥 The Bridge on the River Kwai	1958	1294958	y1958	won	1	第30届
+395	十二怒汉 12 Angry Men	1958	1293182	y1958	nom	2	第30届
+396	樱花恋 Sayonara	1958	1295355	y1958	nom	3	第30届
+397	控方证人 Witness for the Prosecution	1958	1296141	y1958	nom	4	第30届
+398	冷暖人间 Peyton Place	1958	1296391	y1958	nom	5	第30届
+399	环游世界八十天 Around the World in Eighty Days	1957	1458202	y1957	won	1	第29届
+400	四海一家 Friendly Persuasion	1957	1292747	y1957	nom	2	第29届
+401	十诫 The Ten Commandments	1957	1293692	y1957	nom	3	第29届
+402	国王与我 The King and I	1957	1297453	y1957	nom	4	第29届
+403	巨人传 Giant	1957	1298289	y1957	nom	5	第29届
+404	君子好逑 Marty	1956	1293584	y1956	won	1	第28届
+405	玫瑰梦 The Rose Tattoo	1956	1293513	y1956	nom	2	第28届
+406	罗伯茨先生 Mister Roberts	1956	1293725	y1956	nom	3	第28届
+407	野餐 Picnic	1956	1298015	y1956	nom	4	第28届
+408	生死恋 Love Is a Many-Splendored Thing	1956	1300632	y1956	nom	5	第28届
+409	码头风云 On the Waterfront	1955	1292521	y1955	won	1	第27届
+410	七新娘巧配七兄弟 Seven Brides for Seven Brothers	1955	1293600	y1955	nom	2	第27届
+411	乡下姑娘 The Country Girl	1955	1297088	y1955	nom	3	第27届
+412	罗马之恋 Three Coins in the Fountain	1955	1297896	y1955	nom	4	第27届
+413	叛舰凯恩号 The Caine Mutiny	1955	1298376	y1955	nom	5	第27届
+414	乱世忠魂 From Here to Eternity	1954	1298656	y1954	won	1	第26届
+415	原野奇侠 Shane	1954	1292767	y1954	nom	2	第26届
+416	圣袍 The Robe	1954	1293093	y1954	nom	3	第26届
+417	罗马假日 Roman Holiday	1954	1293839	y1954	nom	4	第26届
+418	凯撒大帝 Julius Caesar	1954	1295727	y1954	nom	5	第26届
+419	戏王之王 The Greatest Show on Earth	1953	1292730	y1953	won	1	第25届
+420	红磨坊 Moulin Rouge	1953	1293347	y1953	nom	2	第25届
+421	劫后英雄传 Ivanhoe	1953	1294257	y1953	nom	3	第25届
+422	蓬门今始为君开 The Quiet Man	1953	1295757	y1953	nom	4	第25届
+423	正午 High Noon	1953	1298521	y1953	nom	5	第25届
+424	一个美国人在巴黎 An American in Paris	1952	1316522	y1952	won	1	第24届
+425	郎心似铁 A Place in the Sun	1952	1293047	y1952	nom	2	第24届
+426	欲望号街车 A Streetcar Named Desire	1952	1293590	y1952	nom	3	第24届
+427	暴君焚城录 Quo Vadis	1952	1295200	y1952	nom	4	第24届
+428	血战莱茵河 Decision Before Dawn	1952	1296515	y1952	nom	5	第24届
+429	彗星美人 All About Eve	1951	1401385	y1951	won	1	第23届
+430	所罗门王宝藏 King Solomon's Mines	1951	1292693	y1951	nom	2	第23届
+431	岳父大人 Father of the Bride	1951	1295301	y1951	nom	3	第23届
+432	绛帐海堂春 Born Yesterday	1951	1296815	y1951	nom	4	第23届
+433	日落大道 Sunset Blvd.	1951	1298733	y1951	nom	5	第23届
+434	当代奸雄 All the King's Men	1950	1293697	y1950	won	1	第22届
+435	女继承人 The Heiress	1950	1293001	y1950	nom	2	第22届
+436	晴空血战史 Twelve O'Clock High	1950	1293089	y1950	nom	3	第22届
+437	西线平魔 Battleground	1950	1293542	y1950	nom	4	第22届
+438	三妻艳史 A Letter to Three Wives	1950	1293569	y1950	nom	5	第22届
+439	王子复仇记 Hamlet	1949	1296390	y1949	won	1	第21届
+440	碧血金沙 The Treasure of the Sierra Madre	1949	1292516	y1949	nom	2	第21届
+441	红菱艳 The Red Shoes	1949	1299204	y1949	nom	3	第21届
+442	心声泪影 Johnny Belinda	1949	1299601	y1949	nom	4	第21届
+443	蛇穴 The Snake Pit	1949	1300496	y1949	nom	5	第21届
+444	君子协定 Gentleman's Agreement	1948	1292808	y1948	won	1	第20届
+445	34街奇缘 Miracle on 34th Street	1948	1294652	y1948	nom	2	第20届
+446	仁慈天使 The Bishop's Wife	1948	1296060	y1948	nom	3	第20届
+447	双雄斗智 Crossfire	1948	1296912	y1948	nom	4	第20届
+448	远大前程 Great Expectations	1948	1297550	y1948	nom	5	第20届
+449	黄金时代 The Best Years of Our Lives	1947	1294100	y1947	won	1	第19届
+450	生活多美好 It's a Wonderful Life	1947	1293749	y1947	nom	2	第19届
+451	鹿苑长春 The Yearling	1947	1296491	y1947	nom	3	第19届
+452	亨利五世 Henry V	1947	1297375	y1947	nom	4	第19届
+453	刀锋 The Razor's Edge	1947	1297508	y1947	nom	5	第19届
+454	失去的周末 The Lost Weekend	1946	1297634	y1946	won	1	第18届
+455	爱德华大夫 Spellbound	1946	1293973	y1946	nom	2	第18届
+456	圣玛丽的钟声 The Bells of St. Mary's	1946	1295376	y1946	nom	3	第18届
+457	欲海情魔 Mildred Pierce	1946	1297227	y1946	nom	4	第18届
+458	银汉双星 Anchors Aweigh	1946	1298720	y1946	nom	5	第18届
+459	与我同行 Going My Way	1945	1292855	y1945	won	1	第17届
+460	威尔逊总统传 Wilson	1945	1292568	y1945	nom	2	第17届
+461	双重赔偿 Double Indemnity	1945	1293226	y1945	nom	3	第17届
+462	自君别后 Since You Went Away	1945	1295610	y1945	nom	4	第17届
+463	煤气灯下 Gaslight	1945	1296845	y1945	nom	5	第17届
+464	卡萨布兰卡 Casablanca	1944	1296753	y1944	won	1	第16届
+465	与祖国同在 In Which We Serve	1944	1292815	y1944	nom	2	第16届
+466	战地钟声 For Whom the Bell Tolls	1944	1293008	y1944	nom	3	第16届
+467	圣女之歌 The Song of Bernadette	1944	1293036	y1944	nom	4	第16届
+468	天堂可以等待 Heaven Can Wait	1944	1293608	y1944	nom	5	第16届
+469	房东小姐 The More the Merrier	1944	1293869	y1944	nom	6	第16届
+470	守卫莱茵河 Watch on the Rhine	1944	1296658	y1944	nom	7	第16届
+471	居里夫人 Madame Curie	1944	1296866	y1944	nom	8	第16届
+472	人间喜剧 The Human Comedy	1944	1299755	y1944	nom	9	第16届
+473	黄牛惨案 The Ox-Bow Incident	1944	1300732	y1944	nom	10	第16届
+474	忠勇之家 Mrs. Miniver	1943	1300321	y1943	won	1	第15届
+475	仙笛神童 The Pied Piper	1943	1292469	y1943	nom	2	第15届
+476	魔影袭人来 49th Parallel	1943	1293592	y1943	nom	3	第15届
+477	鸳梦重温 Random Harvest	1943	1293695	y1943	nom	4	第15届
+478	复活岛 Wake Island	1943	1294259	y1943	nom	5	第15届
+479	胜利之歌 Yankee Doodle Dandy	1943	1295014	y1943	nom	6	第15届
+480	洋基的骄傲 The Pride of the Yankees	1943	1296137	y1943	nom	7	第15届
+481	小镇话语 The Talk of the Town	1943	1297118	y1943	nom	8	第15届
+482	伟大的安巴逊 The Magnificent Ambersons	1943	1299214	y1943	nom	9	第15届
+483	金石盟 Kings Row	1943	1850479	y1943	nom	10	第15届
+484	青山翠谷 How Green Was My Valley	1942	1293322	y1942	won	1	第14届
+485	公民凯恩 Citizen Kane	1942	1292288	y1942	nom	2	第14届
+486	良宵苦短 Hold Back the Dawn	1942	1293277	y1942	nom	3	第14届
+487	落花飘零 Blossoms In the Dust	1942	1293974	y1942	nom	4	第14届
+488	约克中士 Sergeant York	1942	1294170	y1942	nom	5	第14届
+489	深闺疑云 Suspicion	1942	1295568	y1942	nom	6	第14届
+490	佐丹先生出马 Here Comes Mr. Jordan	1942	1297648	y1942	nom	7	第14届
+491	小狐狸 The Little Foxes	1942	1297676	y1942	nom	8	第14届
+492	马耳他之鹰 The Maltese Falcon	1942	1297874	y1942	nom	9	第14届
+493	天之骄子 One Foot in Heaven	1942	3320427	y1942	nom	10	第14届
+494	蝴蝶梦 Rebecca	1941	1293824	y1941	won	1	第13届
+495	愤怒的葡萄 The Grapes of Wrath	1941	1292465	y1941	nom	2	第13届
+496	卿何遵命 All This, and Heaven Too	1941	1292561	y1941	nom	3	第13届
+497	费城故事 The Philadelphia Story	1941	1292840	y1941	nom	4	第13届
+498	香笺泪 The Letter	1941	1293014	y1941	nom	5	第13届
+499	归途路迢迢 The Long Voyage Home	1941	1294173	y1941	nom	6	第13届
+500	海外特派员 Foreign Correspondent	1941	1295082	y1941	nom	7	第13届
+501	大独裁者 The Great Dictator	1941	1295646	y1941	nom	8	第13届
+502	小城月夜 Our Town	1941	1296296	y1941	nom	9	第13届
+503	女人万岁 Kitty Foyle	1941	1299815	y1941	nom	10	第13届
+504	乱世佳人 Gone with the Wind	1940	1300267	y1940	won	1	第12届
+505	绿野仙踪 The Wizard of Oz	1940	1292625	y1940	nom	2	第12届
+506	呼啸山庄 Wuthering Heights	1940	1293647	y1940	nom	3	第12届
+507	史密斯先生到华盛顿 Mr. Smith Goes to Washington	1940	1297127	y1940	nom	4	第12届
+508	妮诺契卡 Ninotchka	1940	1297926	y1940	nom	5	第12届
+509	关山飞渡 Stagecoach	1940	1298134	y1940	nom	6	第12届
+510	万世师表 Goodbye, Mr. Chips	1940	1298482	y1940	nom	7	第12届
+511	爱情事件 Love Affair	1940	1299065	y1940	nom	8	第12届
+512	黑暗的胜利 Dark Victory	1940	1299991	y1940	nom	9	第12届
+513	人鼠之间 Of Mice and Men	1940	1300449	y1940	nom	10	第12届
+514	浮生若梦 You Can't Take It with You	1939	1300636	y1939	won	1	第11届
+515	红衫泪痕 Jezebel	1939	1293468	y1939	nom	2	第11届
+516	无畏飞行家 Test Pilot	1939	1293668	y1939	nom	3	第11届
+517	孤儿乐园 Boys Town	1939	1294750	y1939	nom	4	第11届
+518	大幻影 La grande illusion	1939	1294808	y1939	nom	5	第11届
+519	春闺四凤 Four Daughters	1939	1295559	y1939	nom	6	第11届
+520	卫城记 The Citadel	1939	1298148	y1939	nom	7	第11届
+521	罗宾汉历险记 The Adventures of Robin Hood	1939	1300570	y1939	nom	8	第11届
+522	卖花女 Pygmalion	1939	1300614	y1939	nom	9	第11届
+523	亚历山大的爵士乐队 Alexander's Ragtime Band	1939	1300859	y1939	nom	10	第11届
+524	左拉传 The Life of Emile Zola	1938	1293216	y1938	won	1	第10届
+525	大地 The Good Earth	1938	1292968	y1938	nom	2	第10届
+526	摘星梦难圆 Stage Door	1938	1293100	y1938	nom	3	第10届
+527	消失的地平线 Lost Horizon	1938	1293244	y1938	nom	4	第10届
+528	一个明星的诞生 A Star Is Born	1938	1294450	y1938	nom	5	第10届
+529	芝加哥大火记 In Old Chicago	1938	1294546	y1938	nom	6	第10届
+530	死角 Dead End	1938	1295945	y1938	nom	7	第10届
+531	怒海余生 Captains Courageous	1938	1296527	y1938	nom	8	第10届
+532	春闺风月 The Awful Truth	1938	1297918	y1938	nom	9	第10届
+533	丹凤还阳 One Hundred Men and a Girl	1938	1438566	y1938	nom	10	第10届
+534	歌舞大王齐格飞 The Great Ziegfeld	1937	1294874	y1937	won	1	第9届
+535	春闺三凤 Three Smart Girls	1937	1292560	y1937	nom	2	第9届
+536	孔雀夫人 Dodsworth	1937	1292972	y1937	nom	3	第9届
+537	双城记 A Tale of Two Cities	1937	1296502	y1937	nom	4	第9届
+538	风流世家 Anthony Adverse	1937	1296540	y1937	nom	5	第9届
+539	万古流芳 The Story of Louis Pasteur	1937	1298168	y1937	nom	6	第9届
+540	迪兹先生进城 Mr. Deeds Goes to Town	1937	1298345	y1937	nom	7	第9届
+541	火烧旧金山 San Francisco	1937	1298628	y1937	nom	8	第9届
+542	假戏真做 Libeled Lady	1937	1298982	y1937	nom	9	第9届
+543	罗密欧与朱丽叶 Romeo and Juliet	1937	1303162	y1937	nom	10	第9届
+544	叛舰喋血记 Mutiny on the Bounty	1936	1298059	y1936	won	1	第8届
+545	悲惨世界 Les misérables	1936	1292847	y1936	nom	2	第8届
+546	礼帽 Top Hat	1936	1293168	y1936	nom	3	第8届
+547	寂寞芳心 Alice Adams	1936	1293418	y1936	nom	4	第8届
+548	傲世军魂 The Lives of a Bengal Lancer	1936	1293539	y1936	nom	5	第8届
+549	仲夏夜之梦 A Midsummer Night's Dream	1936	1294256	y1936	nom	6	第8届
+550	红谷英仆 Ruggles of Red Gap	1936	1295136	y1936	nom	7	第8届
+551	铁血将军 Captain Blood	1936	1295349	y1936	nom	8	第8届
+552	鸾凤和鸣 Naughty Marietta	1936	1296744	y1936	nom	9	第8届
+553	告密者 The Informer	1936	1296959	y1936	nom	10	第8届
+554	大卫·科伯菲尔德 The Personal History, Adventures, Experience, & Observation of David Copperfield the Younger	1936	1298843	y1936	nom	11	第8届
+555	百老汇旋律1936 Broadway Melody of 1936	1936	1964109	y1936	nom	12	第8届
+556	一夜风流 It Happened One Night	1935	1295684	y1935	won	1	第7届
+557	自由万岁 Viva Villa!	1935	1292971	y1935	nom	2	第7届
+558	瘦子 The Thin Man	1935	1293827	y1935	nom	3	第7届
+559	埃及艳后 Cleopatra	1935	1294166	y1935	nom	4	第7届
+560	红楼春怨 The Barretts of Wimpole Street	1935	1296460	y1935	nom	5	第7届
+561	柳暗花明 The Gay Divorcee	1935	1299736	y1935	nom	6	第7届
+562	春宵情曲 One Night of Love	1935	1300866	y1935	nom	7	第7届
+563	春风秋雨 Imitation of Life	1935	1865008	y1935	nom	8	第7届
+564	漫步调情 Flirtation Walk	1935	2131886	y1935	nom	9	第7届
+565	玉帛干戈 The House of Rothschild	1935	2275468	y1935	nom	10	第7届
+566	海军来了 Here Comes the Navy	1935	3319851	y1935	nom	11	第7届
+567	毅性柔心 The White Parade	1935	3319859	y1935	nom	12	第7届
+568	乱世春秋 Cavalcade	1934	1300344	y1934	won	1	第6届
+569	亡命者 I Am a Fugitive from a Chain Gang	1934	1292471	y1934	nom	2	第6届
+570	第四十二街 42nd Street	1934	1292559	y1934	nom	3	第6届
+571	侬本多情 She Done Him Wrong	1934	1292818	y1934	nom	4	第6届
+572	赛珍会 State Fair	1934	1292835	y1934	nom	5	第6届
+573	告别武器 A Farewell to Arms	1934	1293116	y1934	nom	6	第6届
+574	英宫艳史 The Private Life of Henry VIII	1934	1296050	y1934	nom	7	第6届
+575	小妇人 Little Women	1934	1297022	y1934	nom	8	第6届
+576	一日贵妇 Lady for a Day	1934	1297915	y1934	nom	9	第6届
+577	旧情别寄 Smilin' Through	1934	3319847	y1934	nom	10	第6届
+578	大饭店 Grand Hotel	1932	1297626	y1932	won	1	第5届
+579	最后的五颗星 Five Star Final	1932	1293613	y1932	nom	2	第5届
+580	难测女人心 Bad Girl	1932	1293883	y1932	nom	3	第5届
+581	情医 Arrowsmith	1932	1293911	y1932	nom	4	第5届
+582	上海快车 Shanghai Express	1932	1293996	y1932	nom	5	第5届
+583	红楼艳史 One Hour with You	1932	1295205	y1932	nom	6	第5届
+584	舐犊情深 The Champ	1932	1296804	y1932	nom	7	第5届
+585	驸马艳史 The Smiling Lieutenant	1932	1298994	y1932	nom	8	第5届
+586	壮志千秋 Cimarron	1931	1295928	y1931	won	1	第4届
+587	大探险 Trader Horn	1931	1292643	y1931	nom	2	第4届
+588	头条新闻 The Front Page	1931	1295504	y1931	nom	3	第4届
+589	淘哥儿 Skippy	1931	1296566	y1931	nom	4	第4届
+590	东林怨 East Lynne	1931	3319287	y1931	nom	5	第4届
+591	西线无战事 All Quiet on the Western Front	1930	1295116	y1930	won	1	第3届
+592	璇宫艳史 The Love Parade	1930	1292537	y1930	nom	2	第3届
+593	弃妇怨 The Divorcee	1930	1295458	y1930	nom	3	第3届
+594	英宫外史 Disraeli	1930	1296118	y1930	nom	4	第3届
+595	牢狱鸳 The Big House	1930	1297678	y1930	nom	5	第3届
+596	百老汇旋律 The Broadway Melody	1930	1292670	y1930	won	1	第2届
+597	亚利桑纳奇侠 In Old Arizona	1930	1292621	y1930	nom	2	第2届
+598	爱国者 The Patriot	1930	1304203	y1930	nom	3	第2届
+599	不在场证明 Alibi	1930	2225398	y1930	nom	4	第2届
+600	1929好莱坞滑稽剧 The Hollywood Revue of 1929	1930	3291609	y1930	nom	5	第2届
+601	翼 Wings	1929	1293774	y1929	won	1	第1届
+602	第七天堂 7th Heaven	1929	1300790	y1929	nom	2	第1届
+603	非法图利 The Racket	1929	3457635	y1929	nom	3	第1届

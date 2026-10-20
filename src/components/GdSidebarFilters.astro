@@ -1,0 +1,128 @@
+---
+import Bi from "./Bi.astro";
+import type { GdTag } from "../lib/great-directors";
+
+export interface Props {
+  countries: string[];
+  tagGroups: {
+    titleZh: string;
+    titleEn: string;
+    filterKind: "master" | "style" | "award";
+    tags: GdTag[];
+  }[];
+  tagCounts: Map<string, number>;
+  searchPlaceholderZh: string;
+  searchPlaceholderEn: string;
+  /** Extra muted note under filters (optional). */
+  footnote?: { zh: string; en: string };
+}
+
+const {
+  countries,
+  tagGroups,
+  tagCounts,
+  searchPlaceholderZh,
+  searchPlaceholderEn,
+  footnote,
+} = Astro.props;
+---
+
+<aside class="side gd-side" aria-label="Filters">
+  <label class="gd-search-label">
+    <span class="sr-only"><Bi zh="搜索" en="Search" /></span>
+    <input
+      type="search"
+      id="gd-search"
+      class="gd-search"
+      placeholder={searchPlaceholderZh}
+      autocomplete="off"
+      data-placeholder-zh={searchPlaceholderZh}
+      data-placeholder-en={searchPlaceholderEn}
+    />
+  </label>
+
+  <details class="gd-filter-block" open>
+    <summary><Bi zh="国家 / 地区" en="Country" /></summary>
+    <p class="gd-filter-hint muted">
+      <Bi
+        zh="按导演国籍筛选；多国籍导演会出现在多个标签下。"
+        en="Filter by director nationality; dual nationals appear under each country."
+      />
+    </p>
+    <ul class="gd-tags" data-gd-filter="country">
+      <li><button type="button" class="gd-tag active" data-value="">全部</button></li>
+      {
+        countries.map((c) => (
+          <li>
+            <button type="button" class="gd-tag" data-value={c}>
+              {c}
+            </button>
+          </li>
+        ))
+      }
+    </ul>
+  </details>
+
+  {
+    tagGroups.map((g) => (
+      <details class="gd-filter-block" open>
+        <summary>
+          <Bi zh={g.titleZh} en={g.titleEn} />
+        </summary>
+        {g.filterKind === "master" ? (
+          <p class="gd-filter-hint muted">
+            <Bi
+              zh="《视与听》2002：影评人十佳 11 位、导演十佳 11 位；「大师」为两者并集（可重叠）。"
+              en="Sight & Sound 2002: 11 critics' picks, 11 directors' picks; «Masters» is the union (overlap allowed)."
+            />
+          </p>
+        ) : null}
+        {g.filterKind === "style" ? (
+          <p class="gd-filter-hint muted">
+            <Bi
+              zh="流派为单选；数字为当前榜单内关联导演人数，0 表示尚未标注。"
+              en="One movement at a time; numbers are directors on this list with that tag (0 = not tagged yet)."
+            />
+          </p>
+        ) : null}
+        <ul class="gd-tags" data-gd-filter={g.filterKind}>
+          {g.filterKind === "style" ? (
+            <li>
+              <button type="button" class="gd-tag active" data-value="">
+                <Bi zh="全部流派" en="All movements" />
+              </button>
+            </li>
+          ) : null}
+          {g.tags.map((t) => {
+            const n = tagCounts.get(t.id) ?? 0;
+            const empty = n === 0 && g.filterKind !== "master";
+            return (
+              <li>
+                <button
+                  type="button"
+                  class:list={["gd-tag", empty && "is-empty"]}
+                  data-value={t.id}
+                  title={empty ? `${t.en} (none on this list yet)` : t.en}
+                  disabled={empty}
+                >
+                  <Bi zh={t.zh} en={t.en} />
+                  <span class="gd-tag-count" aria-hidden="true">
+                    {n}
+                  </span>
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      </details>
+    ))
+  }
+
+  {
+    footnote ? (
+      <p class="gd-filter-hint muted">
+        <Bi zh={footnote.zh} en={footnote.en} />
+      </p>
+    ) : null
+  }
+</aside>

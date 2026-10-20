@@ -17,6 +17,7 @@ export function listBadgeLabel(
     return { zh: `21世纪剧集 ${rank}`, en: `NYT TV ${rank}` };
   }
   if (
+    listId === "oscar-best-picture" ||
     listId === "cannes-palme-dor" ||
     listId === "berlin-golden-bear" ||
     listId === "venice-golden-lion"
@@ -25,15 +26,13 @@ export function listBadgeLabel(
     const tagZh = chart === "won" ? "获奖" : chart === "nom" ? "提名" : "";
     const tagEn = chart === "won" ? "Winner" : chart === "nom" ? "Nominated" : "";
     if (year && tagZh) return { zh: `${year} · ${tagZh}`, en: `${year} · ${tagEn}` };
-    return {
-      zh: listId === "cannes-palme-dor" ? "戛纳金棕榈" : listId === "berlin-golden-bear" ? "柏林金熊" : "威尼斯金狮",
-      en:
-        listId === "cannes-palme-dor"
-          ? "Cannes Palme d'Or"
-          : listId === "berlin-golden-bear"
-            ? "Berlin Golden Bear"
-            : "Venice Golden Lion",
-    };
+    const short = {
+      "oscar-best-picture": { zh: "奥斯卡最佳影片", en: "Oscar Best Picture" },
+      "cannes-palme-dor": { zh: "戛纳金棕榈", en: "Cannes Palme d'Or" },
+      "berlin-golden-bear": { zh: "柏林金熊", en: "Berlin Golden Bear" },
+      "venice-golden-lion": { zh: "威尼斯金狮", en: "Venice Golden Lion" },
+    } as const;
+    return short[listId as keyof typeof short];
   }
   if (listId === "kinema-junpo-ten") {
     const year = sectionId?.startsWith("y") ? sectionId.slice(1) : "";

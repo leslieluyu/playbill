@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import Base from "../../layouts/Base.astro";
 import Bi from "../../components/Bi.astro";
 import { workPath } from "../../lib/work-path";
+import { listEntryHref } from "../../lib/list-entry-href";
 import { workSubtitle } from "../../lib/work-display";
 
 export async function getStaticPaths() {
@@ -168,7 +169,7 @@ const awardsRest = awards.slice(AWARDS_PREVIEW);
                           {lists.map((L) => (
                             <a
                               class={`list-badge list-badge-${L.listId}`}
-                              href={`/${L.listId}/#show-${L.rank}`}
+                              href={listEntryHref(L.listId, L.rank, w.id, w.kind)}
                               data-prefetch
                               title={`${L.detailZh} · #${L.rank}`}
                             >
