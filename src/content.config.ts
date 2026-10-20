@@ -36,6 +36,20 @@ const works = defineCollection({
     poster: z.string().optional(),
     imdbId: z.string().optional(),
     ratings: z.object({ douban: rating.optional(), imdb: rating.optional() }),
+    listAppearances: z
+      .array(
+        z.object({
+          listId: z.string(),
+          rank: z.number().int(),
+          listZh: z.string(),
+          listEn: z.string(),
+          detailZh: z.string(),
+          detailEn: z.string(),
+          hook: z.string().optional(),
+          hookEn: z.string().optional(),
+        }),
+      )
+      .default([]),
   }),
 });
 
@@ -64,6 +78,9 @@ const lists = defineCollection({
           rank: z.number().int().positive(),
           work: reference("works"),
           section: z.string().optional(),
+          chart: z.string().optional(),
+          position: z.number().int().optional(),
+          note: z.string().optional(),
           hook: z.string().optional(),
           hookEn: z.string().optional(),
         }),
@@ -98,6 +115,8 @@ const people = defineCollection({
               rank: z.number().int(),
               zh: z.string(),
               en: z.string(),
+              detailZh: z.string(),
+              detailEn: z.string(),
             }),
           )
           .default([]),

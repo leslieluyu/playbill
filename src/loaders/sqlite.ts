@@ -1,5 +1,6 @@
 import type { Loader } from "astro/loaders";
 import { openDb, yearsLabel } from "../../scripts/lib/db.mjs";
+import { listEntryDetail, listPageTitle } from "../lib/list-display";
 
 type Row = Record<string, any>;
 
@@ -22,6 +23,11 @@ function person(p: Row) {
   return { id: String(p.id), zh: p.zh ?? undefined, en: p.en };
 }
 
+function textField(row: Row | undefined, key: string) {
+  const v = row?.[key];
+  return typeof v === "string" && v.trim() ? v.trim() : undefined;
+}
+
 export function worksLoader(): Loader {
   return {
     name: "sqlite-works",
@@ -30,10 +36,21 @@ export function worksLoader(): Loader {
       const people = db.prepare(
         `SELECT p.id, p.zh, p.en FROM credits c JOIN people p ON p.id = c.person_id WHERE c.work_id = ? AND c.role = ? ORDER BY c.ord`,
       );
+      const listHits = db.prepare(
+        `SELECT le.list_id AS list_id, le.rank AS rank, le.section_id AS section_id,
+                le.chart AS chart, le.position AS position, l.title AS list_title
+         FROM list_entries le
+         JOIN lists l ON l.id = le.list_id
+         WHERE le.work_id = ?
+         ORDER BY l.ord, le.rank`,
+      );
+      const listHighlight = db.prepare(
+        "SELECT hook, hook_en FROM list_highlights WHERE list_id = ? AND work_id = ?",
+      );
       store.clear();
       for (const w of db.prepare("SELECT * FROM works ORDER BY id").all() as Row[]) {
         const ed = db
-          .prepare("SELECT plot, plot_en, playbill, playbill_en FROM editorial WHERE work_id = ? AND reviewed = 1")
+          .prepare("SELECT plot, plot_en, playbill, playbill_en FROM editorial WHERE work_id = ?")
           .get(w.id) as Row | undefined;
         const aliases = db.prepare("SELECT alias FROM work_aliases WHERE work_id = ? ORDER BY ord").all(w.id) as Row[];
         const genres = db
@@ -54,13 +71,36 @@ export function worksLoader(): Loader {
           creators: (people.all(w.id, w.kind === "movie" ? "director" : "creator") as Row[]).map(person),
           writers: (people.all(w.id, "writer") as Row[]).map(person),
           cast: (people.all(w.id, "cast") as Row[]).map(person),
-          plot: ed?.plot ?? undefined,
-          plotEn: ed?.plot_en ?? undefined,
-          playbill: ed?.playbill ?? undefined,
-          playbillEn: ed?.playbill_en ?? undefined,
+          plot: textField(ed, "plot"),
+          plotEn: textField(ed, "plot_en"),
+          playbill: textField(ed, "playbill"),
+          playbillEn: textField(ed, "playbill_en"),
           poster: w.poster ?? undefined,
           imdbId: w.imdb_id ?? undefined,
           ratings: latestRatings(db, w.id),
+          listAppearances: (listHits.all(w.id) as Row[]).map((h) => {
+            const listId = String(h.list_id);
+            const rank = Number(h.rank);
+            const titles = listPageTitle(listId, h.list_title as string);
+            const detail = listEntryDetail(
+              listId,
+              rank,
+              h.section_id as string | null,
+              h.chart as string | null,
+              h.position != null ? Number(h.position) : null,
+            );
+            const hi = listHighlight.get(h.list_id, w.id) as Row | undefined;
+            return {
+              listId,
+              rank,
+              listZh: titles.zh,
+              listEn: titles.en,
+              detailZh: detail.zh,
+              detailEn: detail.en,
+              hook: textField(hi, "hook"),
+              hookEn: textField(hi, "hook_en"),
+            };
+          }),
         };
         const data = await parseData({ id: w.id, data: raw });
         store.set({ id: w.id, data });
@@ -88,18 +128,23 @@ export function listsLoader(): Loader {
           sections: db
             .prepare("SELECT id, name, blurb, color FROM list_sections WHERE list_id = ? ORDER BY ord")
             .all(l.id),
-          entries: (db.prepare("SELECT rank, work_id, section_id FROM list_entries WHERE list_id = ? ORDER BY rank").all(l.id) as Row[]).map(
-            (e) => {
-              const h = highlight.get(l.id, e.work_id) as Row | undefined;
-              return {
-                rank: e.rank,
-                work: e.work_id,
-                section: e.section_id ?? undefined,
-                hook: h?.hook ?? undefined,
-                hookEn: h?.hook_en ?? undefined,
-              };
-            },
-          ),
+          entries: (
+            db.prepare(
+              "SELECT rank, work_id, section_id, chart, position, note FROM list_entries WHERE list_id = ? ORDER BY rank",
+            ).all(l.id) as Row[]
+          ).map((e) => {
+            const h = highlight.get(l.id, e.work_id) as Row | undefined;
+            return {
+              rank: e.rank,
+              work: e.work_id,
+              section: e.section_id ?? undefined,
+              chart: e.chart ?? undefined,
+              position: e.position ?? undefined,
+              note: e.note ?? undefined,
+              hook: h?.hook ?? undefined,
+              hookEn: h?.hook_en ?? undefined,
+            };
+          }),
         };
         const data = await parseData({ id: l.id, data: raw });
         store.set({ id: l.id, data });
@@ -125,26 +170,14 @@ export function peopleLoader(): Loader {
          ORDER BY w.year_start, w.id, c.role`,
       );
       const listHits = db.prepare(
-        `SELECT le.list_id AS list_id, le.rank AS rank, l.title AS list_title, l.ord AS list_ord
+        `SELECT le.list_id AS list_id, le.rank AS rank, le.section_id AS section_id,
+                le.chart AS chart, le.position AS position, l.title AS list_title, l.ord AS list_ord
          FROM list_entries le
          JOIN lists l ON l.id = le.list_id
          WHERE le.work_id = ?
          ORDER BY l.ord, le.rank`,
       );
 
-      const badgeLabel = (listId: string, rank: number) => {
-        if (listId === "criterion-spine") {
-          const n = String(rank).padStart(3, "0");
-          return { zh: `标准收藏 #${n}`, en: `Criterion #${n}` };
-        }
-        if (listId === "nyt-100-movies") {
-          return { zh: `21世纪电影 ${rank}`, en: `NYT Movies ${rank}` };
-        }
-        if (listId === "nyt-100-tv") {
-          return { zh: `21世纪剧集 ${rank}`, en: `NYT TV ${rank}` };
-        }
-        return { zh: `${listId} ${rank}`, en: `${listId} ${rank}` };
-      };
       const collabsFor = db.prepare(
         `SELECT p2.id AS id, p2.zh, p2.en, p2.photo,
                 COUNT(DISTINCT c1.work_id) AS n
@@ -172,12 +205,23 @@ export function peopleLoader(): Loader {
         if (!p) continue;
         const works = (worksFor.all(p.id) as Row[]).map((w) => {
           const hits = (listHits.all(w.id) as Row[]).map((h) => {
-            const label = badgeLabel(String(h.list_id), Number(h.rank));
+            const listId = String(h.list_id);
+            const rank = Number(h.rank);
+            const titles = listPageTitle(listId, h.list_title as string);
+            const detail = listEntryDetail(
+              listId,
+              rank,
+              h.section_id as string | null,
+              h.chart as string | null,
+              h.position != null ? Number(h.position) : null,
+            );
             return {
-              listId: String(h.list_id),
-              rank: Number(h.rank),
-              zh: label.zh,
-              en: label.en,
+              listId,
+              rank,
+              zh: titles.zh,
+              en: titles.en,
+              detailZh: detail.zh,
+              detailEn: detail.en,
             };
           });
           const primary = hits[0];

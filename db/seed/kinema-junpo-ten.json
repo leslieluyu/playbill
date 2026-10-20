@@ -1,0 +1,704 @@
+{
+  "id": "kinema-junpo-ten",
+  "title": "《电影旬报》历年十佳",
+  "kicker": "キネマ旬報 · Best Ten",
+  "dek": "日本《电影旬报》历年十佳整理（艺术性／娱乐性、日本／外国等分榜）。按旬报年度从新到旧排列；左侧可按年代与年度筛选，并按榜单类型标签过滤。",
+  "source": {
+    "name": "豆瓣豆列 · 《电影旬报》历年十佳",
+    "url": "https://www.douban.com/doulist/145457359/"
+  },
+  "kind": "movie",
+  "order": 7,
+  "entries": "kinema-junpo-ten.tsv",
+  "sections": [
+    {
+      "id": "y2024",
+      "order": -2024,
+      "name": "2024年度",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y2023",
+      "order": -2023,
+      "name": "2023年度",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y2022",
+      "order": -2022,
+      "name": "2022年度",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y2021",
+      "order": -2021,
+      "name": "2021年度",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y2020",
+      "order": -2020,
+      "name": "2020年度",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y2019",
+      "order": -2019,
+      "name": "2019年度",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2018",
+      "order": -2018,
+      "name": "2018年度",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2017",
+      "order": -2017,
+      "name": "2017年度",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2016",
+      "order": -2016,
+      "name": "2016年度",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2015",
+      "order": -2015,
+      "name": "2015年度",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2014",
+      "order": -2014,
+      "name": "2014年度",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2013",
+      "order": -2013,
+      "name": "2013年度",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2012",
+      "order": -2012,
+      "name": "2012年度",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2011",
+      "order": -2011,
+      "name": "2011年度",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2010",
+      "order": -2010,
+      "name": "2010年度",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2009",
+      "order": -2009,
+      "name": "2009年度",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y2008",
+      "order": -2008,
+      "name": "2008年度",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y2007",
+      "order": -2007,
+      "name": "2007年度",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y2006",
+      "order": -2006,
+      "name": "2006年度",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y2005",
+      "order": -2005,
+      "name": "2005年度",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y2004",
+      "order": -2004,
+      "name": "2004年度",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y2003",
+      "order": -2003,
+      "name": "2003年度",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y2002",
+      "order": -2002,
+      "name": "2002年度",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y2001",
+      "order": -2001,
+      "name": "2001年度",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y2000",
+      "order": -2000,
+      "name": "2000年度",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y1999",
+      "order": -1999,
+      "name": "1999年度",
+      "blurb": "",
+      "color": "#4a5568"
+    },
+    {
+      "id": "y1998",
+      "order": -1998,
+      "name": "1998年度",
+      "blurb": "",
+      "color": "#4a5568"
+    },
+    {
+      "id": "y1997",
+      "order": -1997,
+      "name": "1997年度",
+      "blurb": "",
+      "color": "#4a5568"
+    },
+    {
+      "id": "y1996",
+      "order": -1996,
+      "name": "1996年度",
+      "blurb": "",
+      "color": "#4a5568"
+    },
+    {
+      "id": "y1995",
+      "order": -1995,
+      "name": "1995年度",
+      "blurb": "",
+      "color": "#4a5568"
+    },
+    {
+      "id": "y1994",
+      "order": -1994,
+      "name": "1994年度",
+      "blurb": "",
+      "color": "#4a5568"
+    },
+    {
+      "id": "y1993",
+      "order": -1993,
+      "name": "1993年度",
+      "blurb": "",
+      "color": "#4a5568"
+    },
+    {
+      "id": "y1992",
+      "order": -1992,
+      "name": "1992年度",
+      "blurb": "",
+      "color": "#4a5568"
+    },
+    {
+      "id": "y1991",
+      "order": -1991,
+      "name": "1991年度",
+      "blurb": "",
+      "color": "#4a5568"
+    },
+    {
+      "id": "y1990",
+      "order": -1990,
+      "name": "1990年度",
+      "blurb": "",
+      "color": "#4a5568"
+    },
+    {
+      "id": "y1989",
+      "order": -1989,
+      "name": "1989年度",
+      "blurb": "",
+      "color": "#9a7a12"
+    },
+    {
+      "id": "y1988",
+      "order": -1988,
+      "name": "1988年度",
+      "blurb": "",
+      "color": "#9a7a12"
+    },
+    {
+      "id": "y1987",
+      "order": -1987,
+      "name": "1987年度",
+      "blurb": "",
+      "color": "#9a7a12"
+    },
+    {
+      "id": "y1986",
+      "order": -1986,
+      "name": "1986年度",
+      "blurb": "",
+      "color": "#9a7a12"
+    },
+    {
+      "id": "y1985",
+      "order": -1985,
+      "name": "1985年度",
+      "blurb": "",
+      "color": "#9a7a12"
+    },
+    {
+      "id": "y1984",
+      "order": -1984,
+      "name": "1984年度",
+      "blurb": "",
+      "color": "#9a7a12"
+    },
+    {
+      "id": "y1983",
+      "order": -1983,
+      "name": "1983年度",
+      "blurb": "",
+      "color": "#9a7a12"
+    },
+    {
+      "id": "y1982",
+      "order": -1982,
+      "name": "1982年度",
+      "blurb": "",
+      "color": "#9a7a12"
+    },
+    {
+      "id": "y1981",
+      "order": -1981,
+      "name": "1981年度",
+      "blurb": "",
+      "color": "#9a7a12"
+    },
+    {
+      "id": "y1980",
+      "order": -1980,
+      "name": "1980年度",
+      "blurb": "",
+      "color": "#9a7a12"
+    },
+    {
+      "id": "y1979",
+      "order": -1979,
+      "name": "1979年度",
+      "blurb": "",
+      "color": "#a8456e"
+    },
+    {
+      "id": "y1978",
+      "order": -1978,
+      "name": "1978年度",
+      "blurb": "",
+      "color": "#a8456e"
+    },
+    {
+      "id": "y1977",
+      "order": -1977,
+      "name": "1977年度",
+      "blurb": "",
+      "color": "#a8456e"
+    },
+    {
+      "id": "y1976",
+      "order": -1976,
+      "name": "1976年度",
+      "blurb": "",
+      "color": "#a8456e"
+    },
+    {
+      "id": "y1975",
+      "order": -1975,
+      "name": "1975年度",
+      "blurb": "",
+      "color": "#a8456e"
+    },
+    {
+      "id": "y1974",
+      "order": -1974,
+      "name": "1974年度",
+      "blurb": "",
+      "color": "#a8456e"
+    },
+    {
+      "id": "y1973",
+      "order": -1973,
+      "name": "1973年度",
+      "blurb": "",
+      "color": "#a8456e"
+    },
+    {
+      "id": "y1972",
+      "order": -1972,
+      "name": "1972年度",
+      "blurb": "",
+      "color": "#a8456e"
+    },
+    {
+      "id": "y1971",
+      "order": -1971,
+      "name": "1971年度",
+      "blurb": "",
+      "color": "#a8456e"
+    },
+    {
+      "id": "y1970",
+      "order": -1970,
+      "name": "1970年度",
+      "blurb": "",
+      "color": "#a8456e"
+    },
+    {
+      "id": "y1969",
+      "order": -1969,
+      "name": "1969年度",
+      "blurb": "",
+      "color": "#b33a2a"
+    },
+    {
+      "id": "y1968",
+      "order": -1968,
+      "name": "1968年度",
+      "blurb": "",
+      "color": "#b33a2a"
+    },
+    {
+      "id": "y1967",
+      "order": -1967,
+      "name": "1967年度",
+      "blurb": "",
+      "color": "#b33a2a"
+    },
+    {
+      "id": "y1966",
+      "order": -1966,
+      "name": "1966年度",
+      "blurb": "",
+      "color": "#b33a2a"
+    },
+    {
+      "id": "y1965",
+      "order": -1965,
+      "name": "1965年度",
+      "blurb": "",
+      "color": "#b33a2a"
+    },
+    {
+      "id": "y1964",
+      "order": -1964,
+      "name": "1964年度",
+      "blurb": "",
+      "color": "#b33a2a"
+    },
+    {
+      "id": "y1963",
+      "order": -1963,
+      "name": "1963年度",
+      "blurb": "",
+      "color": "#b33a2a"
+    },
+    {
+      "id": "y1962",
+      "order": -1962,
+      "name": "1962年度",
+      "blurb": "",
+      "color": "#b33a2a"
+    },
+    {
+      "id": "y1961",
+      "order": -1961,
+      "name": "1961年度",
+      "blurb": "",
+      "color": "#b33a2a"
+    },
+    {
+      "id": "y1960",
+      "order": -1960,
+      "name": "1960年度",
+      "blurb": "",
+      "color": "#b33a2a"
+    },
+    {
+      "id": "y1959",
+      "order": -1959,
+      "name": "1959年度",
+      "blurb": "",
+      "color": "#a65f18"
+    },
+    {
+      "id": "y1958",
+      "order": -1958,
+      "name": "1958年度",
+      "blurb": "",
+      "color": "#a65f18"
+    },
+    {
+      "id": "y1957",
+      "order": -1957,
+      "name": "1957年度",
+      "blurb": "",
+      "color": "#a65f18"
+    },
+    {
+      "id": "y1956",
+      "order": -1956,
+      "name": "1956年度",
+      "blurb": "",
+      "color": "#a65f18"
+    },
+    {
+      "id": "y1955",
+      "order": -1955,
+      "name": "1955年度",
+      "blurb": "",
+      "color": "#a65f18"
+    },
+    {
+      "id": "y1954",
+      "order": -1954,
+      "name": "1954年度",
+      "blurb": "",
+      "color": "#a65f18"
+    },
+    {
+      "id": "y1953",
+      "order": -1953,
+      "name": "1953年度",
+      "blurb": "",
+      "color": "#a65f18"
+    },
+    {
+      "id": "y1952",
+      "order": -1952,
+      "name": "1952年度",
+      "blurb": "",
+      "color": "#a65f18"
+    },
+    {
+      "id": "y1951",
+      "order": -1951,
+      "name": "1951年度",
+      "blurb": "",
+      "color": "#a65f18"
+    },
+    {
+      "id": "y1950",
+      "order": -1950,
+      "name": "1950年度",
+      "blurb": "",
+      "color": "#a65f18"
+    },
+    {
+      "id": "y1949",
+      "order": -1949,
+      "name": "1949年度",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y1948",
+      "order": -1948,
+      "name": "1948年度",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y1947",
+      "order": -1947,
+      "name": "1947年度",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y1946",
+      "order": -1946,
+      "name": "1946年度",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y1942",
+      "order": -1942,
+      "name": "1942年度",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y1941",
+      "order": -1941,
+      "name": "1941年度",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y1940",
+      "order": -1940,
+      "name": "1940年度",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y1939",
+      "order": -1939,
+      "name": "1939年度",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y1938",
+      "order": -1938,
+      "name": "1938年度",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y1937",
+      "order": -1937,
+      "name": "1937年度",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y1936",
+      "order": -1936,
+      "name": "1936年度",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y1935",
+      "order": -1935,
+      "name": "1935年度",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y1934",
+      "order": -1934,
+      "name": "1934年度",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y1933",
+      "order": -1933,
+      "name": "1933年度",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y1932",
+      "order": -1932,
+      "name": "1932年度",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y1931",
+      "order": -1931,
+      "name": "1931年度",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y1930",
+      "order": -1930,
+      "name": "1930年度",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y1929",
+      "order": -1929,
+      "name": "1929年度",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y1928",
+      "order": -1928,
+      "name": "1928年度",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y1927",
+      "order": -1927,
+      "name": "1927年度",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y1926",
+      "order": -1926,
+      "name": "1926年度",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y1925",
+      "order": -1925,
+      "name": "1925年度",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y1924",
+      "order": -1924,
+      "name": "1924年度",
+      "blurb": "",
+      "color": "#2f6b45"
+    }
+  ],
+  "footnotes": [
+    "第85回（2011年度）外国电影 Best Ten 第4位、第92回（2018年度）外国电影 Best Ten 第8位：豆列标注暂缺，页面仅保留脚注。"
+  ]
+}

@@ -35,6 +35,8 @@ export function initList() {
   const extraSrc = document.getElementById("catalog-extra-src") as HTMLTemplateElement | null;
   let articles = Array.from(document.querySelectorAll<HTMLElement>("article.show"));
   const tagsMode = nav.dataset.mode === "tags";
+  const yearsMode = nav.dataset.mode === "years";
+  const defaultDecade = Number(nav.dataset.defaultDecade) || 0;
   const extrasUrl = shell?.dataset.extrasUrl;
   const featuredLimit = Number(shell?.dataset.featuredLimit) || 0;
   const catalogTotal = Number(shell?.dataset.catalogTotal) || 0;
@@ -130,7 +132,7 @@ export function initList() {
   }
 
   function showIntro(id: string) {
-    if (!intro || tagsMode) return;
+    if (!intro || tagsMode || yearsMode) return;
     const meta = sectionMeta.get(id);
     if (!meta || id === "all") {
       intro.hidden = true;
@@ -200,8 +202,25 @@ export function initList() {
     return true;
   }
 
+  function expandDecade(decade: number) {
+    nav.querySelectorAll<HTMLElement>(".year-block").forEach((block) => {
+      const d = Number(block.dataset.decade);
+      const open = d === decade;
+      block.querySelector(".year-list")?.toggleAttribute("hidden", !open);
+      block.querySelector<HTMLButtonElement>(".decade")?.setAttribute("aria-expanded", String(open));
+    });
+  }
+
+  function inYearSection(a: HTMLElement): boolean {
+    if (sectionFilter === "all") return true;
+    if (sectionFilter.startsWith("d")) {
+      return Number(a.dataset.decade) === Number(sectionFilter.slice(1));
+    }
+    return a.dataset.section === sectionFilter;
+  }
+
   function updateTagChrome() {
-    if (!tagsMode) return;
+    if (!tagsMode && !yearsMode) return;
     tagButtons.forEach((b) => b.setAttribute("aria-pressed", String(selectedTags.has(b.dataset.tag!))));
     if (clearBtn) clearBtn.hidden = selectedTags.size === 0;
 
@@ -270,6 +289,25 @@ export function initList() {
     locatedWatch.observe(el);
   }
 
+  /** Force real layout heights through `idx` (content-visibility uses ~480px guesses). */
+  function flushLayoutThrough(idx: number) {
+    if (idx < 0) return;
+    for (let i = 0; i <= idx; i++) {
+      if (articles[i].hidden) continue;
+      articles[i].style.contentVisibility = "visible";
+    }
+    // Long lists (旬报 ~1900 entries): materialize every row height before scroll math.
+    if (idx > 120) {
+      for (let i = 0; i <= idx; i++) {
+        if (!articles[i].hidden) void articles[i].offsetTop;
+      }
+    } else {
+      for (let i = 0; i <= idx; i++) {
+        if (!articles[i].hidden) void articles[i].offsetTop;
+      }
+    }
+  }
+
   /** Reveal nearby rows so content-visibility estimates don't throw off scroll. */
   function revealAround(el: HTMLElement, before = 40, after = 2) {
     const idx = articles.indexOf(el);
@@ -280,12 +318,16 @@ export function initList() {
       if (articles[i].hidden) continue;
       articles[i].style.contentVisibility = "visible";
     }
+    if (idx - before > 80) flushLayoutThrough(idx);
+    else {
+      for (let i = from; i <= to; i++) {
+        if (!articles[i].hidden) void articles[i].offsetTop;
+      }
+    }
     el.querySelectorAll<HTMLImageElement>("img[data-src]").forEach((img) => {
       img.src = img.dataset.src!;
       img.removeAttribute("data-src");
     });
-    // Force layout so subsequent scroll math uses real heights, not estimates.
-    void articles[to]?.offsetTop;
   }
 
   /** Expand 100→400 catalog when the target rank sits outside the featured set. */
@@ -297,11 +339,16 @@ export function initList() {
 
   /** Pin article top under the sticky finder (respects scroll-margin-top). */
   function alignLocated(el: HTMLElement) {
-    el.scrollIntoView({ behavior: "auto", block: "start" });
+    const idx = articles.indexOf(el);
+    if (idx >= 0) flushLayoutThrough(idx);
     const margin = parseFloat(getComputedStyle(el).scrollMarginTop) || 0;
-    const top = el.getBoundingClientRect().top;
-    const drift = top - margin;
-    if (Math.abs(drift) > 2) window.scrollBy(0, drift);
+    // Long lists: one jump is not enough — layout shifts as rows materialize (content-visibility, posters).
+    for (let pass = 0; pass < 24; pass++) {
+      const drift = el.getBoundingClientRect().top - margin;
+      if (Math.abs(drift) <= 2) break;
+      window.scrollBy(0, drift);
+      if (pass === 0 && idx > 80) flushLayoutThrough(idx);
+    }
   }
 
   function resettleLocated(el: HTMLElement = locateTarget!) {
@@ -324,20 +371,22 @@ export function initList() {
   function locate(el: HTMLElement) {
     // content-visibility:auto uses ~480px estimates; long jumps overshoot unless
     // everything above the target is forced to lay out first.
-    locateHoldUntil = Date.now() + 1600;
+    const idx = articles.indexOf(el);
+    const longList = articles.length > 600;
+    locateHoldUntil = Date.now() + (longList ? 4000 : 1600);
     articles.forEach((a) => a.classList.remove("located"));
     locateTarget = el;
     el.classList.add("located");
     if (!tagsMode) setCurrent(sectionFilter === "all" ? el.dataset.section! : sectionFilter);
+    if (longList && idx >= 0) flushLayoutThrough(idx);
     revealAround(el, articles.length, 3);
     alignLocated(el);
     watchLocated(el);
+    const resettleMs = longList ? [0, 50, 150, 400, 900, 1800, 3200] : [80, 320, 700];
     requestAnimationFrame(() => {
       requestAnimationFrame(() => resettleLocated(el));
     });
-    window.setTimeout(() => resettleLocated(el), 80);
-    window.setTimeout(() => resettleLocated(el), 320);
-    window.setTimeout(() => resettleLocated(el), 700);
+    for (const ms of resettleMs) window.setTimeout(() => resettleLocated(el), ms);
   }
 
   function markText(text: string, q: string) {
@@ -382,15 +431,23 @@ export function initList() {
     }
     matches = articles.filter((a) => {
       const rank = a.dataset.rank!;
-      const inSection = tagsMode || sectionFilter === "all" || a.dataset.section === sectionFilter;
-      const inTags = !tagsMode || matchesTags(a);
+      const inSection = tagsMode
+        ? true
+        : yearsMode
+          ? inYearSection(a)
+          : sectionFilter === "all" || a.dataset.section === sectionFilter;
+      const inTags = tagsMode || yearsMode ? matchesTags(a) : true;
       const searchHit =
         !searchQ || a.dataset.blob!.includes(searchQ) || rank === searchQ || pad(rank) === searchQ;
       const ok = inCatalogScope(a) && inSection && inTags && searchHit;
       a.hidden = !ok;
       return ok;
     });
-    const facetActive = tagsMode ? selectedTags.size > 0 : sectionFilter !== "all";
+    const facetActive = tagsMode
+      ? selectedTags.size > 0
+      : yearsMode
+        ? sectionFilter !== "all" || selectedTags.size > 0
+        : sectionFilter !== "all";
     topten.hidden = !!searchQ || facetActive;
     empty.hidden = !((searchQ || facetActive) && matches.length === 0);
     if (!tagsMode) showIntro(sectionFilter);
@@ -467,11 +524,24 @@ export function initList() {
     b.addEventListener("click", () => {
       sectionFilter = b.dataset.section ?? "all";
       setCurrent(sectionFilter === "all" ? "all" : sectionFilter);
+      if (yearsMode) {
+        if (sectionFilter !== "all") {
+          selectedTags.clear();
+        }
+        if (sectionFilter.startsWith("d")) {
+          expandDecade(Number(sectionFilter.slice(1)));
+        } else if (sectionFilter.startsWith("y")) {
+          const y = Number(sectionFilter.slice(1));
+          if (Number.isInteger(y)) expandDecade(Math.floor(y / 10) * 10);
+        }
+      }
       articles.forEach((a) => a.classList.remove("located"));
       resetSearch();
       // Scroll to the filtered list without the locate highlight (that is for search / 原榜 jumps).
       if (sectionFilter !== "all" && intro && !intro.hidden) {
         intro.scrollIntoView({ behavior: "auto", block: "start" });
+      } else if (sectionFilter !== "all") {
+        window.scrollTo({ top: 0, behavior: "auto" });
       } else {
         window.scrollTo({ top: 0, behavior: "auto" });
       }
@@ -481,7 +551,14 @@ export function initList() {
   tagButtons.forEach((b) =>
     b.addEventListener("click", () => {
       const id = b.dataset.tag!;
-      if (selectedTags.has(id)) selectedTags.delete(id);
+      const group = b.dataset.group ?? "chart";
+      if (yearsMode && group === "chart") {
+        if (selectedTags.has(id)) selectedTags.delete(id);
+        else {
+          for (const other of [...selectedTags].filter((t) => t.startsWith("chart:"))) selectedTags.delete(other);
+          selectedTags.add(id);
+        }
+      } else if (selectedTags.has(id)) selectedTags.delete(id);
       else selectedTags.add(id);
       articles.forEach((a) => a.classList.remove("located"));
       apply(qEl.value);
@@ -638,7 +715,7 @@ export function initList() {
   if (!tagsMode) {
     const spy = new IntersectionObserver(
       (entries) => {
-        if (sectionFilter !== "all" || searchQ) return;
+        if (yearsMode || sectionFilter !== "all" || searchQ) return;
         const visible = entries
           .filter((en) => en.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
@@ -776,24 +853,35 @@ export function initList() {
     }
   }
 
+  if (yearsMode && defaultDecade) expandDecade(defaultDecade);
+
   // Deep links: /list/#show-12 (catalog already opened above when rank > featuredLimit)
   if (bootHash) {
+    sectionFilter = "all";
+    selectedTags.clear();
+    setCurrent("all");
+    apply("");
     const el = document.getElementById(`show-${bootHash[1]}`);
     if (el && !el.hidden) {
       // Cancel any native hash scroll that already jumped with bad estimates.
       window.scrollTo(0, 0);
-      locate(el);
+      if (articles.length > 600) {
+        articles.forEach((a) => {
+          a.style.contentVisibility = "visible";
+        });
+      }
+      const jump = () => locate(el);
       if (extrasUrl) {
         const host = el.querySelector<HTMLElement>(".copy[data-extras-for]");
-        if (host) {
+        if (host && !host.dataset.extrasDone) {
           void loadExtras().then((map) => {
             const row = map[host.dataset.extrasFor!];
             if (row) fillExtras(host, row);
             else host.dataset.extrasDone = "1";
-            resettleLocated(el);
+            jump();
           });
-        }
-      }
+        } else jump();
+      } else jump();
     }
   }
 }

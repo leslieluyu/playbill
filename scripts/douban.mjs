@@ -5,8 +5,11 @@
 //
 // Usage: npm run douban                  (works without Douban subjects yet)
 //        npm run douban -- --refresh     (re-fetch scores for every work)
+//        npm run douban -- --list kinema-junpo-ten   (only works on that list)
 //        npm run douban -- breaking-bad  (only these works)
-import { openDb, exportDb, cachedJson, forget, tx } from "./lib/db.mjs";
+// Works seeded as douban-{id} (e.g. from a Douban doulist) are fetched from the
+// subject API directly: Chinese title, intro as 剧情, Latin/English title for TMDB.
+import { openDb, exportDb, cachedJson, forget, tx, hasCachedJson, doubanFetchStats, resetDoubanFetchStats } from "./lib/db.mjs";
 import {
   preferredWorkId,
   shouldAdoptWorkId,
@@ -14,9 +17,13 @@ import {
   renamePosterFile,
   workIdFromTmdb,
 } from "./lib/work-id.mjs";
+import { doubanIdFromWorkId, pickSearchTitles } from "./lib/douban-subject.mjs";
 
 const MIN_VOTES = 1000;
-const GAP_MS = 1500;
+const cookieRaw = (process.env.DOUBAN_COOKIE ?? "").trim();
+// Real browser Cookie headers are long; placeholders in .env don't lift the IP cap.
+const hasDoubanSession = cookieRaw.length > 40;
+const GAP_MS = Number(process.env.DOUBAN_GAP_MS) || (hasDoubanSession ? 2000 : 12_000);
 const UA =
   "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1";
 
@@ -31,11 +38,13 @@ const PLACES = { 美英: ["美国", "英国"] };
 
 const args = process.argv.slice(2);
 const refresh = args.includes("--refresh");
-const only = new Set(args.filter((a) => !a.startsWith("--")));
+const listIdx = args.indexOf("--list");
+const listId = listIdx >= 0 ? args[listIdx + 1] : null;
+const only = new Set(args.filter((a) => !a.startsWith("--") && a !== listId));
 const tmdbToken = process.env.TMDB_API_READ_ACCESS_TOKEN;
 
 // A logged-in session (the browser's Cookie header for douban.com) lifts the anonymous rate limit.
-const cookie = process.env.DOUBAN_COOKIE ? { Cookie: process.env.DOUBAN_COOKIE } : {};
+const cookie = hasDoubanSession ? { Cookie: cookieRaw } : {};
 
 const douban = (path, key = path, maxAgeDays = refresh ? 0 : Infinity) =>
   cachedJson("douban", key, `https://m.douban.com/rexxar/api/v2${path}`, {
@@ -188,6 +197,47 @@ function personFor(dPerson, tmdbPeople) {
   return Number(r.lastInsertRowid);
 }
 
+function fillDoubanDetail(w, d) {
+  const intro = (d.intro ?? "").trim();
+  const { latin, original } = pickSearchTitles(d);
+  tx(db, () => {
+    if (latin) {
+      db.prepare(
+        "UPDATE works SET zh = coalesce(zh, ?), en = ?, original = coalesce(original, ?) WHERE id = ?",
+      ).run(d.title, latin, original || null, w.id);
+    } else {
+      db.prepare("UPDATE works SET zh = coalesce(zh, ?), original = coalesce(original, ?) WHERE id = ?").run(
+        d.title,
+        original || null,
+        w.id,
+      );
+    }
+
+    if (intro) {
+      const ed = db.prepare("SELECT plot, reviewed FROM editorial WHERE work_id = ?").get(w.id);
+      if (!ed) {
+        db.prepare("INSERT INTO editorial (work_id, plot, reviewed) VALUES (?, ?, 1)").run(w.id, intro);
+      } else if (!ed.reviewed || !ed.plot) {
+        db.prepare(
+          `UPDATE editorial SET plot = coalesce(nullif(plot, ''), ?), reviewed = 1 WHERE work_id = ?`,
+        ).run(intro, w.id);
+      }
+    }
+
+    const aka = (d.aka ?? []).map((a) => String(a).trim()).filter(Boolean);
+    const have = new Set(
+      db.prepare("SELECT alias FROM work_aliases WHERE work_id = ?").all(w.id).map((r) => r.alias),
+    );
+    let ord = db.prepare("SELECT coalesce(max(ord), -1) m FROM work_aliases WHERE work_id = ?").get(w.id).m + 1;
+    const ins = db.prepare("INSERT INTO work_aliases (work_id, alias, ord) VALUES (?, ?, ?)");
+    for (const a of aka) {
+      if (have.has(a)) continue;
+      ins.run(w.id, a, ord++);
+      have.add(a);
+    }
+  });
+}
+
 async function fillMovieFacts(w, d) {
   const credits = await douban(`/movie/${d.id}/credits`, `movie/${d.id}/credits`, Infinity);
   const people = credits.items.filter((c) => c.category === "导演" || c.category === "演员");
@@ -220,7 +270,40 @@ async function fillMovieFacts(w, d) {
 }
 
 const report = [];
-const works = db.prepare("SELECT * FROM works ORDER BY id").all();
+const runStats = { ok: 0, miss: 0, err: 0, skip: 0, rate: 0, id: 0 };
+
+function logRun(line) {
+  console.error(line);
+}
+
+resetDoubanFetchStats();
+let works = db.prepare("SELECT * FROM works ORDER BY id").all();
+if (listId) {
+  const ids = new Set(
+    db.prepare("SELECT work_id FROM list_entries WHERE list_id = ?").all(listId).map((r) => r.work_id),
+  );
+  works = works.filter((w) => ids.has(w.id));
+  // Drain cache.db hits first so a rerun makes progress while the IP cools down.
+  works.sort((a, b) => {
+    const da = doubanIdFromWorkId(a.id);
+    const dbId = doubanIdFromWorkId(b.id);
+    const ca = da && hasCachedJson("douban", `movie/${da}`) ? 0 : 1;
+    const cb = dbId && hasCachedJson("douban", `movie/${dbId}`) ? 0 : 1;
+    return ca - cb || a.id.localeCompare(b.id);
+  });
+}
+
+logRun(
+  `douban start: ${works.length} works${listId ? ` list=${listId}` : ""} cookie=${hasDoubanSession ? "yes" : "no"} gap=${GAP_MS}ms refresh=${refresh}`,
+);
+
+async function fetchMovieById(doubanId) {
+  const d = await douban(`/movie/${doubanId}`, `movie/${doubanId}`);
+  if (d.is_tv) return null;
+  d.id = d.id ?? doubanId;
+  return d;
+}
+
 for (const w of works) {
   if (only.size && !only.has(w.id)) continue;
 
@@ -233,11 +316,15 @@ for (const w of works) {
       await renamePosterFile(from, tmdbWant);
       w.id = tmdbWant;
       report.push(`id    ${from} → ${tmdbWant}`);
+      runStats.id++;
+      logRun(`douban id   ${from} → ${tmdbWant}`);
     }
   }
 
+  const embeddedDoubanId = doubanIdFromWorkId(w.id);
   const known = db.prepare("SELECT count(*) n FROM douban_subjects WHERE work_id = ?").get(w.id).n;
-  if (known && !refresh && !only.size) {
+  const missingPlot = !db.prepare("SELECT plot FROM editorial WHERE work_id = ? AND plot IS NOT NULL AND plot != ''").get(w.id);
+  if (known && !refresh && !only.size && !(embeddedDoubanId && missingPlot)) {
     if (!w.tmdb_id) {
       const row = db.prepare(
         "SELECT douban_id FROM douban_subjects WHERE work_id = ? ORDER BY season LIMIT 1",
@@ -248,8 +335,12 @@ for (const w of works) {
         renameWork(db, from, want);
         await renamePosterFile(from, want);
         report.push(`id    ${from} → ${want}`);
+        runStats.id++;
+        logRun(`douban id   ${from} → ${want}`);
       }
     }
+    runStats.skip++;
+    logRun(`douban SKIP ${w.id} (already linked${missingPlot ? ", plot still empty" : ""})`);
     continue;
   }
 
@@ -262,14 +353,32 @@ for (const w of works) {
       subjects = await findTv(w, queries);
       if (subjects && w.tmdb_season) subjects = subjects.filter((s) => s.season === w.tmdb_season);
     } else {
-      const d = await findMovie(w, queries);
+      let d = embeddedDoubanId ? await fetchMovieById(embeddedDoubanId) : null;
+      if (!d) d = await findMovie(w, queries);
       if (d) {
-        await fillMovieFacts(w, d);
+        fillDoubanDetail(w, d);
+        // List seeding only needs title / intro / aka for TMDB — skip credits to halve API calls.
+        const skipCredits = Boolean(listId && embeddedDoubanId);
+        if (!skipCredits) await fillMovieFacts(w, d);
+        else {
+          tx(db, () => {
+            db.prepare(
+              "UPDATE works SET zh = coalesce(zh, ?), place = coalesce(place, ?), form = coalesce(form, ?) WHERE id = ?",
+            ).run(
+              d.title,
+              (d.countries ?? []).slice(0, 2).join("、") || null,
+              d.genres?.includes("纪录片") ? "纪录片" : d.genres?.includes("动画") ? "动画" : "电影",
+              w.id,
+            );
+          });
+        }
         subjects = [{ id: d.id, season: 0, title: d.title, year: Number(d.year), rating: d.rating }];
       }
     }
     if (!subjects?.length) {
       report.push(`MISS  ${w.id}  (tried ${queries.join(" / ")})`);
+      runStats.miss++;
+      logRun(`douban MISS ${w.id}  queries=${queries.slice(0, 3).join(" | ")}`);
       continue;
     }
 
@@ -302,9 +411,23 @@ for (const w of works) {
       insertRating.run(w.id, value, votes, detail, day);
     });
     const score = counted.length ? (counted.reduce((s, x) => s + x.value, 0) / counted.length).toFixed(1) : "unrated";
+    const plotText = db.prepare("SELECT plot FROM editorial WHERE work_id = ?").get(w.id)?.plot?.trim() ?? "";
+    const plotTag = plotText.length > 15 ? "yes" : "no";
     report.push(`ok    ${w.id.padEnd(36)} ${score}  seasons ${counted.length}/${seasons.length}  ${subjects[0].title}`);
+    runStats.ok++;
+    logRun(
+      `douban OK   ${w.id}  ${subjects[0].title}  score=${score}  plot=${plotTag}  api(cache=${doubanFetchStats.cache} net=${doubanFetchStats.network})`,
+    );
   } catch (e) {
     report.push(`ERR   ${w.id}  ${e.message}`);
+    runStats.err++;
+    if (/rate limit/i.test(e.message)) {
+      runStats.rate++;
+      report.push("RATE  skipped (IP limited); rerun later — set DOUBAN_COOKIE or raise DOUBAN_GAP_MS");
+      logRun(`douban ERR   ${w.id}  rate limit (skipping work; ok=${runStats.ok} miss=${runStats.miss} err=${runStats.err})`);
+      continue;
+    }
+    logRun(`douban ERR   ${w.id}  ${e.message}`);
     if (/\b(403|418|429)\b/.test(e.message)) {
       report.push("Douban is refusing requests; stopping. Rerun later to continue where this left off.");
       break;
@@ -313,4 +436,7 @@ for (const w of works) {
 }
 
 exportDb(db);
+logRun(
+  `douban done: works ok=${runStats.ok} miss=${runStats.miss} skip=${runStats.skip} err=${runStats.err} rate_skip=${runStats.rate} id_renames=${runStats.id} | API cache=${doubanFetchStats.cache} network=${doubanFetchStats.network} rate_waits=${doubanFetchStats.rateWaits}`,
+);
 console.log(report.join("\n") || "nothing to do");

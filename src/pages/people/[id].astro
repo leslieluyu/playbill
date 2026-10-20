@@ -2,6 +2,8 @@
 import { getCollection } from "astro:content";
 import Base from "../../layouts/Base.astro";
 import Bi from "../../components/Bi.astro";
+import { workPath } from "../../lib/work-path";
+import { workSubtitle } from "../../lib/work-display";
 
 export async function getStaticPaths() {
   const people = await getCollection("people");
@@ -107,15 +109,14 @@ const awardsRest = awards.slice(AWARDS_PREVIEW);
                   : w.listId && w.rank != null
                     ? [{ listId: w.listId, rank: w.rank, zh: w.listId, en: w.listId }]
                     : [];
-                // Single list: title may deep-link. Multiple lists: only badges link,
-                // with a ▾ cue that pulses the badges on click/hover.
                 const multi = lists.length > 1;
-                const titleHref =
-                  lists.length === 1 ? `/${lists[0].listId}/#show-${lists[0].rank}` : undefined;
+                const titleHref = workPath(w.kind, w.id);
+                const sub = workSubtitle(w);
                 const titleInner = w.zh ? (
                   <>
                     <span class="zh">{w.zh}</span>
-                    <span class="lat">{w.en}</span>
+                    {sub ? <span class="lat">{sub}</span> : null}
+                    <span class="en">{w.en}</span>
                   </>
                 ) : (
                   w.en
@@ -123,7 +124,7 @@ const awardsRest = awards.slice(AWARDS_PREVIEW);
                 return (
                   <li class="person-work" data-zh={w.zh ?? w.en} data-en={w.en} data-multi-lists={multi || undefined}>
                     {w.poster ? (
-                      <button type="button" class="poster" aria-label={w.zh ? `《${w.zh}》海报` : `${w.en} poster`}>
+                      <a class="poster poster-work-link" href={titleHref} data-prefetch aria-label={w.zh ? `《${w.zh}》` : w.en}>
                         <img
                           data-src={w.poster}
                           alt={w.zh ? `《${w.zh}》海报` : `${w.en} poster`}
@@ -133,7 +134,7 @@ const awardsRest = awards.slice(AWARDS_PREVIEW);
                           height="513"
                           decoding="async"
                         />
-                      </button>
+                      </a>
                     ) : (
                       <div class="poster empty" aria-hidden="true">
                         <span class="zh">无图</span>
@@ -142,13 +143,13 @@ const awardsRest = awards.slice(AWARDS_PREVIEW);
                     )}
                     <div class="body">
                       <div class="work-title-row">
-                        {titleHref ? (
-                          <a class="work-title-link" href={titleHref} data-prefetch>
-                            <span class="title">{titleInner}</span>
-                          </a>
-                        ) : (
+                        <a class="work-entry-link" href={titleHref} data-prefetch>
                           <span class="title">{titleInner}</span>
-                        )}
+                          <span class="meta">{w.yearStart}</span>
+                          <span class="work-entry-go">
+                            <Bi zh="作品页 →" en="Work page →" />
+                          </span>
+                        </a>
                         {multi && (
                           <button
                             type="button"
@@ -159,7 +160,6 @@ const awardsRest = awards.slice(AWARDS_PREVIEW);
                           </button>
                         )}
                       </div>
-                      <span class="meta">{w.yearStart}</span>
                       {lists.length > 0 && (
                         <p class="list-badges">
                           <span class="list-badges-label">
@@ -170,6 +170,7 @@ const awardsRest = awards.slice(AWARDS_PREVIEW);
                               class={`list-badge list-badge-${L.listId}`}
                               href={`/${L.listId}/#show-${L.rank}`}
                               data-prefetch
+                              title={`${L.detailZh} · #${L.rank}`}
                             >
                               <Bi zh={L.zh} en={L.en} />
                             </a>
@@ -304,7 +305,9 @@ const awardsRest = awards.slice(AWARDS_PREVIEW);
   document.addEventListener(
     "pointerdown",
     (e) => {
-      const a = (e.target as Element | null)?.closest?.("a[data-prefetch], a.person-collab-link");
+      const a = (e.target as Element | null)?.closest?.(
+        "a[data-prefetch], a.person-collab-link, a.poster-work-link, a.work-entry-link",
+      );
       if (!(a instanceof HTMLAnchorElement)) return;
       const url = a.href.split("#")[0];
       if (!url || document.head.querySelector(`link[rel="prefetch"][href="${url}"]`)) return;
@@ -370,7 +373,7 @@ const awardsRest = awards.slice(AWARDS_PREVIEW);
   dialog?.addEventListener("click", (e) => {
     if (e.target === dialog) dialog.close();
   });
-  document.querySelectorAll<HTMLButtonElement>("button.poster").forEach((btn) => {
+  document.querySelectorAll<HTMLButtonElement>("button.poster.person-photo").forEach((btn) => {
     btn.addEventListener("click", () => {
       if (!dialog || !viewImg || !viewCap) return;
       const img = btn.querySelector("img");

@@ -1,0 +1,22 @@
+---
+import { getCollection } from "astro:content";
+import WorkPage from "../../components/WorkPage.astro";
+import { lists as listCopy } from "../../i18n";
+
+export async function getStaticPaths() {
+  const [works, lists] = await Promise.all([getCollection("works"), getCollection("lists")]);
+  const listTitles = new Map(
+    lists.map((l) => [l.id, { zh: l.data.title, en: listCopy[l.id]?.title ?? l.data.title }]),
+  );
+  return works
+    .filter((w) => w.data.kind === "movie")
+    .map((work) => ({
+      params: { id: work.id },
+      props: { work, listTitles },
+    }));
+}
+
+const { work, listTitles } = Astro.props;
+---
+
+<WorkPage work={work} listTitles={listTitles} />

@@ -7,6 +7,14 @@ import Bi from "../components/Bi.astro";
 import ShowCard from "../components/ShowCard.astro";
 import { formEn, lists as listCopy, placeEn, yearsEn } from "../i18n";
 import { buildTagGroups, tagsForWork } from "../lib/tags";
+import {
+  buildYearNav,
+  chartTag,
+  chartsForList,
+  decadeOfYear,
+  kjYearFromSection,
+  usesYearNav,
+} from "../lib/list-charts";
 
 export async function getStaticPaths() {
   const lists = await getCollection("lists");
@@ -19,17 +27,35 @@ const copy = listCopy[list.id];
 if (!copy) throw new Error(`missing English copy for ${list.id}`);
 
 const useTags = list.id === "criterion-spine" || list.id === "afi-100-movies";
+const useYearsNav = usesYearNav(list.id);
+const useChartTags = useYearsNav;
+const listCharts = chartsForList(list.id);
 const linkPeople = list.id !== "criterion-spine";
 const featuredLimit = list.id === "afi-100-movies" ? 100 : 0;
 // Large catalogs: keep plots/场刊 out of the HTML and hydrate on scroll.
-const lazyExtras = list.id === "criterion-spine" || list.id === "afi-100-movies";
+const lazyExtras =
+  list.id === "criterion-spine" ||
+  list.id === "afi-100-movies" ||
+  list.id === "kinema-junpo-ten" ||
+  useYearsNav;
 
 const rows = await Promise.all(
   meta.entries.map(async (e) => {
     const work = await getEntry(e.work);
     if (!work) throw new Error(`${list.id}: unknown work ${e.work.id}`);
     const tags = useTags ? tagsForWork(work.data) : [];
-    return { ...e, section: e.section ?? "all", work: work.data, id: work.id, tags };
+    const kjYear = kjYearFromSection(e.section);
+    const listChart = chartTag(e.chart, list.id);
+    return {
+      ...e,
+      section: e.section ?? "all",
+      work: work.data,
+      id: work.id,
+      tags,
+      kjYear,
+      decade: kjYear != null ? decadeOfYear(kjYear) : undefined,
+      listChart,
+    };
   }),
 );
 rows.sort((a, b) => a.rank - b.rank);
@@ -50,6 +76,18 @@ const sections = sectionDefs.map((s) => ({
   rows: rows.filter((r) => r.section === s.id),
 }));
 const tagGroups = useTags ? buildTagGroups(rows.map((r) => r.tags)) : [];
+const yearNav = useYearsNav
+  ? buildYearNav(rows.map((r) => r.kjYear).filter((y): y is number => y != null)).map((d) => ({
+      ...d,
+      entryCount: rows.filter((r) => r.decade === d.decade).length,
+    }))
+  : [];
+const chartTagCounts = useChartTags
+  ? Object.fromEntries(
+      listCharts.map((c) => [c.id, rows.filter((r) => r.chart === c.id).length] as const),
+    )
+  : {};
+const defaultDecade = yearNav[0]?.decade;
 const years = rows.flatMap((r) => r.work.years.match(/\d{4}/g) ?? []).map(Number);
 const span = years.length ? `${Math.min(...years)}–${Math.max(...years)}` : "";
 const isTv = meta.kind === "tv";
@@ -88,6 +126,11 @@ function blob(r: (typeof rows)[number]) {
     formEn(w.form),
     // Tag ids already sit on data-tags; skip bilingual tag labels here on Criterion.
     ...(useTags ? [] : r.tags.flatMap((t) => [t.zh, t.en])),
+    r.kjYear,
+    r.listChart?.zh,
+    r.listChart?.en,
+    r.position,
+    r.decade,
   ]
     .filter(Boolean)
     .join(" ")
@@ -159,6 +202,12 @@ if (lazyExtras) {
             <span><Bi zh="个筛选标签" en="filter tags" /></span>
           </li>
         )}
+        {useYearsNav && (
+          <li>
+            <b>{yearNav.length}</b>
+            <span><Bi zh="个年代" en="decades" /></span>
+          </li>
+        )}
       </ul>
     </div>
   </header>
@@ -194,11 +243,75 @@ if (lazyExtras) {
     class="wrap shell"
     style={`--rank-digits:${rankDigits}`}
     data-extras-url={extrasUrl}
+    data-long-list={rows.length > 800 ? "" : undefined}
     data-featured-limit={featuredLimit || undefined}
     data-catalog-total={featuredLimit ? rows.length : undefined}
   >
     {
-      useTags ? (
+      useYearsNav ? (
+        <nav class="years" id="nav" data-mode="years" data-default-decade={defaultDecade}>
+          <div class="years-head">
+            <p><Bi zh="年代" en="Years" /></p>
+            <button type="button" class="tags-clear" id="tags-clear" hidden>
+              <Bi zh="清除" en="Clear" />
+            </button>
+          </div>
+          <button type="button" data-section="all" data-name-zh="全部" data-name-en="All" aria-current="true">
+            <span class="name">
+              <Bi zh="全部" en="All" />
+            </span>
+            <em>{rows.length}</em>
+          </button>
+          {yearNav.map((d) => (
+            <div class="year-block" data-decade={d.decade}>
+              <button
+                type="button"
+                class="decade"
+                data-section={`d${d.decade}`}
+                data-name-zh={`${d.decade}年代`}
+                data-name-en={`${d.decade}s`}
+                aria-expanded={d.decade === defaultDecade ? "true" : "false"}
+              >
+                <span class="name">
+                  <Bi zh={`${d.decade}年代`} en={`${d.decade}s`} />
+                </span>
+                <em>{d.entryCount}</em>
+              </button>
+              <div class="year-list" hidden={d.decade !== defaultDecade ? true : undefined}>
+                {d.years.map((y) => {
+                  const n = rows.filter((r) => r.kjYear === y).length;
+                  return (
+                    <button type="button" data-section={`y${y}`} data-name-zh={`${y}年度`} data-name-en={String(y)}>
+                      <span class="name">
+                        <Bi zh={String(y)} en={String(y)} />
+                      </span>
+                      <em>{n}</em>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+          <div class="chart-tags">
+            <p><Bi zh="榜单" en="Chart" /></p>
+            {listCharts.filter((c) => chartTagCounts[c.id] > 0).map((c) => (
+              <button
+                type="button"
+                data-tag={`chart:${c.id}`}
+                data-group="chart"
+                data-name-zh={c.zh}
+                data-name-en={c.en}
+                aria-pressed="false"
+              >
+                <span class="name">
+                  <Bi zh={c.zh} en={c.en} />
+                </span>
+                <em>{chartTagCounts[c.id]}</em>
+              </button>
+            ))}
+          </div>
+        </nav>
+      ) : useTags ? (
         <nav class="tags" id="nav" data-mode="tags">
           <div class="tags-head">
             <p><Bi zh="标签" en="Tags" /></p>
@@ -308,7 +421,7 @@ if (lazyExtras) {
 
       <p class="empty" id="empty" hidden>
         <Bi
-          zh={`没有匹配的${noun}目。可以换${noun}名、人名${useTags ? "、标签" : ""}，或直接输入${rankWordZh}。`}
+          zh={`没有匹配的${noun}目。可以换${noun}名、人名${useTags || useChartTags ? "、标签" : ""}，或直接输入${rankWordZh}。`}
           en={copy.empty}
         />
       </p>
@@ -331,12 +444,13 @@ if (lazyExtras) {
           const secEn = copy.sections[r.section];
           return (
             <ShowCard
+              workId={r.id}
               rank={r.rank}
               section={r.section}
               sectionColor={sec.color}
               sectionName={sec.name}
               sectionNameEn={secEn?.name}
-              showSectionInMeta={meta.sections.length > 0}
+              showSectionInMeta={!useYearsNav && meta.sections.length > 0}
               tags={r.tags}
               work={r.work}
               hook={r.hook}
@@ -347,6 +461,11 @@ if (lazyExtras) {
               lazyExtras={lazyExtras}
               linkPeople={linkPeople}
               useTags={useTags}
+              listChart={r.listChart}
+              kjYear={r.kjYear}
+              position={r.position}
+              entryNote={r.note}
+              decade={r.decade}
               creatorLabel={creatorLabel}
               creatorLabelEn={copy.creator}
             />
@@ -361,12 +480,13 @@ if (lazyExtras) {
               const secEn = copy.sections[r.section];
               return (
                 <ShowCard
+                  workId={r.id}
                   rank={r.rank}
                   section={r.section}
                   sectionColor={sec.color}
                   sectionName={sec.name}
                   sectionNameEn={secEn?.name}
-                  showSectionInMeta={meta.sections.length > 0}
+                  showSectionInMeta={!useYearsNav && meta.sections.length > 0}
                   tags={r.tags}
                   work={r.work}
                   hook={r.hook}
@@ -377,6 +497,11 @@ if (lazyExtras) {
                   lazyExtras={lazyExtras}
                   linkPeople={linkPeople}
                   useTags={useTags}
+                  listChart={r.listChart}
+                  kjYear={r.kjYear}
+                  position={r.position}
+                  entryNote={r.note}
+                  decade={r.decade}
                   creatorLabel={creatorLabel}
                   creatorLabelEn={copy.creator}
                 />
@@ -403,9 +528,13 @@ if (lazyExtras) {
           ? "「看点」摘自 Criterion 官方影片页短文（目前仅部分编号有，中文为试译）；「场刊」是我们自己的短注，挂在作品上。"
           : list.id === "afi-100-movies"
             ? "前 100 名为 AFI 2007 年正式榜单；其余为当年选票上的其他候选，按选票编号排列。候选名单另见 AFI 官方 ballot PDF。「场刊」是我们自己的短注，挂在作品上，这份榜单里还在补。"
-          : isTv
-            ? "「场刊」是我们为每部作品写的短注，挂在作品上；这份榜单的原生「看点」日后补。"
-            : "「看点」译自《纽约时报》在这篇榜单里为每部电影写的推荐短文，英文模式下显示原文；「场刊」是我们自己的短注，挂在作品上，这份榜单里还在补。"}
+            : list.id === "kinema-junpo-ten"
+              ? "榜单类型与旬报年度以豆列评语为准（艺术／娱乐、日本／外国等）。第85回（2011年度）外国电影 Best Ten 第4位、第92回（2018年度）外国电影 Best Ten 第8位在豆列标注暂缺，本站不补条目，仅在此说明。「场刊」是我们自己的短注，挂在作品上，这份榜单里还在补。"
+              : useYearsNav && list.id !== "kinema-junpo-ten"
+                ? "届次年份与「获奖／提名」以豆瓣电影节获奖页主竞赛最高奖单元为准；左侧按电影节年份筛选。「场刊」是我们自己的短注，挂在作品上，这份榜单里还在补。"
+                : isTv
+                ? "「场刊」是我们为每部作品写的短注，挂在作品上；这份榜单的原生「看点」日后补。"
+                : "「看点」译自《纽约时报》在这篇榜单里为每部电影写的推荐短文，英文模式下显示原文；「场刊」是我们自己的短注，挂在作品上，这份榜单里还在补。"}
       </span>
       <span class="en">
         The list{isTv ? " and the years on air are" : " is"} from <a href={meta.source.url}>{meta.source.name}</a>. {copy.colophon}

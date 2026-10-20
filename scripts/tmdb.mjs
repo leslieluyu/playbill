@@ -3,6 +3,7 @@
 //        npm run tmdb -- breaking-bad    (only these works)
 //        npm run tmdb -- --force         (re-search and re-download everything)
 //        npm run tmdb -- --genres        (backfill work_genres for works that already have tmdb_id)
+//        npm run tmdb -- --list kinema-junpo-ten   (only works on that list)
 import { writeFile, mkdir, access } from "node:fs/promises";
 import { openDb, exportDb, cachedJson } from "./lib/db.mjs";
 import {
@@ -11,6 +12,8 @@ import {
   renameWork,
   renamePosterFile,
 } from "./lib/work-id.mjs";
+import { createTranslator } from "./lib/translate.mjs";
+import { COUNTRIES, fillWorkFacts, saveGenres, workNeedsFacts } from "./lib/tmdb-facts.mjs";
 
 const OUT = "public/posters";
 const SIZE = "w342";
@@ -58,7 +61,9 @@ const HINTS = {
 const args = process.argv.slice(2);
 const force = args.includes("--force");
 const genresOnly = args.includes("--genres");
-const only = new Set(args.filter((a) => !a.startsWith("--")));
+const listIdx = args.indexOf("--list");
+const listId = listIdx >= 0 ? args[listIdx + 1] : null;
+const only = new Set(args.filter((a) => !a.startsWith("--") && a !== listId));
 
 function tmdb(path, params = {}) {
   const url = new URL(`https://api.themoviedb.org/3${path}`);
@@ -74,6 +79,15 @@ function tmdb(path, params = {}) {
 const norm = (s) =>
   (s ?? "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "");
 
+function pickSearchQuery(w, hint) {
+  if (hint.query) return hint.query;
+  const en = (w.en ?? "").trim();
+  if (en && !han.test(en) && /[A-Za-z]{2,}/.test(en)) return en;
+  const orig = (w.original ?? "").trim();
+  if (orig && !han.test(orig) && /[A-Za-z]{2,}/.test(orig)) return orig;
+  return w.en;
+}
+
 async function search(w, hint) {
   const type = w.kind;
   const imdb = hint.imdb ?? w.imdb_id;
@@ -83,7 +97,7 @@ async function search(w, hint) {
     const hit = (type === "tv" ? found.tv_results : found.movie_results)?.[0];
     if (hit?.id) return { id: hit.id, exact: true };
   }
-  const query = hint.query ?? w.en;
+  const query = pickSearchQuery(w, hint);
   const year = hint.year ?? w.year_start;
   const yearKey = type === "tv" ? "first_air_date_year" : "primary_release_year";
   let { results } = await tmdb(`/search/${type}`, { query, [yearKey]: year });
@@ -97,102 +111,18 @@ async function search(w, hint) {
 
 const exists = (f) => access(f).then(() => true, () => false);
 
-const COUNTRIES = {
-  US: "美国", GB: "英国", FR: "法国", DE: "德国", IT: "意大利", ES: "西班牙", JP: "日本", KR: "韩国", CN: "中国大陆",
-  HK: "中国香港", TW: "中国台湾", CA: "加拿大", AU: "澳大利亚", NZ: "新西兰", IE: "爱尔兰", MX: "墨西哥", BR: "巴西",
-  AR: "阿根廷", IR: "伊朗", IN: "印度", SE: "瑞典", DK: "丹麦", NO: "挪威", FI: "芬兰", PL: "波兰", AT: "奥地利",
-  BE: "比利时", NL: "荷兰", CH: "瑞士", RU: "俄罗斯", RO: "罗马尼亚", HU: "匈牙利", CZ: "捷克", IL: "以色列",
-  TH: "泰国", ZA: "南非", CL: "智利", CO: "哥伦比亚", TR: "土耳其", GR: "希腊", PT: "葡萄牙", ID: "印度尼西亚",
-  SU: "苏联", XC: "捷克斯洛伐克", YU: "南斯拉夫", XG: "东德", PH: "菲律宾", LV: "拉脱维亚", DZ: "阿尔及利亚",
-  SN: "塞内加尔", QA: "卡塔尔", ET: "埃塞俄比亚", NG: "尼日利亚", JM: "牙买加", EG: "埃及", CU: "古巴",
-  CM: "喀麦隆", MK: "北马其顿", TN: "突尼斯", GT: "危地马拉", BD: "孟加拉国", AO: "安哥拉",
-};
 const han = /\p{Script=Han}/u;
-
-function saveGenres(workId, enGenres, zhGenres) {
-  const zhById = new Map((zhGenres ?? []).map((g) => [g.id, g.name]));
-  db.prepare("DELETE FROM work_genres WHERE work_id = ?").run(workId);
-  const insert = db.prepare("INSERT INTO work_genres (work_id, genre_id, name_zh, name_en) VALUES (?, ?, ?, ?)");
-  for (const g of enGenres ?? []) {
-    if (!g?.id || !g.name) continue;
-    const nameZh = zhById.get(g.id) || g.name;
-    insert.run(workId, g.id, nameZh, g.name);
-  }
-}
-
-/** Fills the Chinese title, country, format, credits and plot that a freshly seeded work lacks. */
-async function fillFacts(w, d) {
-  const sets = {};
-  const zh = await tmdb(`/${w.kind}/${d.id}`, { language: "zh-CN" });
-  if (!w.zh) {
-    const title = zh.title ?? zh.name;
-    if (title && han.test(title)) sets.zh = title;
-  }
-  if (!w.place) {
-    const codes = d.origin_country?.length ? d.origin_country : (d.production_countries ?? []).map((c) => c.iso_3166_1);
-    const names = [...new Set(codes.map((c) => COUNTRIES[c] ?? c))].slice(0, 2);
-    if (names.length) sets.place = names.join("、");
-  }
-  if (!w.form && w.kind === "movie") {
-    const genres = (d.genres ?? []).map((g) => g.id);
-    sets.form = genres.includes(99) ? "纪录片" : genres.includes(16) ? "动画" : "电影";
-  }
-  for (const [k, v] of Object.entries(sets)) db.prepare(`UPDATE works SET ${k} = ? WHERE id = ?`).run(v, w.id);
-  saveGenres(w.id, d.genres, zh.genres);
-
-  const overviewZh = (zh.overview || "").trim();
-  const overviewEn = (d.overview || "").trim();
-  if (overviewZh || overviewEn) {
-    const ed = db.prepare("SELECT plot, plot_en, reviewed FROM editorial WHERE work_id = ?").get(w.id);
-    if (!ed) {
-      db.prepare("INSERT INTO editorial (work_id, plot, plot_en, reviewed) VALUES (?, ?, ?, 1)").run(
-        w.id,
-        overviewZh || null,
-        overviewEn || null,
-      );
-    } else if ((!ed.plot || !ed.plot_en) && !ed.reviewed) {
-      // Only fill empty draft rows; never overwrite reviewed hand-written copy.
-      db.prepare(
-        `UPDATE editorial SET
-           plot = coalesce(nullif(plot, ''), ?),
-           plot_en = coalesce(nullif(plot_en, ''), ?),
-           reviewed = 1
-         WHERE work_id = ? AND reviewed = 0`,
-      ).run(overviewZh || null, overviewEn || null, w.id);
-    } else if (!ed.plot || !ed.plot_en) {
-      db.prepare(
-        `UPDATE editorial SET
-           plot = coalesce(nullif(plot, ''), ?),
-           plot_en = coalesce(nullif(plot_en, ''), ?)
-         WHERE work_id = ?`,
-      ).run(overviewZh || null, overviewEn || null, w.id);
-    }
-  }
-
-  if (db.prepare("SELECT 1 FROM credits WHERE work_id = ?").get(w.id)) return;
-  const person = (p) => {
-    const row = db.prepare("SELECT id FROM people WHERE tmdb_id = ?").get(p.id);
-    if (row) return row.id;
-    return Number(db.prepare("INSERT INTO people (en, tmdb_id) VALUES (?, ?)").run(p.name, p.id).lastInsertRowid);
-  };
-  if (w.kind === "movie") {
-    const { cast, crew } = await tmdb(`/movie/${d.id}/credits`);
-    const directors = crew.filter((c) => c.job === "Director").slice(0, 2);
-    const leads = cast.slice(0, 4);
-    directors.forEach((p, i) => db.prepare("INSERT INTO credits VALUES (?, 'director', ?, ?)").run(w.id, i, person(p)));
-    leads.forEach((p, i) => db.prepare("INSERT INTO credits VALUES (?, 'cast', ?, ?)").run(w.id, i, person(p)));
-    return;
-  }
-  const { cast, crew } = await tmdb(`/tv/${d.id}/credits`);
-  const creators = (d.created_by?.length ? d.created_by : crew.filter((c) => c.job === "Creator" || c.job === "Director")).slice(0, 2);
-  const leads = cast.slice(0, 4);
-  creators.forEach((p, i) => db.prepare("INSERT INTO credits VALUES (?, 'creator', ?, ?)").run(w.id, i, person(p)));
-  leads.forEach((p, i) => db.prepare("INSERT INTO credits VALUES (?, 'cast', ?, ?)").run(w.id, i, person(p)));
-}
+const translatePlot = createTranslator(process.env.TRANSLATE_ENGINE || "google");
 
 await mkdir(OUT, { recursive: true });
 const db = openDb();
-const works = db.prepare("SELECT * FROM works ORDER BY id").all();
+let works = db.prepare("SELECT * FROM works ORDER BY id").all();
+if (listId) {
+  const ids = new Set(
+    db.prepare("SELECT work_id FROM list_entries WHERE list_id = ?").all(listId).map((r) => r.work_id),
+  );
+  works = works.filter((w) => ids.has(w.id));
+}
 const update = db.prepare(
   `UPDATE works SET tmdb_id = ?, tmdb_type = ?, tmdb_season = ?, imdb_id = ?, original = ?, runtime = ?, poster = ? WHERE id = ?`,
 );
@@ -206,7 +136,7 @@ if (genresOnly) {
     if (!force && db.prepare("SELECT 1 FROM work_genres WHERE work_id = ?").get(w.id)) continue;
     const d = await tmdb(`/${w.kind}/${w.tmdb_id}`);
     const zh = await tmdb(`/${w.kind}/${w.tmdb_id}`, { language: "zh-CN" });
-    saveGenres(w.id, d.genres, zh.genres);
+    saveGenres(db, w.id, d.genres, zh.genres);
     // Repair bare ISO leftovers in place when we can map them.
     if (w.place && /[A-Z]{2}/.test(w.place)) {
       const fixed = w.place
@@ -227,8 +157,9 @@ if (genresOnly) {
 for (const w of works) {
   if (only.size && !only.has(w.id)) continue;
   let dest = `${OUT}/${w.id}.jpg`;
+  const { needsPlot, needsCredits } = workNeedsFacts(db, w.id);
   const complete = w.tmdb_id && w.imdb_id && w.original && w.poster && (await exists(dest));
-  if (complete && !force && !only.size) {
+  if (complete && !force && !only.size && !needsPlot && !needsCredits) {
     // Still adopt a canonical id if this row is on a legacy/local slug.
     const want = preferredWorkId({ kind: w.kind, tmdbId: w.tmdb_id, currentId: w.id });
     if (shouldAdoptWorkId(w.id, want)) {
@@ -279,7 +210,7 @@ for (const w of works) {
   const poster = posterPath ? `/posters/${w.id}.jpg` : null;
 
   update.run(tmdbId, type, season, imdbId, original, runtime, poster, w.id);
-  await fillFacts(w, d);
+  await fillWorkFacts(db, w, d, { tmdb, translate: translatePlot, useWiki: true, credits: true });
   report.push(`ok    ${w.id.padEnd(36)} ${type}/${tmdbId} ${imdbId ?? "no-imdb"}  ${d.name ?? d.title} ${note}`);
 }
 

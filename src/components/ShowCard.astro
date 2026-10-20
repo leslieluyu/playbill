@@ -16,6 +16,12 @@ interface Tag {
   en: string;
 }
 
+interface ListChart {
+  id: string;
+  zh: string;
+  en: string;
+}
+
 interface Rating {
   value: number;
   detail?: { seasons?: { season: number; value: number; votes: number }[] };
@@ -40,6 +46,7 @@ interface Work {
 }
 
 interface Props {
+  workId: string;
   rank: number;
   section: string;
   sectionColor: string;
@@ -57,11 +64,17 @@ interface Props {
   lazyExtras?: boolean;
   linkPeople?: boolean;
   useTags?: boolean;
+  listChart?: ListChart;
+  kjYear?: number;
+  position?: number;
+  entryNote?: string;
+  decade?: number;
   creatorLabel: string;
   creatorLabelEn: string;
 }
 
 const {
+  workId,
   rank,
   section,
   sectionColor,
@@ -79,9 +92,29 @@ const {
   lazyExtras = false,
   linkPeople = true,
   useTags = false,
+  listChart,
+  kjYear,
+  position,
+  entryNote,
+  decade,
   creatorLabel,
   creatorLabelEn,
 } = Astro.props;
+
+const kjMetaZh =
+  kjYear != null
+    ? [ `${kjYear}年度`, listChart?.zh, position != null ? `第${position}位` : undefined ].filter(Boolean).join(" · ")
+    : undefined;
+const kjMetaEn =
+  kjYear != null
+    ? [
+        `${kjYear}`,
+        listChart?.en,
+        position != null ? `#${position}` : undefined,
+      ]
+        .filter(Boolean)
+        .join(" · ")
+    : undefined;
 
 const pad = (n: number) => String(n).padStart(rankPad, "0");
 const douban = w.ratings.douban;
@@ -91,9 +124,13 @@ const seasonList = seasons && seasons.length >= 2 ? seasons : undefined;
 const noteZh = seasonList && "各季平均：" + seasonList.map((x) => `第${x.season}季 ${x.value.toFixed(1)}`).join("，");
 const noteEn = seasonList && "Average of seasons: " + seasonList.map((x) => `S${x.season} ${x.value.toFixed(1)}`).join(", ");
 const line = (parts: (string | undefined)[]) => parts.filter(Boolean).join(" · ");
-const metaZh = line([w.years, w.place, w.form, showSectionInMeta ? sectionName : undefined]);
-const metaEn = line([yearsEn(w.years), placeEn(w.place), formEn(w.form), showSectionInMeta ? (sectionNameEn ?? sectionName) : undefined]);
-const tagIds = tags.map((t) => t.id).join(" ");
+const metaZh = line([kjMetaZh ?? (showSectionInMeta ? sectionName : undefined), w.years, w.place, w.form]);
+const metaEn = line([kjMetaEn ?? (showSectionInMeta ? (sectionNameEn ?? sectionName) : undefined), yearsEn(w.years), placeEn(w.place), formEn(w.form)]);
+const extraTags = [
+  ...(listChart ? [`chart:${listChart.id}`] : []),
+  ...(decade != null ? [`decade:${decade}`] : []),
+];
+const tagIds = [...extraTags, ...tags.map((t) => t.id)].join(" ");
 const showCopy = lazyExtras
   ? !!(hook || hookEn || w.plot || w.playbill)
   : !!(w.plot || hook || hookEn || w.playbill);
@@ -103,7 +140,10 @@ const showCopy = lazyExtras
   class:list={["show", { lead }, { "catalog-extra": catalogExtra }]}
   id={`show-${rank}`}
   data-rank={rank}
+  data-work-id={workId}
   data-section={section}
+  data-decade={decade}
+  data-chart={listChart?.id}
   data-tags={tagIds}
   data-zh={w.zh ?? w.en}
   data-en={w.zh ? w.en : ""}
@@ -139,13 +179,29 @@ const showCopy = lazyExtras
     <p class="meta">
       <Bi zh={metaZh} en={metaEn} />
     </p>
-    {useTags && tags.length > 0 && (
+    {(listChart || (useTags && tags.length > 0)) && (
       <p class="tag-chips">
-        {tags.map((t) => (
-          <span class={`chip chip-${t.group}`}>
-            <Bi zh={t.zh} en={t.en} />
+        {listChart && (
+          <span class="chip chip-chart">
+            <Bi zh={listChart.zh} en={listChart.en} />
           </span>
-        ))}
+        )}
+        {decade != null && (
+          <span class="chip chip-decade">
+            <Bi zh={`${decade}年代`} en={`${decade}s`} />
+          </span>
+        )}
+        {useTags &&
+          tags.map((t) => (
+            <span class={`chip chip-${t.group}`}>
+              <Bi zh={t.zh} en={t.en} />
+            </span>
+          ))}
+      </p>
+    )}
+    {entryNote && (
+      <p class="entry-note">
+        <Bi zh={entryNote} en={entryNote} />
       </p>
     )}
     {(douban || imdb) && (

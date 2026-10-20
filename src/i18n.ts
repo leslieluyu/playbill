@@ -213,6 +213,74 @@ export const lists: Record<string, ListCopy> = {
     ratings:
       "Ratings are from Douban and IMDb, as of {date}. Douban scores each season separately. A show with several seasons displays the average (marked avg; hover for each season). Seasons with too few votes are left out.",
   },
+  "kinema-junpo-ten": {
+    title: "Kinema Junpo · Best Ten",
+    kicker: "Kinema Junpo · year-by-year",
+    dek: "Kinema Junpo (キネマ旬報) annual Best Ten lists, including separate Japanese/foreign and artistic/entertainment charts where the source doulist marks them. Newest 旬报 year first. Use the sidebar decades and years to filter, and chart-type tags to narrow further.",
+    noun: "film",
+    creator: "Director",
+    search: "Title, director, or cast, or a rank such as 27",
+    idle: "Press Enter, or pick a result, to jump to that film.",
+    empty: "No matches. Try a title, a name, a tag, or a rank.",
+    found: "Found {n}. Press Enter for the first, or pick one from the list.",
+    none: "No matches.",
+    sections: {},
+    colophon:
+      "Chinese titles use the names most common in Chinese-speaking places, and search also accepts familiar aliases. Directors, cast, and plots are short notes from public sources. Order and chart labels follow the Douban doulist linked in the footer (newest 旬报 year first). Slots marked 暂缺 on Douban are noted in the footer only. Playbill notes are ours and stay with the work; they are still being filled in for this list.",
+    ratings:
+      "Ratings are from Douban and IMDb, as of {date}. Douban scores each season separately. A show with several seasons displays the average (marked avg; hover for each season). Seasons with too few votes are left out.",
+  },
+  "cannes-palme-dor": {
+    title: "Cannes · Palme d’Or",
+    kicker: "Cannes Film Festival · Palme d’Or",
+    dek: "Palme d’Or winners and main-competition nominees at the Cannes Film Festival, newest festival year first. Filter by decade and year in the sidebar, and by Winner / Nominated tags.",
+    noun: "film",
+    creator: "Director",
+    search: "Title, director, or cast, or a rank such as 27",
+    idle: "Press Enter, or pick a result, to jump to that film.",
+    empty: "No matches. Try a title, a name, a tag, or a rank.",
+    found: "Found {n}. Press Enter for the first, or pick one from the list.",
+    none: "No matches.",
+    sections: {},
+    colophon:
+      "Chinese titles use the names most common in Chinese-speaking places, and search also accepts familiar aliases. Directors, cast, and plots are short notes from public sources. Festival year and winner/nominee status follow Douban’s Cannes awards pages (main competition Palme d’Or section). Playbill notes are ours and stay with the work; they are still being filled in for this list.",
+    ratings:
+      "Ratings are from Douban and IMDb, as of {date}. Douban scores each season separately. A show with several seasons displays the average (marked avg; hover for each season). Seasons with too few votes are left out.",
+  },
+  "berlin-golden-bear": {
+    title: "Berlin · Golden Bear",
+    kicker: "Berlinale · Golden Bear",
+    dek: "Golden Bear winners and main-competition nominees at the Berlin International Film Festival, newest festival year first. Filter by decade and year in the sidebar, and by Winner / Nominated tags.",
+    noun: "film",
+    creator: "Director",
+    search: "Title, director, or cast, or a rank such as 27",
+    idle: "Press Enter, or pick a result, to jump to that film.",
+    empty: "No matches. Try a title, a name, a tag, or a rank.",
+    found: "Found {n}. Press Enter for the first, or pick one from the list.",
+    none: "No matches.",
+    sections: {},
+    colophon:
+      "Chinese titles use the names most common in Chinese-speaking places, and search also accepts familiar aliases. Directors, cast, and plots are short notes from public sources. Festival year and winner/nominee status follow Douban’s Berlinale awards pages (Golden Bear section). Playbill notes are ours and stay with the work; they are still being filled in for this list.",
+    ratings:
+      "Ratings are from Douban and IMDb, as of {date}. Douban scores each season separately. A show with several seasons displays the average (marked avg; hover for each season). Seasons with too few votes are left out.",
+  },
+  "venice-golden-lion": {
+    title: "Venice · Golden Lion",
+    kicker: "Venice Film Festival · Golden Lion",
+    dek: "Golden Lion winners and main-competition nominees at the Venice Film Festival, newest festival year first. Filter by decade and year in the sidebar, and by Winner / Nominated tags.",
+    noun: "film",
+    creator: "Director",
+    search: "Title, director, or cast, or a rank such as 27",
+    idle: "Press Enter, or pick a result, to jump to that film.",
+    empty: "No matches. Try a title, a name, a tag, or a rank.",
+    found: "Found {n}. Press Enter for the first, or pick one from the list.",
+    none: "No matches.",
+    sections: {},
+    colophon:
+      "Chinese titles use the names most common in Chinese-speaking places, and search also accepts familiar aliases. Directors, cast, and plots are short notes from public sources. Festival year and winner/nominee status follow Douban’s Venice awards pages (Golden Lion section). Playbill notes are ours and stay with the work; they are still being filled in for this list.",
+    ratings:
+      "Ratings are from Douban and IMDb, as of {date}. Douban scores each season separately. A show with several seasons displays the average (marked avg; hover for each season). Seasons with too few votes are left out.",
+  },
   "afi-100-movies": {
     title: "AFI’s 100 Movies",
     kicker: "AFI’s 100 Years…100 Movies · 10th Anniversary",

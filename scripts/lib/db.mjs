@@ -45,10 +45,18 @@ const TABLES = [
   ["person_awards", "person_id, ord, year, id"],
 ];
 
+function migrateListEntries(db) {
+  const cols = db.prepare("PRAGMA table_info(list_entries)").all().map((r) => r.name);
+  if (!cols.includes("chart")) db.exec("ALTER TABLE list_entries ADD COLUMN chart TEXT");
+  if (!cols.includes("position")) db.exec("ALTER TABLE list_entries ADD COLUMN position INTEGER");
+  if (!cols.includes("note")) db.exec("ALTER TABLE list_entries ADD COLUMN note TEXT");
+}
+
 export function openDb(file = DB_PATH) {
   const db = new DatabaseSync(file);
   db.exec("PRAGMA busy_timeout = 60000");
   db.exec(readFileSync(SCHEMA_PATH, "utf8"));
+  migrateListEntries(db);
   return db;
 }
 
@@ -110,6 +118,27 @@ function cacheDb() {
 const lastCall = new Map();
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+/** True when a prior fetch is still in cache.db (200 by default). */
+export function hasCachedJson(source, key, { okOnly = true } = {}) {
+  const hit = cacheDb().prepare("SELECT status FROM raw WHERE source = ? AND key = ?").get(source, key);
+  return okOnly ? hit?.status === 200 : Boolean(hit);
+}
+
+let doubanRatePauseMs = 120_000;
+
+/** Live counters for `npm run douban` progress (logged on stderr). */
+export const doubanFetchStats = { cache: 0, network: 0, rateWaits: 0 };
+
+export function resetDoubanFetchStats() {
+  doubanFetchStats.cache = 0;
+  doubanFetchStats.network = 0;
+  doubanFetchStats.rateWaits = 0;
+}
+
+function logDouban(kind, key, extra = "") {
+  console.error(`douban ${kind} ${key}${extra}`);
+}
+
 /**
  * Fetches JSON once and keeps the raw response in db/cache.db, so reruns and
  * interrupted crawls never hit the network for something already fetched.
@@ -119,6 +148,10 @@ export async function cachedJson(source, key, url, { headers = {}, gap = 0, maxA
   const c = cacheDb();
   const hit = c.prepare("SELECT status, body, fetched_at FROM raw WHERE source = ? AND key = ?").get(source, key);
   if (hit && hit.status === 200 && (Date.now() - Date.parse(hit.fetched_at)) / 864e5 < maxAgeDays) {
+    if (source === "douban") {
+      doubanFetchStats.cache++;
+      logDouban("cache", key, ` (#${doubanFetchStats.cache} from cache)`);
+    }
     return JSON.parse(hit.body);
   }
   // Douban's rexxar API applies subject_ip_rate_limit (~20 calls / few minutes) even when
@@ -130,14 +163,25 @@ export async function cachedJson(source, key, url, { headers = {}, gap = 0, maxA
     const res = await fetch(url, { headers });
     const body = await res.text();
     if (source === "douban" && res.status === 400 && body.includes("subject_ip_rate_limit")) {
-      if (attempt >= 10) throw new Error(`${source} ${res.status} ${url}`);
-      const pause = 120_000;
-      console.error(`douban IP rate limit on ${key}; sleeping ${pause / 1000}s (attempt ${attempt + 1})`);
+      if (attempt >= 4) throw new Error(`douban rate limit ${key}`);
+      const pause = doubanRatePauseMs;
+      doubanRatePauseMs = Math.min(Math.round(doubanRatePauseMs * 1.5), 600_000);
+      doubanFetchStats.rateWaits++;
+      logDouban(
+        "RATE",
+        key,
+        ` sleep ${Math.round(pause / 1000)}s (attempt ${attempt + 1}/4, waits=${doubanFetchStats.rateWaits}, session cache=${doubanFetchStats.cache} net=${doubanFetchStats.network})`,
+      );
       await sleep(pause);
       continue;
     }
     c.prepare("INSERT OR REPLACE INTO raw VALUES (?, ?, ?, ?, ?)").run(source, key, res.status, body, new Date().toISOString());
     if (!res.ok) throw new Error(`${source} ${res.status} ${url}`);
+    if (source === "douban") {
+      doubanRatePauseMs = Math.max(120_000, Math.round(doubanRatePauseMs * 0.85));
+      doubanFetchStats.network++;
+      logDouban("fetch OK", key, attempt > 0 ? ` (after ${attempt + 1} tries, network #${doubanFetchStats.network})` : ` (network #${doubanFetchStats.network})`);
+    }
     return JSON.parse(body);
   }
 }

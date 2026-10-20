@@ -1,0 +1,304 @@
+---
+import Base from "../layouts/Base.astro";
+import Bi from "./Bi.astro";
+import PersonName from "./PersonName.astro";
+import { formEn, lists as listCopy, placeEn, yearsEn } from "../i18n";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  work: CollectionEntry<"works">;
+  listTitles: Map<string, { zh: string; en: string }>;
+}
+
+const { work, listTitles } = Astro.props;
+const w = work.data;
+const titleZh = w.zh ? `《${w.zh}》 · 场刊` : `${w.en} · 场刊`;
+const titleEn = `${w.en} · Playbill`;
+const creatorLabel = w.kind === "movie" ? "导演" : "主创";
+const creatorLabelEn = w.kind === "movie" ? "Director" : "Creator";
+const leadCredits = w.kind === "movie" ? w.creators : w.creators;
+const douban = w.ratings.douban;
+const imdb = w.ratings.imdb;
+const noteZh =
+  douban?.detail?.seasons?.length &&
+  douban.detail.seasons.map((s) => `第${s.season}季 ${s.value.toFixed(1)}`).join(" · ");
+const noteEn =
+  douban?.detail?.seasons?.length &&
+  douban.detail.seasons.map((s) => `S${s.season} ${s.value.toFixed(1)}`).join(" · ");
+---
+
+<Base titleZh={titleZh} titleEn={titleEn}>
+  <header class="mast work-mast" data-zh={w.zh ?? w.en} data-en={w.en}>
+    <div class="wrap work-head">
+      {
+        w.poster ? (
+          <button type="button" class="poster work-poster" aria-label={w.zh ? `《${w.zh}》海报` : `${w.en} poster`}>
+            <img
+              data-src={w.poster}
+              alt={w.zh ? `《${w.zh}》海报` : `${w.en} poster`}
+              width="342"
+              height="513"
+              decoding="async"
+            />
+          </button>
+        ) : (
+          <div class="poster work-poster empty" aria-hidden="true">
+            <span class="zh">无图</span>
+            <span class="en">No art</span>
+          </div>
+        )
+      }
+      <div class="work-intro">
+        <p class="kicker">
+          <Bi zh={w.kind === "movie" ? "电影" : "剧集"} en={w.kind === "movie" ? "Film" : "Series"} />
+        </p>
+        <h1 class="work-title">
+          {w.zh ? (
+            <>
+              <span class="zh">{w.zh}</span>
+              <span class="lat">{w.en}</span>
+            </>
+          ) : (
+            w.en
+          )}
+        </h1>
+        {w.original && w.original !== w.en && (
+          <p class="work-original">
+            <span class="lat">{w.original}</span>
+          </p>
+        )}
+        {w.alias.length > 0 && (
+          <p class="work-aliases">
+            <span class="lab">
+              <Bi zh="又名" en="Also known as" />
+            </span>
+            <span>{w.alias.join(" · ")}</span>
+          </p>
+        )}
+        <p class="work-meta-line">
+          <span class="zh">{w.years}{w.place ? ` · ${w.place}` : ""}{w.form ? ` · ${w.form}` : ""}</span>
+          <span class="en">
+            {yearsEn(w.years)}
+            {w.place ? ` · ${placeEn(w.place)}` : ""}
+            {w.form ? ` · ${formEn(w.form)}` : ""}
+          </span>
+        </p>
+        {
+          w.genres.length > 0 && (
+            <p class="work-genres">
+              {w.genres.map((g) => (
+                <span class="genre-tag">
+                  <Bi zh={g.zh} en={g.en} />
+                </span>
+              ))}
+            </p>
+          )
+        }
+        {(douban || imdb) && (
+          <p class="scores work-scores">
+            {douban && (
+              <>
+                <span class="zh" title={noteZh || undefined}>
+                  豆瓣 <b>{douban.value.toFixed(1)}</b>
+                  {noteZh && <sup>均</sup>}
+                </span>
+                <span class="en" title={noteEn || undefined}>
+                  Douban <b>{douban.value.toFixed(1)}</b>
+                  {noteEn && <sup>avg</sup>}
+                </span>
+              </>
+            )}
+            {imdb && (
+              <span>
+                IMDb <b>{imdb.value.toFixed(1)}</b>
+              </span>
+            )}
+          </p>
+        )}
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap work-main">
+    {leadCredits.length > 0 && (
+      <p class="work-people">
+        <span class="lab">
+          <Bi zh={creatorLabel} en={creatorLabelEn} />
+        </span>
+        <span>
+          {leadCredits.map((p, j) => (
+            <>
+              {j > 0 && (
+                <>
+                  <span class="zh">、</span>
+                  <span class="en">, </span>
+                </>
+              )}
+              <PersonName id={p.id} zh={p.zh} en={p.en} />
+            </>
+          ))}
+        </span>
+      </p>
+    )}
+    {w.writers.length > 0 && (
+      <p class="work-people">
+        <span class="lab">
+          <Bi zh="编剧" en="Writers" />
+        </span>
+        <span>
+          {w.writers.map((p, j) => (
+            <>
+              {j > 0 && (
+                <>
+                  <span class="zh">、</span>
+                  <span class="en">, </span>
+                </>
+              )}
+              <PersonName id={p.id} zh={p.zh} en={p.en} />
+            </>
+          ))}
+        </span>
+      </p>
+    )}
+    {w.cast.length > 0 && (
+      <p class="work-people">
+        <span class="lab">
+          <Bi zh="主演" en="Cast" />
+        </span>
+        <span>
+          {w.cast.map((p, j) => (
+            <>
+              {j > 0 && (
+                <>
+                  <span class="zh">、</span>
+                  <span class="en">, </span>
+                </>
+              )}
+              <PersonName id={p.id} zh={p.zh} en={p.en} />
+            </>
+          ))}
+        </span>
+      </p>
+    )}
+
+    {w.plot && (
+      <section class="work-section">
+        <h2 class="work-section-title">
+          <Bi zh="剧情" en="Plot" />
+        </h2>
+        <div class="work-prose">
+          <p class="zh">{w.plot}</p>
+          {w.plotEn && <p class="en">{w.plotEn}</p>}
+        </div>
+      </section>
+    )}
+
+    {w.playbill && (
+      <section class="work-section">
+        <h2 class="work-section-title">
+          <Bi zh="场刊" en="Playbill" />
+        </h2>
+        <div class="work-prose">
+          <p class="zh">{w.playbill}</p>
+          {w.playbillEn && <p class="en">{w.playbillEn}</p>}
+        </div>
+      </section>
+    )}
+
+    {
+      w.listAppearances.length > 0 && (
+        <section class="work-section">
+          <h2 class="work-section-title">
+            <Bi zh="收录于" en="On lists" />
+          </h2>
+          <ul class="work-lists">
+            {w.listAppearances.map((L) => {
+              const titles = listTitles.get(L.listId);
+              return (
+                <li class="work-list-hit">
+                  <a
+                    class={`list-badge list-badge-${L.listId}`}
+                    href={`/${L.listId}/#show-${L.rank}`}
+                    data-prefetch
+                    title={`${L.detailZh} · #${L.rank}`}
+                  >
+                    <Bi zh={L.listZh} en={L.listEn} />
+                  </a>
+                  <span class="work-list-placement">
+                    <Bi zh={L.detailZh} en={L.detailEn} />
+                  </span>
+                  {(L.hook || L.hookEn) && (
+                    <div class="work-list-hook">
+                      <span class="lab">
+                        <Bi zh="看点" en="Highlight" />
+                      </span>
+                      <span>
+                        {L.hook && <span class="zh">{L.hook}</span>}
+                        {L.hookEn && <span class="en">{L.hookEn}</span>}
+                      </span>
+                    </div>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      )
+    }
+  </main>
+
+  <dialog id="poster-view">
+    <button type="button" class="x" data-close><Bi zh="关闭" en="Close" /></button>
+    <img alt="" width="342" height="513" />
+    <p class="cap"></p>
+  </dialog>
+</Base>
+
+<script>
+  const posterImgs = Array.from(document.querySelectorAll<HTMLImageElement>(".work-poster img[data-src]"));
+  const loadPoster = (img: HTMLImageElement) => {
+    if (!img.dataset.src) return;
+    img.src = img.dataset.src;
+    img.removeAttribute("data-src");
+  };
+  if (posterImgs.length && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const en of entries) {
+          if (!en.isIntersecting) continue;
+          loadPoster(en.target as HTMLImageElement);
+          io.unobserve(en.target);
+        }
+      },
+      { rootMargin: "600px 0px" },
+    );
+    posterImgs.forEach((img) => io.observe(img));
+  } else {
+    posterImgs.forEach(loadPoster);
+  }
+
+  const dialog = document.getElementById("poster-view") as HTMLDialogElement | null;
+  const viewImg = dialog?.querySelector("img");
+  const viewCap = dialog?.querySelector(".cap");
+  dialog?.querySelector("[data-close]")?.addEventListener("click", () => dialog.close());
+  dialog?.addEventListener("click", (e) => {
+    if (e.target === dialog) dialog.close();
+  });
+  document.querySelectorAll<HTMLButtonElement>("button.work-poster").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (!dialog || !viewImg || !viewCap) return;
+      const img = btn.querySelector("img");
+      const src = img?.getAttribute("src") || img?.dataset.src;
+      if (!src || !img) return;
+      loadPoster(img);
+      const en = document.documentElement.classList.contains("lang-en");
+      const host = btn.closest("[data-zh]");
+      viewImg.src = src;
+      viewImg.alt = img.alt;
+      const zh = host instanceof HTMLElement ? (host.dataset.zh ?? "") : "";
+      const enName = host instanceof HTMLElement ? (host.dataset.en ?? "") : "";
+      viewCap.textContent = en ? enName || zh : zh || enName;
+      dialog.showModal();
+    });
+  });
+</script>

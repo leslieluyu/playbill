@@ -28,6 +28,9 @@ const iDouban = idx("douban_id");
 const iImdb = idx("imdb_id");
 const iId = idx("id");
 const iSection = idx("section");
+const iChart = idx("chart");
+const iPosition = idx("position");
+const iNote = idx("note");
 if (iRank < 0 || iTitle < 0 || iYear < 0) {
   throw new Error(`seed TSV needs rank (or spine_number), title, year columns; got ${cols.join(", ")}`);
 }
@@ -58,6 +61,9 @@ for (const line of rows) {
     imdbId: iImdb >= 0 && cells[iImdb] ? String(cells[iImdb]).trim() : null,
     id: iId >= 0 && cells[iId] ? String(cells[iId]).trim() : null,
     section,
+    chart: iChart >= 0 && cells[iChart] ? String(cells[iChart]).trim() : null,
+    position: iPosition >= 0 && cells[iPosition] ? Number(cells[iPosition]) : null,
+    note: iNote >= 0 && cells[iNote] ? String(cells[iNote]).trim() : null,
   });
 }
 
@@ -124,7 +130,7 @@ tx(db, () => {
   }
 
   const insertEntry = db.prepare(
-    "INSERT INTO list_entries (list_id, rank, work_id, section_id) VALUES (?, ?, ?, ?)",
+    "INSERT INTO list_entries (list_id, rank, work_id, section_id, chart, position, note) VALUES (?, ?, ?, ?, ?, ?, ?)",
   );
   for (const e of entries) {
     const matched = findExisting(e);
@@ -150,7 +156,7 @@ tx(db, () => {
         db.prepare("UPDATE works SET imdb_id = coalesce(imdb_id, ?) WHERE id = ?").run(e.imdbId, id);
       }
     }
-    insertEntry.run(meta.id, e.rank, id, e.section);
+    insertEntry.run(meta.id, e.rank, id, e.section, e.chart, e.position, e.note);
   }
 });
 exportDb(db);
