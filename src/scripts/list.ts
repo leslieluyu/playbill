@@ -357,6 +357,27 @@ export function initList() {
     alignLocated(el);
   }
 
+  /**
+   * Scroll to a show under the sticky finder without the locate highlight
+   * (year / decade / section nav). Settles layout for content-visibility lists.
+   */
+  function pinEntry(el: HTMLElement) {
+    const idx = articles.indexOf(el);
+    const longList = articles.length > 600;
+    if (longList && idx >= 0) flushLayoutThrough(idx);
+    revealAround(el, longList ? articles.length : 40, 3);
+    alignLocated(el);
+    const resettle = () => {
+      revealAround(el);
+      alignLocated(el);
+    };
+    const resettleMs = longList ? [0, 50, 150, 400, 900, 1800] : [80, 320];
+    requestAnimationFrame(() => {
+      requestAnimationFrame(resettle);
+    });
+    for (const ms of resettleMs) window.setTimeout(resettle, ms);
+  }
+
   /** Highlight a show without scrolling (e.g. user clicked it while browsing). */
   function markLocated(el: HTMLElement) {
     clearLocated();
@@ -535,13 +556,16 @@ export function initList() {
           if (Number.isInteger(y)) expandDecade(Math.floor(y / 10) * 10);
         }
       }
-      articles.forEach((a) => a.classList.remove("located"));
+      clearLocated();
       resetSearch();
       // Scroll to the filtered list without the locate highlight (that is for search / 原榜 jumps).
-      if (sectionFilter !== "all" && intro && !intro.hidden) {
-        intro.scrollIntoView({ behavior: "auto", block: "start" });
-      } else if (sectionFilter !== "all") {
+      // Year-nav never shows #section-intro, so the old path always hit scrollTo(0) — page top.
+      if (sectionFilter === "all") {
         window.scrollTo({ top: 0, behavior: "auto" });
+      } else if (intro && !intro.hidden) {
+        intro.scrollIntoView({ behavior: "auto", block: "start" });
+      } else if (matches[0]) {
+        pinEntry(matches[0]);
       } else {
         window.scrollTo({ top: 0, behavior: "auto" });
       }
