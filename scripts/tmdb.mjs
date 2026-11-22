@@ -56,6 +56,29 @@ const HINTS = {
   "tmdb-m-30197": { id: 30197, query: "The Producers", year: 1968 },
   "douban-1433079": { id: 318346, imdb: "tt0442256", query: "Half a Confession", year: 2004 },
   "tmdb-m-58156": { id: 318346, imdb: "tt0442256", query: "Half a Confession", year: 2004 },
+  // century-tv-20th: Chinese / alternate titles that confuse search
+  "local-94": { id: 72645, query: "Romance of the Three Kingdoms", year: 1994 },
+  "local-la-piovra": { id: 12822, query: "La Piovra", year: 1984 },
+  "local-escrava-isaura": { id: 5618, query: "Escrava Isaura", year: 1976 },
+  "local-utopia": { id: 46511, query: "Utopia", year: 2013 },
+  "local-the-mandalorian-andor": { id: 82856, query: "The Mandalorian", year: 2019 },
+  "douban-26938125": { id: 80335, query: "Homecoming", year: 2018 },
+  "douban-26915602": { id: 72750, query: "Killing Eve", year: 2018 },
+  "tmdb-tv-72645": { id: 72645 },
+  "tmdb-tv-12822": { id: 12822 },
+  "tmdb-tv-5618": { id: 5618 },
+  "tmdb-tv-46511": { id: 46511 },
+  "tmdb-tv-80335": { id: 80335 },
+  "tmdb-tv-82856": { id: 82856 },
+  "tmdb-tv-72750": { id: 72750 },
+  // emmy-outstanding-series: classic sitcoms / dramas that confuse search
+  "local-upstairs-downstairs": { id: 492, query: "Upstairs, Downstairs", year: 1971 },
+  "tmdb-tv-492": { id: 492 },
+  "local-will-and-grace": { id: 4454, query: "Will & Grace", year: 1998 },
+  "tmdb-tv-4454": { id: 4454 },
+  "local-thirtysomething": { id: 1448, query: "thirtysomething", year: 1987 },
+  "tmdb-tv-1448": { id: 1448 },
+  "tmdb-tv-5021": { id: 5021, query: "The Waltons", year: 1972 },
 };
 
 const args = process.argv.slice(2);

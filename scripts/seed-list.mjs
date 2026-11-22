@@ -31,10 +31,19 @@ const iSection = idx("section");
 const iChart = idx("chart");
 const iPosition = idx("position");
 const iNote = idx("note");
+const iSeason = idx("season");
 const iWikidata = idx("wikidata");
 const iDirectorEn = idx("director_en");
 if (iRank < 0 || iTitle < 0 || iYear < 0) {
   throw new Error(`seed TSV needs rank (or spine_number), title, year columns; got ${cols.join(", ")}`);
+}
+
+/** Bake TSV `season` into note as s4 / s5b (keeps any non-season rest of note). */
+function noteWithSeason(note, season) {
+  if (!season) return note || null;
+  const rest = (note ?? "").replace(/^s\d+[ab]?\s*(?:·\s*)?/i, "").trim();
+  const token = /^s\d+[ab]?$/i.test(season) ? season.toLowerCase() : `s${season}`;
+  return rest ? `${token} · ${rest}` : token;
 }
 
 const sectionDefs = Array.isArray(meta.sections) ? meta.sections : [];
@@ -66,6 +75,7 @@ for (const line of rows) {
     chart: iChart >= 0 && cells[iChart] ? String(cells[iChart]).trim() : null,
     position: iPosition >= 0 && cells[iPosition] ? Number(cells[iPosition]) : null,
     note: iNote >= 0 && cells[iNote] ? String(cells[iNote]).trim() : null,
+    season: iSeason >= 0 && cells[iSeason] ? String(cells[iSeason]).trim() : null,
     wikidata: iWikidata >= 0 && cells[iWikidata] ? String(cells[iWikidata]).trim() : null,
     directorEn: iDirectorEn >= 0 && cells[iDirectorEn] ? String(cells[iDirectorEn]).trim() : null,
   });
@@ -227,7 +237,8 @@ tx(db, () => {
         db.prepare("UPDATE works SET imdb_id = coalesce(imdb_id, ?) WHERE id = ?").run(e.imdbId, id);
       }
     }
-    insertEntry.run(meta.id, e.rank, id, e.section, e.chart, e.position, e.note);
+    const note = e.season ? noteWithSeason(e.note, e.season) : e.note;
+    insertEntry.run(meta.id, e.rank, id, e.section, e.chart, e.position, note);
     if (e.directorEn && meta.id === "great-directors") {
       const personId = personByEn.get(e.directorEn) ?? ensurePerson(e.directorEn, null);
       personByEn.set(e.directorEn, personId);

@@ -1,9 +1,12 @@
 ---
 import Bi from "./Bi.astro";
 import type { GdTag } from "../lib/great-directors";
+import type { GdContinentId } from "../lib/gd-countries";
+import { GD_CONTINENT_LABEL } from "../lib/gd-countries";
 
 export interface Props {
-  countries: string[];
+  countryGroups: { id: GdContinentId; countries: string[] }[];
+  countryCounts: Map<string, number>;
   tagGroups: {
     titleZh: string;
     titleEn: string;
@@ -15,16 +18,23 @@ export interface Props {
   searchPlaceholderEn: string;
   /** Extra muted note under filters (optional). */
   footnote?: { zh: string; en: string };
+  /** Whether tag/count hints refer to directors or films (films view). */
+  countKind?: "directors" | "films";
 }
 
 const {
-  countries,
+  countryGroups,
+  countryCounts,
   tagGroups,
   tagCounts,
   searchPlaceholderZh,
   searchPlaceholderEn,
   footnote,
+  countKind = "directors",
 } = Astro.props;
+
+const countNounZh = countKind === "films" ? "部影片" : "位导演";
+const countNounEn = countKind === "films" ? "films" : "directors";
 ---
 
 <aside class="side gd-side" aria-label="Filters">
@@ -45,20 +55,29 @@ const {
     <summary><Bi zh="国家 / 地区" en="Country" /></summary>
     <p class="gd-filter-hint muted">
       <Bi
-        zh="按导演国籍筛选；多国籍导演会出现在多个标签下。"
-        en="Filter by director nationality; dual nationals appear under each country."
+        zh={`按导演国籍筛选；数字为榜单内${countNounZh}数。多国籍会出现在多个国家下。`}
+        en={`Filter by nationality; numbers count ${countNounEn} on this list. Dual nationals appear under each country.`}
       />
     </p>
     <ul class="gd-tags" data-gd-filter="country">
       <li><button type="button" class="gd-tag active" data-value="">全部</button></li>
       {
-        countries.map((c) => (
-          <li>
-            <button type="button" class="gd-tag" data-value={c}>
-              {c}
-            </button>
-          </li>
-        ))
+        countryGroups.flatMap((g) => [
+          <li class="gd-country-region" aria-hidden="true">
+            <Bi zh={GD_CONTINENT_LABEL[g.id].zh} en={GD_CONTINENT_LABEL[g.id].en} />
+          </li>,
+          ...g.countries.map((c) => {
+            const n = countryCounts.get(c) ?? 0;
+            return (
+              <li>
+                <button type="button" class="gd-tag" data-value={c} title={`${c} · ${n}`}>
+                  {c}
+                  <span class="gd-tag-count">{n}</span>
+                </button>
+              </li>
+            );
+          }),
+        ])
       }
     </ul>
   </details>
@@ -72,8 +91,24 @@ const {
         {g.filterKind === "master" ? (
           <p class="gd-filter-hint muted">
             <Bi
-              zh="《视与听》2002：影评人十佳 11 位、导演十佳 11 位；「大师」为两者并集（可重叠）。"
-              en="Sight & Sound 2002: 11 critics' picks, 11 directors' picks; «Masters» is the union (overlap allowed)."
+              zh="《视与听》2002：影评人十佳 11 位、导演十佳 11 位；「大师」为两者并集（可重叠）。数字为榜单内导演人数。"
+              en="Sight & Sound 2002: 11 critics' and 11 directors' picks; «Masters» is the union. Numbers count directors on this list."
+            />
+          </p>
+        ) : null}
+        {g.filterKind === "award" ? (
+          <p class="gd-filter-hint muted">
+            <Bi
+              zh={
+                countKind === "films"
+                  ? "数字 = 标注该奖项/电影节的影片部数。"
+                  : "数字 = 至少有一部片标注该奖项/电影节的导演人数（非提名总数）。"
+              }
+              en={
+                countKind === "films"
+                  ? "Number = films on this list tagged for that award/festival."
+                  : "Number = directors with at least one film tagged for that award/festival."
+              }
             />
           </p>
         ) : null}
@@ -106,7 +141,7 @@ const {
                   disabled={empty}
                 >
                   <Bi zh={t.zh} en={t.en} />
-                  <span class="gd-tag-count" aria-hidden="true">
+                  <span class="gd-tag-count" title={String(n)}>
                     {n}
                   </span>
                 </button>

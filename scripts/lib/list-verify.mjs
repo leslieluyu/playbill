@@ -3,6 +3,7 @@ import { readFileSync, existsSync } from "node:fs";
 import path from "node:path";
 import { openDb } from "./db.mjs";
 import {
+  EMMY_LIST_IDS,
   FESTIVAL_LIST_IDS,
   chartLabel,
   decadeOfYear,
@@ -89,6 +90,16 @@ export function verifyDbList(db, listId, errors) {
       if (FESTIVAL_LIST_IDS.includes(listId)) {
         if (e.chart !== "won" && e.chart !== "nom") {
           fail(errors, listId, `rank ${e.rank}: chart must be won or nom, got ${e.chart}`);
+        }
+      }
+      if (EMMY_LIST_IDS.includes(listId)) {
+        if (e.chart !== "drama" && e.chart !== "comedy") {
+          fail(errors, listId, `rank ${e.rank}: chart must be drama or comedy, got ${e.chart}`);
+        }
+        // Season tokens live in note as s4 / s5b (optional · rest). Span-only footnotes OK.
+        const note = e.note ? String(e.note).trim() : "";
+        if (note.startsWith("s") && !/^s\d+[ab]?(?:\s*·\s*.+)?$/i.test(note)) {
+          fail(errors, listId, `rank ${e.rank}: malformed season note ${e.note}`);
         }
       }
     }

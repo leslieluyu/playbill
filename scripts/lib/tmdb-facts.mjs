@@ -1,6 +1,7 @@
 /** TMDB overview + credits; optional EN→ZH translation and Wikipedia fallback. */
 
 import { wikipediaPlot } from "./wikipedia.mjs";
+import { ensurePerson } from "./find-person.mjs";
 
 const han = /\p{Script=Han}/u;
 
@@ -70,11 +71,7 @@ export async function resolveOverviews(w, d, zhDetail, { translate, useWiki = tr
 
 export async function fillCreditsIfEmpty(db, w, tmdb, tmdbId) {
   if (db.prepare("SELECT 1 FROM credits WHERE work_id = ?").get(w.id)) return false;
-  const person = (p) => {
-    const row = db.prepare("SELECT id FROM people WHERE tmdb_id = ?").get(p.id);
-    if (row) return row.id;
-    return Number(db.prepare("INSERT INTO people (en, tmdb_id) VALUES (?, ?)").run(p.name, p.id).lastInsertRowid);
-  };
+  const person = (p) => ensurePerson(db, { en: p.name, tmdbId: p.id });
   if (w.kind === "movie") {
     const { cast, crew } = await tmdb(`/movie/${tmdbId}/credits`);
     crew.filter((c) => c.job === "Director").slice(0, 2).forEach((p, i) =>

@@ -15,6 +15,7 @@ export function listEntryDetail(
   sectionId?: string | null,
   chart?: string | null,
   position?: number | null,
+  note?: string | null,
 ) {
-  return listBadgeLabel(listId, rank, sectionId, chart, position);
+  return listBadgeLabel(listId, rank, sectionId, chart, position, note);
 }

@@ -18,6 +18,7 @@ import {
   workIdFromTmdb,
 } from "./lib/work-id.mjs";
 import { doubanIdFromWorkId, pickSearchTitles } from "./lib/douban-subject.mjs";
+import { ensurePerson } from "./lib/find-person.mjs";
 
 const MIN_VOTES = 1000;
 const cookieRaw = (process.env.DOUBAN_COOKIE ?? "").trim();
@@ -184,17 +185,12 @@ function personFor(dPerson, tmdbPeople) {
   const latin = (dPerson.latin_name ?? "").trim();
   const match = latin && tmdbPeople.find((p) => tokens(p.name) === tokens(latin));
   const en = match?.name ?? (latin || dPerson.name);
-  const existing =
-    db.prepare("SELECT id FROM people WHERE douban_id = ?").get(dPerson.id) ??
-    (match && db.prepare("SELECT id FROM people WHERE tmdb_id = ?").get(match.id));
-  if (existing) {
-    db.prepare("UPDATE people SET douban_id = coalesce(douban_id, ?), tmdb_id = coalesce(tmdb_id, ?) WHERE id = ?").run(
-      dPerson.id, match?.id ?? null, existing.id);
-    return existing.id;
-  }
-  const r = db.prepare("INSERT INTO people (en, zh, tmdb_id, douban_id) VALUES (?, ?, ?, ?)").run(
-    en, dPerson.name, match?.id ?? null, dPerson.id);
-  return Number(r.lastInsertRowid);
+  return ensurePerson(db, {
+    en,
+    zh: dPerson.name,
+    tmdbId: match?.id ?? null,
+    doubanId: dPerson.id,
+  });
 }
 
 function fillDoubanDetail(w, d) {

@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import SiteSearch from "../components/SiteSearch.astro";
 
 interface Props {
   titleZh: string;
@@ -37,6 +38,7 @@ const { titleZh, titleEn, description } = Astro.props;
     <div class="site-bar">
       <div class="wrap">
         <a class="brand" href="/"><span class="zh">场刊</span><small>Playbill</small></a>
+        <SiteSearch />
         <div class="bar-end">
           <span class="tagline"><span class="zh">影视片单整理</span><span class="en">Film and TV lists</span></span>
           <div class="lang-switch" role="group" aria-label="Language">

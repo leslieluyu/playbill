@@ -38,7 +38,7 @@ export function worksLoader(): Loader {
       );
       const listHits = db.prepare(
         `SELECT le.list_id AS list_id, le.rank AS rank, le.section_id AS section_id,
-                le.chart AS chart, le.position AS position, l.title AS list_title
+                le.chart AS chart, le.position AS position, le.note AS note, l.title AS list_title
          FROM list_entries le
          JOIN lists l ON l.id = le.list_id
          WHERE le.work_id = ?
@@ -88,6 +88,7 @@ export function worksLoader(): Loader {
               h.section_id as string | null,
               h.chart as string | null,
               h.position != null ? Number(h.position) : null,
+              h.note as string | null,
             );
             const hi = listHighlight.get(h.list_id, w.id) as Row | undefined;
             return {
@@ -171,7 +172,7 @@ export function peopleLoader(): Loader {
       );
       const listHits = db.prepare(
         `SELECT le.list_id AS list_id, le.rank AS rank, le.section_id AS section_id,
-                le.chart AS chart, le.position AS position, l.title AS list_title, l.ord AS list_ord
+                le.chart AS chart, le.position AS position, le.note AS note, l.title AS list_title, l.ord AS list_ord
          FROM list_entries le
          JOIN lists l ON l.id = le.list_id
          WHERE le.work_id = ?
@@ -214,6 +215,7 @@ export function peopleLoader(): Loader {
               h.section_id as string | null,
               h.chart as string | null,
               h.position != null ? Number(h.position) : null,
+              h.note as string | null,
             );
             return {
               listId,

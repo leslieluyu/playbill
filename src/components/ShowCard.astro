@@ -2,6 +2,14 @@
 import Bi from "./Bi.astro";
 import PersonName from "./PersonName.astro";
 import { formEn, placeEn, yearsEn } from "../i18n";
+import {
+  formatEmmySeasonEn,
+  formatEmmySeasonZh,
+  formatEmmyWinLineEn,
+  formatEmmyWinLineZh,
+  parseEmmyNote,
+  type EmmySeason,
+} from "../lib/emmy-note";
 
 interface Person {
   id: string;
@@ -45,6 +53,14 @@ interface Work {
   ratings: { douban?: Rating; imdb?: Rating };
 }
 
+interface EmmyWin {
+  year: number;
+  season: EmmySeason | null;
+  /** Newest ceremony appearance of this work on the list (lowest rank). */
+  primary: boolean;
+  primaryRank: number;
+}
+
 interface Props {
   workId: string;
   rank: number;
@@ -71,6 +87,8 @@ interface Props {
   decade?: number;
   creatorLabel: string;
   creatorLabelEn: string;
+  /** Emmy outstanding series: season badge + suppress clone intros on repeat wins. */
+  emmyWin?: EmmyWin;
 }
 
 const {
@@ -99,14 +117,27 @@ const {
   decade,
   creatorLabel,
   creatorLabelEn,
+  emmyWin,
 } = Astro.props;
 
+const parsedEmmyNote = parseEmmyNote(entryNote);
+const emmySeason = emmyWin?.season ?? parsedEmmyNote.season;
+const emmyNoteRest = emmyWin ? parsedEmmyNote.rest : "";
+const emmyMetaZh =
+  emmyWin != null && listChart
+    ? formatEmmyWinLineZh(emmyWin.year, listChart.zh === "剧情" ? "剧情类" : listChart.zh === "喜剧" ? "喜剧类" : listChart.zh, emmySeason)
+    : undefined;
+const emmyMetaEn =
+  emmyWin != null && listChart
+    ? formatEmmyWinLineEn(emmyWin.year, listChart.en, emmySeason)
+    : undefined;
+
 const kjMetaZh =
-  kjYear != null
+  emmyWin == null && kjYear != null
     ? [ `${kjYear}年度`, listChart?.zh, position != null ? `第${position}位` : undefined ].filter(Boolean).join(" · ")
     : undefined;
 const kjMetaEn =
-  kjYear != null
+  emmyWin == null && kjYear != null
     ? [
         `${kjYear}`,
         listChart?.en,
@@ -124,16 +155,22 @@ const seasonList = seasons && seasons.length >= 2 ? seasons : undefined;
 const noteZh = seasonList && "各季平均：" + seasonList.map((x) => `第${x.season}季 ${x.value.toFixed(1)}`).join("，");
 const noteEn = seasonList && "Average of seasons: " + seasonList.map((x) => `S${x.season} ${x.value.toFixed(1)}`).join(", ");
 const line = (parts: (string | undefined)[]) => parts.filter(Boolean).join(" · ");
-const metaZh = line([kjMetaZh ?? (showSectionInMeta ? sectionName : undefined), w.years, w.place, w.form]);
-const metaEn = line([kjMetaEn ?? (showSectionInMeta ? (sectionNameEn ?? sectionName) : undefined), yearsEn(w.years), placeEn(w.place), formEn(w.form)]);
+const metaZh = line([emmyMetaZh ?? kjMetaZh ?? (showSectionInMeta ? sectionName : undefined), w.years, w.place, w.form]);
+const metaEn = line([emmyMetaEn ?? kjMetaEn ?? (showSectionInMeta ? (sectionNameEn ?? sectionName) : undefined), yearsEn(w.years), placeEn(w.place), formEn(w.form)]);
 const extraTags = [
   ...(listChart ? [`chart:${listChart.id}`] : []),
   ...(decade != null ? [`decade:${decade}`] : []),
 ];
 const tagIds = [...extraTags, ...tags.map((t) => t.id)].join(" ");
-const showCopy = lazyExtras
+/** Repeat Emmy wins: no shared plot / highlight / playbill (those stay on the primary/newest row). */
+const showEditorial = !emmyWin || emmyWin.primary;
+const showHook = showEditorial && !!(hook || hookEn);
+const showCopy = showEditorial && (lazyExtras
   ? !!(hook || hookEn || w.plot || w.playbill)
-  : !!(w.plot || hook || hookEn || w.playbill);
+  : !!(w.plot || hook || hookEn || w.playbill));
+const showEntryNote = Boolean(entryNote) && !emmyWin;
+const seasonBadgeZh = emmyWin ? formatEmmySeasonZh(emmySeason) : undefined;
+const seasonBadgeEn = emmyWin ? formatEmmySeasonEn(emmySeason) : undefined;
 ---
 
 <article
@@ -179,11 +216,16 @@ const showCopy = lazyExtras
     <p class="meta">
       <Bi zh={metaZh} en={metaEn} />
     </p>
-    {(listChart || (useTags && tags.length > 0)) && (
+    {(listChart || emmyWin || (useTags && tags.length > 0)) && (
       <p class="tag-chips">
         {listChart && (
           <span class="chip chip-chart">
             <Bi zh={listChart.zh} en={listChart.en} />
+          </span>
+        )}
+        {emmyWin && seasonBadgeZh && (
+          <span class="chip chip-season">
+            <Bi zh={seasonBadgeZh} en={seasonBadgeEn ?? seasonBadgeZh} />
           </span>
         )}
         {decade != null && (
@@ -199,9 +241,21 @@ const showCopy = lazyExtras
           ))}
       </p>
     )}
-    {entryNote && (
+    {showEntryNote && (
       <p class="entry-note">
-        <Bi zh={entryNote} en={entryNote} />
+        <Bi zh={entryNote!} en={entryNote!} />
+      </p>
+    )}
+    {emmyNoteRest && (
+      <p class="entry-note">
+        <Bi zh={`源文档年代：${emmyNoteRest}`} en={`Source span: ${emmyNoteRest}`} />
+      </p>
+    )}
+    {emmyWin && !emmyWin.primary && (
+      <p class="entry-note win-ref">
+        <Bi zh="同系列另见最新获奖条目" en="Same series — see the newest win" />
+        {" "}
+        <a href={`#show-${emmyWin.primaryRank}`}>#{pad(emmyWin.primaryRank)}</a>
       </p>
     )}
     {(douban || imdb) && (
@@ -286,7 +340,7 @@ const showCopy = lazyExtras
       </p>
     )}
     {showCopy && (
-      <div class="copy" data-extras-for={lazyExtras && (w.plot || w.playbill) ? rank : undefined}>
+      <div class="copy" data-extras-for={lazyExtras && showEditorial && (w.plot || w.playbill) ? rank : undefined}>
         {!lazyExtras && w.plot && (
           <p class="plot">
             <span class="lab">
@@ -298,7 +352,7 @@ const showCopy = lazyExtras
             </span>
           </p>
         )}
-        {(hook || hookEn) && (
+        {showHook && (
           <p class="hook">
             <span class="lab">
               <Bi zh="看点" en="Highlight" />

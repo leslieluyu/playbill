@@ -224,7 +224,7 @@
       "zh": "安德烈·塔可夫斯基",
       "en": "Andrei Tarkovsky",
       "countries": [
-        "苏联"
+        "俄罗斯"
       ],
       "bioZh": "“提出“雕刻时光”，以长镜头和自然意象营造灵性诗意的电影。",
       "masterTags": [],
@@ -286,8 +286,11 @@
       "tspdtRank": 17,
       "zh": "比利·怀尔德",
       "en": "Billy Wilder",
-      "countries": [],
-      "bioZh": "美国(奥地利出生)\n好莱坞最犀利的编导之一，横跨黑色电影与喜剧，以尖刻对白与人性洞察著称。",
+      "countries": [
+        "美国",
+        "奥地利"
+      ],
+      "bioZh": "好莱坞最犀利的编导之一，横跨黑色电影与喜剧，以尖刻对白与人性洞察著称。",
       "masterTags": [],
       "styleTags": [
         "film-noir"
@@ -415,7 +418,9 @@
       ],
       "bioZh": "“新浪潮旗手与“作者论”提出者之一，作品以对电影与人物的深情见长。",
       "masterTags": [],
-      "styleTags": [],
+      "styleTags": [
+        "nouvelle-vague"
+      ],
       "tspdt1000Count": 7,
       "tspdtOtherCount": 16
     },
@@ -470,7 +475,7 @@
       "zh": "谢尔盖·爱森斯坦",
       "en": "Sergei Eisenstein",
       "countries": [
-        "苏联"
+        "俄罗斯"
       ],
       "bioZh": "“蒙太奇理论的奠基者，“敖德萨阶梯”段落是影史最著名的剪辑范例之一。",
       "masterTags": [
@@ -489,7 +494,7 @@
       "zh": "王家卫",
       "en": "Wong Kar-wai",
       "countries": [
-        "中国香港"
+        "香港"
       ],
       "bioZh": "以手持摄影、抽格、旁白与浓郁色彩书写都市情感与时间记忆，是华语电影最具国际影响力的作者之一。",
       "masterTags": [],
@@ -507,7 +512,9 @@
       ],
       "bioZh": "伊朗新浪潮领军人物，模糊纪实与虚构的边界，以极简手法探讨生命与观看。",
       "masterTags": [],
-      "styleTags": [],
+      "styleTags": [
+        "nouvelle-vague"
+      ],
       "tspdt1000Count": 6,
       "tspdtOtherCount": 23
     },
@@ -563,9 +570,9 @@
       "zh": "迈克尔·鲍威尔与埃默里克·普雷斯伯格",
       "en": "Michael Powell & Emeric Pressburger",
       "countries": [
-        "35"
+        "英国"
       ],
-      "bioZh": "迈克尔·鲍威尔与埃默里克·普雷斯伯格\nMichael Powell &amp; Emeric Pressburger\n英国\n“射手”制片组合，以大胆的特艺七彩与浪漫想象打破英国电影的写实传统。",
+      "bioZh": "埃默里克·普雷斯伯格\nMichael Powell &amp; Emeric Pressburger\n英国\n“射手”制片组合，以大胆的特艺七彩与浪漫想象打破英国电影的写实传统。",
       "masterTags": [],
       "styleTags": [],
       "tspdt1000Count": 6,
@@ -641,7 +648,9 @@
       ],
       "bioZh": "“左岸派”代表，以剪辑探索记忆与时间的结构。",
       "masterTags": [],
-      "styleTags": [],
+      "styleTags": [
+        "nouvelle-vague"
+      ],
       "tspdt1000Count": 6,
       "tspdtOtherCount": 20
     },
@@ -665,9 +674,9 @@
       "zh": "斯坦利·多南与吉恩·凯利",
       "en": "Stanley Donen & Gene Kelly",
       "countries": [
-        "42"
+        "美国"
       ],
-      "bioZh": "斯坦利·多南与吉恩·凯利\nStanley Donen &amp; Gene Kelly\n美国\n米高梅歌舞片黄金时代的搭档，《雨中曲》被公认为最伟大的歌舞片。",
+      "bioZh": "恩·凯利\nStanley Donen &amp; Gene Kelly\n美国\n米高梅歌舞片黄金时代的搭档，《雨中曲》被公认为最伟大的歌舞片。",
       "masterTags": [],
       "styleTags": [],
       "tspdt1000Count": 1,
@@ -736,10 +745,15 @@
       "tspdtRank": 47,
       "zh": "阿涅斯·瓦尔达",
       "en": "Agnès Varda",
-      "countries": [],
-      "bioZh": "“法国(比利时出生)\n“新浪潮祖母”，兼跨剧情与纪录，以女性视角和自传式随笔电影开拓新路。",
+      "countries": [
+        "法国",
+        "比利时"
+      ],
+      "bioZh": "“新浪潮祖母”，兼跨剧情与纪录，以女性视角和自传式随笔电影开拓新路。",
       "masterTags": [],
-      "styleTags": [],
+      "styleTags": [
+        "nouvelle-vague"
+      ],
       "tspdt1000Count": 4,
       "tspdtOtherCount": 20
     },
@@ -749,7 +763,7 @@
       "zh": "赖纳·维尔纳·法斯宾德",
       "en": "Rainer Werner Fassbinder",
       "countries": [
-        "西德"
+        "德国"
       ],
       "bioZh": "新德国电影最多产的代表，借瑟克式情节剧剖析战后德国社会与权力关系，37岁早逝。",
       "masterTags": [],
@@ -839,7 +853,9 @@
       ],
       "bioZh": "“论文电影”的代表人物，以照片蒙太奇与思辨旁白探讨记忆与历史。",
       "masterTags": [],
-      "styleTags": [],
+      "styleTags": [
+        "nouvelle-vague"
+      ],
       "tspdt1000Count": 2,
       "tspdtOtherCount": 22
     },
@@ -865,7 +881,7 @@
       "zh": "吉加·维尔托夫",
       "en": "Dziga Vertov",
       "countries": [
-        "苏联"
+        "俄罗斯"
       ],
       "bioZh": "“电影眼”理论提出者，纪录片与先锋电影先驱，《持摄影机的人》在2014年《视与听》纪录片投票中位列第一。",
       "masterTags": [],
@@ -879,7 +895,7 @@
       "zh": "侯孝贤",
       "en": "Hou Hsiao-hsien",
       "countries": [
-        "中国台湾"
+        "台湾"
       ],
       "bioZh": "台湾新电影旗手，以长镜头与远景冷静凝视历史与人情。",
       "masterTags": [],
@@ -935,9 +951,9 @@
       "zh": "乔尔·科恩与伊桑·科恩",
       "en": "Joel Coen & Ethan Coen",
       "countries": [
-        "61"
+        "美国"
       ],
-      "bioZh": "乔尔·科恩与伊桑·科恩\nJoel Coen &amp; Ethan Coen\n美国\n兄弟编导组合，以黑色幽默重塑犯罪与类型片。",
+      "bioZh": "·科恩\nJoel Coen &amp; Ethan Coen\n美国\n兄弟编导组合，以黑色幽默重塑犯罪与类型片。",
       "masterTags": [],
       "styleTags": [],
       "tspdt1000Count": 7,
@@ -962,8 +978,11 @@
       "tspdtRank": 63,
       "zh": "迈克尔·柯蒂兹",
       "en": "Michael Curtiz",
-      "countries": [],
-      "bioZh": "美国(匈牙利出生)\n华纳片厂制度下多产全能的代表导演，《卡萨布兰卡》是好莱坞经典的代名词。",
+      "countries": [
+        "美国",
+        "匈牙利"
+      ],
+      "bioZh": "华纳片厂制度下多产全能的代表导演，《卡萨布兰卡》是好莱坞经典的代名词。",
       "masterTags": [],
       "styleTags": [],
       "tspdt1000Count": 2,
@@ -1005,7 +1024,7 @@
       "zh": "杨德昌",
       "en": "Edward Yang",
       "countries": [
-        "中国台湾"
+        "台湾"
       ],
       "bioZh": "台湾新电影代表，以冷静理性的群像剖析台北的现代化与人际关系。",
       "masterTags": [],
@@ -1032,8 +1051,11 @@
       "tspdtRank": 68,
       "zh": "弗兰克·卡普拉",
       "en": "Frank Capra",
-      "countries": [],
-      "bioZh": "“美国(意大利出生)\n以温情乐观的平民英雄故事著称，“卡普拉式”代表美国民粹理想主义。",
+      "countries": [
+        "美国",
+        "意大利"
+      ],
+      "bioZh": "“以温情乐观的平民英雄故事著称，“卡普拉式”代表美国民粹理想主义。",
       "masterTags": [],
       "styleTags": [],
       "tspdt1000Count": 3,
@@ -1063,7 +1085,9 @@
       ],
       "bioZh": "以宽银幕和强烈色彩表现边缘人与青春躁动，深受新浪潮推崇。",
       "masterTags": [],
-      "styleTags": [],
+      "styleTags": [
+        "nouvelle-vague"
+      ],
       "tspdt1000Count": 5,
       "tspdtOtherCount": 13
     },
@@ -1238,7 +1262,9 @@
       ],
       "bioZh": "“以“六个道德故事”等系列著称，用大量对话探讨爱情与道德选择。",
       "masterTags": [],
-      "styleTags": [],
+      "styleTags": [
+        "nouvelle-vague"
+      ],
       "tspdt1000Count": 3,
       "tspdtOtherCount": 24
     },
@@ -1252,7 +1278,9 @@
       ],
       "bioZh": "新浪潮中最具实验性的一员，以超长片长、即兴与阴谋论叙事著称。",
       "masterTags": [],
-      "styleTags": [],
+      "styleTags": [
+        "nouvelle-vague"
+      ],
       "tspdt1000Count": 4,
       "tspdtOtherCount": 20
     },
@@ -1320,8 +1348,11 @@
       "tspdtRank": 88,
       "zh": "伊利亚·卡赞",
       "en": "Elia Kazan",
-      "countries": [],
-      "bioZh": "“美国(土耳其出生)\n推动“方法派”表演进入银幕；因在麦卡锡时期作证而颇具争议。",
+      "countries": [
+        "美国",
+        "土耳其"
+      ],
+      "bioZh": "“推动“方法派”表演进入银幕；因在麦卡锡时期作证而颇具争议。",
       "masterTags": [],
       "styleTags": [],
       "tspdt1000Count": 4,
@@ -1379,7 +1410,9 @@
       ],
       "bioZh": "以全程演唱与糖果色彩重塑歌舞片，甜美中带有忧伤。",
       "masterTags": [],
-      "styleTags": [],
+      "styleTags": [
+        "nouvelle-vague"
+      ],
       "tspdt1000Count": 3,
       "tspdtOtherCount": 7
     },
@@ -1422,7 +1455,9 @@
       ],
       "bioZh": "法国黑帮片大师，冷峻简约的风格影响了吴宇森、杜琪峰等人，被视为新浪潮的先驱。",
       "masterTags": [],
-      "styleTags": [],
+      "styleTags": [
+        "nouvelle-vague"
+      ],
       "tspdt1000Count": 3,
       "tspdtOtherCount": 9
     },
@@ -1459,8 +1494,11 @@
       "tspdtRank": 98,
       "zh": "约瑟夫·冯·斯登堡",
       "en": "Josef von Sternberg",
-      "countries": [],
-      "bioZh": "美国(奥地利出生)\n与玛琳·黛德丽合作的七部影片以光影与装饰性构图著称。",
+      "countries": [
+        "美国",
+        "奥地利"
+      ],
+      "bioZh": "与玛琳·黛德丽合作的七部影片以光影与装饰性构图著称。",
       "masterTags": [],
       "styleTags": [],
       "tspdt1000Count": 4,
@@ -1549,7 +1587,9 @@
       ],
       "bioZh": "后新浪潮代表，《母亲与娼妓》以长篇对话描绘五月风暴后的一代人。",
       "masterTags": [],
-      "styleTags": [],
+      "styleTags": [
+        "nouvelle-vague"
+      ],
       "tspdt1000Count": 2,
       "tspdtOtherCount": 7
     },
@@ -1629,7 +1669,8 @@
       "zh": "威廉·惠勒",
       "en": "William Wyler",
       "countries": [
-        "美国(德国出生)"
+        "美国",
+        "德国"
       ],
       "bioZh": "三获奥斯卡最佳导演，以深焦构图和精湛表演著称。",
       "masterTags": [],
@@ -1672,7 +1713,7 @@
       "en": "Tsai Ming-liang",
       "countries": [
         "马来西亚",
-        "中国台湾"
+        "台湾"
       ],
       "bioZh": "以固定长镜头与李康生的身体书写都市疏离，是慢电影代表人物。",
       "masterTags": [],
@@ -1699,9 +1740,7 @@
       "tspdtRank": 115,
       "zh": "让-马里·斯特劳布与达妮埃尔·于伊耶",
       "en": "Jean-Marie Straub & Danièle Huillet",
-      "countries": [
-        "115"
-      ],
+      "countries": [],
       "bioZh": "让-马里·斯特劳布与达妮埃尔·于伊耶\nJean-Marie Straub &amp; Danièle Huillet\n法国\n严格的唯物主义先锋电影伉俪，以文本朗读和固定镜头见长。",
       "masterTags": [],
       "styleTags": [],
@@ -1756,7 +1795,7 @@
       "zh": "伊莱姆·克里莫夫",
       "en": "Elem Klimov",
       "countries": [
-        "苏联"
+        "俄罗斯"
       ],
       "bioZh": "《自己去看》以主观视角呈现二战屠杀，被视为最震撼的反战电影之一。",
       "masterTags": [],
@@ -1909,8 +1948,11 @@
       "tspdtRank": 130,
       "zh": "谢尔盖·帕拉杰诺夫",
       "en": "Sergei Parajanov",
-      "countries": [],
-      "bioZh": "苏联(亚美尼亚裔)\n以静态构图与民俗意象创造如同圣像画般的诗意电影。",
+      "countries": [
+        "俄罗斯",
+        "亚美尼亚"
+      ],
+      "bioZh": "以静态构图与民俗意象创造如同圣像画般的诗意电影。",
       "masterTags": [],
       "styleTags": [],
       "tspdt1000Count": 2,
@@ -2024,7 +2066,9 @@
       ],
       "bioZh": "澳大利亚新浪潮代表，后成功转战好莱坞。",
       "masterTags": [],
-      "styleTags": [],
+      "styleTags": [
+        "nouvelle-vague"
+      ],
       "tspdt1000Count": 2,
       "tspdtOtherCount": 12
     },
@@ -2062,7 +2106,7 @@
       "zh": "维拉·希季洛娃",
       "en": "Věra Chytilová",
       "countries": [
-        "捷克斯洛伐克"
+        "捷克"
       ],
       "bioZh": "捷克新浪潮代表，《雏菊》以无政府式拼贴成为女性主义先锋经典。",
       "masterTags": [],
@@ -2167,7 +2211,8 @@
       "zh": "亚历山大·杜甫仁科",
       "en": "Alexander Dovzhenko",
       "countries": [
-        "苏联(乌克兰)"
+        "俄罗斯",
+        "乌克兰"
       ],
       "bioZh": "苏联蒙太奇学派的诗人，《土地》以抒情的乡村意象著称。",
       "masterTags": [],
@@ -2183,7 +2228,8 @@
       "zh": "迈克·尼科尔斯",
       "en": "Mike Nichols",
       "countries": [
-        "美国(德国出生)"
+        "美国",
+        "德国"
       ],
       "bioZh": "喜剧演员与剧场导演出身，《毕业生》是新好莱坞的开端之一。",
       "masterTags": [],
@@ -2225,7 +2271,7 @@
       "zh": "李安",
       "en": "Ang Lee",
       "countries": [
-        "中国台湾",
+        "台湾",
         "美国"
       ],
       "bioZh": "横跨东西方题材的华人导演，两获奥斯卡最佳导演。",
@@ -2239,8 +2285,11 @@
       "tspdtRank": 153,
       "zh": "奥托·普雷明格",
       "en": "Otto Preminger",
-      "countries": [],
-      "bioZh": "美国(奥地利出生)\n以客观流畅的长镜头著称，挑战海斯法典的审查限制。",
+      "countries": [
+        "美国",
+        "奥地利"
+      ],
+      "bioZh": "以客观流畅的长镜头著称，挑战海斯法典的审查限制。",
       "masterTags": [],
       "styleTags": [],
       "tspdt1000Count": 2,
@@ -2352,7 +2401,8 @@
       "zh": "米哈伊尔·卡拉托佐夫",
       "en": "Mikhail Kalatozov",
       "countries": [
-        "苏联(格鲁吉亚)"
+        "俄罗斯",
+        "格鲁吉亚"
       ],
       "bioZh": "与摄影师乌鲁谢夫斯基合作，以惊人的运动长镜头著称。",
       "masterTags": [],
@@ -2478,8 +2528,11 @@
       "tspdtRank": 170,
       "zh": "玛雅·德伦",
       "en": "Maya Deren",
-      "countries": [],
-      "bioZh": "美国(乌克兰出生)\n美国先锋电影之母，以梦境与仪式探索女性主体。",
+      "countries": [
+        "美国",
+        "乌克兰"
+      ],
+      "bioZh": "美国先锋电影之母，以梦境与仪式探索女性主体。",
       "masterTags": [],
       "styleTags": [],
       "tspdt1000Count": 1,
@@ -2565,7 +2618,9 @@
       ],
       "bioZh": "以粗粝直白、充满冲击力的B级片风格著称，深受新浪潮推崇。",
       "masterTags": [],
-      "styleTags": [],
+      "styleTags": [
+        "nouvelle-vague"
+      ],
       "tspdt1000Count": 1,
       "tspdtOtherCount": 19
     },
@@ -2608,7 +2663,9 @@
       ],
       "bioZh": "与新浪潮同期的多面手，作品横跨剧情、纪录与美法两地。",
       "masterTags": [],
-      "styleTags": [],
+      "styleTags": [
+        "nouvelle-vague"
+      ],
       "tspdt1000Count": 1,
       "tspdtOtherCount": 23
     },
@@ -2759,9 +2816,9 @@
       "zh": "梅里安·C. 库珀与欧内斯特·B. 舍德萨克",
       "en": "Merian C. Cooper & Ernest B. Schoedsack",
       "countries": [
-        "190"
+        "美国"
       ],
-      "bioZh": "梅里安·C. 库珀与欧内斯特·B. 舍德萨克\nMerian C. Cooper &amp; Ernest B. Schoedsack\n美国\n从民族志纪录片转向奇幻冒险，《金刚》是怪兽片与特效史的里程碑。",
+      "bioZh": "C. 库珀与欧内斯特·B. 舍德萨克\nMerian C. Cooper &amp; Ernest B. Schoedsack\n美国\n从民族志纪录片转向奇幻冒险，《金刚》是怪兽片与特效史的里程碑。",
       "masterTags": [],
       "styleTags": [],
       "tspdt1000Count": 1,
@@ -2787,9 +2844,9 @@
       "zh": "拉娜·沃卓斯基与莉莉·沃卓斯基",
       "en": "Lana Wachowski & Lilly Wachowski",
       "countries": [
-        "192"
+        "美国"
       ],
-      "bioZh": "拉娜·沃卓斯基与莉莉·沃卓斯基\nLana Wachowski &amp; Lilly Wachowski\n美国\n《黑客帝国》以“子弹时间”与哲学设定影响了千禧年后的动作科幻。",
+      "bioZh": "莉莉·沃卓斯基\nLana Wachowski &amp; Lilly Wachowski\n美国\n《黑客帝国》以“子弹时间”与哲学设定影响了千禧年后的动作科幻。",
       "masterTags": [],
       "styleTags": [],
       "tspdt1000Count": 1,
@@ -2945,8 +3002,11 @@
       "tspdtRank": 203,
       "zh": "乔纳斯·梅卡斯",
       "en": "Jonas Mekas",
-      "countries": [],
-      "bioZh": "“美国(立陶宛出生)\n美国地下电影的“教父”，日记电影开创者，创办选集电影资料馆。",
+      "countries": [
+        "美国",
+        "立陶宛"
+      ],
+      "bioZh": "“美国地下电影的“教父”，日记电影开创者，创办选集电影资料馆。",
       "masterTags": [],
       "styleTags": [],
       "tspdt1000Count": 2,
@@ -2958,7 +3018,7 @@
       "zh": "让-皮埃尔·达内与吕克·达内",
       "en": "Jean-Pierre Dardenne & Luc Dardenne",
       "countries": [
-        "204"
+        "比利时"
       ],
       "bioZh": "让-皮埃尔·达内与吕克·达内\nJean-Pierre Dardenne &amp; Luc Dardenne\n比利时\n以手持跟拍的社会写实风格关注底层，两获金棕榈。",
       "masterTags": [],
@@ -2986,7 +3046,7 @@
       "zh": "拉莉莎·舍皮琴科",
       "en": "Larisa Shepitko",
       "countries": [
-        "苏联"
+        "俄罗斯"
       ],
       "bioZh": "《升天》以宗教寓意书写战争中的人性考验，获柏林金熊，41岁车祸早逝。",
       "masterTags": [],
@@ -3060,7 +3120,9 @@
       ],
       "bioZh": "英国新浪潮出身，《午夜牛郎》是唯一获奥斯卡最佳影片的X级电影。",
       "masterTags": [],
-      "styleTags": [],
+      "styleTags": [
+        "nouvelle-vague"
+      ],
       "tspdt1000Count": 1,
       "tspdtOtherCount": 14
     },
@@ -3154,8 +3216,9 @@
       "zh": "胡金铨",
       "en": "King Hu",
       "countries": [
-        "中国(香港",
-        "台湾)"
+        "中国",
+        "香港",
+        "台湾"
       ],
       "bioZh": "武侠电影宗师，将京剧美学与禅意融入动作，《侠女》获戛纳技术大奖。",
       "masterTags": [],
@@ -3215,7 +3278,9 @@
       ],
       "bioZh": "新浪潮成员，以希区柯克式惊悚剖析法国资产阶级。",
       "masterTags": [],
-      "styleTags": [],
+      "styleTags": [
+        "nouvelle-vague"
+      ],
       "tspdt1000Count": 1,
       "tspdtOtherCount": 33
     },
@@ -3338,8 +3403,11 @@
       "tspdtRank": 231,
       "zh": "弗雷德·金尼曼",
       "en": "Fred Zinnemann",
-      "countries": [],
-      "bioZh": "美国(奥地利出生)\n以良心与道德困境为主题，两获奥斯卡最佳导演。",
+      "countries": [
+        "美国",
+        "奥地利"
+      ],
+      "bioZh": "以良心与道德困境为主题，两获奥斯卡最佳导演。",
       "masterTags": [],
       "styleTags": [],
       "tspdt1000Count": 1,
@@ -3398,7 +3466,9 @@
       ],
       "bioZh": "“真理电影”与影视人类学先驱，深刻影响新浪潮。",
       "masterTags": [],
-      "styleTags": [],
+      "styleTags": [
+        "nouvelle-vague"
+      ],
       "tspdt1000Count": 1,
       "tspdtOtherCount": 15
     },
@@ -3422,7 +3492,7 @@
       "zh": "鲍里斯·巴尔涅特",
       "en": "Boris Barnet",
       "countries": [
-        "苏联"
+        "俄罗斯"
       ],
       "bioZh": "苏联默片喜剧与人情片大师，风格轻快温暖。",
       "masterTags": [],
@@ -3494,7 +3564,6 @@
       "zh": "阿列克谢·格尔曼",
       "en": "Aleksei German",
       "countries": [
-        "苏联",
         "俄罗斯"
       ],
       "bioZh": "以密集的长镜头调度与混沌质感重现苏联历史，作品长期受审查。",

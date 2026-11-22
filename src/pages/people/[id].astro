@@ -5,6 +5,7 @@ import Bi from "../../components/Bi.astro";
 import { workPath } from "../../lib/work-path";
 import { listEntryHref } from "../../lib/list-entry-href";
 import { workSubtitle } from "../../lib/work-display";
+import { paragraphsFromBio } from "../../lib/prose-split";
 
 export async function getStaticPaths() {
   const people = await getCollection("people");
@@ -43,6 +44,9 @@ const awards = [...(p.awards ?? [])].sort((a, b) => (b.year ?? 0) - (a.year ?? 0
 const AWARDS_PREVIEW = 5;
 const awardsPreview = awards.slice(0, AWARDS_PREVIEW);
 const awardsRest = awards.slice(AWARDS_PREVIEW);
+const bioParagraphsZh = paragraphsFromBio(p.bioZh || p.bioEn || "");
+const bioParagraphsEn = paragraphsFromBio(p.bioEn || p.bioZh || "");
+const bioLong = (p.bioZh || p.bioEn || "").length > 320;
 ---
 
 <Base titleZh={titleZh} titleEn={titleEn}>
@@ -80,20 +84,37 @@ const awardsRest = awards.slice(AWARDS_PREVIEW);
             p.en
           )}
         </h1>
-        {
-          (p.bioZh || p.bioEn) && (
-            <div class="person-bio">
-              <p class="zh">{p.bioZh || p.bioEn}</p>
-              <p class="en">{p.bioEn || p.bioZh}</p>
-            </div>
-          )
-        }
       </div>
     </div>
   </header>
 
   <main class="wrap person-main">
-    <section class="person-section">
+    {
+      (p.bioZh || p.bioEn) && (
+        <div class={`person-bio-card${bioLong ? " is-clamped" : ""}`} id="person-bio">
+          <h2><Bi zh="人物资料" en="Biography" /></h2>
+          <div class="prose-body">
+            <div class="zh">
+              {bioParagraphsZh.map((para) => (
+                <p>{para}</p>
+              ))}
+            </div>
+            <div class="en">
+              {bioParagraphsEn.map((para) => (
+                <p>{para}</p>
+              ))}
+            </div>
+          </div>
+          {bioLong && (
+            <button type="button" class="person-bio-expand" data-bio-expand>
+              <Bi zh="展开全文" en="Read full bio" />
+            </button>
+          )}
+        </div>
+      )
+    }
+
+    <section class="person-section" id="person-works">
       <h2 class="person-works-title">
         <Bi zh={`作品 ${workIds.size}`} en={`Works ${workIds.size}`} />
       </h2>
@@ -103,82 +124,62 @@ const awardsRest = awards.slice(AWARDS_PREVIEW);
             <h3 class="person-role-label">
               <Bi zh={roleZh[g.role]} en={roleEn[g.role]} />
             </h3>
-            <ul class="person-works">
+            <ul class="person-works-grid">
               {g.works.map((w) => {
                 const lists = w.lists?.length
                   ? w.lists
                   : w.listId && w.rank != null
                     ? [{ listId: w.listId, rank: w.rank, zh: w.listId, en: w.listId }]
                     : [];
-                const multi = lists.length > 1;
                 const titleHref = workPath(w.kind, w.id);
                 const sub = workSubtitle(w);
-                const titleInner = w.zh ? (
-                  <>
-                    <span class="zh">{w.zh}</span>
-                    {sub ? <span class="lat">{sub}</span> : null}
-                    <span class="en">{w.en}</span>
-                  </>
-                ) : (
-                  w.en
-                );
                 return (
-                  <li class="person-work" data-zh={w.zh ?? w.en} data-en={w.en} data-multi-lists={multi || undefined}>
-                    {w.poster ? (
-                      <a class="poster poster-work-link" href={titleHref} data-prefetch aria-label={w.zh ? `《${w.zh}》` : w.en}>
-                        <img
-                          data-src={w.poster}
-                          alt={w.zh ? `《${w.zh}》海报` : `${w.en} poster`}
-                          data-alt-zh={w.zh ? `《${w.zh}》海报` : `${w.en} poster`}
-                          data-alt-en={`${w.en} poster`}
-                          width="342"
-                          height="513"
-                          decoding="async"
-                        />
-                      </a>
-                    ) : (
-                      <div class="poster empty" aria-hidden="true">
-                        <span class="zh">无图</span>
-                        <span class="en">No art</span>
-                      </div>
-                    )}
-                    <div class="body">
-                      <div class="work-title-row">
-                        <a class="work-entry-link" href={titleHref} data-prefetch>
-                          <span class="title">{titleInner}</span>
-                          <span class="meta">{w.yearStart}</span>
-                          <span class="work-entry-go">
-                            <Bi zh="作品页 →" en="Work page →" />
-                          </span>
-                        </a>
-                        {multi && (
-                          <button
-                            type="button"
-                            class="lists-cue"
-                            aria-label={w.zh ? `查看《${w.zh}》收录的列表` : `See lists for ${w.en}`}
-                          >
-                            ▾
-                          </button>
-                        )}
-                      </div>
-                      {lists.length > 0 && (
-                        <p class="list-badges">
-                          <span class="list-badges-label">
-                            <Bi zh="收录于" en="On" />
-                          </span>
-                          {lists.map((L) => (
-                            <a
-                              class={`list-badge list-badge-${L.listId}`}
-                              href={listEntryHref(L.listId, L.rank, w.id, w.kind)}
-                              data-prefetch
-                              title={`${L.detailZh} · #${L.rank}`}
-                            >
-                              <Bi zh={L.zh} en={L.en} />
-                            </a>
-                          ))}
-                        </p>
+                  <li class="person-work-tile" data-zh={w.zh ?? w.en} data-en={w.en}>
+                    <a class="person-work-tile-link" href={titleHref} data-prefetch>
+                      {w.poster ? (
+                        <div class="person-work-tile-poster">
+                          <img
+                            data-src={w.poster}
+                            alt={w.zh ? `《${w.zh}》海报` : `${w.en} poster`}
+                            data-alt-zh={w.zh ? `《${w.zh}》海报` : `${w.en} poster`}
+                            data-alt-en={`${w.en} poster`}
+                            width="342"
+                            height="513"
+                            decoding="async"
+                          />
+                        </div>
+                      ) : (
+                        <div class="person-work-tile-poster empty" aria-hidden="true">
+                          <span class="zh">无图</span>
+                          <span class="en">No art</span>
+                        </div>
                       )}
-                    </div>
+                      <p class="person-work-tile-title">
+                        <span class="zh">{w.zh ?? w.en}</span>
+                        {sub ? <span class="lat zh-only">{sub}</span> : null}
+                        <span class="en">{w.en}</span>
+                      </p>
+                      <p class="person-work-tile-meta">{w.yearStart || "—"}</p>
+                    </a>
+                    {lists.length > 0 && (
+                      <p class="person-work-tile-badges">
+                        {lists.slice(0, 2).map((L) => (
+                          <a
+                            class={`list-badge list-badge-${L.listId}`}
+                            href={listEntryHref(L.listId, L.rank, w.id, w.kind)}
+                            data-prefetch
+                            title={`${L.detailZh} · #${L.rank}`}
+                          >
+                            <Bi zh={L.zh} en={L.en} />
+                          </a>
+                        ))}
+                        {lists.length > 2 && (
+                          <span class="list-badge" title={lists.map((L) => L.zh).join(" · ")}>
+                            +{lists.length - 2}
+                          </span>
+                        )}
+                      </p>
+                    )}
                   </li>
                 );
               })}
@@ -238,9 +239,9 @@ const awardsRest = awards.slice(AWARDS_PREVIEW);
 
     {
       collaborators.length > 0 && (
-        <section class="person-section">
+        <section class="person-section" id="person-collaborators">
           <h2 class="person-works-title">
-            <Bi zh={`合作 ${collaborators.length}`} en={`Collaborators ${collaborators.length}`} />
+            <Bi zh={`人物关联 ${collaborators.length}`} en={`Related people ${collaborators.length}`} />
           </h2>
           <ul class="person-collabs">
             {collaborators.map((c) => (
@@ -302,6 +303,20 @@ const awardsRest = awards.slice(AWARDS_PREVIEW);
 </Base>
 
 <script>
+  document.querySelector("[data-bio-expand]")?.addEventListener("click", (e) => {
+    const btn = e.currentTarget as HTMLButtonElement;
+    const card = btn.closest(".person-bio-card");
+    card?.classList.remove("is-clamped");
+    btn.remove();
+  });
+
+  const hashTarget = window.location.hash.replace("#", "");
+  if (hashTarget === "person-collaborators" || hashTarget === "person-works") {
+    requestAnimationFrame(() => {
+      document.getElementById(hashTarget)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+
   // Prefetch list pages before navigation (Criterion HTML is large).
   document.addEventListener(
     "pointerdown",
@@ -320,30 +335,10 @@ const awardsRest = awards.slice(AWARDS_PREVIEW);
     { capture: true },
   );
 
-  // Multi-list ▾ cue: pulse the badges so they're obvious without drawing lines.
-  const pulseBadges = (work: HTMLElement) => {
-    const badges = work.querySelector<HTMLElement>(".list-badges");
-    if (!badges) return;
-    badges.classList.remove("is-pulse");
-    void badges.offsetWidth;
-    badges.classList.add("is-pulse");
-    badges.scrollIntoView({ block: "nearest", behavior: "smooth" });
-  };
-  document.querySelectorAll<HTMLButtonElement>(".lists-cue").forEach((btn) => {
-    const work = btn.closest<HTMLElement>(".person-work");
-    if (!work) return;
-    btn.addEventListener("click", () => pulseBadges(work));
-    btn.addEventListener("pointerenter", () => {
-      if (window.matchMedia("(hover: hover)").matches) work.classList.add("lists-cue-hover");
-    });
-    btn.addEventListener("pointerleave", () => work.classList.remove("lists-cue-hover"));
-  });
-  document.querySelectorAll<HTMLElement>(".list-badges").forEach((el) => {
-    el.addEventListener("animationend", () => el.classList.remove("is-pulse"));
-  });
-
   const posterImgs = Array.from(
-    document.querySelectorAll<HTMLImageElement>(".poster img[data-src], .person-collab-photo[data-src]"),
+    document.querySelectorAll<HTMLImageElement>(
+      ".poster img[data-src], .person-work-tile-poster img[data-src], .person-collab-photo[data-src]",
+    ),
   );
   const loadPoster = (img: HTMLImageElement) => {
     if (!img.dataset.src) return;

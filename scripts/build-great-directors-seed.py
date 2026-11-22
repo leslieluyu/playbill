@@ -30,6 +30,30 @@ SS2002_CRITIC = {
     "Yasujiro Ozu",
 }
 # BFI 2002 directors' poll — top ten directors (11 names; document §1-B).
+# Docx §3 sometimes mis-parses duo directors; Excel has no country column.
+# Cahiers / Nouvelle Vague — bios often omit the phrase「法国新浪潮」.
+NOUVELLE_VAGUE_EN = {
+    "Jean-Luc Godard",
+    "François Truffaut",
+    "Eric Rohmer",
+    "Jacques Rivette",
+    "Claude Chabrol",
+    "Agnès Varda",
+    "Jacques Demy",
+    "Jean Eustache",
+    "Alain Resnais",
+    "Chris Marker",
+}
+
+COUNTRY_OVERRIDES: dict[str, list[str]] = {
+    "Michael Powell & Emeric Pressburger": ["英国"],
+    "Stanley Donen & Gene Kelly": ["美国"],
+    "Joel Coen & Ethan Coen": ["美国"],
+    "Lana Wachowski & Lilly Wachowski": ["美国"],
+    "Jean-Pierre Dardenne & Luc Dardenne": ["比利时"],
+    "Merian C. Cooper & Ernest B. Schoedsack": ["美国"],
+}
+
 SS2002_DIRECTOR = {
     "Akira Kurosawa",
     "Alfred Hitchcock",
@@ -68,6 +92,49 @@ def excel_directors(rows) -> list[dict]:
     return [by_rank[k] for k in sorted(by_rank)]
 
 
+def normalize_countries(raw: list[str]) -> list[str]:
+    alias = {
+        "西德": "德国",
+        "捷克斯洛伐克": "捷克",
+        "苏联": "俄罗斯",
+        "中国香港": "香港",
+        "中国台湾": "台湾",
+        "亚美尼亚裔": "亚美尼亚",
+    }
+    merged = "、".join(raw)
+    pieces = re.split(r"[/、]", merged) if ("/" in merged or "、" in merged) else raw
+    out: list[str] = []
+    for p in pieces:
+        p = p.strip()
+        if not p or re.fullmatch(r"\d+", p):
+            continue
+        if "与" in p:
+            continue
+        if p == "台湾)":
+            p = "台湾"
+        if p.startswith("中国(香港") or p.startswith("中国（香港"):
+            out.extend(["中国", "香港"])
+            continue
+        m = re.match(r"^([^（(]+)(?:[（(]([^）)]+)[）)])?$", p)
+        if m:
+            main, note = m.group(1).strip(), (m.group(2) or "").strip()
+            if main:
+                out.append(alias.get(main, main))
+            if note:
+                born = re.sub(r"出生$", "", note).strip()
+                if born and born != main:
+                    out.append(alias.get(born, born))
+        else:
+            out.append(alias.get(p.replace(")", ""), p.replace(")", "")))
+    seen: set[str] = set()
+    deduped: list[str] = []
+    for c in out:
+        if c and c not in seen:
+            seen.add(c)
+            deduped.append(c)
+    return deduped
+
+
 def parse_tspdt_bios(text: str, directors: list[dict]) -> dict[str, dict]:
     """Parse TSPDT table in docx §3 by anchoring on Excel rank + Chinese name (250 rows)."""
     start = text.find("三、列表二：TSPDT")
@@ -81,11 +148,17 @@ def parse_tspdt_bios(text: str, directors: list[dict]) -> dict[str, dict]:
 
     def valid_country_token(s: str) -> bool:
         s = s.strip()
-        if not (2 <= len(s) <= 8):
+        if not s or re.fullmatch(r"\d+", s):
+            return False
+        if not (2 <= len(s) <= 16):
             return False
         if re.search(r"[，。；！？""以《]", s):
             return False
         if any(w in s for w in ("电影", "导演", "被称为", "代表", "新浪潮", "风格", "大师")):
+            return False
+        if "与" in s or s.endswith("·"):
+            return False
+        if not re.search(r"[\u4e00-\u9fff]", s):
             return False
         return True
 
@@ -122,6 +195,12 @@ def parse_tspdt_bios(text: str, directors: list[dict]) -> dict[str, dict]:
         countries: list[str] = []
         bio = ""
         lines = [ln.strip() for ln in rest.split("\n") if ln.strip()]
+        while lines and (
+            re.fullmatch(r"\d+", lines[0])
+            or re.fullmatch(r"\d+\s+\d+\s*/\s*\d+", lines[0])
+            or re.fullmatch(r"-?\s*\d+\s*/\s*\d+", lines[0])
+        ):
+            lines.pop(0)
         if lines:
             head = lines[0]
             if is_country_line(head):
@@ -140,7 +219,7 @@ def parse_tspdt_bios(text: str, directors: list[dict]) -> dict[str, dict]:
                     ]
                     tail = head[m_c.end() :].strip()
                     lines = ([tail] if tail else []) + lines[1:]
-        countries = [c for c in countries if valid_country_token(c)]
+        countries = normalize_countries([c for c in countries if valid_country_token(c)])
         bio = "\n".join(lines).strip("“”\"").strip()[:2000]
         if bio and bio[0] not in "“\"" and re.search(r"[”\"]", bio[:48]):
             bio = "“" + bio
@@ -214,18 +293,25 @@ def style_tags_from_bio(bio: str) -> list[str]:
         tags.append("new-german")
     if re.search(r"巴西新电影|Cinema Novo", s, re.I):
         tags.append("cinema-novo")
-    if "日本新浪潮" in s:
-        tags.append("japanese-new-wave")
-    if re.search(r"法国新浪潮|新浪潮最激进|被新浪潮", s):
-        tags.append("nouvelle-vague")
     if "捷克新浪潮" in s:
         tags.append("czech-new-wave")
+    elif "日本新浪潮" in s:
+        tags.append("japanese-new-wave")
+    elif re.search(r"新浪潮|左岸派", s):
+        tags.append("nouvelle-vague")
     if "新现实主义" in s:
         tags.append("italian-neorealism")
     if "道格玛" in s:
         tags.append("dogme95")
     if re.search(r"华语新电影|两岸", s):
         tags.append("chinese-new")
+    return list(dict.fromkeys(tags))
+
+
+def merge_style_tags(en: str, bio: str) -> list[str]:
+    tags = style_tags_from_bio(bio)
+    if en in NOUVELLE_VAGUE_EN and "nouvelle-vague" not in tags:
+        tags.append("nouvelle-vague")
     return list(dict.fromkeys(tags))
 
 
@@ -260,10 +346,12 @@ def main() -> None:
                 "tspdtRank": rank,
                 "zh": str(r[1]).strip(),
                 "en": en,
-                "countries": meta.get("countries") or [],
+                "countries": normalize_countries(
+                    COUNTRY_OVERRIDES.get(en) or meta.get("countries") or []
+                ),
                 "bioZh": bio,
                 "masterTags": list(dict.fromkeys(master)),
-                "styleTags": style_tags_from_bio(bio),
+                "styleTags": merge_style_tags(en, bio),
                 "tspdt1000Count": meta.get("tspdt1000Count"),
                 "tspdtOtherCount": meta.get("tspdtOtherCount"),
             }

@@ -1,0 +1,106 @@
+{
+  "id": "century-tv-20th",
+  "title": "20 世纪全球优秀电视剧",
+  "kicker": "场刊整理 · 汇总清单",
+  "dek": "汇总 20 世纪（及延伸篇章中部分 21 世纪）全球代表性剧集，按华语、英国、日本、欧美等分区整理，分区内保持原清单顺序。每部附剧情与看点；条目可与站内其他剧榜重复出现。",
+  "source": {
+    "name": "20 世纪全球优秀电视剧汇总清单（场刊整理）",
+    "url": "https://playbill.icdp.uk/century-tv-20th/"
+  },
+  "kind": "tv",
+  "order": 12,
+  "entries": "century-tv-20th.tsv",
+  "sections": [
+    {
+      "id": "cn",
+      "order": 0,
+      "name": "华语地区",
+      "blurb": "大陆与港台电视史上具代表性的古典名著、历史巨制与时代剧。",
+      "color": "#b33a2a"
+    },
+    {
+      "id": "uk",
+      "order": 1,
+      "name": "英国",
+      "blurb": "BBC 与 ITV 古典改编、政治讽刺与喜剧标杆。",
+      "color": "#2a5a8a"
+    },
+    {
+      "id": "jp",
+      "order": 2,
+      "name": "日本",
+      "blurb": "日剧黄金时代都市爱情、推理与家庭史诗。",
+      "color": "#a8456e"
+    },
+    {
+      "id": "euro",
+      "order": 3,
+      "name": "欧洲与拉美",
+      "blurb": "德国史诗、意大利犯罪剧与巴西现象级连续剧。",
+      "color": "#a65f18"
+    },
+    {
+      "id": "us-picks",
+      "order": 4,
+      "name": "美剧精选",
+      "blurb": "20 世纪范围内影响力突出的美国剧集精选。",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "tv-book",
+      "order": 5,
+      "name": "TV: The Book",
+      "blurb": "Sepinwall & Seitz 合著评选中的美剧史 TOP 30。",
+      "color": "#9a7a12"
+    },
+    {
+      "id": "us70",
+      "order": 6,
+      "name": "1970 年代美剧",
+      "blurb": "大众电视黄金期与社会共情。",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "us80",
+      "order": 7,
+      "name": "1980 年代美剧",
+      "blurb": "家庭收视盛世与合家欢狂潮。",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "us90",
+      "order": 8,
+      "name": "1990 年代美剧",
+      "blurb": "全民追剧与公共台全盛期。",
+      "color": "#8a4a12"
+    },
+    {
+      "id": "us00",
+      "order": 9,
+      "name": "2000 年代美剧",
+      "blurb": "网络讨论狂潮与现象级破圈。",
+      "color": "#4a6a8a"
+    },
+    {
+      "id": "us10",
+      "order": 10,
+      "name": "2010 年代美剧",
+      "blurb": "流媒体崛起与全球爆款。",
+      "color": "#6a4a8a"
+    },
+    {
+      "id": "aesthetics",
+      "order": 11,
+      "name": "视听美学",
+      "blurb": "镜头调度、构图与声景艺术向推荐。",
+      "color": "#3d5a40"
+    },
+    {
+      "id": "more-art",
+      "order": 12,
+      "name": "艺术向延伸",
+      "blurb": "21 世纪多部高口碑剧作的补充推荐。",
+      "color": "#4a4a4a"
+    }
+  ]
+}

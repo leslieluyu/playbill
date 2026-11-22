@@ -1,0 +1,126 @@
+rank	title	year	section	position	title_zh	tmdb_id
+1	红楼梦（87版）	1987	cn	1	红楼梦（87版）	
+2	Romance of the Three Kingdoms	1994	cn	2	三国演义（94版）	72645
+3	Palace of Desire	2000	cn	3	大明宫词	52457
+4	Fortress Besieged	1990	cn	4	围城	64262
+5	The Greed of Man	1992	cn	5	大时代	20382
+6	Yes Minister / Yes, Prime Minister	1980	uk	1	是，大臣 / 是，首相	
+7	Pride and Prejudice	1995	uk	2	傲慢与偏见	
+8	The Adventures of Sherlock Holmes	1984	uk	3	福尔摩斯探案集	
+9	The Singing Detective	1986	uk	4	歌唱神探	
+10	Blackadder	1983	uk	5	黑爵士	
+11	Inspector Morse	1987	uk	6	摩斯探长	
+12	'Allo 'Allo!	1982	uk	7	法国小馆儿	
+13	Fawlty Towers	1975	uk	8	弗尔蒂旅馆	
+14	Keeping Up Appearances	1990	uk	9	保持优雅	
+15	Father Ted	1995	uk	10	神父泰德	
+16	Black Books	2000	uk	11	布莱克书店	
+17	Coupling	2000	uk	12	冤家成双对	
+18	Peep Show	2003	uk	13	窥视秀	
+19	The IT Crowd	2006	uk	14	IT狂人	
+20	Vicious	2013	uk	15	极品基老伴	
+21	Tokyo Love Story	1991	jp	1	东京爱情故事	16069
+22	Furuhata Ninzaburo	1994	jp	2	古畑任三郎	9573
+23	Long Vacation	1996	jp	3	悠长假期	6100
+24	From the Northern Country	1981	jp	4	北国之恋	74492
+25	Heimat	1984	euro	1	故乡	43059
+26	Dekalog	1989	euro	2	十诫	42699
+27	La Piovra	1984	euro	3	章鱼	12822
+28	Escrava Isaura	1976	euro	4	奴隶伊佐拉	5618
+29	The Sopranos	1999	us-picks	1	黑道家族	
+30	Friends	1994	us-picks	2	老友记	
+31	Twin Peaks	1990	us-picks	3	双峰	
+32	The X-Files	1993	us-picks	4	X档案	
+33	Seinfeld	1989	us-picks	5	宋飞正传	
+34	Columbo	1968	us-picks	6	神探可伦坡	
+35	Star Trek: The Original Series	1966	us-picks	7	星际迷航：原初系列	
+36	Law & Order	1990	us-picks	8	律政风云	
+37	Northern Exposure	1990	us-picks	9	北国风情 / 边城小镇	
+38	Mission: Impossible	1966	us-picks	10	碟中谍 / 虎胆妙算	
+39	The Untouchables	1959	us-picks	11	铁面无私	
+40	Moonlighting	1985	us-picks	12	侦探小蜜蜂 / 蓝色月光	
+41	Starsky and Hutch	1975	us-picks	13	警界双雄	
+42	Hill Street Blues	1981	us-picks	14	希尔街的布鲁斯	
+43	Naked City	1958	us-picks	15	裸露的城市	
+44	Dragnet	1951	us-picks	16	拖网兵团 / 洛杉矶警探	
+45	NYPD Blue	1993	us-picks	17	纽约重案组	
+46	Homicide: Life on the Street	1993	us-picks	18	街头枪声 / 巴尔的摩凶杀案	
+47	The Simpsons	1989	tv-book	1	辛普森一家	
+48	The Sopranos	1999	tv-book	2	黑道家族	
+49	The Wire	2002	tv-book	3	火线	
+50	Cheers	1982	tv-book	4	欢笑一家亲	
+51	Mad Men	2007	tv-book	5	广告狂人	
+52	Breaking Bad	2008	tv-book	6	绝命毒师	
+53	The Twilight Zone	1959	tv-book	7	原料魔界 / 阴阳魔界	
+54	Seinfeld	1989	tv-book	8	宋飞正传	
+55	The Larry Sanders Show	1992	tv-book	9	拉里·桑德斯秀	
+56	Deadwood	2004	tv-book	10	死木	
+57	Hill Street Blues	1981	tv-book	11	希尔街的布鲁斯	
+58	Curb Your Enthusiasm	2000	tv-book	12	抑制热情	
+59	I Love Lucy	1951	tv-book	13	我爱露西	
+60	The Shield	2002	tv-book	14	盾牌	
+61	ER	1994	tv-book	15	急诊室的故事	
+62	The Mary Tyler Moore Show	1970	tv-book	16	玛丽·泰勒·摩尔秀	
+63	Buffy the Vampire Slayer	1997	tv-book	17	吸血鬼猎人巴菲	
+64	Taxi	1978	tv-book	18	出租车	
+65	Parks and Recreation	2009	tv-book	19	公园与休憩	
+66	Friday Night Lights	2006	tv-book	20	胜利之光	
+67	Louie	2010	tv-book	21	路易不容易	
+68	South Park	1997	tv-book	22	南方公园	
+69	The Bob Newhart Show	1972	tv-book	23	鲍勃·纽哈特秀	
+70	All in the Family	1971	tv-book	24	全家福	
+71	House, M.D.	2004	tv-book	25	豪斯医生	
+72	The X-Files	1993	tv-book	26	X档案	
+73	Arrested Development	2003	tv-book	27	发展受阻	
+74	Fargo	2014	tv-book	28	冰血暴	
+75	The Americans	2013	tv-book	29	美国谍梦	
+76	Battlestar Galactica	2004	tv-book	30	太空堡垒卡拉狄加	
+77	M*A*S*H	1972	us70	1	陆军野战医院	
+78	Charlie's Angels	1976	us70	2	霹雳娇娃	
+79	Growing Pains	1985	us80	1	成长的烦恼	
+80	Miami Vice	1984	us80	2	迈阿密风云	
+81	The Wonder Years	1988	us80	3	纯真年代	
+82	Friends	1994	us90	1	老友记	
+83	ER	1994	us90	2	急诊室的故事	
+84	Sex and the City	1998	us90	3	欲望都市	
+85	Prison Break	2005	us00	1	越狱	
+86	Lost	2004	us00	2	迷失	
+87	Desperate Housewives	2004	us00	3	绝望主妇	
+88	The Big Bang Theory	2007	us00	4	生活大爆炸	
+89	24小时 (24)	2001	us00	5	24小时 (24)	
+90	Grey's Anatomy	2005	us00	6	实习医生格蕾	
+91	How I Met Your Mother	2005	us00	7	老爸老妈的浪漫史	
+92	Game of Thrones	2011	us10	1	权力的游戏	
+93	Modern Family	2009	us10	2	摩登家庭	
+94	Stranger Things	2016	us10	3	怪奇物语	
+95	2 Broke Girls	2011	us10	4	破产姐妹	
+96	Sherlock	2010	us10	5	神探夏洛克	
+97	Wednesday	2022	us10	1	星期三	
+98	The Last of Us	2023	us10	2	最后生还者	
+99	Too Old to Die Young	2019	aesthetics	1	极乐警署 / 托比亚斯	
+100	Patriot	2015	aesthetics	2	爱国者	
+101	Utopia	2013	aesthetics	3	乌托邦	46511
+102	The Third Day	2020	aesthetics	4	浸泡 / 毒枭圣徒外传：浸没	
+103	Escape at Dannemora	2018	aesthetics	5	逃离丹尼莫拉	
+104	Homecoming	2018	aesthetics	6	归途	80335
+105	Mr. Robot	2015	aesthetics	7	黑客军团	
+106	Hannibal	2013	aesthetics	8	汉尼拔	
+107	The Mandalorian	2019	aesthetics	9	曼达洛人	82856
+108	Andor	2022	aesthetics	10	安多	83867
+109	The Bear	2022	aesthetics	11	熊家餐馆	
+110	Gangs of London	2020	aesthetics	12	伦敦黑帮	
+111	True Detective Season 1	2014	aesthetics	13	真探 第一季	
+112	The Night Of	2016	aesthetics	14	罪夜之奔	
+113	Mindhunter	2017	aesthetics	15	心灵猎人	
+114	Tokyo Vice	2022	aesthetics	16	东京罪恶	
+115	The Twilight Zone	1959	aesthetics	17	阴阳魔界	
+116	The Singing Detective	1986	aesthetics	18	歌唱神探	
+117	Twin Peaks	1990	aesthetics	19	双峰	
+118	Miami Vice	1984	aesthetics	20	迈阿密风云	
+119	Heimat	1984	aesthetics	21	故乡	
+120	Dekalog	1989	aesthetics	22	十诫	
+121	Chernobyl	2019	more-art	1	切尔诺贝利	
+122	Succession	2018	more-art	2	继承之战	
+123	Better Call Saul	2015	more-art	3	风骚律师	
+124	Black Mirror, 1-3季	2011	more-art	4	黑镜	
+125	Killing Eve	2018	more-art	5	杀死伊芙	72750

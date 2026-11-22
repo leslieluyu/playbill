@@ -3,12 +3,14 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { getCollection, getEntry } from "astro:content";
 import Base from "../../layouts/Base.astro";
+import CatalogWayfind from "../../components/CatalogWayfind.astro";
 import Bi from "../../components/Bi.astro";
 import { workPath } from "../../lib/work-path";
 import { workSubtitle } from "../../lib/work-display";
 import { parseChartTags } from "../../lib/great-directors";
 import { gdTagLabel } from "../../lib/great-directors-labels";
 import { findPersonByEn } from "../../lib/person-match";
+import { paragraphsFromBio } from "../../lib/prose-split";
 
 export async function getStaticPaths() {
   const directorsPath = path.join(process.cwd(), "db/seed/great-directors-directors.json");
@@ -102,12 +104,15 @@ const awardSnippets = [
   ),
 ];
 
+const curatedParas = paragraphsFromBio(displayCurated);
+const personBioParas = paragraphsFromBio(displayPersonBio);
+
 const titleZh = `${d.zh} · 导演 · 场刊`;
 const titleEn = `${d.en} · Director · Playbill`;
 ---
 
 <Base titleZh={titleZh} titleEn={titleEn}>
-  <header class="mast">
+  <header class="mast gd-director-mast">
     <div class="wrap">
       <p class="kicker">
         <a href="/great-directors/"><Bi zh="全部导演" en="All directors" /></a>
@@ -148,9 +153,15 @@ const titleEn = `${d.en} · Director · Playbill`;
             {countryLine.length ? countryLine.join(" / ") : ""}
             {
               d.tspdt1000Count != null ? (
-                <span class="muted">
+                <span
+                  class="muted tspdt-film-stats"
+                  title="TSPDT 导演页统计：影史千佳（1000）内作品数 · 该导演其余策展长片（不含短片）"
+                >
                   {countryLine.length ? " · " : ""}
-                  TSPDT 1000: {d.tspdt1000Count} / {d.tspdtOtherCount ?? 0}
+                  <Bi
+                    zh={`TSPDT 片目 ${d.tspdt1000Count} 部千佳 · ${d.tspdtOtherCount ?? 0} 部其余策展`}
+                    en={`TSPDT ${d.tspdt1000Count} in Top 1000 · ${d.tspdtOtherCount ?? 0} other curated`}
+                  />
                 </span>
               ) : null
             }
@@ -160,34 +171,49 @@ const titleEn = `${d.en} · Director · Playbill`;
     </div>
   </header>
 
+  <CatalogWayfind
+    titleZh={d.zh}
+    titleEn={d.en}
+    href="/great-directors/"
+    subZh="TSPDT 250 大导演"
+    subEn="TSPDT Top 250 Directors"
+  />
+
   <main class="wrap gd-director-main">
     {
-      displayCurated || displayPersonBio ? (
-        <section class="gd-director-bio">
-          {displayCurated ? (
-            <>
-              <h2><Bi zh="TSPDT 评点" en="TSPDT notes" /></h2>
-              <p>{displayCurated}</p>
-            </>
-          ) : null}
-          {displayPersonBio ? (
-            <>
-              <h2>
-                <Bi
-                  zh={displayCurated ? "人物资料" : "介绍"}
-                  en={displayCurated ? "Biography" : "About"}
-                />
-              </h2>
-              <p>{displayPersonBio}</p>
-            </>
-          ) : null}
+      displayCurated ? (
+        <section class="gd-director-panel gd-director-panel--notes">
+          <h2><Bi zh="TSPDT 评点" en="TSPDT notes" /></h2>
+          <div class="prose-body">
+            {curatedParas.map((para) => (
+              <p>{para}</p>
+            ))}
+          </div>
+        </section>
+      ) : null
+    }
+
+    {
+      displayPersonBio ? (
+        <section class="gd-director-panel gd-director-panel--bio">
+          <h2>
+            <Bi
+              zh={displayCurated ? "人物资料" : "介绍"}
+              en={displayCurated ? "Biography" : "About"}
+            />
+          </h2>
+          <div class="prose-body">
+            {personBioParas.map((para) => (
+              <p>{para}</p>
+            ))}
+          </div>
         </section>
       ) : null
     }
 
     {
       awardSnippets.length ? (
-        <section class="gd-director-awards">
+        <section class="gd-director-panel">
           <h2><Bi zh="获奖与提名（片单摘录）" en="Awards (from list notes)" /></h2>
           <ul class="gd-award-list">
             {awardSnippets.map((a) => (
@@ -200,9 +226,9 @@ const titleEn = `${d.en} · Director · Playbill`;
 
     {
       collaborators.length ? (
-        <section class="gd-director-collab">
+        <section class="gd-director-panel">
           <h2><Bi zh="常见合作演员" en="Frequent collaborators" /></h2>
-          <ul class="gd-collab-list">
+          <ul class="gd-collab-chips">
             {
               collaborators.map((c) => (
                 <li>
@@ -219,8 +245,8 @@ const titleEn = `${d.en} · Director · Playbill`;
     {
       person ? (
         <p class="gd-person-link">
-          <a href={`/people/${person.id}/`}>
-            <Bi zh="在场刊人物页查看完整关联" en="Full person page on Playbill" />
+          <a href={`/people/${person.id}/#person-collaborators`}>
+            <Bi zh="在场刊人物页查看完整关联 →" en="Full credits & collaborators on Playbill →" />
           </a>
         </p>
       ) : null
@@ -252,3 +278,8 @@ const titleEn = `${d.en} · Director · Playbill`;
     </section>
   </main>
 </Base>
+
+<script>
+  import { initCatalogWayfind } from "../../scripts/catalog-wayfind.ts";
+  initCatalogWayfind();
+</script>

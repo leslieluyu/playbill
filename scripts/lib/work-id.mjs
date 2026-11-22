@@ -56,13 +56,10 @@ export function mergeWorkInto(db, from, to) {
   if (!db.prepare("SELECT 1 FROM works WHERE id = ?").get(from)) throw new Error(`work not found: ${from}`);
   if (!db.prepare("SELECT 1 FROM works WHERE id = ?").get(to)) throw new Error(`work not found: ${to}`);
 
-  // list_entries: same list may already hold `to` at another rank — drop the local row.
-  const listsWithTo = db.prepare("SELECT list_id FROM list_entries WHERE work_id = ?").all(to).map((r) => r.list_id);
-  for (const listId of listsWithTo) {
-    db.prepare("DELETE FROM list_entries WHERE work_id = ? AND list_id = ?").run(from, listId);
-  }
+  // list_entries: allow the same work at multiple ranks on one list (anthologies).
   db.prepare("UPDATE list_entries SET work_id = ? WHERE work_id = ?").run(to, from);
 
+  // list_highlights is 1:1 per (list, work) — keep the canonical row if both exist.
   const highlightLists = db.prepare("SELECT list_id FROM list_highlights WHERE work_id = ?").all(to).map((r) => r.list_id);
   for (const listId of highlightLists) {
     db.prepare("DELETE FROM list_highlights WHERE work_id = ? AND list_id = ?").run(from, listId);

@@ -63,8 +63,9 @@ export function styleTagsFromBio(bio) {
   if (/新客观/.test(s)) tags.push("neue-sachlichkeit");
   if (/新德国/.test(s)) tags.push("new-german");
   if (/巴西新电影|Cinema Novo/i.test(s)) tags.push("cinema-novo");
-  if (/日本新浪潮/.test(s)) tags.push("japanese-new-wave");
-  if (/法国新浪潮|新浪潮最激进|被新浪潮/.test(s)) tags.push("nouvelle-vague");
+  if (/捷克新浪潮/.test(s)) tags.push("czech-new-wave");
+  else if (/日本新浪潮/.test(s)) tags.push("japanese-new-wave");
+  else if (/新浪潮|左岸派/.test(s)) tags.push("nouvelle-vague");
   if (/新现实主义/.test(s)) tags.push("italian-neorealism");
   if (/瑞典/.test(s) && /古典|伯格曼/.test(s)) tags.push("swedish-classical");
   if (/道格玛/.test(s)) tags.push("dogme95");

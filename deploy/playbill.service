@@ -1,0 +1,19 @@
+[Unit]
+Description=Playbill static site + SQLite FTS search
+After=network.target
+
+[Service]
+Type=simple
+User=luyu
+Group=luyu
+WorkingDirectory=/home/luyu/projects/playbill
+Environment=PLAYBILL_STATIC=/home/luyu/services/playbill
+Environment=PLAYBILL_DB=/home/luyu/projects/playbill/db/playbill.db
+Environment=PLAYBILL_HOST=127.0.0.1
+Environment=PLAYBILL_PORT=8797
+ExecStart=/home/luyu/.local/bin/node --no-warnings server/playbill-serve.mjs --api-only
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

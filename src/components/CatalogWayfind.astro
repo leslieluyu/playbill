@@ -1,0 +1,37 @@
+---
+import Bi from "./Bi.astro";
+
+interface Props {
+  titleZh: string;
+  titleEn: string;
+  /** Optional parent list link (e.g. TSPDT hub). */
+  href?: string;
+  subZh?: string;
+  subEn?: string;
+}
+
+const { titleZh, titleEn, href, subZh, subEn } = Astro.props;
+---
+
+<div class="catalog-wayfind" id="catalog-wayfind" hidden>
+  <div class="wrap catalog-wayfind-inner">
+    {
+      href ? (
+        <a class="catalog-wayfind-title" href={href}>
+          <Bi zh={titleZh} en={titleEn} />
+        </a>
+      ) : (
+        <span class="catalog-wayfind-title">
+          <Bi zh={titleZh} en={titleEn} />
+        </span>
+      )
+    }
+    {
+      subZh && subEn ? (
+        <span class="catalog-wayfind-sub muted">
+          <Bi zh={subZh} en={subEn} />
+        </span>
+      ) : null
+    }
+  </div>
+</div>

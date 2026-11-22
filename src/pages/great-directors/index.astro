@@ -6,6 +6,7 @@ import Base from "../../layouts/Base.astro";
 import Bi from "../../components/Bi.astro";
 import { lists as listCopy } from "../../i18n";
 import GdSidebarFilters from "../../components/GdSidebarFilters.astro";
+import CatalogWayfind from "../../components/CatalogWayfind.astro";
 import {
   GD_AWARD_TAGS,
   GD_MASTER_TAGS,
@@ -14,6 +15,11 @@ import {
 } from "../../lib/great-directors";
 import { countDirectorTags } from "../../lib/great-directors-labels";
 import { findPersonByEn } from "../../lib/person-match";
+import {
+  countDirectorsPerCountry,
+  groupCountriesByContinent,
+  normalizeDirectorCountries,
+} from "../../lib/gd-countries";
 
 const list = await getEntry("lists", "great-directors");
 if (!list) throw new Error("great-directors list missing");
@@ -49,20 +55,23 @@ const directors = directorsRaw
   .filter((d) => activeSlugs.has(d.slug))
   .map((d) => {
     const chartTags = [...(chartBySection.get(d.slug) ?? [])];
+    const countriesNorm = normalizeDirectorCountries(d.countries);
     return {
       ...d,
+      countries: countriesNorm,
       href: `/great-directors/${d.slug}/`,
       photo: findPersonByEn(people, d.en)?.data.photo,
       filmCount: filmCountBySection.get(d.slug) ?? 0,
       chartTags,
-      search: [d.zh, d.en, ...d.countries].filter(Boolean).join(" ").toLowerCase(),
+      search: [d.zh, d.en, ...countriesNorm].filter(Boolean).join(" ").toLowerCase(),
     };
   })
   .sort((a, b) => a.tspdtRank - b.tspdtRank);
 
 const countrySet = new Set<string>();
 for (const d of directors) for (const c of d.countries) countrySet.add(c);
-const countries = [...countrySet].sort((a, b) => a.localeCompare(b, "zh"));
+const countryGroups = groupCountriesByContinent([...countrySet]);
+const countryCounts = countDirectorsPerCountry(directors);
 
 const tagCounts = countDirectorTags(directors);
 
@@ -101,9 +110,18 @@ const tagGroups = [
     </div>
   </header>
 
+  <CatalogWayfind
+    titleZh="TSPDT 250 大导演"
+    titleEn="TSPDT Top 250 Directors"
+    href="/great-directors/"
+    subZh="导演"
+    subEn="Directors"
+  />
+
   <div class="shell wrap gd-shell">
     <GdSidebarFilters
-      countries={countries}
+      countryGroups={countryGroups}
+      countryCounts={countryCounts}
       tagGroups={tagGroups}
       tagCounts={tagCounts}
       searchPlaceholderZh="导演姓名…"
@@ -154,4 +172,6 @@ const tagGroups = [
 
 <script>
   import "../../scripts/gd-filter-client.ts";
+  import { initCatalogWayfind } from "../../scripts/catalog-wayfind.ts";
+  initCatalogWayfind();
 </script>

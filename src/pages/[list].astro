@@ -3,6 +3,7 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { getCollection, getEntry } from "astro:content";
 import Base from "../layouts/Base.astro";
+import CatalogWayfind from "../components/CatalogWayfind.astro";
 import Bi from "../components/Bi.astro";
 import ShowCard from "../components/ShowCard.astro";
 import { formEn, lists as listCopy, placeEn, yearsEn } from "../i18n";
@@ -14,7 +15,9 @@ import {
   decadeOfYear,
   kjYearFromSection,
   usesYearNav,
+  EMMY_LIST_IDS,
 } from "../lib/list-charts";
+import { parseEmmyNote } from "../lib/emmy-note";
 
 export async function getStaticPaths() {
   const lists = await getCollection("lists");
@@ -39,6 +42,7 @@ const lazyExtras =
   list.id === "criterion-spine" ||
   list.id === "afi-100-movies" ||
   list.id === "kinema-junpo-ten" ||
+  list.id === "century-tv-20th" ||
   useYearsNav;
 
 const rows = await Promise.all(
@@ -63,6 +67,25 @@ const rows = await Promise.all(
 rows.sort((a, b) => a.rank - b.rank);
 const primaryRows = featuredLimit > 0 ? rows.filter((r) => r.rank <= featuredLimit) : rows;
 const extraRows = featuredLimit > 0 ? rows.filter((r) => r.rank > featuredLimit) : [];
+
+/** Emmy: first appearance = newest ceremony (lowest rank). Full editorial only there. */
+const isEmmyList = (EMMY_LIST_IDS as readonly string[]).includes(list.id);
+const emmyPrimaryRankByWork = new Map<string, number>();
+if (isEmmyList) {
+  for (const r of rows) {
+    if (!emmyPrimaryRankByWork.has(r.id)) emmyPrimaryRankByWork.set(r.id, r.rank);
+  }
+}
+function emmyWinFor(r: (typeof rows)[number]) {
+  if (!isEmmyList || r.kjYear == null) return undefined;
+  const primaryRank = emmyPrimaryRankByWork.get(r.id) ?? r.rank;
+  return {
+    year: r.kjYear,
+    season: parseEmmyNote(r.note).season,
+    primary: r.rank === primaryRank,
+    primaryRank,
+  };
+}
 
 const sectionDefs = meta.sections.length
   ? meta.sections
@@ -145,6 +168,8 @@ let extrasUrl: string | undefined;
 if (lazyExtras) {
   const extras: Record<string, Extras> = {};
   for (const r of rows) {
+    // Emmy repeat wins share work-level plot/playbill — only emit on the primary (newest) row.
+    if (isEmmyList && emmyPrimaryRankByWork.get(r.id) !== r.rank) continue;
     const w = r.work;
     const row: Extras = {};
     if (w.plot) row.plot = w.plot;
@@ -213,6 +238,8 @@ if (lazyExtras) {
       </ul>
     </div>
   </header>
+
+  <CatalogWayfind titleZh={meta.title} titleEn={copy.title} />
 
   <div class="finder" data-rank-pad={rankPad} style={`--rank-digits:${rankDigits}`}>
     <div class="wrap finder-inner">
@@ -470,6 +497,7 @@ if (lazyExtras) {
               decade={r.decade}
               creatorLabel={creatorLabel}
               creatorLabelEn={copy.creator}
+              emmyWin={emmyWinFor(r)}
             />
           );
         })
@@ -506,6 +534,7 @@ if (lazyExtras) {
                   decade={r.decade}
                   creatorLabel={creatorLabel}
                   creatorLabelEn={copy.creator}
+                  emmyWin={emmyWinFor(r)}
                 />
               );
             })}
@@ -532,7 +561,9 @@ if (lazyExtras) {
             ? "前 100 名为 AFI 2007 年正式榜单；其余为当年选票上的其他候选，按选票编号排列。候选名单另见 AFI 官方 ballot PDF。「场刊」是我们自己的短注，挂在作品上，这份榜单里还在补。"
             : list.id === "kinema-junpo-ten"
               ? "榜单类型与旬报年度以豆列评语为准（艺术／娱乐、日本／外国等）。第85回（2011年度）外国电影 Best Ten 第4位、第92回（2018年度）外国电影 Best Ten 第8位在豆列标注暂缺，本站不补条目，仅在此说明。「场刊」是我们自己的短注，挂在作品上，这份榜单里还在补。"
-              : useYearsNav && list.id !== "kinema-junpo-ten"
+              : list.id === "emmy-outstanding-series"
+                ? "典礼年份与剧情／喜剧分类依据场刊整理的第十章；每条对应一次获奖季（季数来自源文档或可核实的映射）。同一剧集多次获奖时，完整剧情与场刊只出现在最新获奖条目，较早年份仅保留该次获奖信息。「场刊」是我们自己的短注，挂在作品上，这份榜单里还在补。"
+                : useYearsNav && list.id !== "kinema-junpo-ten"
                 ? "届次年份与「获奖／提名」以豆瓣电影节获奖页主竞赛最高奖单元为准；左侧按电影节年份筛选。「场刊」是我们自己的短注，挂在作品上，这份榜单里还在补。"
                 : isTv
                 ? "「场刊」是我们为每部作品写的短注，挂在作品上；这份榜单的原生「看点」日后补。"
@@ -557,5 +588,7 @@ if (lazyExtras) {
 
 <script>
   import { initList } from "../scripts/list";
+  import { initCatalogWayfind } from "../scripts/catalog-wayfind.ts";
   initList();
+  initCatalogWayfind();
 </script>

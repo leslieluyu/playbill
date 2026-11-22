@@ -8,12 +8,18 @@ import { lists as listCopy } from "../../../i18n";
 import { workPath } from "../../../lib/work-path";
 import { workSubtitle } from "../../../lib/work-display";
 import GdSidebarFilters from "../../../components/GdSidebarFilters.astro";
+import CatalogWayfind from "../../../components/CatalogWayfind.astro";
 import {
   GD_AWARD_TAGS,
   GD_MASTER_TAGS,
   GD_STYLE_TAGS,
   parseChartTags,
 } from "../../../lib/great-directors";
+import {
+  countDirectorsPerCountry,
+  groupCountriesByContinent,
+  normalizeDirectorCountries,
+} from "../../../lib/gd-countries";
 
 const list = await getEntry("lists", "great-directors");
 if (!list) throw new Error("great-directors list missing");
@@ -44,7 +50,7 @@ const rows = await Promise.all(
       directorZh: d?.zh ?? "",
       directorEn: d?.en ?? "",
       directorSlug: e.section,
-      countries: d?.countries ?? [],
+      countries: normalizeDirectorCountries(d?.countries ?? []),
       masterTags: d?.masterTags ?? [],
       styleTags: d?.styleTags ?? [],
       chartTags,
@@ -69,9 +75,14 @@ const rows = await Promise.all(
   }),
 );
 
+const directorsNorm = directors.map((d) => ({
+  ...d,
+  countries: normalizeDirectorCountries(d.countries),
+}));
 const countrySet = new Set<string>();
-for (const d of directors) for (const c of d.countries) countrySet.add(c);
-const countries = [...countrySet].sort((a, b) => a.localeCompare(b, "zh"));
+for (const d of directorsNorm) for (const c of d.countries) countrySet.add(c);
+const countryGroups = groupCountriesByContinent([...countrySet]);
+const countryCounts = countDirectorsPerCountry(directorsNorm);
 
 const tagCounts = new Map<string, number>();
 for (const r of rows) {
@@ -115,11 +126,21 @@ const tagGroups = [
     </div>
   </header>
 
+  <CatalogWayfind
+    titleZh="TSPDT 250 · 策展影片"
+    titleEn="TSPDT 250 · Curated films"
+    href="/great-directors/films/"
+    subZh="影片"
+    subEn="Films"
+  />
+
   <div class="shell wrap gd-shell">
     <GdSidebarFilters
-      countries={countries}
+      countryGroups={countryGroups}
+      countryCounts={countryCounts}
       tagGroups={tagGroups}
       tagCounts={tagCounts}
+      countKind="films"
       searchPlaceholderZh="片名、导演…"
       searchPlaceholderEn="Title, director…"
       footnote={{
@@ -177,5 +198,7 @@ const tagGroups = [
 
   <script>
     import "../../../scripts/gd-filter-client.ts";
+    import { initCatalogWayfind } from "../../../scripts/catalog-wayfind.ts";
+    initCatalogWayfind();
   </script>
 </Base>

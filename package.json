@@ -6,11 +6,15 @@
     "node": ">=22.13.0"
   },
   "scripts": {
-    "dev": "astro dev",
+    "dev": "npm run build-search-fts && astro dev",
+    "dev:serve": "node --no-warnings server/playbill-serve.mjs --api-only",
+    "build-search-fts": "node --no-warnings scripts/build-search-fts.mjs",
+    "build-search-index": "node --no-warnings scripts/build-search-index.mjs",
     "build": "astro build",
+    "start": "node --no-warnings server/playbill-serve.mjs",
     "verify": "node --no-warnings scripts/verify-lists.mjs",
     "verify:dist": "node --no-warnings scripts/verify-lists.mjs --dist",
-    "prebuild": "node --no-warnings scripts/verify-lists.mjs",
+    "prebuild": "node --no-warnings scripts/verify-lists.mjs && npm run build-search-fts",
     "postbuild": "node --no-warnings scripts/verify-lists.mjs --dist",
     "preview": "astro preview",
     "db": "node --no-warnings scripts/db.mjs",
@@ -27,10 +31,15 @@
     "criterion-blurbs": "node --no-warnings scripts/fetch-criterion-blurbs.mjs",
     "criterion-blurbs:import": "node --no-warnings scripts/import-criterion-blurbs.mjs",
     "criterion-blurbs:zh": "node --no-warnings scripts/translate-criterion-blurbs.mjs",
-    "people-awards": "node --no-warnings --env-file=.env scripts/fetch-person-awards.mjs"
+    "people-awards": "node --no-warnings --env-file=.env scripts/fetch-person-awards.mjs",
+    "dedupe-people": "node --no-warnings scripts/dedupe-people.mjs",
+    "century-tv-seed": "python3 scripts/build-century-tv-seed.py",
+    "century-tv-cards": "node --no-warnings scripts/import-century-tv-cards.mjs",
+    "emmy-seed": "python3 scripts/build-emmy-seed.py"
   },
   "dependencies": {
     "astro": "^7.3.8",
+    "minisearch": "^7.2.0",
     "undici": "^8.12.1"
   }
 }

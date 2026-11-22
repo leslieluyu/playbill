@@ -1,0 +1,134 @@
+rank	title	year	section	chart	position	note	season	tmdb_id
+1	The Pitt	2025	y2025	drama	1	s1	1	250307
+2	The Studio	2025	y2025	comedy	1	s1	1	
+3	Shōgun	2024	y2024	drama	1	s1	1	126308
+4	Hacks	2021	y2024	comedy	1	s3	3	124101
+5	Succession	2018	y2023	drama	1	s4	4	76331
+6	The Bear	2022	y2023	comedy	1	s1	1	136315
+7	Succession	2018	y2022	drama	1	s3	3	76331
+8	Ted Lasso	2020	y2022	comedy	1	s2	2	97546
+9	The Crown	2016	y2021	drama	1	s4	4	65494
+10	Ted Lasso	2020	y2021	comedy	1	s1	1	97546
+11	Succession	2018	y2020	drama	1	s2	2	76331
+12	Schitt's Creek	2015	y2020	comedy	1	s6	6	61662
+13	Game of Thrones	2011	y2019	drama	1	s8	8	1399
+14	Fleabag	2016	y2019	comedy	1	s2	2	67070
+15	Game of Thrones	2011	y2018	drama	1	s7	7	1399
+16	The Marvelous Mrs. Maisel	2017	y2018	comedy	1	s1	1	
+17	The Handmaid's Tale	2017	y2017	drama	1	s1	1	69478
+18	Veep	2012	y2017	comedy	1	s6	6	2947
+19	Game of Thrones	2011	y2016	drama	1	s6	6	1399
+20	Veep	2012	y2016	comedy	1	s5	5	2947
+21	Game of Thrones	2011	y2015	drama	1	s5	5	1399
+22	Veep	2012	y2015	comedy	1	s4	4	2947
+23	Breaking Bad	2008	y2014	drama	1	s5b	5b	1396
+24	Modern Family	2009	y2014	comedy	1	s5	5	1421
+25	Breaking Bad	2008	y2013	drama	1	s5a	5a	1396
+26	Modern Family	2009	y2013	comedy	1	s4	4	1421
+27	Homeland	2011	y2012	drama	1	s1	1	1407
+28	Modern Family	2009	y2012	comedy	1	s3	3	1421
+29	Mad Men	2007	y2011	drama	1	s4	4	1104
+30	Modern Family	2009	y2011	comedy	1	s2	2	1421
+31	Mad Men	2007	y2010	drama	1	s3	3	1104
+32	Modern Family	2009	y2010	comedy	1	s1	1	1421
+33	Mad Men	2007	y2009	drama	1	s2	2	1104
+34	30 Rock	2006	y2009	comedy	1	s3	3	4608
+35	Mad Men	2007	y2008	drama	1	s1	1	1104
+36	30 Rock	2006	y2008	comedy	1	s2	2	4608
+37	The Sopranos	1999	y2007	drama	1	s6b	6b	1398
+38	30 Rock	2006	y2007	comedy	1	s1	1	4608
+39	24	2001	y2006	drama	1	s5	5	1973
+40	The Office	2005	y2006	comedy	1	s2	2	2316
+41	Lost	2004	y2005	drama	1	s1	1	4607
+42	Arrested Development	2003	y2005	comedy	1	s2	2	4589
+43	The Sopranos	1999	y2004	drama	1	s5	5	1398
+44	Sex and the City	1998	y2004	comedy	1	s6	6	105
+45	The West Wing	1999	y2003	drama	1	s4	4	
+46	Everybody Loves Raymond	1996	y2003	comedy	1	s7	7	
+47	The West Wing	1999	y2002	drama	1	s3	3	
+48	Friends	1994	y2002	comedy	1	s8	8	1668
+49	The West Wing	1999	y2001	drama	1	s2	2	
+50	Will & Grace	1998	y2001	comedy	1	s3	3	4454
+51	The West Wing	1999	y2000	drama	1	s1	1	
+52	Frasier	1993	y2000	comedy	1	s7	7	
+53	The Practice	1997	y1999	drama	1	s3	3	
+54	Ally McBeal	1997	y1999	comedy	1	s2	2	
+55	The Practice	1997	y1998	drama	1	s2	2	
+56	Frasier	1993	y1998	comedy	1	s5	5	
+57	Law & Order	1990	y1997	drama	1	s7	7	549
+58	Frasier	1993	y1997	comedy	1	s4	4	
+59	The X-Files	1993	y1996	drama	1	s3	3	4087
+60	Frasier	1993	y1996	comedy	1	s3	3	
+61	NYPD Blue	1993	y1995	drama	1	s2	2	194
+62	Frasier	1993	y1995	comedy	1	s2	2	
+63	Picket Fences	1992	y1994	drama	1	s2	2	
+64	Frasier	1993	y1994	comedy	1	s1	1	
+65	Picket Fences	1992	y1993	drama	1	s1	1	
+66	Seinfeld	1989	y1993	comedy	1	s4	4	1400
+67	Northern Exposure	1990	y1992	drama	1	s3	3	
+68	Murphy Brown	1988	y1992	comedy	1	s4	4	
+69	thirtysomething	1987	y1991	drama	1	s4	4	1448
+70	Cheers	1982	y1991	comedy	1	s9	9	141
+71	L.A. Law	1986	y1990	drama	1	s4	4	
+72	Murphy Brown	1988	y1990	comedy	1	s2	2	
+73	L.A. Law	1986	y1989	drama	1	s3	3	
+74	The Wonder Years	1988	y1989	comedy	1	s2	2	4500
+75	thirtysomething	1987	y1988	drama	1	s1	1	1448
+76	The Golden Girls	1985	y1988	comedy	1	s3	3	
+77	L.A. Law	1986	y1987	drama	1	s1	1	
+78	The Golden Girls	1985	y1987	comedy	1	s2	2	
+79	Cagney & Lacey	1982	y1986	drama	1	s5	5	
+80	The Cosby Show	1984	y1986	comedy	1	s2	2	
+81	Cagney & Lacey	1982	y1985	drama	1	s4	4	
+82	The Cosby Show	1984	y1985	comedy	1	s1	1	
+83	Hill Street Blues	1981	y1984	drama	1	s4	4	3828
+84	Cheers	1982	y1984	comedy	1	s2	2	141
+85	Hill Street Blues	1981	y1983	drama	1	s3	3	3828
+86	Cheers	1982	y1983	comedy	1	s1	1	141
+87	Hill Street Blues	1981	y1982	drama	1	s2	2	3828
+88	Barney Miller	1975	y1982	comedy	1	s8	8	
+89	Hill Street Blues	1981	y1981	drama	1	s1	1	3828
+90	Taxi	1978	y1981	comedy	1	s3	3	
+91	Lou Grant	1977	y1980	drama	1	s3	3	
+92	Taxi	1978	y1980	comedy	1	s2	2	
+93	Lou Grant	1977	y1979	drama	1	s2	2	
+94	Taxi	1978	y1979	comedy	1	s1	1	
+95	The Rockford Files	1974	y1978	drama	1	s4	4	
+96	All in the Family	1971	y1978	comedy	1	s8	8	
+97	Upstairs, Downstairs	1971	y1977	drama	1	s5	5	492
+98	The Mary Tyler Moore Show	1970	y1977	comedy	1	s7	7	
+99	Police Story	1973	y1976	drama	1	s3	3	
+100	The Mary Tyler Moore Show	1970	y1976	comedy	1	s6	6	
+101	Upstairs, Downstairs	1971	y1975	drama	1	s4	4	492
+102	The Mary Tyler Moore Show	1970	y1975	comedy	1	s5	5	
+103	Upstairs, Downstairs	1971	y1974	drama	1	s3	3	492
+104	M*A*S*H	1972	y1974	comedy	1	s2	2	918
+105	The Waltons	1972	y1973	drama	1	s1	1	5021
+106	All in the Family	1971	y1973	comedy	1	s3	3	
+107	Elizabeth R	1971	y1972	drama	1	s1	1	
+108	All in the Family	1971	y1972	comedy	1	s2	2	
+109	The Bold Ones: The Senator	1970	y1971	drama	1	s1	1	
+110	All in the Family	1971	y1971	comedy	1	s1	1	
+111	Marcus Welby, M.D.	1969	y1970	drama	1	s1	1	
+112	My World and Welcome to It	1969	y1970	comedy	1	s1	1	
+113	Mission: Impossible	1966	y1969	drama	1	s3	3	
+114	Get Smart	1965	y1969	comedy	1	s4	4	
+115	Mission: Impossible	1966	y1968	drama	1	s2	2	
+116	The Monkees	1966	y1967	comedy	1	s1	1	
+117	The Fugitive	1963	y1966	drama	1	s3	3	
+118	The Dick Van Dyke Show	1961	y1966	comedy	1	s5	5	
+119	The Dick Van Dyke Show	1961	y1965	comedy	1	s4	4	
+120	The Defenders	1961	y1964	drama	1	s3	3	
+121	The Dick Van Dyke Show	1961	y1964	comedy	1	s3	3	
+122	The Defenders	1961	y1963	drama	1	s2	2	
+123	The Dick Van Dyke Show	1961	y1963	comedy	1	s2	2	
+124	The Defenders	1961	y1962	drama	1	s1	1	
+125	The Dick Van Dyke Show	1961	y1962	comedy	1	s1	1	
+126	The Danny Thomas Show	1953	y1960	comedy	1	1955–1960		
+127	The Phil Silvers Show	1955	y1960	comedy	2	1955–1960		
+128	Maverick	1957	y1959	drama	1	s2	2	
+129	Gunsmoke	1955	y1958	drama	1	s3	3	
+130	Dragnet	1951	y1957	drama	1	1954–1957		
+131	Studio One	1948	y1957	drama	2	1954–1957		
+132	I Love Lucy	1951	y1954	comedy	1	s3	3	2730
+133	I Love Lucy	1951	y1953	comedy	1	s2	2	2730

@@ -149,6 +149,89 @@
 {"list_id":"cannes-palme-dor","id":"y1949","ord":-1949,"name":"1949年","blurb":"","color":"#5b45a0"}
 {"list_id":"cannes-palme-dor","id":"y1947","ord":-1947,"name":"1947年","blurb":"","color":"#5b45a0"}
 {"list_id":"cannes-palme-dor","id":"y1946","ord":-1946,"name":"1946年","blurb":"","color":"#5b45a0"}
+{"list_id":"century-tv-20th","id":"cn","ord":0,"name":"华语地区","blurb":"大陆与港台电视史上具代表性的古典名著、历史巨制与时代剧。","color":"#b33a2a"}
+{"list_id":"century-tv-20th","id":"uk","ord":1,"name":"英国","blurb":"BBC 与 ITV 古典改编、政治讽刺与喜剧标杆。","color":"#2a5a8a"}
+{"list_id":"century-tv-20th","id":"jp","ord":2,"name":"日本","blurb":"日剧黄金时代都市爱情、推理与家庭史诗。","color":"#a8456e"}
+{"list_id":"century-tv-20th","id":"euro","ord":3,"name":"欧洲与拉美","blurb":"德国史诗、意大利犯罪剧与巴西现象级连续剧。","color":"#a65f18"}
+{"list_id":"century-tv-20th","id":"us-picks","ord":4,"name":"美剧精选","blurb":"20 世纪范围内影响力突出的美国剧集精选。","color":"#5b45a0"}
+{"list_id":"century-tv-20th","id":"tv-book","ord":5,"name":"TV: The Book","blurb":"Sepinwall & Seitz 合著评选中的美剧史 TOP 30。","color":"#9a7a12"}
+{"list_id":"century-tv-20th","id":"us70","ord":6,"name":"1970 年代美剧","blurb":"大众电视黄金期与社会共情。","color":"#1f6f7a"}
+{"list_id":"century-tv-20th","id":"us80","ord":7,"name":"1980 年代美剧","blurb":"家庭收视盛世与合家欢狂潮。","color":"#2f6b45"}
+{"list_id":"century-tv-20th","id":"us90","ord":8,"name":"1990 年代美剧","blurb":"全民追剧与公共台全盛期。","color":"#8a4a12"}
+{"list_id":"century-tv-20th","id":"us00","ord":9,"name":"2000 年代美剧","blurb":"网络讨论狂潮与现象级破圈。","color":"#4a6a8a"}
+{"list_id":"century-tv-20th","id":"us10","ord":10,"name":"2010 年代美剧","blurb":"流媒体崛起与全球爆款。","color":"#6a4a8a"}
+{"list_id":"century-tv-20th","id":"aesthetics","ord":11,"name":"视听美学","blurb":"镜头调度、构图与声景艺术向推荐。","color":"#3d5a40"}
+{"list_id":"century-tv-20th","id":"more-art","ord":12,"name":"艺术向延伸","blurb":"21 世纪多部高口碑剧作的补充推荐。","color":"#4a4a4a"}
+{"list_id":"emmy-outstanding-series","id":"y2025","ord":-2025,"name":"2025年","blurb":"","color":"#5b45a0"}
+{"list_id":"emmy-outstanding-series","id":"y2024","ord":-2024,"name":"2024年","blurb":"","color":"#5b45a0"}
+{"list_id":"emmy-outstanding-series","id":"y2023","ord":-2023,"name":"2023年","blurb":"","color":"#5b45a0"}
+{"list_id":"emmy-outstanding-series","id":"y2022","ord":-2022,"name":"2022年","blurb":"","color":"#5b45a0"}
+{"list_id":"emmy-outstanding-series","id":"y2021","ord":-2021,"name":"2021年","blurb":"","color":"#5b45a0"}
+{"list_id":"emmy-outstanding-series","id":"y2020","ord":-2020,"name":"2020年","blurb":"","color":"#5b45a0"}
+{"list_id":"emmy-outstanding-series","id":"y2019","ord":-2019,"name":"2019年","blurb":"","color":"#1f6f7a"}
+{"list_id":"emmy-outstanding-series","id":"y2018","ord":-2018,"name":"2018年","blurb":"","color":"#1f6f7a"}
+{"list_id":"emmy-outstanding-series","id":"y2017","ord":-2017,"name":"2017年","blurb":"","color":"#1f6f7a"}
+{"list_id":"emmy-outstanding-series","id":"y2016","ord":-2016,"name":"2016年","blurb":"","color":"#1f6f7a"}
+{"list_id":"emmy-outstanding-series","id":"y2015","ord":-2015,"name":"2015年","blurb":"","color":"#1f6f7a"}
+{"list_id":"emmy-outstanding-series","id":"y2014","ord":-2014,"name":"2014年","blurb":"","color":"#1f6f7a"}
+{"list_id":"emmy-outstanding-series","id":"y2013","ord":-2013,"name":"2013年","blurb":"","color":"#1f6f7a"}
+{"list_id":"emmy-outstanding-series","id":"y2012","ord":-2012,"name":"2012年","blurb":"","color":"#1f6f7a"}
+{"list_id":"emmy-outstanding-series","id":"y2011","ord":-2011,"name":"2011年","blurb":"","color":"#1f6f7a"}
+{"list_id":"emmy-outstanding-series","id":"y2010","ord":-2010,"name":"2010年","blurb":"","color":"#1f6f7a"}
+{"list_id":"emmy-outstanding-series","id":"y2009","ord":-2009,"name":"2009年","blurb":"","color":"#2f6b45"}
+{"list_id":"emmy-outstanding-series","id":"y2008","ord":-2008,"name":"2008年","blurb":"","color":"#2f6b45"}
+{"list_id":"emmy-outstanding-series","id":"y2007","ord":-2007,"name":"2007年","blurb":"","color":"#2f6b45"}
+{"list_id":"emmy-outstanding-series","id":"y2006","ord":-2006,"name":"2006年","blurb":"","color":"#2f6b45"}
+{"list_id":"emmy-outstanding-series","id":"y2005","ord":-2005,"name":"2005年","blurb":"","color":"#2f6b45"}
+{"list_id":"emmy-outstanding-series","id":"y2004","ord":-2004,"name":"2004年","blurb":"","color":"#2f6b45"}
+{"list_id":"emmy-outstanding-series","id":"y2003","ord":-2003,"name":"2003年","blurb":"","color":"#2f6b45"}
+{"list_id":"emmy-outstanding-series","id":"y2002","ord":-2002,"name":"2002年","blurb":"","color":"#2f6b45"}
+{"list_id":"emmy-outstanding-series","id":"y2001","ord":-2001,"name":"2001年","blurb":"","color":"#2f6b45"}
+{"list_id":"emmy-outstanding-series","id":"y2000","ord":-2000,"name":"2000年","blurb":"","color":"#2f6b45"}
+{"list_id":"emmy-outstanding-series","id":"y1999","ord":-1999,"name":"1999年","blurb":"","color":"#4a5568"}
+{"list_id":"emmy-outstanding-series","id":"y1998","ord":-1998,"name":"1998年","blurb":"","color":"#4a5568"}
+{"list_id":"emmy-outstanding-series","id":"y1997","ord":-1997,"name":"1997年","blurb":"","color":"#4a5568"}
+{"list_id":"emmy-outstanding-series","id":"y1996","ord":-1996,"name":"1996年","blurb":"","color":"#4a5568"}
+{"list_id":"emmy-outstanding-series","id":"y1995","ord":-1995,"name":"1995年","blurb":"","color":"#4a5568"}
+{"list_id":"emmy-outstanding-series","id":"y1994","ord":-1994,"name":"1994年","blurb":"","color":"#4a5568"}
+{"list_id":"emmy-outstanding-series","id":"y1993","ord":-1993,"name":"1993年","blurb":"","color":"#4a5568"}
+{"list_id":"emmy-outstanding-series","id":"y1992","ord":-1992,"name":"1992年","blurb":"","color":"#4a5568"}
+{"list_id":"emmy-outstanding-series","id":"y1991","ord":-1991,"name":"1991年","blurb":"","color":"#4a5568"}
+{"list_id":"emmy-outstanding-series","id":"y1990","ord":-1990,"name":"1990年","blurb":"","color":"#4a5568"}
+{"list_id":"emmy-outstanding-series","id":"y1989","ord":-1989,"name":"1989年","blurb":"","color":"#9a7a12"}
+{"list_id":"emmy-outstanding-series","id":"y1988","ord":-1988,"name":"1988年","blurb":"","color":"#9a7a12"}
+{"list_id":"emmy-outstanding-series","id":"y1987","ord":-1987,"name":"1987年","blurb":"","color":"#9a7a12"}
+{"list_id":"emmy-outstanding-series","id":"y1986","ord":-1986,"name":"1986年","blurb":"","color":"#9a7a12"}
+{"list_id":"emmy-outstanding-series","id":"y1985","ord":-1985,"name":"1985年","blurb":"","color":"#9a7a12"}
+{"list_id":"emmy-outstanding-series","id":"y1984","ord":-1984,"name":"1984年","blurb":"","color":"#9a7a12"}
+{"list_id":"emmy-outstanding-series","id":"y1983","ord":-1983,"name":"1983年","blurb":"","color":"#9a7a12"}
+{"list_id":"emmy-outstanding-series","id":"y1982","ord":-1982,"name":"1982年","blurb":"","color":"#9a7a12"}
+{"list_id":"emmy-outstanding-series","id":"y1981","ord":-1981,"name":"1981年","blurb":"","color":"#9a7a12"}
+{"list_id":"emmy-outstanding-series","id":"y1980","ord":-1980,"name":"1980年","blurb":"","color":"#9a7a12"}
+{"list_id":"emmy-outstanding-series","id":"y1979","ord":-1979,"name":"1979年","blurb":"","color":"#a8456e"}
+{"list_id":"emmy-outstanding-series","id":"y1978","ord":-1978,"name":"1978年","blurb":"","color":"#a8456e"}
+{"list_id":"emmy-outstanding-series","id":"y1977","ord":-1977,"name":"1977年","blurb":"","color":"#a8456e"}
+{"list_id":"emmy-outstanding-series","id":"y1976","ord":-1976,"name":"1976年","blurb":"","color":"#a8456e"}
+{"list_id":"emmy-outstanding-series","id":"y1975","ord":-1975,"name":"1975年","blurb":"","color":"#a8456e"}
+{"list_id":"emmy-outstanding-series","id":"y1974","ord":-1974,"name":"1974年","blurb":"","color":"#a8456e"}
+{"list_id":"emmy-outstanding-series","id":"y1973","ord":-1973,"name":"1973年","blurb":"","color":"#a8456e"}
+{"list_id":"emmy-outstanding-series","id":"y1972","ord":-1972,"name":"1972年","blurb":"","color":"#a8456e"}
+{"list_id":"emmy-outstanding-series","id":"y1971","ord":-1971,"name":"1971年","blurb":"","color":"#a8456e"}
+{"list_id":"emmy-outstanding-series","id":"y1970","ord":-1970,"name":"1970年","blurb":"","color":"#a8456e"}
+{"list_id":"emmy-outstanding-series","id":"y1969","ord":-1969,"name":"1969年","blurb":"","color":"#b33a2a"}
+{"list_id":"emmy-outstanding-series","id":"y1968","ord":-1968,"name":"1968年","blurb":"","color":"#b33a2a"}
+{"list_id":"emmy-outstanding-series","id":"y1967","ord":-1967,"name":"1967年","blurb":"","color":"#b33a2a"}
+{"list_id":"emmy-outstanding-series","id":"y1966","ord":-1966,"name":"1966年","blurb":"","color":"#b33a2a"}
+{"list_id":"emmy-outstanding-series","id":"y1965","ord":-1965,"name":"1965年","blurb":"","color":"#b33a2a"}
+{"list_id":"emmy-outstanding-series","id":"y1964","ord":-1964,"name":"1964年","blurb":"","color":"#b33a2a"}
+{"list_id":"emmy-outstanding-series","id":"y1963","ord":-1963,"name":"1963年","blurb":"","color":"#b33a2a"}
+{"list_id":"emmy-outstanding-series","id":"y1962","ord":-1962,"name":"1962年","blurb":"","color":"#b33a2a"}
+{"list_id":"emmy-outstanding-series","id":"y1960","ord":-1960,"name":"1960年","blurb":"","color":"#b33a2a"}
+{"list_id":"emmy-outstanding-series","id":"y1959","ord":-1959,"name":"1959年","blurb":"","color":"#a65f18"}
+{"list_id":"emmy-outstanding-series","id":"y1958","ord":-1958,"name":"1958年","blurb":"","color":"#a65f18"}
+{"list_id":"emmy-outstanding-series","id":"y1957","ord":-1957,"name":"1957年","blurb":"","color":"#a65f18"}
+{"list_id":"emmy-outstanding-series","id":"y1954","ord":-1954,"name":"1954年","blurb":"","color":"#a65f18"}
+{"list_id":"emmy-outstanding-series","id":"y1953","ord":-1953,"name":"1953年","blurb":"","color":"#a65f18"}
 {"list_id":"great-directors","id":"d001-alfred-hitchcock","ord":1,"name":"阿尔弗雷德·希区柯克","blurb":"“悬念大师”，将类型片提升为作者表达，其剪辑、视点与观众心理操控影响深远，是影史被引用最多的导演。","color":"#4a5568"}
 {"list_id":"great-directors","id":"d002-orson-welles","ord":2,"name":"奥逊·威尔斯","blurb":"处女作《公民凯恩》以深焦摄影与非线性叙事革新电影语言，长期被视为影史最伟大电影的代表人物。","color":"#4a5568"}
 {"list_id":"great-directors","id":"d003-stanley-kubrick","ord":3,"name":"斯坦利·库布里克","blurb":"跨越科幻、战争、恐怖等类型的完美主义者，作品以冷峻视觉与哲学深度著称。","color":"#4a5568"}

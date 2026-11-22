@@ -1,3 +1,5 @@
+import { formatEmmySeasonEn, formatEmmySeasonZh, parseEmmyNote } from "./emmy-note";
+
 /** Short badge labels for list_entries (shared by people + work pages). */
 export function listBadgeLabel(
   listId: string,
@@ -5,6 +7,7 @@ export function listBadgeLabel(
   sectionId?: string | null,
   chart?: string | null,
   position?: number | null,
+  note?: string | null,
 ) {
   if (listId === "criterion-spine") {
     const n = String(rank).padStart(3, "0");
@@ -33,6 +36,21 @@ export function listBadgeLabel(
       "venice-golden-lion": { zh: "威尼斯金狮", en: "Venice Golden Lion" },
     } as const;
     return short[listId as keyof typeof short];
+  }
+  if (listId === "emmy-outstanding-series") {
+    const year = sectionId?.startsWith("y") ? sectionId.slice(1) : "";
+    const tagZh = chart === "drama" ? "剧情" : chart === "comedy" ? "喜剧" : "";
+    const tagEn = chart === "drama" ? "Drama" : chart === "comedy" ? "Comedy" : "";
+    const { season } = parseEmmyNote(note);
+    const seasonZh = season ? formatEmmySeasonZh(season) : "";
+    const seasonEn = season ? formatEmmySeasonEn(season) : "";
+    if (year && tagZh) {
+      return {
+        zh: [year, tagZh, seasonZh].filter(Boolean).join(" · "),
+        en: [year, tagEn, seasonEn].filter(Boolean).join(" · "),
+      };
+    }
+    return { zh: "艾美奖最佳剧集", en: "Emmy Outstanding Series" };
   }
   if (listId === "kinema-junpo-ten") {
     const year = sectionId?.startsWith("y") ? sectionId.slice(1) : "";

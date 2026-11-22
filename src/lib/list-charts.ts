@@ -1,6 +1,15 @@
 /** Per-list entry tags (Kinema charts, festival won/nom, etc.). */
 
-export type ListChartId = "art" | "ent" | "jp" | "foreign" | "other" | "won" | "nom";
+export type ListChartId =
+  | "art"
+  | "ent"
+  | "jp"
+  | "foreign"
+  | "other"
+  | "won"
+  | "nom"
+  | "drama"
+  | "comedy";
 
 export const FESTIVAL_LIST_IDS = [
   "oscar-best-picture",
@@ -9,9 +18,16 @@ export const FESTIVAL_LIST_IDS = [
   "venice-golden-lion",
 ] as const;
 
+export const EMMY_LIST_IDS = ["emmy-outstanding-series"] as const;
+
 export const FESTIVAL_AWARD_CHARTS: ListChartTag[] = [
   { id: "won", zh: "获奖", en: "Winner" },
   { id: "nom", zh: "提名", en: "Nominated" },
+];
+
+export const EMMY_SERIES_CHARTS: ListChartTag[] = [
+  { id: "drama", zh: "剧情", en: "Drama" },
+  { id: "comedy", zh: "喜剧", en: "Comedy" },
 ];
 
 export type ListChartTag = {
@@ -31,17 +47,24 @@ export const KINEMA_JUNPO_CHARTS: ListChartTag[] = [
 export function chartsForList(listId: string): ListChartTag[] {
   if (listId === "kinema-junpo-ten") return KINEMA_JUNPO_CHARTS;
   if ((FESTIVAL_LIST_IDS as readonly string[]).includes(listId)) return FESTIVAL_AWARD_CHARTS;
+  if ((EMMY_LIST_IDS as readonly string[]).includes(listId)) return EMMY_SERIES_CHARTS;
   return [];
 }
 
 export function chartTag(id?: string | null, listId?: string): ListChartTag | undefined {
   if (!id) return undefined;
-  const pool = listId ? chartsForList(listId) : [...KINEMA_JUNPO_CHARTS, ...FESTIVAL_AWARD_CHARTS];
+  const pool = listId
+    ? chartsForList(listId)
+    : [...KINEMA_JUNPO_CHARTS, ...FESTIVAL_AWARD_CHARTS, ...EMMY_SERIES_CHARTS];
   return pool.find((c) => c.id === id);
 }
 
 export function usesYearNav(listId: string) {
-  return listId === "kinema-junpo-ten" || (FESTIVAL_LIST_IDS as readonly string[]).includes(listId);
+  return (
+    listId === "kinema-junpo-ten" ||
+    (FESTIVAL_LIST_IDS as readonly string[]).includes(listId) ||
+    (EMMY_LIST_IDS as readonly string[]).includes(listId)
+  );
 }
 
 export function kjYearFromSection(section?: string): number | undefined {
