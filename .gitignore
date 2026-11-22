@@ -6,6 +6,7 @@ public/search-index.json
 .env.*
 .DS_Store
 db/cache.db
+db/*.db
 db/.cache/
 db/*.db-journal
 db/*.db-wal
