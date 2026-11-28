@@ -1,0 +1,120 @@
+{
+  "id": "critics-choice-tv",
+  "title": "美国评论家选择奖最佳剧集",
+  "kicker": "Critics Choice Awards · Best Series",
+  "dek": "美国评论家选择奖（Critics Choice Awards）历届最佳剧情类与最佳喜剧类剧集获奖名单，按典礼年份从新到旧排列。每条对应一次获奖季（标明季数）。同一剧集多次获奖时，完整剧情与场刊只出现在最新获奖条目；较早年份仅保留该次获奖信息。左侧可按年代、年份筛选，并用「剧情／喜剧」标签过滤。2016 年因档期调整举行两届（年中与年末），均予收录；电视奖自 2011 年起设立。",
+  "source": {
+    "name": "Wikipedia · Critics' Choice Television Award for Best Drama / Comedy Series",
+    "url": "https://en.wikipedia.org/wiki/Critics%27_Choice_Television_Award_for_Best_Drama_Series"
+  },
+  "kind": "tv",
+  "order": 15,
+  "entries": "critics-choice-tv.tsv",
+  "sections": [
+    {
+      "id": "y2026",
+      "order": -2026,
+      "name": "2026年",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y2025",
+      "order": -2025,
+      "name": "2025年",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y2024",
+      "order": -2024,
+      "name": "2024年",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y2023",
+      "order": -2023,
+      "name": "2023年",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y2022",
+      "order": -2022,
+      "name": "2022年",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y2021",
+      "order": -2021,
+      "name": "2021年",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y2020",
+      "order": -2020,
+      "name": "2020年",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y2019",
+      "order": -2019,
+      "name": "2019年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2018",
+      "order": -2018,
+      "name": "2018年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2016",
+      "order": -2016,
+      "name": "2016年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2015",
+      "order": -2015,
+      "name": "2015年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2014",
+      "order": -2014,
+      "name": "2014年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2013",
+      "order": -2013,
+      "name": "2013年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2012",
+      "order": -2012,
+      "name": "2012年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2011",
+      "order": -2011,
+      "name": "2011年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    }
+  ]
+}

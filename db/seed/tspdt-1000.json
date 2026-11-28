@@ -1,0 +1,85 @@
+{
+  "id": "tspdt-1000",
+  "title": "TSPDT 影史千佳",
+  "kicker": "They Shoot Pictures, Don't They? · 1,000 Greatest Films",
+  "dek": "They Shoot Pictures, Don't They?（TSPDT）影史一千佳电影（2025 年版），按官方名次排列。左侧按名次段（每 100 部）筛选。片名与年份以 TSPDT 排序表为准；冠词后置等书写已略作规范化以便检索。",
+  "source": {
+    "name": "TSPDT · The 1,000 Greatest Films (2025 sortable table)",
+    "url": "https://theyshootpictures.com/gf1000_all1000films_table.php"
+  },
+  "kind": "movie",
+  "order": 19,
+  "entries": "tspdt-1000.tsv",
+  "sections": [
+    {
+      "id": "r001",
+      "order": 0,
+      "name": "1–100",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "r101",
+      "order": 1,
+      "name": "101–200",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "r201",
+      "order": 2,
+      "name": "201–300",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "r301",
+      "order": 3,
+      "name": "301–400",
+      "blurb": "",
+      "color": "#a65f18"
+    },
+    {
+      "id": "r401",
+      "order": 4,
+      "name": "401–500",
+      "blurb": "",
+      "color": "#b33a2a"
+    },
+    {
+      "id": "r501",
+      "order": 5,
+      "name": "501–600",
+      "blurb": "",
+      "color": "#a8456e"
+    },
+    {
+      "id": "r601",
+      "order": 6,
+      "name": "601–700",
+      "blurb": "",
+      "color": "#9a7a12"
+    },
+    {
+      "id": "r701",
+      "order": 7,
+      "name": "701–800",
+      "blurb": "",
+      "color": "#4a5568"
+    },
+    {
+      "id": "r801",
+      "order": 8,
+      "name": "801–900",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "r901",
+      "order": 9,
+      "name": "901–1000",
+      "blurb": "",
+      "color": "#1f6f7a"
+    }
+  ]
+}

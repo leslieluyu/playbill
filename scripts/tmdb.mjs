@@ -78,6 +78,19 @@ const HINTS = {
   "tmdb-tv-4454": { id: 4454 },
   "local-thirtysomething": { id: 1448, query: "thirtysomething", year: 1987 },
   "tmdb-tv-1448": { id: 1448 },
+  // new TV award lists
+  "tmdb-tv-62557": { id: 62557, query: "Peter Kay's Car Share", year: 2015 },
+  "tmdb-tv-46619": { id: 46619, query: "Rectify", year: 2013 },
+  "tmdb-tv-87107": { id: 87107, query: "Los Espookys", year: 2019 },
+  "tmdb-tv-1417": { id: 1417, query: "Glee", year: 2009 },
+  "tmdb-tv-76092": { id: 76092, query: "Mother", year: 2018 },
+  "tmdb-tv-128285": { id: 128285, query: "토지", year: 2004 },
+  "tmdb-tv-128347": { id: 128347, query: "국희", year: 1999 },
+  "tmdb-tv-1427": { id: 1427, query: "Broadchurch", year: 2013 },
+  "tmdb-tv-4046": { id: 4046, query: "Spooks", year: 2002 },
+  "tmdb-tv-47562": { id: 47562, query: "Inside Amy Schumer", year: 2013 },
+  "tmdb-tv-99581": { id: 99581, query: "Unorthodox", year: 2020 },
+
   "tmdb-tv-5021": { id: 5021, query: "The Waltons", year: 1972 },
 };
 
@@ -215,7 +228,35 @@ for (const w of works) {
     dest = `${OUT}/${w.id}.jpg`;
   }
   const season = hint.season ?? w.tmdb_season ?? null;
-  const d = await tmdb(`/${type}/${tmdbId}`, { append_to_response: "external_ids" });
+  let d;
+  try {
+    d = await tmdb(`/${type}/${tmdbId}`, { append_to_response: "external_ids" });
+  } catch (err) {
+    const msg = String(err?.message ?? err);
+    if (/\b404\b/.test(msg)) {
+      // Stale seed tmdb_id — clear and fall back to search once.
+      db.prepare("UPDATE works SET tmdb_id = NULL WHERE id = ?").run(w.id);
+      report.push(`STALE ${w.id}  tmdb ${tmdbId} 404 → search`);
+      const hit = await search(w, hint);
+      if (!hit) {
+        report.push(`MISS  ${w.id}  (${w.en} ${w.year_start})`);
+        continue;
+      }
+      tmdbId = hit.id;
+      if (!hit.exact) note = `${note} ?? fuzzy after 404`.trim();
+      const want2 = preferredWorkId({ kind: type, tmdbId, currentId: w.id });
+      if (shouldAdoptWorkId(w.id, want2)) {
+        renameWork(db, w.id, want2);
+        await renamePosterFile(w.id, want2);
+        note = `${note} id←${w.id}`.trim();
+        w.id = want2;
+        dest = `${OUT}/${w.id}.jpg`;
+      }
+      d = await tmdb(`/${type}/${tmdbId}`, { append_to_response: "external_ids" });
+    } else {
+      throw err;
+    }
+  }
   const imdbId = hint.imdb ?? d.imdb_id ?? d.external_ids?.imdb_id ?? null;
   const original = d.original_name ?? d.original_title ?? null;
   const runtime = type === "movie" ? d.runtime || null : null;

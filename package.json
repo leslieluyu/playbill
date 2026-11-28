@@ -35,7 +35,10 @@
     "dedupe-people": "node --no-warnings scripts/dedupe-people.mjs",
     "century-tv-seed": "python3 scripts/build-century-tv-seed.py",
     "century-tv-cards": "node --no-warnings scripts/import-century-tv-cards.mjs",
-    "emmy-seed": "python3 scripts/build-emmy-seed.py"
+    "emmy-seed": "python3 scripts/build-emmy-seed.py",
+    "critics-choice-seed": "python3 scripts/build-critics-choice-seed.py",
+    "academy-awards-seed": "python3 scripts/build-academy-awards-seed.py",
+    "tv-awards-seed": "python3 scripts/build-tv-awards-seed.py"
   },
   "dependencies": {
     "astro": "^7.3.8",

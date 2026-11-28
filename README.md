@@ -7,6 +7,18 @@
 - `/nyt-100-tv/`：《纽约时报》「21 世纪 100 部最佳剧集」，按类型分七个区，附剧情与看点。
 - `/century-tv-20th/`：20 世纪全球优秀电视剧（场刊整理），十三个分区，剧情与看点来自汇总清单 PDF。
 - `/emmy-outstanding-series/`：黄金时段艾美奖最佳剧情／喜剧类剧集历届获奖；左侧按典礼年份筛选，可用「剧情／喜剧」标签过滤。
+- `/critics-choice-film/`：美国评论家选择奖历届最佳影片；左侧按典礼年份筛选。
+- `/critics-choice-tv/`：美国评论家选择奖历届最佳剧情／喜剧类剧集；左侧按典礼年份筛选，可用「剧情／喜剧」标签过滤。
+- `/golden-horse-best-film/`：金马奖最佳剧情片历届获奖；左侧按典礼年份筛选。
+- `/hkfa-best-film/`：香港金像奖最佳电影历届获奖；左侧按典礼年份筛选。
+- `/bafta-best-film/`：英国电影学院奖最佳影片历届获奖；左侧按典礼年份筛选。
+- `/bafta-tv/`：英国电视学院奖最佳剧情／剧本喜剧／限定剧历届获奖；左侧按典礼年份筛选，可用标签过滤。
+- `/peabody-entertainment/`：皮博迪奖娱乐类剧集／迷你剧选录（已过滤新闻／纪录等）；左侧按获奖年份筛选。
+- `/tca-awards/`：电视评论家协会奖年度节目／杰出剧情／喜剧历届获奖；左侧按典礼年份筛选，可用标签过滤。
+- `/baeksang-best-drama/`：百想艺术大赏最佳电视剧历届获奖；左侧按典礼年份筛选。
+- `/galaxy-awards-drama/`：日本银河奖电视部门剧情类大赏／优秀赏选录；左侧按典礼年份筛选。
+- `/cesar-best-film/`：法国凯撒奖最佳影片历届获奖；左侧按典礼年份筛选。
+- `/tspdt-1000/`：TSPDT 影史一千佳（2025）；左侧按名次段筛选。
 - `/nyt-100-movies/`：《纽约时报》「21 世纪 100 部最佳电影」，按类型分七个区，附剧情和看点。导演和主演的中文名来自 TMDB。电影看点译自《纽约时报》榜单页上的推荐短文。
 - `/criterion-spine/`：Criterion Collection，按官方 Spine Number 排列，可用国家、类型、形式标签筛选；看点取自各片官方介绍页。
 - `/sight-sound-2020/`：《视与听》影史百佳 2020 版整理，按类型分七个阅读分区，分区内按原榜名次排列。
@@ -31,6 +43,18 @@
 | 21 世纪百佳剧集 | `/nyt-100-tv/` | [NYT · The 100 Best TV Shows of the 21st Century](https://www.nytimes.com/bestTV) |
 | 20 世纪全球优秀电视剧 | `/century-tv-20th/` | `docs/20世纪全球优秀电视剧汇总清单.pdf`（场刊整理） |
 | 艾美奖最佳剧集 | `/emmy-outstanding-series/` | 同上 PDF 第十章（Primetime Emmy Outstanding Drama / Comedy Series） |
+| 评论家选择奖最佳影片 | `/critics-choice-film/` | [Wikipedia · CCA Best Picture](https://en.wikipedia.org/wiki/Critics%27_Choice_Movie_Award_for_Best_Picture)；[criticschoice.com archives](https://www.criticschoice.com/category/archives-critics-choice-awards/) |
+| 评论家选择奖最佳剧集 | `/critics-choice-tv/` | [Wikipedia · CCA Best Drama](https://en.wikipedia.org/wiki/Critics%27_Choice_Television_Award_for_Best_Drama_Series) / [Best Comedy](https://en.wikipedia.org/wiki/Critics%27_Choice_Television_Award_for_Best_Comedy_Series) |
+| 金马奖最佳剧情片 | `/golden-horse-best-film/` | [Wikipedia · Golden Horse Best Narrative Feature](https://en.wikipedia.org/wiki/Golden_Horse_Award_for_Best_Narrative_Feature) |
+| 香港金像奖最佳电影 | `/hkfa-best-film/` | [Wikipedia · Hong Kong Film Award for Best Film](https://en.wikipedia.org/wiki/Hong_Kong_Film_Award_for_Best_Film) |
+| 英国电影学院奖最佳影片 | `/bafta-best-film/` | [Wikipedia · BAFTA Award for Best Film](https://en.wikipedia.org/wiki/BAFTA_Award_for_Best_Film) |
+| 英国电视学院奖最佳剧集 | `/bafta-tv/` | [Wikipedia · BAFTA TV Best Drama](https://en.wikipedia.org/wiki/British_Academy_Television_Award_for_Best_Drama_Series) / [Scripted Comedy](https://en.wikipedia.org/wiki/British_Academy_Television_Award_for_Best_Scripted_Comedy) / [Mini-Series](https://en.wikipedia.org/wiki/British_Academy_Television_Award_for_Best_Mini-Series) |
+| 皮博迪奖 · 娱乐剧集 | `/peabody-entertainment/` | [Wikipedia · Peabody winners](https://en.wikipedia.org/wiki/List_of_Peabody_Award_winners_(2020%E2%80%932029))（Entertainment 过滤） |
+| 电视评论家协会奖 | `/tca-awards/` | [Wikipedia · TCA Program of the Year](https://en.wikipedia.org/wiki/TCA_Award_for_Program_of_the_Year) / Drama / Comedy |
+| 百想艺术大赏最佳电视剧 | `/baeksang-best-drama/` | [Wikipedia · Baeksang Best Drama](https://en.wikipedia.org/wiki/Baeksang_Arts_Award_for_Best_Drama) |
+| 银河奖 · 电视剧 | `/galaxy-awards-drama/` | [Wikipedia · ギャラクシー賞](https://ja.wikipedia.org/wiki/%E3%82%AE%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%B7%E3%83%BC%E8%B3%9E)（剧情类子集） |
+| 凯撒奖最佳影片 | `/cesar-best-film/` | [Wikipedia · César Award for Best Film](https://en.wikipedia.org/wiki/C%C3%A9sar_Award_for_Best_Film) |
+| TSPDT 影史千佳 | `/tspdt-1000/` | [TSPDT · 1,000 Greatest Films (2025 table)](https://theyshootpictures.com/gf1000_all1000films_table.php) |
 | 21 世纪百佳电影 | `/nyt-100-movies/` | [NYT · The 100 Best Movies of the 21st Century](https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html) |
 | Criterion Collection | `/criterion-spine/` | [Criterion · Shop All Films（按 spine number）](https://www.criterion.com/shop/browse/list?sort=spine_number)；各片看点来自对应 `criterion.com/films/…` 介绍页 |
 | 视与听影视百佳 2020版 | `/sight-sound-2020/` | [IMDb list ls098836998](https://www.imdb.com/list/ls098836998/)（Sight & Sound’s 100 Greatest Movies of All Time, 2020 version） |
@@ -74,7 +98,7 @@ npm run verify:dist  # 再对照 dist/ 里每页的 #show-N 与人物页徽章�
 ## 加一份片单
 
 1. 在 `db/seed/` 放 `<name>.json`（标题、来源、类型）和 TSV（名次、英文片名、年份），参考 `nyt-100-movies`。PDF 剧单可先跑 `npm run century-tv-seed` 生成 `century-tv-20th` 种子；艾美奖历届最佳剧集用 `npm run emmy-seed` 生成 `emmy-outstanding-series`。
-2. `npm run seed -- <name>`：建片单和缺少的作品。TSV 列是 `rank`、`title`、`year`，可选 `tmdb_id`、`douban_id`、`imdb_id`、`id`（有外部 ID 时直接写成规范主键；有 `imdb_id` 时优先按 IMDb 复用已有作品，`npm run tmdb` 也会用 `/find` 精确匹配）。Criterion 片单用 `spine_number` 代替 `rank`（编号即名次）。
+2. `npm run seed -- <name>`：建片单和缺少的作品。TSV 列是 `rank`、`title`、`year`，可选 `tmdb_id`、`douban_id`、`imdb_id`、`id`（有外部 ID 时直接写成规范主键；有 `imdb_id` 时优先按 IMDb 复用已有作品，`npm run tmdb` 也会用 `/find` 精确匹配）。Criterion 片单用 `spine_number` 代替 `rank`（编号即名次）。评论家选择奖用 `npm run critics-choice-seed` 生成 `critics-choice-film` / `critics-choice-tv`。金马／金像／BAFTA／凯撒／TSPDT 千佳用 `npm run academy-awards-seed`。BAFTA TV／皮博迪／TCA／百想／银河奖用 `npm run tv-awards-seed`。
 3. `npm run tmdb`：匹配 TMDB，把作品 id 收成 `tmdb-m-` / `tmdb-tv-`，补中文名、原名、国家、片长、导演和主演、IMDb ID，下载海报到 `public/posters/`。豆列片单建议先跑 `douban` 再跑 `tmdb`（均支持 `--list kinema-junpo-ten` 等）。
 4. `npm run people`：给人补 TMDB id（按英文名搜索）、简介和头像到 `public/people/`。人物页按角色列出场刊内作品，并列出同片合作过的人。
 5. `npm run imdb`：读 IMDb 每日公开评分文件。

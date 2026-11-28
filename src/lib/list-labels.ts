@@ -37,10 +37,42 @@ export function listBadgeLabel(
     } as const;
     return short[listId as keyof typeof short];
   }
-  if (listId === "emmy-outstanding-series") {
+  if (
+    listId === "emmy-outstanding-series" ||
+    listId === "critics-choice-tv" ||
+    listId === "bafta-tv" ||
+    listId === "tca-awards" ||
+    listId === "galaxy-awards-drama"
+  ) {
     const year = sectionId?.startsWith("y") ? sectionId.slice(1) : "";
-    const tagZh = chart === "drama" ? "剧情" : chart === "comedy" ? "喜剧" : "";
-    const tagEn = chart === "drama" ? "Drama" : chart === "comedy" ? "Comedy" : "";
+    const tagZh =
+      chart === "drama"
+        ? "剧情"
+        : chart === "comedy"
+          ? "喜剧"
+          : chart === "limited"
+            ? "限定"
+            : chart === "poty"
+              ? "年度"
+              : chart === "grand"
+                ? "大赏"
+                : chart === "outstanding"
+                  ? "优秀"
+                  : "";
+    const tagEn =
+      chart === "drama"
+        ? "Drama"
+        : chart === "comedy"
+          ? "Comedy"
+          : chart === "limited"
+            ? "Limited"
+            : chart === "poty"
+              ? "Program of the Year"
+              : chart === "grand"
+                ? "Grand Prix"
+                : chart === "outstanding"
+                  ? "Outstanding"
+                  : "";
     const { season } = parseEmmyNote(note);
     const seasonZh = season ? formatEmmySeasonZh(season) : "";
     const seasonEn = season ? formatEmmySeasonEn(season) : "";
@@ -50,7 +82,48 @@ export function listBadgeLabel(
         en: [year, tagEn, seasonEn].filter(Boolean).join(" · "),
       };
     }
-    return { zh: "艾美奖最佳剧集", en: "Emmy Outstanding Series" };
+    const short = {
+      "emmy-outstanding-series": { zh: "艾美奖最佳剧集", en: "Emmy Outstanding Series" },
+      "critics-choice-tv": { zh: "评论家选择奖最佳剧集", en: "Critics Choice Best Series" },
+      "bafta-tv": { zh: "英国电视学院奖", en: "BAFTA Television" },
+      "tca-awards": { zh: "电视评论家协会奖", en: "TCA Awards" },
+      "galaxy-awards-drama": { zh: "银河奖 · 电视剧", en: "Galaxy Awards · Drama" },
+    } as const;
+    return short[listId as keyof typeof short];
+  }
+  if (listId === "peabody-entertainment") {
+    const year = sectionId?.startsWith("y") ? sectionId.slice(1) : "";
+    if (year) return { zh: `${year} · 皮博迪`, en: `${year} · Peabody` };
+    return { zh: "皮博迪奖 · 娱乐剧集", en: "Peabody · Entertainment" };
+  }
+  if (listId === "baeksang-best-drama") {
+    const year = sectionId?.startsWith("y") ? sectionId.slice(1) : "";
+    if (year) return { zh: `${year} · 最佳电视剧`, en: `${year} · Best Drama` };
+    return { zh: "百想艺术大赏最佳电视剧", en: "Baeksang Best Drama" };
+  }
+  if (listId === "critics-choice-film") {
+    const year = sectionId?.startsWith("y") ? sectionId.slice(1) : "";
+    if (year) return { zh: `${year} · 最佳影片`, en: `${year} · Best Picture` };
+    return { zh: "评论家选择奖最佳影片", en: "Critics Choice Best Picture" };
+  }
+  if (
+    listId === "golden-horse-best-film" ||
+    listId === "hkfa-best-film" ||
+    listId === "bafta-best-film" ||
+    listId === "cesar-best-film"
+  ) {
+    const year = sectionId?.startsWith("y") ? sectionId.slice(1) : "";
+    const short = {
+      "golden-horse-best-film": { zh: "金马奖最佳剧情片", en: "Golden Horse Best Film" },
+      "hkfa-best-film": { zh: "香港金像奖最佳电影", en: "HKFA Best Film" },
+      "bafta-best-film": { zh: "英国电影学院奖最佳影片", en: "BAFTA Best Film" },
+      "cesar-best-film": { zh: "凯撒奖最佳影片", en: "César Best Film" },
+    } as const;
+    if (year) return { zh: `${year} · 最佳影片`, en: `${year} · Best Film` };
+    return short[listId];
+  }
+  if (listId === "tspdt-1000") {
+    return { zh: `TSPDT ${rank}`, en: `TSPDT ${rank}` };
   }
   if (listId === "kinema-junpo-ten") {
     const year = sectionId?.startsWith("y") ? sectionId.slice(1) : "";

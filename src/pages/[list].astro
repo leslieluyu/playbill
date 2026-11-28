@@ -33,8 +33,8 @@ if (!copy) throw new Error(`missing English copy for ${list.id}`);
 
 const useTags = list.id === "criterion-spine" || list.id === "afi-100-movies";
 const useYearsNav = usesYearNav(list.id);
-const useChartTags = useYearsNav;
 const listCharts = chartsForList(list.id);
+const useChartTags = useYearsNav && listCharts.length > 0;
 const linkPeople = list.id !== "criterion-spine";
 const featuredLimit = list.id === "afi-100-movies" ? 100 : 0;
 // Large catalogs: keep plots/场刊 out of the HTML and hydrate on scroll.
@@ -43,6 +43,7 @@ const lazyExtras =
   list.id === "afi-100-movies" ||
   list.id === "kinema-junpo-ten" ||
   list.id === "century-tv-20th" ||
+  list.id === "tspdt-1000" ||
   useYearsNav;
 
 const rows = await Promise.all(
@@ -563,6 +564,27 @@ if (lazyExtras) {
               ? "榜单类型与旬报年度以豆列评语为准（艺术／娱乐、日本／外国等）。第85回（2011年度）外国电影 Best Ten 第4位、第92回（2018年度）外国电影 Best Ten 第8位在豆列标注暂缺，本站不补条目，仅在此说明。「场刊」是我们自己的短注，挂在作品上，这份榜单里还在补。"
               : list.id === "emmy-outstanding-series"
                 ? "典礼年份与剧情／喜剧分类依据场刊整理的第十章；每条对应一次获奖季（季数来自源文档或可核实的映射）。同一剧集多次获奖时，完整剧情与场刊只出现在最新获奖条目，较早年份仅保留该次获奖信息。「场刊」是我们自己的短注，挂在作品上，这份榜单里还在补。"
+                : list.id === "critics-choice-tv"
+                ? "典礼年份与剧情／喜剧分类依据 Wikipedia 与评论家选择协会官方获奖名单；每条对应一次获奖季（季数来自可核实的映射）。同一剧集多次获奖时，完整剧情与场刊只出现在最新获奖条目，较早年份仅保留该次获奖信息。2016 年两届均收录。「场刊」是我们自己的短注，挂在作品上，这份榜单里还在补。"
+                : list.id === "bafta-tv"
+                ? "典礼年份与剧情／喜剧／限定分类依据 Wikipedia 英国电视学院奖页面；限定剧对应 Best Mini-Series（近年正式名称为 Limited Drama）。同一剧集多次获奖时，完整剧情与场刊只出现在最新获奖条目。「场刊」是我们自己的短注，挂在作品上，这份榜单里还在补。"
+                : list.id === "tca-awards"
+                ? "典礼年份取 Wikipedia 播出季的季末年；分类为年度节目／剧情／喜剧。同一剧集多次获奖时，完整剧情与场刊只出现在最新获奖条目。「场刊」是我们自己的短注，挂在作品上，这份榜单里还在补。"
+                : list.id === "peabody-entertainment"
+                ? "获奖年份依据 Wikipedia 皮博迪奖名单；仅保留娱乐类剧情／喜剧剧集与迷你剧，并按场刊说明过滤新闻、纪录、儿童、长片、音乐影像、单口与夜间脱口秀等。「场刊」是我们自己的短注，挂在作品上，这份榜单里还在补。"
+                : list.id === "baeksang-best-drama"
+                ? "典礼年份与最佳电视剧获奖名单依据 Wikipedia；左侧按典礼年份筛选。「场刊」是我们自己的短注，挂在作品上，这份榜单里还在补。"
+                : list.id === "galaxy-awards-drama"
+                ? "典礼年份为放送年度 + 1；仅保留电视部门剧情类大赏与优秀赏，排除新闻／纪录／综艺宽口径获奖。「场刊」是我们自己的短注，挂在作品上，这份榜单里还在补。"
+                : list.id === "critics-choice-film"
+                ? "典礼年份与最佳影片获奖名单依据 Wikipedia 与评论家选择协会官方档案；左侧按典礼年份筛选。「场刊」是我们自己的短注，挂在作品上，这份榜单里还在补。"
+                : list.id === "golden-horse-best-film" ||
+                    list.id === "hkfa-best-film" ||
+                    list.id === "bafta-best-film" ||
+                    list.id === "cesar-best-film"
+                  ? "典礼年份与最佳影片获奖名单依据 Wikipedia；左侧按典礼年份筛选。「场刊」是我们自己的短注，挂在作品上，这份榜单里还在补。"
+                : list.id === "tspdt-1000"
+                  ? "名次与片名以 TSPDT 2025 年版一千佳排序表为准；左侧按名次段筛选。「场刊」是我们自己的短注，挂在作品上，这份榜单里还在补。"
                 : useYearsNav && list.id !== "kinema-junpo-ten"
                 ? "届次年份与「获奖／提名」以豆瓣电影节获奖页主竞赛最高奖单元为准；左侧按电影节年份筛选。「场刊」是我们自己的短注，挂在作品上，这份榜单里还在补。"
                 : isTv

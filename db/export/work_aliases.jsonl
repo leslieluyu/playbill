@@ -79,10 +79,6 @@
 {"work_id":"douban-1292219","ord":2,"alias":"All About Lily Chou-Chou"}
 {"work_id":"douban-1292220","ord":0,"alias":"When I Close My Eyes"}
 {"work_id":"douban-1292220","ord":1,"alias":"Letters of Love"}
-{"work_id":"douban-1292223","ord":0,"alias":"火线追缉令(台)"}
-{"work_id":"douban-1292223","ord":1,"alias":"7宗罪"}
-{"work_id":"douban-1292223","ord":2,"alias":"Seven"}
-{"work_id":"douban-1292223","ord":3,"alias":"七宗罪"}
 {"work_id":"douban-1292226","ord":0,"alias":"2001：星际漫游"}
 {"work_id":"douban-1292226","ord":1,"alias":"2001：太空奥德赛"}
 {"work_id":"douban-1292278","ord":0,"alias":"芭比的盛宴(台)"}
@@ -92,10 +88,6 @@
 {"work_id":"douban-1292278","ord":4,"alias":"Babette's Feast"}
 {"work_id":"douban-1292329","ord":0,"alias":"A Brighter Summer Day"}
 {"work_id":"douban-1292330","ord":0,"alias":"Dust in the Wind"}
-{"work_id":"douban-1292338","ord":0,"alias":"朱尔与吉姆"}
-{"work_id":"douban-1292338","ord":1,"alias":"朱尔和吉姆"}
-{"work_id":"douban-1292338","ord":2,"alias":"夏日之恋(台)"}
-{"work_id":"douban-1292338","ord":3,"alias":"Jules and Jim"}
 {"work_id":"douban-1292340","ord":0,"alias":"如阿修罗一般"}
 {"work_id":"douban-1292340","ord":1,"alias":"阿修罗的孤独"}
 {"work_id":"douban-1292340","ord":2,"alias":"Like Asura"}
@@ -147,8 +139,6 @@
 {"work_id":"douban-1293318","ord":4,"alias":"Tombstone for Fireflies"}
 {"work_id":"douban-1293318","ord":5,"alias":"Grave of the Fireflies"}
 {"work_id":"douban-1293318","ord":6,"alias":"Tomb of the Fireflies"}
-{"work_id":"douban-1293329","ord":0,"alias":"The Story of the Last Chrysanthemums"}
-{"work_id":"douban-1293329","ord":1,"alias":"Zangiku monogatari"}
 {"work_id":"douban-1293402","ord":0,"alias":"消失的美国人"}
 {"work_id":"douban-1293592","ord":0,"alias":"49平行线"}
 {"work_id":"douban-1293592","ord":1,"alias":"The Forty-Ninth Parallel"}
@@ -167,9 +157,6 @@
 {"work_id":"douban-1293783","ord":2,"alias":"圣女贞德受难记"}
 {"work_id":"douban-1293783","ord":3,"alias":"The Passion of Joan of Arc"}
 {"work_id":"douban-1293783","ord":4,"alias":"圣女贞德蒙难记"}
-{"work_id":"douban-1293792","ord":0,"alias":"异形Ⅱ"}
-{"work_id":"douban-1293792","ord":1,"alias":"异形续集"}
-{"work_id":"douban-1293792","ord":2,"alias":"异形2"}
 {"work_id":"douban-1293847","ord":0,"alias":"流芳颂(港)"}
 {"work_id":"douban-1293847","ord":1,"alias":"活下去"}
 {"work_id":"douban-1293847","ord":2,"alias":"To Live"}
@@ -281,8 +268,6 @@
 {"work_id":"douban-1295888","ord":1,"alias":"Oh! The Nomugi Pass"}
 {"work_id":"douban-1295888","ord":2,"alias":"啊！野麦岭"}
 {"work_id":"douban-1295888","ord":3,"alias":"野麦峰"}
-{"work_id":"douban-1295913","ord":0,"alias":"Beauty and the Beast"}
-{"work_id":"douban-1295913","ord":1,"alias":"美女与野兽"}
 {"work_id":"douban-1296147","ord":0,"alias":"哭泣与低诉"}
 {"work_id":"douban-1296147","ord":1,"alias":"哭泣与耳语"}
 {"work_id":"douban-1296147","ord":2,"alias":"呼喊与低语"}
@@ -327,8 +312,6 @@
 {"work_id":"douban-1297188","ord":1,"alias":"The Phantom of Liberty"}
 {"work_id":"douban-1297188","ord":2,"alias":"The Specter of Freedom"}
 {"work_id":"douban-1297188","ord":3,"alias":"自由的幻影"}
-{"work_id":"douban-1297200","ord":0,"alias":"鬼马兄弟(港)"}
-{"work_id":"douban-1297200","ord":1,"alias":"蓝调兄弟"}
 {"work_id":"douban-1297208","ord":0,"alias":"祗园姐妹"}
 {"work_id":"douban-1297208","ord":1,"alias":"青楼姐妹"}
 {"work_id":"douban-1297208","ord":2,"alias":"Gion no shimai"}
@@ -449,11 +432,6 @@
 {"work_id":"douban-1300370","ord":0,"alias":"新干线大爆破"}
 {"work_id":"douban-1300370","ord":1,"alias":"The Bullet Train"}
 {"work_id":"douban-1300370","ord":2,"alias":"Super Express 109"}
-{"work_id":"douban-1300375","ord":0,"alias":"天上人间(港)"}
-{"work_id":"douban-1300375","ord":1,"alias":"天堂的小孩(台)"}
-{"work_id":"douban-1300375","ord":2,"alias":"天堂的儿女"}
-{"work_id":"douban-1300375","ord":3,"alias":"天堂的孩子们"}
-{"work_id":"douban-1300375","ord":4,"alias":"Children of Paradise"}
 {"work_id":"douban-1300468","ord":0,"alias":"起尾注"}
 {"work_id":"douban-1300468","ord":1,"alias":"终有光明天"}
 {"work_id":"douban-1300468","ord":2,"alias":"光辉岁月"}
@@ -834,8 +812,6 @@
 {"work_id":"douban-1307865","ord":0,"alias":"内地家族"}
 {"work_id":"douban-1307865","ord":1,"alias":"家庭内部肖像"}
 {"work_id":"douban-1307865","ord":2,"alias":"Conversation Piece"}
-{"work_id":"douban-1307914","ord":0,"alias":"Infernal Affairs"}
-{"work_id":"douban-1307914","ord":1,"alias":"Mou gaan dou"}
 {"work_id":"douban-1307958","ord":0,"alias":"白绢之瀑"}
 {"work_id":"douban-1307958","ord":1,"alias":"The Water Magician"}
 {"work_id":"douban-1307988","ord":0,"alias":"静静的决斗"}
@@ -846,9 +822,6 @@
 {"work_id":"douban-1308051","ord":0,"alias":"狭路重逢"}
 {"work_id":"douban-1308051","ord":1,"alias":"The Second Time"}
 {"work_id":"douban-1308051","ord":2,"alias":"Seconda volta, La"}
-{"work_id":"douban-1308082","ord":0,"alias":"祭军魂(港)"}
-{"work_id":"douban-1308082","ord":1,"alias":"怒祭战友魂(台)"}
-{"work_id":"douban-1308082","ord":2,"alias":"The Emperor's Naked Army Marches On"}
 {"work_id":"douban-1308092","ord":0,"alias":"肃静"}
 {"work_id":"douban-1308092","ord":1,"alias":"男色诱惑"}
 {"work_id":"douban-1308092","ord":2,"alias":"Hush!"}
@@ -1007,8 +980,6 @@
 {"work_id":"douban-1421942","ord":0,"alias":"Childhood Days"}
 {"work_id":"douban-1421942","ord":1,"alias":"Shonen jidai"}
 {"work_id":"douban-1421942","ord":2,"alias":"少年时代"}
-{"work_id":"douban-1422193","ord":0,"alias":"Girls in Uniform"}
-{"work_id":"douban-1422193","ord":1,"alias":"Maedchen in Uniform"}
 {"work_id":"douban-1422977","ord":0,"alias":"我的广岛父亲(台)"}
 {"work_id":"douban-1422977","ord":1,"alias":"如果和父亲生活"}
 {"work_id":"douban-1422977","ord":2,"alias":"若与父亲同住"}
@@ -1776,9 +1747,6 @@
 {"work_id":"douban-27030639","ord":0,"alias":"Ah, Wilderness : Part Two"}
 {"work_id":"douban-27101860","ord":0,"alias":"My Friend 'A'"}
 {"work_id":"douban-27101860","ord":1,"alias":"Yûzai"}
-{"work_id":"douban-27172891","ord":0,"alias":"金羊毛"}
-{"work_id":"douban-27172891","ord":1,"alias":"爱在樱花盛开时"}
-{"work_id":"douban-27172891","ord":2,"alias":"An Elephant Sitting Still"}
 {"work_id":"douban-27185563","ord":0,"alias":"每天都是好日子"}
 {"work_id":"douban-27185563","ord":1,"alias":"天天是个好日子"}
 {"work_id":"douban-27185563","ord":2,"alias":"Every Day a Good Day"}
@@ -1804,8 +1772,6 @@
 {"work_id":"douban-30147434","ord":0,"alias":"Another world"}
 {"work_id":"douban-30147434","ord":1,"alias":"Half the World"}
 {"work_id":"douban-30155211","ord":0,"alias":"Randen"}
-{"work_id":"douban-30166972","ord":0,"alias":"少年的你，如此美丽"}
-{"work_id":"douban-30166972","ord":1,"alias":"Better Days"}
 {"work_id":"douban-30186562","ord":0,"alias":"在世界尽头开始旅行(台)"}
 {"work_id":"douban-30186562","ord":1,"alias":"旅程的结束，世界的开始"}
 {"work_id":"douban-30186562","ord":2,"alias":"旅途尽头，世界之始"}
@@ -2659,6 +2625,8 @@
 {"work_id":"tmdb-m-1075","ord":0,"alias":"库斯图里卡的猫"}
 {"work_id":"tmdb-m-1075","ord":1,"alias":"Crna macka, beli macor"}
 {"work_id":"tmdb-m-1075","ord":2,"alias":"Black Cat, White Cat"}
+{"work_id":"tmdb-m-10775","ord":0,"alias":"Infernal Affairs"}
+{"work_id":"tmdb-m-10775","ord":1,"alias":"Mou gaan dou"}
 {"work_id":"tmdb-m-10849","ord":0,"alias":"戏假情真(港)"}
 {"work_id":"tmdb-m-10849","ord":1,"alias":"开罗的紫罗兰"}
 {"work_id":"tmdb-m-10889","ord":0,"alias":"铁血娘子歌莉亚(港)"}
@@ -3296,6 +3264,9 @@
 {"work_id":"tmdb-m-49815","ord":0,"alias":"八月之鲸"}
 {"work_id":"tmdb-m-49815","ord":1,"alias":"八月的鲸"}
 {"work_id":"tmdb-m-49815","ord":2,"alias":"落叶梧桐"}
+{"work_id":"tmdb-m-499556","ord":0,"alias":"金羊毛"}
+{"work_id":"tmdb-m-499556","ord":1,"alias":"爱在樱花盛开时"}
+{"work_id":"tmdb-m-499556","ord":2,"alias":"An Elephant Sitting Still"}
 {"work_id":"tmdb-m-49982","ord":0,"alias":"A City of Sadness"}
 {"work_id":"tmdb-m-49982","ord":1,"alias":"A Cidade da Dor"}
 {"work_id":"tmdb-m-500","ord":0,"alias":"霸道横行(台)"}
@@ -3312,10 +3283,15 @@
 {"work_id":"tmdb-m-50797","ord":5,"alias":"Soleil Trompeur"}
 {"work_id":"tmdb-m-5143","ord":0,"alias":"姊妹情深(港)"}
 {"work_id":"tmdb-m-5143","ord":1,"alias":"汉娜姐妹"}
+{"work_id":"tmdb-m-51929","ord":0,"alias":"祭军魂(港)"}
+{"work_id":"tmdb-m-51929","ord":1,"alias":"怒祭战友魂(台)"}
+{"work_id":"tmdb-m-51929","ord":2,"alias":"The Emperor's Naked Army Marches On"}
 {"work_id":"tmdb-m-522","ord":0,"alias":"艾活传(港)"}
 {"work_id":"tmdb-m-522","ord":1,"alias":"艾得伍德"}
 {"work_id":"tmdb-m-522","ord":2,"alias":"爱在好莱坞的日子"}
 {"work_id":"tmdb-m-522","ord":3,"alias":"埃德·伍德"}
+{"work_id":"tmdb-m-525","ord":0,"alias":"鬼马兄弟(港)"}
+{"work_id":"tmdb-m-525","ord":1,"alias":"蓝调兄弟"}
 {"work_id":"tmdb-m-52556","ord":0,"alias":"道路"}
 {"work_id":"tmdb-m-52556","ord":1,"alias":"The Way"}
 {"work_id":"tmdb-m-52556","ord":2,"alias":"自由之路"}
@@ -3505,6 +3481,8 @@
 {"work_id":"tmdb-m-9526","ord":1,"alias":"草原一家亲"}
 {"work_id":"tmdb-m-9526","ord":2,"alias":"大家来我家"}
 {"work_id":"tmdb-m-9526","ord":3,"alias":"牧场之家好做伴"}
+{"work_id":"tmdb-m-9653","ord":0,"alias":"Girls in Uniform"}
+{"work_id":"tmdb-m-9653","ord":1,"alias":"Maedchen in Uniform"}
 {"work_id":"tmdb-m-96712","ord":0,"alias":"Puppetmaster"}
 {"work_id":"tmdb-m-96712","ord":1,"alias":"The Puppet Master"}
 {"work_id":"tmdb-m-9716","ord":0,"alias":"大家都说我爱你"}

@@ -1,0 +1,141 @@
+{
+  "id": "galaxy-awards-drama",
+  "title": "银河奖 · 电视剧",
+  "kicker": "Galaxy Awards · Television Drama",
+  "dek": "日本银河奖（ギャラクシー賞，放送批评恳谈会）电视部门中剧情类大赏与优秀赏获奖选录，按典礼年份从新到旧排列（放送年度 N 对应侧栏典礼年 N+1）。仅保留片名可识别为电视剧／连续剧的作品，排除新闻、纪录片与综艺等宽口径获奖，以保持片单形态。左侧可按年代、年份筛选，并用「大赏／优秀」标签过滤。",
+  "source": {
+    "name": "Wikipedia · ギャラクシー賞（电视部门）",
+    "url": "https://ja.wikipedia.org/wiki/%E3%82%AE%E3%83%A3%E3%83%A9%E3%82%AF%E3%82%B7%E3%83%BC%E8%B3%9E"
+  },
+  "kind": "tv",
+  "order": 25,
+  "entries": "galaxy-awards-drama.tsv",
+  "sections": [
+    {
+      "id": "y2026",
+      "order": -2026,
+      "name": "2026年",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y2025",
+      "order": -2025,
+      "name": "2025年",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y2024",
+      "order": -2024,
+      "name": "2024年",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y2023",
+      "order": -2023,
+      "name": "2023年",
+      "blurb": "",
+      "color": "#5b45a0"
+    },
+    {
+      "id": "y2019",
+      "order": -2019,
+      "name": "2019年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2014",
+      "order": -2014,
+      "name": "2014年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2012",
+      "order": -2012,
+      "name": "2012年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2010",
+      "order": -2010,
+      "name": "2010年",
+      "blurb": "",
+      "color": "#1f6f7a"
+    },
+    {
+      "id": "y2006",
+      "order": -2006,
+      "name": "2006年",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y2002",
+      "order": -2002,
+      "name": "2002年",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y2001",
+      "order": -2001,
+      "name": "2001年",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y2000",
+      "order": -2000,
+      "name": "2000年",
+      "blurb": "",
+      "color": "#2f6b45"
+    },
+    {
+      "id": "y1996",
+      "order": -1996,
+      "name": "1996年",
+      "blurb": "",
+      "color": "#4a5568"
+    },
+    {
+      "id": "y1995",
+      "order": -1995,
+      "name": "1995年",
+      "blurb": "",
+      "color": "#4a5568"
+    },
+    {
+      "id": "y1994",
+      "order": -1994,
+      "name": "1994年",
+      "blurb": "",
+      "color": "#4a5568"
+    },
+    {
+      "id": "y1993",
+      "order": -1993,
+      "name": "1993年",
+      "blurb": "",
+      "color": "#4a5568"
+    },
+    {
+      "id": "y1992",
+      "order": -1992,
+      "name": "1992年",
+      "blurb": "",
+      "color": "#4a5568"
+    },
+    {
+      "id": "y1990",
+      "order": -1990,
+      "name": "1990年",
+      "blurb": "",
+      "color": "#4a5568"
+    }
+  ]
+}

@@ -1,0 +1,1001 @@
+rank	title	year	section	note	tmdb_id
+1	Citizen Kane	1941	r001	Welles, Orson	15
+2	Vertigo	1958	r001	Hitchcock, Alfred	426
+3	2001: A Space Odyssey	1968	r001	Kubrick, Stanley	62
+4	Tokyo Story	1953	r001	Ozu, Yasujiro	18148
+5	The Rules of the Game	1939	r001	Renoir, Jean	776
+6	The Godfather	1972	r001	Coppola, Francis Ford	238
+7	8½	1963	r001	Fellini, Federico	422
+8	Sunrise: A Song of Two Humans	1927	r001	Murnau, F.W.	631
+9	The Searchers	1956	r001	Ford, John	3114
+10	Seven Samurai	1954	r001	Kurosawa, Akira	346
+11	Singin' in the Rain	1952	r001	Donen, Stanley &amp; Gene Kelly	872
+12	Jeanne Dielman, 23 quai du Commerce, 1080 Bruxelles	1975	r001	Akerman, Chantal	44012
+13	Apocalypse Now	1979	r001	Coppola, Francis Ford	28
+14	Taxi Driver	1976	r001	Scorsese, Martin	103
+15	Bicycle Thieves	1948	r001	De Sica, Vittorio	5156
+16	Persona	1966	r001	Bergman, Ingmar	797
+17	In the Mood for Love	2000	r001	Wong Kar-wai	843
+18	Breathless	1960	r001	Godard, Jean-Luc	269
+19	The Passion of Joan of Arc	1928	r001	Dreyer, Carl Theodor	780
+20	Battleship Potemkin	1925	r001	Eisenstein, Sergei	643
+21	L'Atalante	1934	r001	Vigo, Jean	43904
+22	Man with a Movie Camera	1929	r001	Vertov, Dziga	26317
+23	Mirror	1975	r001	Tarkovsky, Andrei	1396
+24	Psycho	1960	r001	Hitchcock, Alfred	539
+25	Rashomon	1950	r001	Kurosawa, Akira	548
+26	City Lights	1931	r001	Chaplin, Charles	901
+27	The 400 Blows	1959	r001	Truffaut, François	147
+28	Andrei Rublev	1966	r001	Tarkovsky, Andrei	895
+29	Mulholland Drive	2001	r001	Lynch, David	1018
+30	The Godfather Part II	1974	r001	Coppola, Francis Ford	240
+31	Some Like It Hot	1959	r001	Wilder, Billy	239
+32	Au hasard Balthazar	1966	r001	Bresson, Robert	20108
+33	La Dolce vita	1960	r001	Fellini, Federico	439
+34	Ordet	1955	r001	Dreyer, Carl Theodor	48035
+35	Raging Bull	1980	r001	Scorsese, Martin	1578
+36	The Night of the Hunter	1955	r001	Laughton, Charles	3112
+37	Casablanca	1942	r001	Curtiz, Michael	289
+38	L'Avventura	1960	r001	Antonioni, Michelangelo	5165
+39	Blade Runner	1982	r001	Scott, Ridley	78
+40	Rear Window	1954	r001	Hitchcock, Alfred	567
+41	Sunset Blvd.	1950	r001	Wilder, Billy	599
+42	Touch of Evil	1958	r001	Welles, Orson	1480
+43	Barry Lyndon	1975	r001	Kubrick, Stanley	3175
+44	Contempt	1963	r001	Godard, Jean-Luc	266
+45	Playtime	1967	r001	Tati, Jacques	10227
+46	Pather Panchali	1955	r001	Ray, Satyajit	5801
+47	Close-Up	1990	r001	Kiarostami, Abbas	30017
+48	Lawrence of Arabia	1962	r001	Lean, David	947
+49	Stalker	1979	r001	Tarkovsky, Andrei	1398
+50	The General	1926	r001	Keaton, Buster &amp; Clyde Bruckman	961
+51	Modern Times	1936	r001	Chaplin, Charles	3082
+52	Beau travail	1999	r001	Denis, Claire	14626
+53	M	1931	r001	Lang, Fritz	832
+54	The Third Man	1949	r001	Reed, Carol	1092
+55	Late Spring	1949	r001	Ozu, Yasujiro	20530
+56	The Apartment	1960	r001	Wilder, Billy	284
+57	North by Northwest	1959	r001	Hitchcock, Alfred	213
+58	Ugetsu monogatari	1953	r001	Mizoguchi, Kenji	14696
+59	GoodFellas	1990	r001	Scorsese, Martin	769
+60	The Battle of Algiers	1966	r001	Pontecorvo, Gillo	17295
+61	La Grande illusion	1937	r001	Renoir, Jean	777
+62	Wild Strawberries	1957	r001	Bergman, Ingmar	614
+63	Rio Bravo	1959	r001	Hawks, Howard	301
+64	Fanny and Alexander	1982	r001	Bergman, Ingmar	5961
+65	Dr. Strangelove	1964	r001	Kubrick, Stanley	935
+66	Shoah	1985	r001	Lanzmann, Claude	42044
+67	Once Upon a Time in the West	1968	r001	Leone, Sergio	335
+68	Chinatown	1974	r001	Polanski, Roman	829
+69	Journey to Italy	1954	r001	Rossellini, Roberto	2748
+70	Pierrot le fou	1965	r001	Godard, Jean-Luc	2786
+71	Do the Right Thing	1989	r001	Lee, Spike	925
+72	Metropolis	1927	r001	Lang, Fritz	19
+73	A Woman Under the Influence	1974	r001	Cassavetes, John	29845
+74	Les Enfants du paradis	1945	r001	Carné, Marcel	2457
+75	La Strada	1954	r001	Fellini, Federico	405
+76	The Leopard	1963	r001	Visconti, Luchino	1040
+77	Amarcord	1973	r001	Fellini, Federico	7857
+78	It's a Wonderful Life	1946	r001	Capra, Frank	1585
+79	The Wild Bunch	1969	r001	Peckinpah, Sam	576
+80	Pulp Fiction	1994	r001	Tarantino, Quentin	680
+81	Viridiana	1961	r001	Buñuel, Luis	4497
+82	Jaws	1975	r001	Spielberg, Steven	578
+83	The Shining	1980	r001	Kubrick, Stanley	694
+84	A Man Escaped	1956	r001	Bresson, Robert	15244
+85	Blue Velvet	1986	r001	Lynch, David	793
+86	Sansho the Bailiff	1954	r001	Mizoguchi, Kenji	20532
+87	The Conformist	1970	r001	Bertolucci, Bernardo	8416
+88	The Seventh Seal	1957	r001	Bergman, Ingmar	490
+89	The Man Who Shot Liberty Valance	1962	r001	Ford, John	11697
+90	Nashville	1975	r001	Altman, Robert	3121
+91	The Magnificent Ambersons	1942	r001	Welles, Orson	965
+92	Pickpocket	1959	r001	Bresson, Robert	690
+93	The Gold Rush	1925	r001	Chaplin, Charles	962
+94	La Jetée	1962	r001	Marker, Chris	662
+95	Gertrud	1964	r001	Dreyer, Carl Theodor	34181
+96	Sans soleil	1983	r001	Marker, Chris	1563
+97	Cléo from 5 to 7	1962	r001	Varda, Agnès	499
+98	Jules et Jim	1962	r001	Truffaut, François	1628
+99	To Be or Not to Be	1942	r001	Lubitsch, Ernst	198
+100	Meshes of the Afternoon	1943	r001	Deren, Maya &amp; Alexander Hammid	27040
+101	The Mother and the Whore	1973	r101	Eustache, Jean	48693
+102	Sátántangó	1994	r101	Tarr, Béla	31414
+103	Madame de...	1953	r101	Ophüls, Max	27030
+104	Sherlock Jr.	1924	r101	Keaton, Buster	992
+105	A Clockwork Orange	1971	r101	Kubrick, Stanley	185
+106	Ikiru	1952	r101	Kurosawa, Akira	3782
+107	Ali: Fear Eats the Soul	1974	r101	Fassbinder, Rainer Werner	216
+108	Aguirre, the Wrath of God	1972	r101	Herzog, Werner	2000
+109	Come and See	1985	r101	Klimov, Elem	25237
+110	Annie Hall	1977	r101	Allen, Woody	703
+111	The Spirit of the Beehive	1973	r101	Erice, Víctor	4495
+112	Last Year at Marienbad	1961	r101	Resnais, Alain	4024
+113	Once Upon a Time in America	1984	r101	Leone, Sergio	311
+114	Greed	1924	r101	von Stroheim, Erich	1405
+115	The Wizard of Oz	1939	r101	Fleming, Victor	630
+116	The Piano	1993	r101	Campion, Jane	713
+117	A Brighter Summer Day	1991	r101	Yang, Edward	15804
+118	Yi Yi	2000	r101	Yang, Edward	25538
+119	Don't Look Now	1973	r101	Roeg, Nicolas	931
+120	Hiroshima mon amour	1959	r101	Resnais, Alain	5544
+121	The Red Shoes	1948	r101	Powell, Michael &amp; Emeric Pressburger	19542
+122	Alien	1979	r101	Scott, Ridley	348
+123	E.T. The Extra-Terrestrial	1982	r101	Spielberg, Steven	601
+124	Bringing Up Baby	1938	r101	Hawks, Howard	900
+125	Blow-Up	1966	r101	Antonioni, Michelangelo	1052
+126	A Day in the Country	1936	r101	Renoir, Jean	43878
+127	Notorious	1946	r101	Hitchcock, Alfred	303
+128	Vivre sa vie	1962	r101	Godard, Jean-Luc	1626
+129	Intolerance	1916	r101	Griffith, D.W.	3059
+130	L'Eclisse	1962	r101	Antonioni, Michelangelo	21135
+131	Spirited Away	2001	r101	Miyazaki, Hayao	129
+132	A Matter of Life and Death	1946	r101	Powell, Michael &amp; Emeric Pressburger	28162
+133	Letter from an Unknown Woman	1948	r101	Ophüls, Max	946
+134	All About Eve	1950	r101	Mankiewicz, Joseph L.	705
+135	Los Olvidados	1950	r101	Buñuel, Luis	800
+136	The Exterminating Angel	1962	r101	Buñuel, Luis	29264
+137	Star Wars	1977	r101	Lucas, George	11
+138	Imitation of Life	1959	r101	Sirk, Douglas	34148
+139	His Girl Friday	1940	r101	Hawks, Howard	3085
+140	Histoire(s) du cinéma	1988	r101	Godard, Jean-Luc	116396
+141	Gone with the Wind	1939	r101	Fleming, Victor	770
+142	Nosferatu	1922	r101	Murnau, F.W.	653
+143	There Will Be Blood	2007	r101	Anderson, Paul Thomas	7345
+144	My Darling Clementine	1946	r101	Ford, John	3088
+145	Rome, Open City	1945	r101	Rossellini, Roberto	307
+146	Daisies	1966	r101	Chytilová, Věra	46919
+147	Wanda	1970	r101	Loden, Barbara	80560
+148	Céline and Julie Go Boating	1974	r101	Rivette, Jacques	27019
+149	The Gospel According to St. Matthew	1964	r101	Pasolini, Pier Paolo	24192
+150	One Flew Over the Cuckoo's Nest	1975	r101	Forman, Milos	510
+151	The Umbrellas of Cherbourg	1964	r101	Demy, Jacques	5967
+152	The Conversation	1974	r101	Coppola, Francis Ford	592
+153	Killer of Sheep	1977	r101	Burnett, Charles	27432
+154	Un Chien andalou	1928	r101	Buñuel, Luis	626
+155	Days of Heaven	1978	r101	Malick, Terrence	16642
+156	The Good, the Bad and the Ugly	1966	r101	Leone, Sergio	429
+157	Double Indemnity	1944	r101	Wilder, Billy	996
+158	Trouble in Paradise	1932	r101	Lubitsch, Ernst	195
+159	The Deer Hunter	1978	r101	Cimino, Michael	11778
+160	L'Argent	1983	r101	Bresson, Robert	42112
+161	Chungking Express	1994	r101	Wong Kar-wai	11104
+162	My Neighbour Totoro	1988	r101	Miyazaki, Hayao	8392
+163	Cries and Whispers	1972	r101	Bergman, Ingmar	10238
+164	Tropical Malady	2004	r101	Weerasethakul, Apichatpong	11534
+165	Manhattan	1979	r101	Allen, Woody	696
+166	Rosemary's Baby	1968	r101	Polanski, Roman	805
+167	The Passenger	1975	r101	Antonioni, Michelangelo	9652
+168	Badlands	1973	r101	Malick, Terrence	3133
+169	L'Âge d'or	1930	r101	Buñuel, Luis	5729
+170	The Texas Chain Saw Massacre	1974	r101	Hooper, Tobe	30497
+171	Dekalog	1989	r101	Kieslowski, Krzysztof	828317
+172	The Discreet Charm of the Bourgeoisie	1972	r101	Buñuel, Luis	4593
+173	Portrait of a Lady on Fire	2019	r101	Sciamma, Céline	531428
+174	Raiders of the Lost Ark	1981	r101	Spielberg, Steven	85
+175	Only Angels Have Wings	1939	r101	Hawks, Howard	43832
+176	Stagecoach	1939	r101	Ford, John	995
+177	Brief Encounter	1945	r101	Lean, David	851
+178	Touki Bouki	1973	r101	Diop Mambéty, Djibril	77771
+179	Duck Soup	1933	r101	McCarey, Leo	3063
+180	Close Encounters of the Third Kind	1977	r101	Spielberg, Steven	840
+181	The Birds	1963	r101	Hitchcock, Alfred	571
+182	Johnny Guitar	1954	r101	Ray, Nicholas	26596
+183	Ran	1985	r101	Kurosawa, Akira	11645
+184	Mouchette	1967	r101	Bresson, Robert	1561
+185	The Colour of Pomegranates	1969	r101	Parajanov, Sergei	26302
+186	Earth	1930	r101	Dovzhenko, Alexander	46594
+187	Vampyr	1932	r101	Dreyer, Carl Theodor	779
+188	Napoléon	1927	r101	Gance, Abel	42536
+189	Out of the Past	1947	r101	Tourneur, Jacques	678
+190	Paris, Texas	1984	r101	Wenders, Wim	655
+191	The River	1951	r101	Renoir, Jean	45218
+192	The Tree of Life	2011	r101	Malick, Terrence	8967
+193	Chimes at Midnight	1965	r101	Welles, Orson	986
+194	Black Narcissus	1947	r101	Powell, Michael &amp; Emeric Pressburger	16391
+195	The Gleaners & I	2000	r101	Varda, Agnès	44379
+196	La Notte	1961	r101	Antonioni, Michelangelo	41050
+197	Paisan	1946	r101	Rossellini, Roberto	8429
+198	King Kong	1933	r101	Cooper, Merian C. &amp; Ernest B. Schoedsack	244
+199	Nights of Cabiria	1957	r101	Fellini, Federico	19426
+200	Rocco and His Brothers	1960	r101	Visconti, Luchino	8422
+201	Spring in a Small Town	1948	r201	Fei Mu	21058
+202	Salò, or the 120 Days of Sodom	1975	r201	Pasolini, Pier Paolo	5336
+203	The Lady Eve	1941	r201	Sturges, Preston	3086
+204	On the Waterfront	1954	r201	Kazan, Elia	654
+205	The Last Laugh	1924	r201	Murnau, F.W.	5991
+206	A City of Sadness	1989	r201	Hou Hsiao-hsien	49982
+207	News from Home	1976	r201	Akerman, Chantal	86814
+208	The Thing	1982	r201	Carpenter, John	1091
+209	Vagabond	1985	r201	Varda, Agnès	44018
+210	The Great Dictator	1940	r201	Chaplin, Charles	914
+211	Magnolia	1999	r201	Anderson, Paul Thomas	334
+212	Death in Venice	1971	r201	Visconti, Luchino	6619
+213	Wings of Desire	1987	r201	Wenders, Wim	144
+214	The Life and Death of Colonel Blimp	1943	r201	Powell, Michael &amp; Emeric Pressburger	25037
+215	Moonlight	2016	r201	Jenkins, Barry	376867
+216	Breaking the Waves	1996	r201	von Trier, Lars	145
+217	Solaris	1972	r201	Tarkovsky, Andrei	593
+218	The Quiet Man	1952	r201	Ford, John	3109
+219	Wavelength	1967	r201	Snow, Michael	88421
+220	Brazil	1985	r201	Gilliam, Terry	68
+221	Le Samouraï	1967	r201	Melville, Jean-Pierre	5511
+222	Kes	1969	r201	Loach, Ken	13384
+223	Zero for Conduct	1933	r201	Vigo, Jean	44494
+224	Umberto D.	1952	r201	De Sica, Vittorio	833
+225	Where is the Friend's House?	1987	r201	Kiarostami, Abbas	49964
+226	The Grapes of Wrath	1940	r201	Ford, John	596
+227	The Big Lebowski	1998	r201	Coen, Joel &amp; Ethan Coen	115
+228	Eternal Sunshine of the Spotless Mind	2004	r201	Gondry, Michel	38
+229	The Best Years of Our Lives	1946	r201	Wyler, William	887
+230	The Life of Oharu	1952	r201	Mizoguchi, Kenji	43364
+231	Parasite	2019	r201	Bong Joon-ho	496243
+232	Sullivan's Travels	1941	r201	Sturges, Preston	16305
+233	Back to the Future	1985	r201	Zemeckis, Robert	105
+234	The Matrix	1999	r201	Wachowski, Lana &amp; Lilly Wachowski	603
+235	McCabe & Mrs. Miller	1971	r201	Altman, Robert	29005
+236	The Travelling Players	1975	r201	Angelopoulos, Theo	689
+237	Black God, White Devil	1964	r201	Rocha, Glauber	67612
+238	Love Streams	1984	r201	Cassavetes, John	52109
+239	The House is Black	1963	r201	Farrokhzad, Forugh	44065
+240	Germany, Year Zero	1948	r201	Rossellini, Roberto	8016
+241	The Crowd	1928	r201	Vidor, King	3061
+242	Ashes and Diamonds	1958	r201	Wajda, Andrzej	5055
+243	Red Desert	1964	r201	Antonioni, Michelangelo	26638
+244	Memories of Underdevelopment	1968	r201	Gutiérrez Alea, Tomás	47576
+245	Eraserhead	1977	r201	Lynch, David	985
+246	Ivan the Terrible, Part II	1946	r201	Eisenstein, Sergei	43118
+247	In a Lonely Place	1950	r201	Ray, Nicholas	17057
+248	The Band Wagon	1953	r201	Minnelli, Vincente	29376
+249	The Graduate	1967	r201	Nichols, Mike	37247
+250	Ivan the Terrible, Part I	1944	r201	Eisenstein, Sergei	9797
+251	Schindler's List	1993	r201	Spielberg, Steven	424
+252	Caché	2005	r201	Haneke, Michael	445
+253	An Autumn Afternoon	1962	r201	Ozu, Yasujiro	50759
+254	Performance	1970	r201	Roeg, Nicolas &amp; Donald Cammell	26606
+255	The Exorcist	1973	r201	Friedkin, William	9552
+256	Heat	1995	r201	Mann, Michael	949
+257	Meet Me in St. Louis	1944	r201	Minnelli, Vincente	909
+258	The Thin Red Line	1998	r201	Malick, Terrence	8741
+259	Cinema Paradiso	1988	r201	Tornatore, Giuseppe	11216
+260	Daughters of the Dust	1991	r201	Dash, Julie	68427
+261	Belle de jour	1967	r201	Buñuel, Luis	649
+262	The Green Ray	1986	r201	Rohmer, Eric	54898
+263	Eyes Wide Shut	1999	r201	Kubrick, Stanley	345
+264	El Verdugo	1963	r201	García Berlanga, Luis	4498
+265	Fargo	1996	r201	Coen, Joel &amp; Ethan Coen	275
+266	Diary of a Country Priest	1951	r201	Bresson, Robert	43376
+267	Uncle Boonmee Who Can Recall His Past Lives	2010	r201	Weerasethakul, Apichatpong	38368
+268	The Treasure of the Sierra Madre	1948	r201	Huston, John	3090
+269	F for Fake	1973	r201	Welles, Orson	43003
+270	The Cabinet of Dr. Caligari	1920	r201	Wiene, Robert	234
+271	Red River	1948	r201	Hawks, Howard	3089
+272	Tabu	1931	r201	Murnau, F.W.	977
+273	Night and Fog	1955	r201	Resnais, Alain	803
+274	La Ciénaga	2001	r201	Martel, Lucrecia	58429
+275	Three Colours: Blue	1993	r201	Kieslowski, Krzysztof	108
+276	Kind Hearts and Coronets	1949	r201	Hamer, Robert	11898
+277	Sweet Smell of Success	1957	r201	Mackendrick, Alexander	976
+278	Taste of Cherry	1997	r201	Kiarostami, Abbas	30020
+279	Day of Wrath	1943	r201	Dreyer, Carl Theodor	41391
+280	My Night at Maud's	1969	r201	Rohmer, Eric	48831
+281	Black Girl	1966	r201	Sembene, Ousmane	95597
+282	All That Jazz	1979	r201	Fosse, Bob	16858
+283	Groundhog Day	1993	r201	Ramis, Harold	137
+284	The Shop Around the Corner	1940	r201	Lubitsch, Ernst	20334
+285	Paths of Glory	1957	r201	Kubrick, Stanley	975
+286	The Ascent	1977	r201	Shepitko, Larisa	50183
+287	The Story of the Last Chrysanthemums	1939	r201	Mizoguchi, Kenji	46069
+288	Goodbye, Dragon Inn	2003	r201	Tsai Ming-liang	56616
+289	Pandora's Box	1929	r201	Pabst, G.W.	905
+290	India Song	1975	r201	Duras, Marguerite	85927
+291	Army of Shadows	1969	r201	Melville, Jean-Pierre	15383
+292	Throne of Blood	1957	r201	Kurosawa, Akira	3777
+293	2 or 3 Things I Know About Her	1967	r201	Godard, Jean-Luc	8074
+294	All That Heaven Allows	1955	r201	Sirk, Douglas	43316
+295	The Sacrifice	1986	r201	Tarkovsky, Andrei	24657
+296	Cabaret	1972	r201	Fosse, Bob	10784
+297	All About My Mother	1999	r201	Almodóvar, Pedro	99
+298	Three Colours: Red	1994	r201	Kieslowski, Krzysztof	110
+299	City of God	2002	r201	Meirelles, Fernando &amp; Kátia Lund	598
+300	Unforgiven	1992	r201	Eastwood, Clint	33
+301	The Big Sleep	1946	r301	Hawks, Howard	910
+302	Mean Streets	1973	r301	Scorsese, Martin	203
+303	Distant Voices, Still Lives	1988	r301	Davies, Terence	41799
+304	Happy Together	1997	r301	Wong Kar-wai	18329
+305	The Empire Strikes Back	1980	r301	Kershner, Irvin	1891
+306	The Maltese Falcon	1941	r301	Huston, John	963
+307	Werckmeister Harmonies	2000	r301	Tarr, Béla	23160
+308	Terra em Transe	1967	r301	Rocha, Glauber	67062
+309	The Music Room	1958	r301	Ray, Satyajit	822
+310	Mr. Hulot's Holiday	1953	r301	Tati, Jacques	778
+311	A Separation	2011	r301	Farhadi, Asghar	60243
+312	Floating Clouds	1955	r301	Naruse, Mikio	77285
+313	Freaks	1932	r301	Browning, Tod	136
+314	Midnight Cowboy	1969	r301	Schlesinger, John	3116
+315	Charulata	1964	r301	Ray, Satyajit	35790
+316	Nanook of the North	1922	r301	Flaherty, Robert J.	669
+317	The World of Apu	1959	r301	Ray, Satyajit	896
+318	Faces	1968	r301	Cassavetes, John	753
+319	Melancholia	2011	r301	von Trier, Lars	62215
+320	Amadeus	1984	r301	Forman, Milos	279
+321	High and Low	1963	r301	Kurosawa, Akira	12493
+322	The King of Comedy	1982	r301	Scorsese, Martin	262
+323	In the Realm of the Senses	1976	r301	Oshima, Nagisa	5879
+324	Videodrome	1983	r301	Cronenberg, David	837
+325	I Am Cuba	1964	r301	Kalatozov, Mikhail	32015
+326	Monsieur Verdoux	1947	r301	Chaplin, Charles	30588
+327	Harold and Maude	1971	r301	Ashby, Hal	343
+328	Husbands	1970	r301	Cassavetes, John	52105
+329	Lola Montès	1955	r301	Ophüls, Max	35987
+330	Pyaasa	1957	r301	Dutt, Guru	41053
+331	Kings of the Road	1976	r301	Wenders, Wim	10834
+332	La Belle et la bête	1946	r301	Cocteau, Jean	648
+333	The Philadelphia Story	1940	r301	Cukor, George	981
+334	Dog Day Afternoon	1975	r301	Lumet, Sidney	968
+335	Berlin Alexanderplatz [TV]	1980	r301	Fassbinder, Rainer Werner	
+336	A Canterbury Tale	1944	r301	Powell, Michael &amp; Emeric Pressburger	15696
+337	The Kid	1921	r301	Chaplin, Charles	10098
+338	The Young Girls of Rochefort	1967	r301	Demy, Jacques	2433
+339	West Side Story	1961	r301	Wise, Robert &amp; Jerome Robbins	1725
+340	The Wages of Fear	1953	r301	Clouzot, Henri-Georges	204
+341	Mad Max: Fury Road	2015	r301	Miller, George	76341
+342	Tie Xi Qu: West of the Tracks	2002	r301	Wang Bing	86282
+343	Bonnie and Clyde	1967	r301	Penn, Arthur	475
+344	Some Came Running	1958	r301	Minnelli, Vincente	38724
+345	Get Out	2017	r301	Peele, Jordan	419430
+346	The Time to Live and the Time to Die	1985	r301	Hou Hsiao-hsien	45999
+347	Broken Blossoms	1919	r301	Griffith, D.W.	899
+348	Kiss Me Deadly	1955	r301	Aldrich, Robert	18030
+349	Underground	1995	r301	Kusturica, Emir	11902
+350	The Tree of Wooden Clogs	1978	r301	Olmi, Ermanno	31542
+351	The Double Life of Véronique	1991	r301	Kieslowski, Krzysztof	1600
+352	Aliens	1986	r301	Cameron, James	679
+353	The Last Picture Show	1971	r301	Bogdanovich, Peter	25188
+354	It Happened One Night	1934	r301	Capra, Frank	3078
+355	The Elephant Man	1980	r301	Lynch, David	1955
+356	Weekend	1967	r301	Godard, Jean-Luc	8075
+357	Opening Night	1977	r301	Cassavetes, John	33665
+358	The Cranes Are Flying	1957	r301	Kalatozov, Mikhail	38360
+359	A Touch of Zen	1971	r301	Hu, King	44154
+360	The Puppetmaster	1993	r301	Hou Hsiao-hsien	96712
+361	The Cloud-Capped Star	1960	r301	Ghatak, Ritwik	59239
+362	The Silence of the Lambs	1991	r301	Demme, Jonathan	274
+363	Night of the Living Dead	1968	r301	Romero, George A.	10331
+364	Last Tango in Paris	1972	r301	Bertolucci, Bernardo	1643
+365	The Turin Horse	2011	r301	Tarr, Béla	81401
+366	How Green Was My Valley	1941	r301	Ford, John	43266
+367	Written on the Wind	1956	r301	Sirk, Douglas	69605
+368	El	1953	r301	Buñuel, Luis	43344
+369	Safe	1995	r301	Haynes, Todd	32646
+370	Peeping Tom	1960	r301	Powell, Michael	11167
+371	All the President's Men	1976	r301	Pakula, Alan J.	891
+372	Out 1	1971	r301	Rivette, Jacques	94528
+373	The Quince Tree Sun	1992	r301	Erice, Víctor	94706
+374	Make Way for Tomorrow	1937	r301	McCarey, Leo	41059
+375	Heaven's Gate	1980	r301	Cimino, Michael	10935
+376	The Killing of a Chinese Bookie	1976	r301	Cassavetes, John	32040
+377	Yojimbo	1961	r301	Kurosawa, Akira	11878
+378	Muriel	1963	r301	Resnais, Alain	54563
+379	Fitzcarraldo	1982	r301	Herzog, Werner	9343
+380	Through the Olive Trees	1994	r301	Kiarostami, Abbas	47104
+381	Marnie	1964	r301	Hitchcock, Alfred	506
+382	This is Spinal Tap	1984	r301	Reiner, Rob	11031
+383	The White Ribbon	2009	r301	Haneke, Michael	37903
+384	Two-Lane Blacktop	1971	r301	Hellman, Monte	27236
+385	Stromboli	1950	r301	Rossellini, Roberto	4173
+386	An Affair to Remember	1957	r301	McCarey, Leo	8356
+387	Teorema	1968	r301	Pasolini, Pier Paolo	5335
+388	Lost Highway	1997	r301	Lynch, David	638
+389	I Was Born, But...	1932	r301	Ozu, Yasujiro	28268
+390	Stranger Than Paradise	1984	r301	Jarmusch, Jim	469
+391	Dogville	2003	r301	von Trier, Lars	553
+392	Under the Skin	2013	r301	Glazer, Jonathan	97370
+393	Tristana	1970	r301	Buñuel, Luis	35838
+394	The Hour of the Furnaces	1968	r301	Getino, Octavio &amp; Fernando E. Solanas	89681
+395	Woman in the Dunes	1964	r301	Teshigahara, Hiroshi	16672
+396	Mon oncle	1958	r301	Tati, Jacques	427
+397	Day for Night	1973	r301	Truffaut, François	1675
+398	The Long Goodbye	1973	r301	Altman, Robert	1847
+399	In a Year with 13 Moons	1978	r301	Fassbinder, Rainer Werner	42206
+400	Nostalghia	1983	r301	Tarkovsky, Andrei	1394
+401	Limite	1931	r401	Peixoto, Mario	8353
+402	The Thin Blue Line	1988	r401	Morris, Errol	14285
+403	Orlando	1992	r401	Potter, Sally	9300
+404	Fantasia	1940	r401	Various Directors	756
+405	The Flowers of St. Francis	1950	r401	Rossellini, Roberto	56518
+406	Eyes Without a Face	1960	r401	Franju, Georges	31417
+407	The Tenant	1976	r401	Polanski, Roman	11482
+408	The Birth of a Nation	1915	r401	Griffith, D.W.	618
+409	Dawn of the Dead	1978	r401	Romero, George A.	923
+410	Crimes and Misdemeanors	1989	r401	Allen, Woody	11562
+411	The Headless Woman	2008	r401	Martel, Lucrecia	8898
+412	Suspiria	1977	r401	Argento, Dario	11906
+413	I Know Where I'm Going!	1945	r401	Powell, Michael &amp; Emeric Pressburger	56137
+414	1900	1976	r401	Bertolucci, Bernardo	3870
+415	Lost in Translation	2003	r401	Coppola, Sofia	153
+416	Toni Erdmann	2016	r401	Ade, Maren	374475
+417	Orpheus	1950	r401	Cocteau, Jean	4558
+418	Snow White and the Seven Dwarfs	1937	r401	Hand, David	408
+419	Miracle in Milan	1951	r401	De Sica, Vittorio	43379
+420	Splendor in the Grass	1961	r401	Kazan, Elia	28569
+421	Le Plaisir	1952	r401	Ophüls, Max	43360
+422	Twenty Years Later	1984	r401	Coutinho, Eduardo	86320
+423	The Innocents	1961	r401	Clayton, Jack	16372
+424	Europa '51	1952	r401	Rossellini, Roberto	41464
+425	Network	1976	r401	Lumet, Sidney	10774
+426	Le Bonheur	1965	r401	Varda, Agnès	53023
+427	Scenes from a Marriage	1973	r401	Bergman, Ingmar	133919
+428	Holy Motors	2012	r401	Carax, Leos	103328
+429	The Awful Truth	1937	r401	McCarey, Leo	14675
+430	An Angel at My Table	1990	r401	Campion, Jane	2891
+431	Chelsea Girls	1966	r401	Warhol, Andy	1686
+432	Bride of Frankenstein	1935	r401	Whale, James	229
+433	A.I. Artificial Intelligence	2001	r401	Spielberg, Steven	644
+434	Salvatore Giuliano	1962	r401	Rosi, Francesco	27523
+435	Days of Being Wild	1990	r401	Wong Kar-wai	18311
+436	Possession	1981	r401	Żuławski, Andrzej	21484
+437	Casino	1995	r401	Scorsese, Martin	524
+438	Naked	1993	r401	Leigh, Mike	21450
+439	No Country for Old Men	2007	r401	Coen, Joel &amp; Ethan Coen	6977
+440	Phantom Thread	2017	r401	Anderson, Paul Thomas	400617
+441	If….	1968	r401	Anderson, Lindsay	1713272
+442	A Star is Born	1954	r401	Cukor, George	3111
+443	Winter Light	1963	r401	Bergman, Ingmar	29455
+444	French Cancan	1955	r401	Renoir, Jean	45213
+445	Shadows of Forgotten Ancestors	1965	r401	Parajanov, Sergei	26782
+446	Carrie	1976	r401	De Palma, Brian	7340
+447	Boogie Nights	1997	r401	Anderson, Paul Thomas	4995
+448	The Act of Killing	2012	r401	Oppenheimer, Joshua	123678
+449	The Shawshank Redemption	1994	r401	Darabont, Frank	278
+450	Listen to Britain	1942	r401	Jennings, Humphrey &amp; Stewart McAllister	88609
+451	Songs from the Second Floor	2000	r401	Andersson, Roy	34070
+452	Ivan's Childhood	1962	r401	Tarkovsky, Andrei	31442
+453	Accattone	1961	r401	Pasolini, Pier Paolo	12491
+454	Limelight	1952	r401	Chaplin, Charles	28971
+455	The Cameraman	1928	r401	Keaton, Buster &amp; Edward Sedgwick	31411
+456	The Scarlet Empress	1934	r401	von Sternberg, Josef	31527
+457	La Terra trema	1948	r401	Visconti, Luchino	43445
+458	The Wind	1928	r401	Sjöström, Victor	31416
+459	Syndromes and a Century	2006	r401	Weerasethakul, Apichatpong	27904
+460	The Crime of Monsieur Lange	1936	r401	Renoir, Jean	52677
+461	Festen	1998	r401	Vinterberg, Thomas	309
+462	October	1928	r401	Eisenstein, Sergei &amp; Grigori Aleksandrov	697
+463	Flowers of Shanghai	1998	r401	Hou Hsiao-hsien	45935
+464	A Trip to the Moon	1902	r401	Méliès, Georges	775
+465	In Vanda's Room	2000	r401	Costa, Pedro	87063
+466	Pan's Labyrinth	2006	r401	del Toro, Guillermo	1417
+467	À nos amours	1983	r401	Pialat, Maurice	2282
+468	Koyaanisqatsi	1982	r401	Reggio, Godfrey	11314
+469	Dersu Uzala	1975	r401	Kurosawa, Akira	9764
+470	Pinocchio	1940	r401	Sharpsteen, Ben &amp; Hamilton Luske	10895
+471	Lola	1961	r401	Demy, Jacques	40641
+472	Grave of the Fireflies	1988	r401	Takahata, Isao	12477
+473	Barren Lives	1963	r401	Pereira dos Santos, Nelson	836
+474	The Dead	1987	r401	Huston, John	39507
+475	Shoot the Piano Player	1960	r401	Truffaut, François	1818
+476	Platform	2000	r401	Jia Zhangke	914475
+477	Once Upon a Time in Anatolia	2011	r401	Ceylan, Nuri Bilge	74879
+478	Elephant	2003	r401	Van Sant, Gus	1807
+479	Wagon Master	1950	r401	Ford, John	37327
+480	Oldboy	2003	r401	Park Chan-wook	670
+481	Paris is Burning	1990	r401	Livingston, Jennie	31225
+482	High Noon	1952	r401	Zinnemann, Fred	288
+483	To Kill a Mockingbird	1962	r401	Mulligan, Robert	595
+484	Talk to Her	2002	r401	Almodóvar, Pedro	64
+485	Withnail & I	1987	r401	Robinson, Bruce	13446
+486	Harlan County, U.S.A.	1976	r401	Kopple, Barbara	33324
+487	Steamboat Bill, Jr.	1928	r401	Keaton, Buster &amp; Charles Reisner	25768
+488	La Région centrale	1971	r401	Snow, Michael	90041
+489	Five Easy Pieces	1970	r401	Rafelson, Bob	26617
+490	The Palm Beach Story	1942	r401	Sturges, Preston	32255
+491	Senso	1954	r401	Visconti, Luchino	43195
+492	Fight Club	1999	r401	Fincher, David	550
+493	The Death of Mr. Lazarescu	2005	r401	Puiu, Cristi	31032
+494	Landscape in the Mist	1988	r401	Angelopoulos, Theo	47795
+495	By the Bluest of Seas	1936	r401	Barnet, Boris	110733
+496	Zama	2017	r401	Martel, Lucrecia	326382
+497	Secrets & Lies	1996	r401	Leigh, Mike	11159
+498	Children of Men	2006	r401	Cuarón, Alfonso	9693
+499	Reservoir Dogs	1992	r401	Tarantino, Quentin	500
+500	Raise the Red Lantern	1991	r401	Zhang Yimou	10404
+501	The Hustler	1961	r501	Rossen, Robert	990
+502	The Lives of Others	2006	r501	von Donnersmarck, Florian Henckel	582
+503	Punch-Drunk Love	2002	r501	Anderson, Paul Thomas	8051
+504	Memories of Murder	2003	r501	Bong Joon-ho	11423
+505	Twin Peaks: Fire Walk with Me	1992	r501	Lynch, David	1923
+506	Die Hard	1988	r501	McTiernan, John	562
+507	Shane	1953	r501	Stevens, George	3110
+508	After Life	1998	r501	Koreeda, Hirokazu	36419
+509	Inland Empire	2006	r501	Lynch, David	1730
+510	Blow Out	1981	r501	De Palma, Brian	11644
+511	The Bitter Tears of Petra von Kant	1972	r501	Fassbinder, Rainer Werner	10310
+512	The Bridge on the River Kwai	1957	r501	Lean, David	826
+513	Early Summer	1951	r501	Ozu, Yasujiro	50247
+514	Twin Peaks: The Return [TV]	2017	r501	Lynch, David	
+515	Princess Mononoke	1997	r501	Miyazaki, Hayao	128
+516	To Have and Have Not	1944	r501	Hawks, Howard	22584
+517	Crash	1996	r501	Cronenberg, David	884
+518	Being There	1979	r501	Ashby, Hal	10322
+519	Our Hospitality	1923	r501	Keaton, Buster &amp; John G. Blystone	701
+520	Monty Python's Life of Brian	1979	r501	Jones, Terry	583
+521	Masculin féminin	1966	r501	Godard, Jean-Luc	4710
+522	12 Angry Men	1957	r501	Lumet, Sidney	389
+523	Closely Watched Trains	1966	r501	Menzel, Jirí	789
+524	Jurassic Park	1993	r501	Spielberg, Steven	329
+525	Marketa Lazarová	1967	r501	Vlácil, Frantisek	25904
+526	Dead Ringers	1988	r501	Cronenberg, David	9540
+527	Alice in the Cities	1974	r501	Wenders, Wim	2204
+528	East of Eden	1955	r501	Kazan, Elia	220
+529	Mad Max 2	1981	r501	Miller, George	8810
+530	The French Connection	1971	r501	Friedkin, William	1051
+531	Short Cuts	1993	r501	Altman, Robert	695
+532	The Sound of Music	1965	r501	Wise, Robert	15121
+533	Doctor Zhivago	1965	r501	Lean, David	907
+534	Butch Cassidy and the Sundance Kid	1969	r501	Hill, George Roy	642
+535	A Moment of Innocence	1996	r501	Makhmalbaf, Mohsen	43976
+536	Se7en	1995	r501	Fincher, David	807
+537	The Age of Innocence	1993	r501	Scorsese, Martin	10436
+538	Hannah and Her Sisters	1986	r501	Allen, Woody	5143
+539	Boyhood	2014	r501	Linklater, Richard	85350
+540	A Night at the Opera	1935	r501	Wood, Sam	37719
+541	And Life Goes On...	1992	r501	Kiarostami, Abbas	83761
+542	Faust	1926	r501	Murnau, F.W.	10728
+543	Morvern Callar	2002	r501	Ramsay, Lynne	18602
+544	The Devil, Probably	1977	r501	Bresson, Robert	32097
+545	Les Vampires	1915	r501	Feuillade, Louis	29082
+546	The Enigma of Kaspar Hauser	1974	r501	Herzog, Werner	11710
+547	The Damned	1969	r501	Visconti, Luchino	41876
+548	Alexander Nevsky	1938	r501	Eisenstein, Sergei	10235
+549	The Wind Will Carry Us	1999	r501	Kiarostami, Abbas	43423
+550	Strangers on a Train	1951	r501	Hitchcock, Alfred	845
+551	La Haine	1995	r501	Kassovitz, Mathieu	406
+552	Nostalgia for the Light	2010	r501	Guzmán, Patricio	72721
+553	Yeelen	1987	r501	Cissé, Souleymane	71329
+554	Blue	1993	r501	Jarman, Derek	94794
+555	Tootsie	1982	r501	Pollack, Sydney	9576
+556	The Master	2012	r501	Anderson, Paul Thomas	68722
+557	Aparajito	1956	r501	Ray, Satyajit	897
+558	The Lady from Shanghai	1948	r501	Welles, Orson	3766
+559	Picnic at Hanging Rock	1975	r501	Weir, Peter	11020
+560	Rosetta	1999	r501	Dardenne, Jean-Pierre &amp; Luc Dardenne	11489
+561	Terminator 2: Judgment Day	1991	r501	Cameron, James	280
+562	The Terminator	1984	r501	Cameron, James	218
+563	Russian Ark	2002	r501	Sokurov, Aleksandr	16646
+564	Ninotchka	1939	r501	Lubitsch, Ernst	1859
+565	Young Mr. Lincoln	1939	r501	Ford, John	43838
+566	As I Was Moving Ahead Occasionally I Saw Brief Glimpses of Beauty	2000	r501	Mekas, Jonas	130824
+567	Point Blank	1967	r501	Boorman, John	26039
+568	Forrest Gump	1994	r501	Zemeckis, Robert	13
+569	Amélie	2001	r501	Jeunet, Jean-Pierre	194
+570	Bigger Than Life	1956	r501	Ray, Nicholas	26036
+571	Man of Aran	1934	r501	Flaherty, Robert J.	47684
+572	I Walked with a Zombie	1943	r501	Tourneur, Jacques	27130
+573	Crouching Tiger, Hidden Dragon	2000	r501	Lee, Ang	146
+574	Land Without Bread	1933	r501	Buñuel, Luis	91
+575	Je, tu, il, elle	1974	r501	Akerman, Chantal	93934
+576	WALL-E	2008	r501	Stanton, Andrew	10681
+577	The Blue Angel	1930	r501	von Sternberg, Josef	228
+578	Brokeback Mountain	2005	r501	Lee, Ang	142
+579	Laura	1944	r501	Preminger, Otto	1939
+580	Cat People	1942	r501	Tourneur, Jacques	25508
+581	Halloween	1978	r501	Carpenter, John	948
+582	Dead Man	1995	r501	Jarmusch, Jim	922
+583	Kagemusha	1980	r501	Kurosawa, Akira	11953
+584	Fellini Satyricon	1969	r501	Fellini, Federico	11163
+585	The Testament of Dr. Mabuse	1933	r501	Lang, Fritz	12206
+586	Shadow of a Doubt	1943	r501	Hitchcock, Alfred	21734
+587	Deliverance	1972	r501	Boorman, John	10669
+588	That Obscure Object of Desire	1977	r501	Buñuel, Luis	5781
+589	Zodiac	2007	r501	Fincher, David	1949
+590	Rocky	1976	r501	Avildsen, John G.	1366
+591	The Lord of the Rings: The Fellowship of the Ring	2001	r501	Jackson, Peter	120
+592	The Wedding March	1928	r501	von Stroheim, Erich	396395
+593	When Harry Met Sally...	1989	r501	Reiner, Rob	639
+594	Yellow Earth	1984	r501	Chen Kaige	92990
+595	Sambizanga	1972	r501	Maldoror, Sarah	87392
+596	Full Metal Jacket	1987	r501	Kubrick, Stanley	600
+597	Loves of a Blonde	1965	r501	Forman, Milos	39387
+598	Repulsion	1965	r501	Polanski, Roman	11481
+599	Easy Rider	1969	r501	Hopper, Dennis	624
+600	Hatari!	1962	r501	Hawks, Howard	11385
+601	The Servant	1963	r601	Losey, Joseph	42987
+602	Amour	2012	r601	Haneke, Michael	86837
+603	The Silence	1963	r601	Bergman, Ingmar	11506
+604	Plácido	1961	r601	García Berlanga, Luis	51317
+605	The Asphalt Jungle	1950	r601	Huston, John	16958
+606	Rebecca	1940	r601	Hitchcock, Alfred	223
+607	Barton Fink	1991	r601	Coen, Joel &amp; Ethan Coen	290
+608	D'Est	1993	r601	Akerman, Chantal	104739
+609	Fellini's Roma	1972	r601	Fellini, Federico	11035
+610	Grey Gardens	1975	r601	Maysles, David/Albert Maysles/Ellen Hovde/Muffie Meyer	19851
+611	Seven Chances	1925	r601	Keaton, Buster	32600
+612	Bande à part	1964	r601	Godard, Jean-Luc	8073
+613	Shadows	1959	r601	Cassavetes, John	789913
+614	Edvard Munch [TV]	1974	r601	Watkins, Peter	50254
+615	Colossal Youth	2006	r601	Costa, Pedro	82404
+616	The Taking of Power by Louis XIV	1966	r601	Rossellini, Roberto	69912
+617	Symbiopsychotaxiplasm: Take One	1968	r601	Greaves, William	44783
+618	The Piano Teacher	2001	r601	Haneke, Michael	1791
+619	Frankenstein	1931	r601	Whale, James	3035
+620	West Indies: The Fugitive Slaves of Liberty	1979	r601	Hondo, Med	271858
+621	Tale of Tales	1979	r601	Norshteyn, Yuriy	36079
+622	Providence	1977	r601	Resnais, Alain	54140
+623	Gentlemen Prefer Blondes	1953	r601	Hawks, Howard	759
+624	The Devils	1971	r601	Russell, Ken	31767
+625	Synecdoche, New York	2008	r601	Kaufman, Charlie	4960
+626	The Wicker Man	1973	r601	Hardy, Robin	16307
+627	3 Women	1977	r601	Altman, Robert	41662
+628	The Long Day Closes	1992	r601	Davies, Terence	49956
+629	Raising Arizona	1987	r601	Coen, Joel &amp; Ethan Coen	378
+630	Down by Law	1986	r601	Jarmusch, Jim	1554
+631	Don't Look Back	1967	r601	Pennebaker, D.A.	135
+632	The Ladies Man	1961	r601	Lewis, Jerry	28333
+633	The Royal Tenenbaums	2001	r601	Anderson, Wes	9428
+634	The Round-Up	1966	r601	Jancsó, Miklós	94663
+635	My Friend Ivan Lapshin	1985	r601	German, Aleksei	83491
+636	Vitelloni, I	1953	r601	Fellini, Federico	12548
+637	The Red Circle	1970	r601	Melville, Jean-Pierre	11657
+638	Les Amants du Pont-Neuf	1991	r601	Carax, Leos	2767
+639	Mr. Smith Goes to Washington	1939	r601	Capra, Frank	3083
+640	Fat City	1972	r601	Huston, John	16993
+641	Titanic	1997	r601	Cameron, James	597
+642	Boudu Saved from Drowning	1932	r601	Renoir, Jean	48365
+643	Walkabout	1971	r601	Roeg, Nicolas	36040
+644	Harakiri	1962	r601	Kobayashi, Masaki	14537
+645	Scorpio Rising	1963	r601	Anger, Kenneth	46787
+646	Pink Flamingos	1972	r601	Waters, John	692
+647	Hour of the Wolf	1968	r601	Bergman, Ingmar	18333
+648	The Dark Knight	2008	r601	Nolan, Christopher	155
+649	Ace in the Hole	1951	r601	Wilder, Billy	25364
+650	Hana-bi	1997	r601	Kitano, Takeshi	5910
+651	A Prophet	2009	r601	Audiard, Jacques	21575
+652	Nazarín	1958	r601	Buñuel, Luis	35124
+653	Alphaville	1965	r601	Godard, Jean-Luc	8072
+654	Portrait of Jason	1967	r601	Clarke, Shirley	83232
+655	Casque d'or	1952	r601	Becker, Jacques	68822
+656	Y tu mamá también	2001	r601	Cuarón, Alfonso	1391
+657	Millennium Mambo	2001	r601	Hou Hsiao-hsien	11553
+658	Pat Garrett and Billy the Kid	1973	r601	Peckinpah, Sam	11577
+659	Malcolm X	1992	r601	Lee, Spike	1883
+660	The Golden Coach	1952	r601	Renoir, Jean	56167
+661	RoboCop	1987	r601	Verhoeven, Paul	5548
+662	Ferris Bueller's Day Off	1986	r601	Hughes, John	9377
+663	Silent Light	2007	r601	Reygadas, Carlos	2012
+664	Ratcatcher	1999	r601	Ramsay, Lynne	29698
+665	Scarface	1932	r601	Hawks, Howard	877
+666	Hoop Dreams	1994	r601	James, Steve	14275
+667	The Watermelon Woman	1996	r601	Dunye, Cheryl	44479
+668	The Virgin Spring	1960	r601	Bergman, Ingmar	11656
+669	Strike	1925	r601	Eisenstein, Sergei	44967
+670	Top Hat	1935	r601	Sandrich, Mark	3080
+671	Young Frankenstein	1974	r601	Brooks, Mel	3034
+672	Arrebato	1979	r601	Zulueta, Iván	1134639
+673	My Own Private Idaho	1991	r601	Van Sant, Gus	468
+674	They Live by Night	1948	r601	Ray, Nicholas	44190
+675	Bring Me the Head of Alfredo Garcia	1974	r601	Peckinpah, Sam	11942
+676	Dr. Mabuse, the Gambler	1922	r601	Lang, Fritz	5998
+677	The Lady Vanishes	1938	r601	Hitchcock, Alfred	940
+678	The Marriage of Maria Braun	1979	r601	Fassbinder, Rainer Werner	661
+679	Akira	1988	r601	Otomo, Katsuhiro	149
+680	The Manchurian Candidate	1962	r601	Frankenheimer, John	982
+681	The Navigator	1924	r601	Keaton, Buster &amp; Donald Crisp	32318
+682	Wake in Fright	1971	r601	Kotcheff, Ted	26405
+683	Rushmore	1998	r601	Anderson, Wes	11545
+684	Xala	1975	r601	Sembene, Ousmane	76636
+685	An American Werewolf in London	1981	r601	Landis, John	814
+686	Il Posto	1961	r601	Olmi, Ermanno	31742
+687	A Place in the Sun	1951	r601	Stevens, George	25673
+688	Dancer in the Dark	2000	r601	von Trier, Lars	16
+689	Hyènes	1992	r601	Diop Mambéty, Djibril	124085
+690	The Purple Rose of Cairo	1985	r601	Allen, Woody	10849
+691	Chronicle of a Summer	1961	r601	Rouch, Jean &amp; Edgar Morin	84972
+692	Trainspotting	1996	r601	Boyle, Danny	627
+693	Bambi	1942	r601	Hand, David	3170
+694	The Killing	1956	r601	Kubrick, Stanley	247
+695	The Ghost and Mrs. Muir	1947	r601	Mankiewicz, Joseph L.	22292
+696	The Great Beauty	2013	r601	Sorrentino, Paolo	179144
+697	Farewell, My Concubine	1993	r601	Chen Kaige	10997
+698	The Intruder	2004	r601	Denis, Claire	47143
+699	A Hard Day's Night	1964	r601	Lester, Richard	704
+700	Toy Story	1995	r601	Lasseter, John	862
+701	Wild at Heart	1990	r701	Lynch, David	483
+702	Carol	2015	r701	Haynes, Todd	258480
+703	The Sorrow and the Pity	1969	r701	Ophüls, Marcel	1262519
+704	Thelma & Louise	1991	r701	Scott, Ridley	1541
+705	Gimme Shelter	1970	r701	Maysles, Albert/David Maysles/Charlotte Zwerin	132
+706	Chronicle of Anna Magdalena Bach	1968	r701	Straub, Jean-Marie	95600
+707	Roma	2018	r701	Cuarón, Alfonso	426426
+708	Cure	1997	r701	Kurosawa, Kiyoshi	36095
+709	Salesman	1969	r701	Maysles, Albert/David Maysles/Charlotte Zwerin	27375
+710	WR: Mysteries of the Organism	1971	r701	Makavejev, Dušan	42529
+711	4 Months, 3 Weeks and 2 Days	2007	r701	Mungiu, Cristian	2009
+712	Before Sunset	2004	r701	Linklater, Richard	80
+713	Distant	2002	r701	Ceylan, Nuri Bilge	31026
+714	Local Hero	1983	r701	Forsyth, Bill	11235
+715	The Holy Mountain	1973	r701	Jodorowsky, Alejandro	8327
+716	The Social Network	2010	r701	Fincher, David	37799
+717	Ben-Hur	1959	r701	Wyler, William	665
+718	Lancelot du Lac	1974	r701	Bresson, Robert	55848
+719	Memento	2000	r701	Nolan, Christopher	77
+720	7 Women	1965	r701	Ford, John	68692
+721	Once Upon a Time... in Hollywood	2019	r701	Tarantino, Quentin	466272
+722	The Party	1968	r701	Edwards, Blake	10794
+723	Il Grido	1957	r701	Antonioni, Michelangelo	41054
+724	The Phantom of Liberty	1974	r701	Buñuel, Luis	5558
+725	The Firemen's Ball	1967	r701	Forman, Milos	38442
+726	Fish Tank	2009	r701	Arnold, Andrea	24469
+727	Paper Moon	1973	r701	Bogdanovich, Peter	11293
+728	Sauve qui peut (la vie)	1980	r701	Godard, Jean-Luc	113479
+729	Kaagaz Ke Phool	1959	r701	Dutt, Guru	53767
+730	The Sun Shines Bright	1953	r701	Ford, John	109539
+731	The Adventures of Prince Achmed	1926	r701	Reiniger, Lotte	19354
+732	Big Deal on Madonna Street	1958	r701	Monicelli, Mario	24382
+733	Good Morning	1959	r701	Ozu, Yasujiro	28276
+734	Dazed and Confused	1993	r701	Linklater, Richard	9571
+735	Nouvelle vague	1990	r701	Godard, Jean-Luc	32691
+736	Red Beard	1965	r701	Kurosawa, Akira	3780
+737	Love Me Tonight	1932	r701	Mamoulian, Rouben	31532
+738	Hunger	2008	r701	McQueen, Steve	10360
+739	The Idiots	1998	r701	von Trier, Lars	452
+740	Moonfleet	1955	r701	Lang, Fritz	29967
+741	A New Leaf	1971	r701	May, Elaine	36850
+742	The Hawks and the Sparrows	1966	r701	Pasolini, Pier Paolo	33954
+743	The Emperor's Naked Army Marches On	1987	r701	Hara, Kazuo	51929
+744	The Big Heat	1953	r701	Lang, Fritz	14580
+745	Moulin Rouge!	2001	r701	Luhrmann, Baz	824
+746	Stand by Me	1986	r701	Reiner, Rob	235
+747	Antonio das Mortes	1969	r701	Rocha, Glauber	74349
+748	A Streetcar Named Desire	1951	r701	Kazan, Elia	702
+749	Les Dames du Bois de Boulogne	1945	r701	Bresson, Robert	49845
+750	The Fly	1986	r701	Cronenberg, David	9426
+751	Miller's Crossing	1990	r701	Coen, Joel &amp; Ethan Coen	379
+752	Titicut Follies	1967	r701	Wiseman, Frederick	41212
+753	A Short Film About Killing	1987	r701	Kieslowski, Krzysztof	10754
+754	Rebel Without a Cause	1955	r701	Ray, Nicholas	221
+755	Oh, Sun	1970	r701	Hondo, Med	895173
+756	The Bad and the Beautiful	1952	r701	Minnelli, Vincente	32499
+757	The Tiger of Eschnapur	1958	r701	Lang, Fritz	71041
+758	35 Shots of Rum	2008	r701	Denis, Claire	26191
+759	The Circus	1928	r701	Chaplin, Charles	28978
+760	One Way or Another	1977	r701	Gómez, Sara	162505
+761	Design for Living	1933	r701	Lubitsch, Ernst	77210
+762	Lolita	1962	r701	Kubrick, Stanley	802
+763	Phantom of the Paradise	1974	r701	De Palma, Brian	27327
+764	Triumph of the Will	1935	r701	Riefenstahl, Leni	39266
+765	JFK	1991	r701	Stone, Oliver	820
+766	Born in Flames	1983	r701	Borden, Lizzie	36832
+767	New York, New York	1977	r701	Scorsese, Martin	12637
+768	The New World	2005	r701	Malick, Terrence	11400
+769	Diaries, Notes and Sketches	1969	r701	Mekas, Jonas	105583
+770	Subarnarekha	1965	r701	Ghatak, Ritwik	86303
+771	The Cook, the Thief, His Wife & Her Lover	1989	r701	Greenaway, Peter	7452
+772	The Wild Child	1970	r701	Truffaut, François	1627
+773	Clueless	1995	r701	Heckerling, Amy	9603
+774	Fort Apache	1948	r701	Ford, John	37347
+775	Diabolique	1955	r701	Clouzot, Henri-Georges	827
+776	Ossessione	1943	r701	Visconti, Luchino	5155
+777	Mädchen in Uniform	1931	r701	Sagan, Leontine	9653
+778	Detour	1945	r701	Ulmer, Edgar G.	20367
+779	La Belle Noiseuse	1991	r701	Rivette, Jacques	12627
+780	Two English Girls	1971	r701	Truffaut, François	42513
+781	Flaming Creatures	1963	r701	Smith, Jack	47122
+782	The Man Who Would Be King	1975	r701	Huston, John	983
+783	Vive L'Amour	1994	r701	Tsai Ming-liang	11985
+784	Hellzapoppin'	1941	r701	Potter, H.C.	19136
+785	The Age of the Earth	1980	r701	Rocha, Glauber	76816
+786	Edward Scissorhands	1990	r701	Burton, Tim	162
+787	Great Expectations	1946	r701	Lean, David	14320
+788	Blissfully Yours	2002	r701	Weerasethakul, Apichatpong	47046
+789	Veronika Voss	1982	r701	Fassbinder, Rainer Werner	2262
+790	Mother and Son	1997	r701	Sokurov, Aleksandr	44361
+791	Code Unknown	2000	r701	Haneke, Michael	30970
+792	My Life as a Dog	1985	r701	Hallström, Lasse	8816
+793	The Trial	1962	r701	Welles, Orson	3009
+794	Airplane!	1980	r701	Abrahams, Jim/David Zucker/Jerry Zucker	813
+795	Foolish Wives	1922	r701	von Stroheim, Erich	35227
+796	El Sur	1983	r701	Erice, Víctor	48139
+797	Mamma Roma	1962	r701	Pasolini, Pier Paolo	47796
+798	Morocco	1930	r701	von Sternberg, Josef	42641
+799	The 39 Steps	1935	r701	Hitchcock, Alfred	260
+800	Mikey and Nicky	1976	r701	May, Elaine	59143
+801	Scarface	1983	r801	De Palma, Brian	111
+802	Chikamatsu monogatari	1954	r801	Mizoguchi, Kenji	35861
+803	Wings	1966	r801	Shepitko, Larisa	50013
+804	Trouble Every Day	2001	r801	Denis, Claire	40723
+805	Requiem for a Dream	2000	r801	Aronofsky, Darren	641
+806	Dog Star Man	1964	r801	Brakhage, Stan	127320
+807	Un Chant d'amour	1950	r801	Genet, Jean	87561
+808	Evil Dead II	1987	r801	Raimi, Sam	765
+809	The Thief of Bagdad	1940	r801	Powell, Michael/Ludwig Berger/Tim Whelan	12232
+810	Cairo Station	1958	r801	Chahine, Youssef	47324
+811	Let the Right One In	2008	r801	Alfredson, Tomas	13310
+812	Zelig	1983	r801	Allen, Woody	11030
+813	Broadcast News	1987	r801	Brooks, James L.	12626
+814	Margaret	2011	r801	Lonergan, Kenneth	44754
+815	All Quiet on the Western Front	1930	r801	Milestone, Lewis	143
+816	Faster, Pussycat! Kill! Kill!	1965	r801	Meyer, Russ	315
+817	The Great Escape	1963	r801	Sturges, John	5925
+818	Saving Private Ryan	1998	r801	Spielberg, Steven	857
+819	Funny Games	1997	r801	Haneke, Michael	10234
+820	Taipei Story	1985	r801	Yang, Edward	106380
+821	A Woman of Paris	1923	r801	Chaplin, Charles	28974
+822	Dumbo	1941	r801	Sharpsteen, Ben	11360
+823	Inglourious Basterds	2009	r801	Tarantino, Quentin	16869
+824	The Producers	1968	r801	Brooks, Mel	30197
+825	She Wore a Yellow Ribbon	1949	r801	Ford, John	13909
+826	Smiles of a Summer Night	1955	r801	Bergman, Ingmar	11700
+827	Forbidden Games	1952	r801	Clément, René	5000
+828	Still Life	2006	r801	Jia Zhangke	2346
+829	Van Gogh	1991	r801	Pialat, Maurice	4734
+830	Shock Corridor	1963	r801	Fuller, Samuel	25504
+831	Grizzly Man	2005	r801	Herzog, Werner	501
+832	Women on the Verge of a Nervous Breakdown	1988	r801	Almodóvar, Pedro	4203
+833	After Hours	1985	r801	Scorsese, Martin	10843
+834	Abraham's Valley	1993	r801	Oliveira, Manoel de	107693
+835	Passion	1982	r801	Godard, Jean-Luc	32692
+836	My Little Loves	1974	r801	Eustache, Jean	64296
+837	Gummo	1997	r801	Korine, Harmony	18415
+838	Shanghai Express	1932	r801	von Sternberg, Josef	875
+839	Invasion of the Body Snatchers	1956	r801	Siegel, Don	11549
+840	Rose Hobart	1936	r801	Cornell, Joseph	105552
+841	Blue is the Warmest Colour	2013	r801	Kechiche, Abdellatif	152584
+842	Funeral Parade of Roses	1969	r801	Matsumoto, Toshio	1556
+843	Petite Maman	2021	r801	Sciamma, Céline	749004
+844	Amores perros	2000	r801	González Iñárritu, Alejandro	55
+845	Point Break	1991	r801	Bigelow, Kathryn	1089
+846	The Son	2002	r801	Dardenne, Jean-Pierre &amp; Luc Dardenne	1025453
+847	O Lucky Man!	1973	r801	Anderson, Lindsay	42464
+848	Deep End	1970	r801	Skolimowski, Jerzy	59408
+849	Street of Shame	1956	r801	Mizoguchi, Kenji	43255
+850	White Heat	1949	r801	Walsh, Raoul	15794
+851	La Commune (Paris, 1871)	2000	r801	Watkins, Peter	63195
+852	Toute une nuit	1982	r801	Akerman, Chantal	63215
+853	Losing Ground	1982	r801	Collins, Kathleen	273896
+854	Irréversible	2002	r801	Noé, Gaspar	979
+855	The Red and the White	1967	r801	Jancsó, Miklós	52885
+856	The Naked Island	1960	r801	Shindo, Kaneto	3764
+857	Who's Afraid of Virginia Woolf?	1966	r801	Nichols, Mike	396
+858	Spione	1928	r801	Lang, Fritz	78507
+859	Dodes'ka-den	1970	r801	Kurosawa, Akira	33205
+860	The Asthenic Syndrome	1989	r801	Muratova, Kira	97039
+861	Starship Troopers	1997	r801	Verhoeven, Paul	563
+862	Persepolis	2007	r801	Paronnaud, Vincent &amp; Marjane Satrapi	2011
+863	L'Amour fou	1969	r801	Rivette, Jacques	63401
+864	Angel	1937	r801	Lubitsch, Ernst	44208
+865	The Adventures of Robin Hood	1938	r801	Curtiz, Michael &amp; William Keighley	10907
+866	Mon oncle d'Amérique	1980	r801	Resnais, Alain	39543
+867	The Right Stuff	1983	r801	Kaufman, Philip	9549
+868	They Were Expendable	1945	r801	Ford, John	18771
+869	Female Trouble	1974	r801	Waters, John	14267
+870	Claire's Knee	1970	r801	Rohmer, Eric	2860
+871	Time of the Gypsies	1988	r801	Kusturica, Emir	20123
+872	Hitler: A Film from Germany	1977	r801	Syberberg, Hans-Jürgen	58435
+873	The Unknown	1927	r801	Browning, Tod	27503
+874	The Tin Drum	1979	r801	Schlöndorff, Volker	659
+875	Too Early/Too Late	1981	r801	Straub, Jean-Marie &amp; Danièle Huillet	97032
+876	Welfare	1975	r801	Wiseman, Frederick	90511
+877	Breakfast at Tiffany's	1961	r801	Edwards, Blake	164
+878	The Last Detail	1973	r801	Ashby, Hal	14886
+879	Showgirls	1995	r801	Verhoeven, Paul	10802
+880	Shame	1968	r801	Bergman, Ingmar	26372
+881	Mysteries of Lisbon	2010	r801	Ruiz, Raúl	1474601
+882	The Princess Bride	1987	r801	Reiner, Rob	2493
+883	Sicilia!	1999	r801	Straub, Jean-Marie &amp; Danièle Huillet	104871
+884	Atlantics	2019	r801	Diop, Mati	496967
+885	We All Loved Each Other So Much	1974	r801	Scola, Ettore	42269
+886	Gloria	1980	r801	Cassavetes, John	10889
+887	Cría cuervos	1976	r801	Saura, Carlos	51857
+888	Juliet of the Spirits	1965	r801	Fellini, Federico	19120
+889	Excalibur	1981	r801	Boorman, John	11527
+890	Elephant [TV]	1989	r801	Clarke, Alan	69902
+891	Monty Python and the Holy Grail	1975	r801	Gilliam, Terry &amp; Terry Jones	762
+892	The Misfits	1961	r801	Huston, John	11536
+893	Outskirts	1933	r801	Barnet, Boris	94638
+894	Wendy and Lucy	2008	r801	Reichardt, Kelly	8942
+895	Avatar	2009	r801	Cameron, James	19995
+896	Port of Shadows	1938	r801	Carné, Marcel	46326
+897	Red Sorghum	1987	r801	Zhang Yimou	42006
+898	The Miracle of Morgan's Creek	1944	r801	Sturges, Preston	42879
+899	The African Queen	1951	r801	Huston, John	488
+900	Spring, Summer, Autumn, Winter… and Spring	2003	r801	Kim Ki-duk	517875
+901	The Woman Next Door	1981	r901	Truffaut, François	12579
+902	The Bridges of Madison County	1995	r901	Eastwood, Clint	688
+903	They Live	1988	r901	Carpenter, John	8337
+904	The Night of Counting the Years	1969	r901	Salam, Shadi Abdel	46707
+905	L'Enfance nue	1968	r901	Pialat, Maurice	31345
+906	The Tarnished Angels	1957	r901	Sirk, Douglas	38432
+907	Shaun of the Dead	2004	r901	Wright, Edgar	747
+908	Exotica	1994	r901	Egoyan, Atom	20156
+909	Caro diario	1993	r901	Moretti, Nanni	25403
+910	Akira Kurosawa's Dreams	1990	r901	Kurosawa, Akira	12516
+911	Stroszek	1977	r901	Herzog, Werner	11698
+912	The Seasons	1975	r901	Peleshian, Artavazd	44357
+913	Meek's Cutoff	2010	r901	Reichardt, Kelly	57120
+914	The Fountainhead	1949	r901	Vidor, King	24650
+915	Sideways	2004	r901	Payne, Alexander	9675
+916	Tabu	2012	r901	Gomes, Miguel	93858
+917	Deep Red	1975	r901	Argento, Dario	20126
+918	Tongues Untied	1989	r901	Riggs, Marlon	97049
+919	Assault on Precinct 13	1976	r901	Carpenter, John	17814
+920	The Phantom Carriage	1921	r901	Sjöström, Victor	58129
+921	People on Sunday	1930	r901	Siodmak, Robert &amp; Edgar G. Ulmer	347
+922	Zabriskie Point	1970	r901	Antonioni, Michelangelo	2998
+923	The Blues Brothers	1980	r901	Landis, John	525
+924	It's a Gift	1934	r901	McLeod, Norman Z.	28001
+925	Heimat [TV]	1984	r901	Reitz, Edgar	
+926	Seven Beauties	1975	r901	Wertmüller, Lina	37550
+927	Reds	1981	r901	Beatty, Warren	18254
+928	The River	1997	r901	Tsai Ming-liang	54291
+929	Sholay	1975	r901	Sippy, Ramesh	12259
+930	Night of the Demon	1957	r901	Tourneur, Jacques	25103
+931	The End of Summer	1961	r901	Ozu, Yasujiro	28273
+932	The Criminal Life of Archibaldo de la Cruz	1955	r901	Buñuel, Luis	37628
+933	Ceddo	1977	r901	Sembene, Ousmane	97029
+934	A History of Violence	2005	r901	Cronenberg, David	59
+935	Le Trou	1960	r901	Becker, Jacques	29259
+936	Duel	1971	r901	Spielberg, Steven	839
+937	La Flor	2018	r901	Llinás, Mariano	1290929
+938	Simon of the Desert	1965	r901	Buñuel, Luis	36265
+939	Anatomy of a Murder	1959	r901	Preminger, Otto	93
+940	An American in Paris	1951	r901	Minnelli, Vincente	2769
+941	Kwaidan	1964	r901	Kobayashi, Masaki	30959
+942	Le Boucher	1970	r901	Chabrol, Claude	2912
+943	The Straight Story	1999	r901	Lynch, David	404
+944	The Last Temptation of Christ	1988	r901	Scorsese, Martin	11051
+945	Carlito's Way	1993	r901	De Palma, Brian	6075
+946	Roman Holiday	1953	r901	Wyler, William	804
+947	Zorns Lemma	1970	r901	Frampton, Hollis	88276
+948	The Hurt Locker	2008	r901	Bigelow, Kathryn	12162
+949	Cool Hand Luke	1967	r901	Rosenberg, Stuart	903
+950	Portrait of Jennie	1948	r901	Dieterle, William	32558
+951	No Home Movie	2015	r901	Akerman, Chantal	354388
+952	Mothlight	1963	r901	Brakhage, Stan	97514
+953	Before Sunrise	1995	r901	Linklater, Richard	76
+954	7th Heaven	1927	r901	Borzage, Frank	82474
+955	Near Dark	1987	r901	Bigelow, Kathryn	11879
+956	The Killer	1989	r901	Woo, John	10835
+957	The Godfather Part III	1990	r901	Coppola, Francis Ford	242
+958	Z	1969	r901	Costa-Gavras	2721
+959	The Lord of the Rings: The Return of the King	2003	r901	Jackson, Peter	122
+960	American Graffiti	1973	r901	Lucas, George	838
+961	Blood Simple	1984	r901	Coen, Joel &amp; Ethan Coen	11368
+962	Dirty Harry	1971	r901	Siegel, Don	984
+963	Il Sorpasso	1962	r901	Risi, Dino	24188
+964	Enter the Dragon	1973	r901	Clouse, Robert	9461
+965	La Chienne	1931	r901	Renoir, Jean	26614
+966	From the Clouds to the Resistance	1979	r901	Straub, Jean-Marie &amp; Danièle Huillet	87415
+967	Othello	1951	r901	Welles, Orson	47697
+968	Doomed Love [TV]	1978	r901	Oliveira, Manoel de	
+969	The Return	2003	r901	Zvyagintsev, Andrey	263514
+970	A Page of Madness	1926	r901	Kinugasa, Teinosuke	94525
+971	Ghostbusters	1984	r901	Reitman, Ivan	620
+972	American Beauty	1999	r901	Mendes, Sam	14
+973	Khrustalyov, My Car!	1998	r901	German, Aleksei	100784
+974	Duel in the Sun	1946	r901	Vidor, King	32275
+975	The Last Emperor	1987	r901	Bertolucci, Bernardo	746
+976	Spartacus	1960	r901	Kubrick, Stanley	967
+977	Diary	1983	r901	Perlov, David	44394
+978	Berlin: Symphony of a Great City	1927	r901	Ruttmann, Walter	222
+979	Elevator to the Gallows	1958	r901	Malle, Louis	1093
+980	The Host	2006	r901	Bong Joon-ho	1255
+981	The Reckless Moment	1949	r901	Ophüls, Max	28007
+982	Dead Poets Society	1989	r901	Weir, Peter	207
+983	Gun Crazy	1950	r901	Lewis, Joseph H.	18671
+984	The Breakfast Club	1985	r901	Hughes, John	2108
+985	La Bête humaine	1938	r901	Renoir, Jean	29415
+986	Perfumed Nightmare	1977	r901	Tahimik, Kidlat	84765
+987	Fox and His Friends	1975	r901	Fassbinder, Rainer Werner	42254
+988	Olympia	1938	r901	Riefenstahl, Leni	677
+989	The Ice Storm	1997	r901	Lee, Ang	68924
+990	The Pianist	2002	r901	Polanski, Roman	423
+991	Léon	1994	r901	Besson, Luc	101
+992	Saturday Night and Sunday Morning	1960	r901	Reisz, Karel	37230
+993	True Heart Susie	1919	r901	Griffith, D.W.	36106
+994	Ed Wood	1994	r901	Burton, Tim	522
+995	The Long Farewell	1971	r901	Muratova, Kira	148822
+996	Rope	1948	r901	Hitchcock, Alfred	1580
+997	Lady Windermere's Fan	1925	r901	Lubitsch, Ernst	265051
+998	Sawdust and Tinsel	1953	r901	Bergman, Ingmar	47721
+999	Ride the High Country	1962	r901	Peckinpah, Sam	36206
+1000	L.A. Confidential	1997	r901	Hanson, Curtis	2118

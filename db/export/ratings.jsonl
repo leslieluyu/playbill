@@ -21,12 +21,10 @@
 {"work_id":"douban-1292215","source":"douban","value":8.7,"votes":1032620,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1292219","source":"douban","value":7.9,"votes":209703,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1292220","source":"douban","value":8.9,"votes":1349108,"detail":null,"fetched_at":"2026-10-18"}
-{"work_id":"douban-1292223","source":"douban","value":8.8,"votes":1084496,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1292226","source":"douban","value":8.9,"votes":409522,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1292278","source":"douban","value":8.3,"votes":18781,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1292329","source":"douban","value":8.9,"votes":382567,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1292330","source":"douban","value":8.7,"votes":120970,"detail":null,"fetched_at":"2026-10-18"}
-{"work_id":"douban-1292338","source":"douban","value":8.3,"votes":70712,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1292340","source":"douban","value":8,"votes":11502,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1292444","source":"douban","value":7.9,"votes":252957,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1292718","source":"douban","value":8.5,"votes":88803,"detail":null,"fetched_at":"2026-10-18"}
@@ -42,13 +40,11 @@
 {"work_id":"douban-1293310","source":"douban","value":8.8,"votes":41939,"detail":null,"fetched_at":"2026-10-17"}
 {"work_id":"douban-1293310","source":"douban","value":8.8,"votes":41939,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1293318","source":"douban","value":8.7,"votes":440811,"detail":null,"fetched_at":"2026-10-18"}
-{"work_id":"douban-1293329","source":"douban","value":8.5,"votes":5376,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1293592","source":"douban","value":7.2,"votes":623,"detail":null,"fetched_at":"2026-10-20"}
 {"work_id":"douban-1293703","source":"douban","value":7.8,"votes":1656,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1293731","source":"douban","value":8.2,"votes":57700,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1293745","source":"douban","value":8.1,"votes":6848,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1293783","source":"douban","value":8.7,"votes":19686,"detail":null,"fetched_at":"2026-10-18"}
-{"work_id":"douban-1293792","source":"douban","value":8.1,"votes":203916,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1293847","source":"douban","value":9.3,"votes":58064,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1293861","source":"douban","value":8.8,"votes":85019,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1293870","source":"douban","value":7.9,"votes":24084,"detail":null,"fetched_at":"2026-10-18"}
@@ -81,7 +77,6 @@
 {"work_id":"douban-1295859","source":"douban","value":7.2,"votes":350,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1295873","source":"douban","value":9.1,"votes":125809,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1295888","source":"douban","value":8.4,"votes":1329,"detail":null,"fetched_at":"2026-10-18"}
-{"work_id":"douban-1295913","source":"douban","value":7.7,"votes":5422,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1296147","source":"douban","value":8.5,"votes":45789,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1296196","source":"douban","value":8.9,"votes":124856,"detail":null,"fetched_at":"2026-10-17"}
 {"work_id":"douban-1296196","source":"douban","value":8.9,"votes":124856,"detail":null,"fetched_at":"2026-10-18"}
@@ -92,7 +87,6 @@
 {"work_id":"douban-1296834","source":"douban","value":8.2,"votes":8411,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1296872","source":"douban","value":8.1,"votes":3872,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1297188","source":"douban","value":8.5,"votes":20899,"detail":null,"fetched_at":"2026-10-18"}
-{"work_id":"douban-1297200","source":"douban","value":8.2,"votes":4692,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1297208","source":"douban","value":7.9,"votes":3518,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1297268","source":"douban","value":9,"votes":56129,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1297290","source":"douban","value":7.4,"votes":6167,"detail":null,"fetched_at":"2026-10-18"}
@@ -136,7 +130,6 @@
 {"work_id":"douban-1300299","source":"douban","value":8.9,"votes":855748,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1300353","source":"douban","value":7,"votes":41794,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1300370","source":"douban","value":8,"votes":3359,"detail":null,"fetched_at":"2026-10-18"}
-{"work_id":"douban-1300375","source":"douban","value":8.4,"votes":6884,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1300468","source":"douban","value":6.5,"votes":84,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1300470","source":"douban","value":7.3,"votes":564,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1300510","source":"douban","value":8,"votes":1855,"detail":null,"fetched_at":"2026-10-18"}
@@ -262,11 +255,9 @@
 {"work_id":"douban-1307805","source":"douban","value":6.6,"votes":617,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1307818","source":"douban","value":7.9,"votes":803,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1307865","source":"douban","value":7.9,"votes":1117,"detail":null,"fetched_at":"2026-10-18"}
-{"work_id":"douban-1307914","source":"douban","value":9.3,"votes":1591994,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1307958","source":"douban","value":7.8,"votes":541,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1307988","source":"douban","value":7.5,"votes":2460,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1308000","source":"douban","value":8.2,"votes":2092,"detail":null,"fetched_at":"2026-10-18"}
-{"work_id":"douban-1308082","source":"douban","value":8.7,"votes":2410,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1308092","source":"douban","value":8.1,"votes":3810,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1308122","source":"douban","value":7.2,"votes":245,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1308123","source":"douban","value":5.7,"votes":866,"detail":null,"fetched_at":"2026-10-18"}
@@ -330,7 +321,6 @@
 {"work_id":"douban-1421304","source":"douban","value":7.4,"votes":196,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1421307","source":"douban","value":7.8,"votes":482,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1421942","source":"douban","value":8.1,"votes":1808,"detail":null,"fetched_at":"2026-10-18"}
-{"work_id":"douban-1422193","source":"douban","value":8.4,"votes":5459,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1422977","source":"douban","value":7.5,"votes":548,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1424618","source":"douban","value":8.2,"votes":4752,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-1424804","source":"douban","value":7.4,"votes":1869,"detail":null,"fetched_at":"2026-10-18"}
@@ -573,7 +563,6 @@
 {"work_id":"douban-27028934","source":"douban","value":5.8,"votes":3838,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-27030639","source":"douban","value":8.6,"votes":28700,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-27101860","source":"douban","value":6.2,"votes":3686,"detail":null,"fetched_at":"2026-10-18"}
-{"work_id":"douban-27172891","source":"douban","value":8.1,"votes":236115,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-27185563","source":"douban","value":8.2,"votes":72083,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-2982823","source":"douban","value":8.7,"votes":85798,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-2996074","source":"douban","value":6.8,"votes":494,"detail":null,"fetched_at":"2026-10-18"}
@@ -582,7 +571,6 @@
 {"work_id":"douban-30132524","source":"douban","value":6.6,"votes":1057,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-30147434","source":"douban","value":7.2,"votes":2708,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-30155211","source":"douban","value":5.7,"votes":370,"detail":null,"fetched_at":"2026-10-18"}
-{"work_id":"douban-30166972","source":"douban","value":8.2,"votes":1574901,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-30186562","source":"douban","value":6.5,"votes":3514,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-30194150","source":"douban","value":6.7,"votes":278,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"douban-3022440","source":"douban","value":7,"votes":493,"detail":null,"fetched_at":"2026-10-20"}
@@ -959,6 +947,7 @@
 {"work_id":"tmdb-m-10774","source":"imdb","value":8,"votes":188436,"detail":null,"fetched_at":"2026-10-14"}
 {"work_id":"tmdb-m-10774","source":"imdb","value":8,"votes":188452,"detail":null,"fetched_at":"2026-10-16"}
 {"work_id":"tmdb-m-10774","source":"imdb","value":8,"votes":188455,"detail":null,"fetched_at":"2026-10-17"}
+{"work_id":"tmdb-m-10775","source":"douban","value":9.3,"votes":1591994,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"tmdb-m-10778","source":"douban","value":8.2,"votes":32889,"detail":null,"fetched_at":"2026-10-14"}
 {"work_id":"tmdb-m-10778","source":"imdb","value":7.5,"votes":121455,"detail":null,"fetched_at":"2026-10-14"}
 {"work_id":"tmdb-m-10778","source":"imdb","value":7.5,"votes":121469,"detail":null,"fetched_at":"2026-10-16"}
@@ -1864,6 +1853,7 @@
 {"work_id":"tmdb-m-16274","source":"imdb","value":7.7,"votes":20436,"detail":null,"fetched_at":"2026-10-14"}
 {"work_id":"tmdb-m-16274","source":"imdb","value":7.7,"votes":20439,"detail":null,"fetched_at":"2026-10-16"}
 {"work_id":"tmdb-m-16274","source":"imdb","value":7.7,"votes":20441,"detail":null,"fetched_at":"2026-10-17"}
+{"work_id":"tmdb-m-1628","source":"douban","value":8.3,"votes":70712,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"tmdb-m-1628","source":"imdb","value":7.6,"votes":47357,"detail":null,"fetched_at":"2026-10-14"}
 {"work_id":"tmdb-m-1628","source":"imdb","value":7.6,"votes":47360,"detail":null,"fetched_at":"2026-10-16"}
 {"work_id":"tmdb-m-1628","source":"imdb","value":7.6,"votes":47362,"detail":null,"fetched_at":"2026-10-17"}
@@ -4308,6 +4298,7 @@
 {"work_id":"tmdb-m-4595","source":"imdb","value":7.2,"votes":9851,"detail":null,"fetched_at":"2026-10-17"}
 {"work_id":"tmdb-m-45999","source":"douban","value":8.9,"votes":84600,"detail":null,"fetched_at":"2026-10-17"}
 {"work_id":"tmdb-m-45999","source":"douban","value":8.9,"votes":84600,"detail":null,"fetched_at":"2026-10-18"}
+{"work_id":"tmdb-m-46069","source":"douban","value":8.5,"votes":5376,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"tmdb-m-46069","source":"imdb","value":7.7,"votes":4977,"detail":null,"fetched_at":"2026-10-14"}
 {"work_id":"tmdb-m-46069","source":"imdb","value":7.7,"votes":4978,"detail":null,"fetched_at":"2026-10-16"}
 {"work_id":"tmdb-m-46069","source":"imdb","value":7.7,"votes":4979,"detail":null,"fetched_at":"2026-10-17"}
@@ -4563,6 +4554,7 @@
 {"work_id":"tmdb-m-499","source":"imdb","value":7.8,"votes":32428,"detail":null,"fetched_at":"2026-10-17"}
 {"work_id":"tmdb-m-4995","source":"imdb","value":7.9,"votes":310720,"detail":null,"fetched_at":"2026-10-16"}
 {"work_id":"tmdb-m-4995","source":"imdb","value":7.9,"votes":310735,"detail":null,"fetched_at":"2026-10-17"}
+{"work_id":"tmdb-m-499556","source":"douban","value":8.1,"votes":236115,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"tmdb-m-49956","source":"imdb","value":7.3,"votes":4568,"detail":null,"fetched_at":"2026-10-14"}
 {"work_id":"tmdb-m-49956","source":"imdb","value":7.3,"votes":4567,"detail":null,"fetched_at":"2026-10-16"}
 {"work_id":"tmdb-m-49956","source":"imdb","value":7.3,"votes":4568,"detail":null,"fetched_at":"2026-10-17"}
@@ -4653,6 +4645,7 @@
 {"work_id":"tmdb-m-51857","source":"imdb","value":7.9,"votes":12697,"detail":null,"fetched_at":"2026-10-14"}
 {"work_id":"tmdb-m-51857","source":"imdb","value":7.9,"votes":12698,"detail":null,"fetched_at":"2026-10-16"}
 {"work_id":"tmdb-m-51857","source":"imdb","value":7.9,"votes":12698,"detail":null,"fetched_at":"2026-10-17"}
+{"work_id":"tmdb-m-51929","source":"douban","value":8.7,"votes":2410,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"tmdb-m-51949","source":"imdb","value":7.2,"votes":2343,"detail":null,"fetched_at":"2026-10-14"}
 {"work_id":"tmdb-m-51949","source":"imdb","value":7.2,"votes":2343,"detail":null,"fetched_at":"2026-10-16"}
 {"work_id":"tmdb-m-51949","source":"imdb","value":7.2,"votes":2343,"detail":null,"fetched_at":"2026-10-17"}
@@ -4669,6 +4662,7 @@
 {"work_id":"tmdb-m-52270","source":"imdb","value":7.4,"votes":4722,"detail":null,"fetched_at":"2026-10-14"}
 {"work_id":"tmdb-m-52270","source":"imdb","value":7.4,"votes":4722,"detail":null,"fetched_at":"2026-10-16"}
 {"work_id":"tmdb-m-52270","source":"imdb","value":7.4,"votes":4723,"detail":null,"fetched_at":"2026-10-17"}
+{"work_id":"tmdb-m-525","source":"douban","value":8.2,"votes":4692,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"tmdb-m-52556","source":"douban","value":7.7,"votes":802,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"tmdb-m-52679","source":"imdb","value":7.9,"votes":5172,"detail":null,"fetched_at":"2026-10-14"}
 {"work_id":"tmdb-m-52679","source":"imdb","value":7.9,"votes":5172,"detail":null,"fetched_at":"2026-10-16"}
@@ -4856,6 +4850,7 @@
 {"work_id":"tmdb-m-574638","source":"imdb","value":7.5,"votes":8772,"detail":null,"fetched_at":"2026-10-14"}
 {"work_id":"tmdb-m-574638","source":"imdb","value":7.5,"votes":8774,"detail":null,"fetched_at":"2026-10-16"}
 {"work_id":"tmdb-m-574638","source":"imdb","value":7.5,"votes":8775,"detail":null,"fetched_at":"2026-10-17"}
+{"work_id":"tmdb-m-575813","source":"douban","value":8.2,"votes":1574901,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"tmdb-m-576","source":"imdb","value":7.9,"votes":94945,"detail":null,"fetched_at":"2026-10-14"}
 {"work_id":"tmdb-m-576","source":"imdb","value":7.9,"votes":94952,"detail":null,"fetched_at":"2026-10-16"}
 {"work_id":"tmdb-m-576","source":"imdb","value":7.9,"votes":94958,"detail":null,"fetched_at":"2026-10-17"}
@@ -5102,6 +5097,7 @@
 {"work_id":"tmdb-m-643","source":"imdb","value":7.9,"votes":65847,"detail":null,"fetched_at":"2026-10-16"}
 {"work_id":"tmdb-m-643","source":"imdb","value":7.9,"votes":65861,"detail":null,"fetched_at":"2026-10-17"}
 {"work_id":"tmdb-m-64690","source":"douban","value":7.5,"votes":95320,"detail":null,"fetched_at":"2026-10-18"}
+{"work_id":"tmdb-m-648","source":"douban","value":7.7,"votes":5422,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"tmdb-m-648","source":"imdb","value":7.9,"votes":30136,"detail":null,"fetched_at":"2026-10-14"}
 {"work_id":"tmdb-m-648","source":"imdb","value":7.9,"votes":30140,"detail":null,"fetched_at":"2026-10-16"}
 {"work_id":"tmdb-m-648","source":"imdb","value":7.9,"votes":30140,"detail":null,"fetched_at":"2026-10-17"}
@@ -5202,6 +5198,7 @@
 {"work_id":"tmdb-m-67612","source":"imdb","value":7.1,"votes":6473,"detail":null,"fetched_at":"2026-10-17"}
 {"work_id":"tmdb-m-678","source":"imdb","value":7.9,"votes":45358,"detail":null,"fetched_at":"2026-10-16"}
 {"work_id":"tmdb-m-678","source":"imdb","value":7.9,"votes":45368,"detail":null,"fetched_at":"2026-10-17"}
+{"work_id":"tmdb-m-679","source":"douban","value":8.1,"votes":203916,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"tmdb-m-68","source":"imdb","value":7.8,"votes":223733,"detail":null,"fetched_at":"2026-10-14"}
 {"work_id":"tmdb-m-68","source":"imdb","value":7.8,"votes":223770,"detail":null,"fetched_at":"2026-10-16"}
 {"work_id":"tmdb-m-68","source":"imdb","value":7.8,"votes":223782,"detail":null,"fetched_at":"2026-10-17"}
@@ -5466,6 +5463,7 @@
 {"work_id":"tmdb-m-80560","source":"imdb","value":7.1,"votes":7198,"detail":null,"fetched_at":"2026-10-16"}
 {"work_id":"tmdb-m-80560","source":"imdb","value":7.1,"votes":7202,"detail":null,"fetched_at":"2026-10-17"}
 {"work_id":"tmdb-m-806565","source":"douban","value":7.9,"votes":7025,"detail":null,"fetched_at":"2026-10-20"}
+{"work_id":"tmdb-m-807","source":"douban","value":8.8,"votes":1084496,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"tmdb-m-80705","source":"imdb","value":7.3,"votes":2983,"detail":null,"fetched_at":"2026-10-14"}
 {"work_id":"tmdb-m-80705","source":"imdb","value":7.3,"votes":2984,"detail":null,"fetched_at":"2026-10-16"}
 {"work_id":"tmdb-m-80705","source":"imdb","value":7.3,"votes":2985,"detail":null,"fetched_at":"2026-10-17"}
@@ -5953,6 +5951,7 @@
 {"work_id":"tmdb-m-965150","source":"imdb","value":7.6,"votes":134158,"detail":null,"fetched_at":"2026-10-14"}
 {"work_id":"tmdb-m-965150","source":"imdb","value":7.6,"votes":134196,"detail":null,"fetched_at":"2026-10-16"}
 {"work_id":"tmdb-m-965150","source":"imdb","value":7.6,"votes":134221,"detail":null,"fetched_at":"2026-10-17"}
+{"work_id":"tmdb-m-9653","source":"douban","value":8.4,"votes":5459,"detail":null,"fetched_at":"2026-10-18"}
 {"work_id":"tmdb-m-9665","source":"imdb","value":7.8,"votes":154600,"detail":null,"fetched_at":"2026-10-16"}
 {"work_id":"tmdb-m-9665","source":"imdb","value":7.8,"votes":154606,"detail":null,"fetched_at":"2026-10-17"}
 {"work_id":"tmdb-m-967","source":"imdb","value":7.9,"votes":152698,"detail":null,"fetched_at":"2026-10-14"}

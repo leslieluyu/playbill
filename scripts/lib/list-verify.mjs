@@ -6,6 +6,7 @@ import {
   EMMY_LIST_IDS,
   FESTIVAL_LIST_IDS,
   chartLabel,
+  chartsForList,
   decadeOfYear,
   kjYearFromSection,
   usesYearNav,
@@ -93,8 +94,13 @@ export function verifyDbList(db, listId, errors) {
         }
       }
       if (EMMY_LIST_IDS.includes(listId)) {
-        if (e.chart !== "drama" && e.chart !== "comedy") {
-          fail(errors, listId, `rank ${e.rank}: chart must be drama or comedy, got ${e.chart}`);
+        const allowed = new Set(chartsForList(listId).map((c) => c.id));
+        if (!allowed.has(e.chart)) {
+          fail(
+            errors,
+            listId,
+            `rank ${e.rank}: chart must be one of ${[...allowed].join("|")}, got ${e.chart}`,
+          );
         }
         // Season tokens live in note as s4 / s5b (optional · rest). Span-only footnotes OK.
         const note = e.note ? String(e.note).trim() : "";
